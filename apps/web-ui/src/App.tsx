@@ -9,7 +9,7 @@ import { SegTabs } from './components/ui';
 import { OnboardingModal, clearOnboardingDismissal } from './components/OnboardingModal';
 import type { HarnessConfig } from './generator';
 
-type Mode = 'repo' | 'gemini' | 'artifact' | 'verify';
+type Mode = 'repo' | 'import' | 'gemini' | 'artifact' | 'verify' | 'dashboard';
 
 export default function App() {
   const { t, i18n } = useTranslation();
@@ -102,9 +102,11 @@ export default function App() {
             onChange={(m) => setMode(m as Mode)}
             options={[
               { id: 'repo', label: t('app.tabs.repo') },
+              { id: 'import', label: 'Import ZIP' },
               { id: 'gemini', label: t('app.tabs.gemini') },
               { id: 'artifact', label: t('app.tabs.artifact') },
               { id: 'verify', label: t('app.tabs.verify') },
+              { id: 'dashboard', label: 'Router Dashboard' },
             ]}
           />
         </div>
@@ -112,9 +114,27 @@ export default function App() {
 
       <main>
         {mode === 'repo' && <RepoImporter onUse={useRepoPlan} />}
+        {mode === 'import' && (
+          <div className="flex flex-col items-center justify-center py-24 text-center">
+            <h2 className="text-xl font-bold text-slate-200">Import Existing Gemini</h2>
+            <p className="text-slate-400 mt-2">Drag and drop your previously generated .zip file here to edit it.</p>
+            <div className="mt-6 border-2 border-dashed border-ink-600 p-12 rounded-lg bg-ink-800/30">
+               Coming Soon: Visual Editor Import
+            </div>
+          </div>
+        )}
         {mode === 'gemini' && <HarnessBuilder key={seedKey} seed={seed} />}
         {mode === 'artifact' && <ArtifactBuilder />}
         {mode === 'verify' && <VerifyPanel />}
+        {mode === 'dashboard' && (
+          <div className="flex flex-col items-center justify-center py-24 text-center">
+            <h2 className="text-xl font-bold text-slate-200">Router Analytics Dashboard</h2>
+            <p className="text-slate-400 mt-2">View model routing stats, cost savings, and win/loss records.</p>
+            <div className="mt-6 p-12 rounded-lg bg-ink-800/30 border border-ink-600">
+               Coming Soon: @zagents/router charts & analytics
+            </div>
+          </div>
+        )}
       </main>
 
       <OnboardingModal

@@ -1,0 +1,53 @@
+{
+  "name": "@zagents/vertical-code-review",
+  "version": "0.1.1",
+  "description": "Code Review gemini vertical pack — paper-mode-default, circuit breakers, fractional-Kelly position sizing, 5-agent pipeline (market-watcher / signal-gen / risk-checker / executor / postmortem)",
+  "homepage": "https://github.com/cvsz/zagents-generator",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cvsz/zagents-generator.git",
+    "directory": "packages/vertical-code-review"
+  },
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/**",
+    "templates/**",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run --passWithNoTests",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "agent-gemini",
+    "vertical-pack",
+    "trading",
+    "quant",
+    "backtesting",
+    "ruflo"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@zagents/vertical-base": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
