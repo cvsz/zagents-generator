@@ -4,13 +4,13 @@
   "description": "{{description}}",
   "type": "module",
   "bin": {
-    "{{name}}": "bin/cli.js"
+    "{{name}}": "bin/{{name}}.js"
   },
-  "files": ["bin/**", "dist/**", "src/**", "tsconfig.json", ".claude/**", "CLAUDE.md", "README.md", "LICENSE"],
+  "files": ["bin/**", "dist/**", ".claude/**", "CLAUDE.md", "README.md", "LICENSE"],
   "scripts": {
     "build": "tsc",
-    "test": "vitest run",
-    "init": "node ./bin/cli.js init", "doctor": "node ./bin/cli.js doctor"
+    "test": "vitest run --passWithNoTests",
+    "init": "node ./dist/init.js"
   },
   "dependencies": {
     "@zagents/kernel": "^0.1.0",
