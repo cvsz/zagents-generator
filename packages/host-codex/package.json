@@ -1,6 +1,6 @@
 {
   "name": "@zagents/host-codex",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "OpenAI Codex CLI host adapter for zagents-generator (MCP via ~/.codex/config.toml)",
   "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {

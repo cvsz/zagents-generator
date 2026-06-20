@@ -4,6 +4,11 @@ All notable changes to this project are documented here. Format follows [Keep a 
 
 ## [Unreleased]
 
+### Fixed — Security & Branding (2026-06-20)
+
+- **Security:** Resolved Vite and esbuild vulnerabilities across `apps/web-ui` dependencies.
+- **Branding Migration:** Renamed all internal and external references from `ruvnet` to `cvsz`.
+
 ### Added — Iter 104 (2026-06-14)
 
 - **ADR-031 — The Bundle JSON Pattern**. ADR-030 alternative D

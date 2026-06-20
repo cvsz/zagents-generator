@@ -1,6 +1,6 @@
 {
   "name": "zagents",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "ZAgents — mint a custom AI agent gemini from any repo. Browser Studio + `npx zagents` CLI. Runs on Claude Code, Codex, pi.dev, Hermes, OpenClaw, RVM.",
   "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {

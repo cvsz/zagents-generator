@@ -1,6 +1,6 @@
 {
   "name": "@zagents/host-opencode",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "OpenCode (sst/opencode) host adapter for zagents-generator. Emits .opencode/opencode.json (ADR-036).",
   "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {

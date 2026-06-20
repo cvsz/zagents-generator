@@ -1,6 +1,6 @@
 {
   "name": "@zagents/vertical-base",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared contract for @zagents/vertical-* packs — VerticalPack interface, manifest schema, template-files protocol",
   "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {

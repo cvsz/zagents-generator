@@ -1,6 +1,6 @@
 {
   "name": "@zagents/host-openclaw",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "OpenClaw (personal AI assistant) host adapter for zagents-generator (MCP via ~/.openclaw/openclaw.json + workspace skills)",
   "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {

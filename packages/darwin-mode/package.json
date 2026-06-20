@@ -1,6 +1,6 @@
 {
   "name": "@zagents/darwin",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "An LLM supercharger and cost optimizer: freeze the model class, evolve the gemini. Measured on full SWE-bench Lite (300, official swebench Docker): 7.7% open-loop -> 15.3% +repair -> 29.3% (deepseek-v4-pro base) -> 40.3% v4-pro+frontier-tail hybrid, ~$0.01-$0.39/instance (vs $1-20 for frontier agents). The gemini, not the model, is the lever. Dependency-free (Node built-ins).",
   "type": "module",
   "main": "./dist/index.js",

@@ -1,6 +1,6 @@
 {
   "name": "@zagents/host-hermes",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Hermes Agent (NousResearch) host adapter for zagents-generator (MCP + <think>/<tool_call> scrubbing)",
   "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {
