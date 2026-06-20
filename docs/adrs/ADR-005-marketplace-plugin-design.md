@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-002 (Kernel boundary §5 Marketplace client), ADR-009 (Anti-slop), ADR-011 (Witness), ADR-013 (Vertical packs), ADR-015 (Naming)
 
 ## Context

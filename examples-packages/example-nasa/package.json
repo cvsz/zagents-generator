@@ -2,10 +2,10 @@
   "name": "@zagents/example-nasa",
   "version": "0.2.0",
   "description": "ZAgents example \u2014 Space/satellites agent gemini pre-wired to NASA Open APIs and satellite.js TLE orbital mechanics (npx @zagents/example-nasa my-bot)",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/example-nasa",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/example-nasa",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/example-nasa"
   },
   "license": "MIT",

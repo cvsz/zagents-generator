@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-16
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-002 (kernel boundary), ADR-006 (memory & learning), ADR-011 (witness & provenance), ADR-014 (self-evolution), ADR-022 (MCP primitive), ADR-040 (cost-optimal routing), ADR-043 (router training), `@zagents/router`
 
 ---

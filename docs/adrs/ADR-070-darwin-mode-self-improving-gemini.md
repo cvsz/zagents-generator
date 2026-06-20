@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-17
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-014 (self-evolution + federation), ADR-041 (ZAgents as program synthesis + search), ADR-047 (the algorithmic control plane), ADR-050 (gemini intelligence), ADR-040/043 (routing), ADR-011 (witness + provenance)
 
 > This is the head of a six-ADR series (ADR-070…075) that specifies **Darwin Mode**: a system that generates child agent harnesses, runs them against repo tasks in a sandbox, scores them, archives the lineage, and promotes only measured, safe improvements. It is filed in this repo as ADR-070 per the INDEX "append, do not renumber" convention; it corresponds to the externally-drafted *ADR 312: Darwin Mode* by rUv (2026-06-17).

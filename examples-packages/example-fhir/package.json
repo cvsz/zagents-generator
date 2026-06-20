@@ -2,10 +2,10 @@
   "name": "@zagents/example-fhir",
   "version": "0.2.0",
   "description": "ZAgents example \u2014 FHIR R4 agent gemini pre-wired to fhir-kit-client (SMART on FHIR); reads Patient/Observation/Device from a public sandbox EHR (npx @zagents/example-fhir my-bot)",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/example-fhir",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/example-fhir",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/example-fhir"
   },
   "license": "MIT",

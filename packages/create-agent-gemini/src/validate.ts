@@ -251,7 +251,7 @@ export async function validate(args: string[]): Promise<SubcommandResult> {
   lines.push(`Next: capture the full diagnostic state for a support ticket:`);
   lines.push(`  gemini diag ${dir} --bundle > bundle.json`);
   lines.push(`(then attach bundle.json to a GitHub issue at`);
-  lines.push(` https://github.com/ruvnet/zagents-generator/issues — the`);
+  lines.push(` https://github.com/cvsz/zagents-generator/issues — the`);
   lines.push(` bundle is sanitised; secret_/token_/key_/password_ fields are redacted)`);
   return { code: 1, lines };
 }

@@ -10,7 +10,7 @@ name = "upgrade-gemini"
 version = "0.1.0"
 description = "Drift detection + apply for a scaffolded gemini. Re-renders the template with the same vars, computes added/removed/changed file plan, and applies with Git-style conflict markers or .rej files. Default is dry-run."
 author = "rUv <ruv@ruv.net>"
-homepage = "https://github.com/ruvnet/zagents-generator"
+homepage = "https://github.com/cvsz/zagents-generator"
 license = "MIT"
 
 [dispatch]

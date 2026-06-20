@@ -2,10 +2,10 @@
   "name": "@zagents/example-iot",
   "version": "0.2.0",
   "description": "ZAgents example \u2014 IoT/robotics telemetry agent with guarded actuation over MQTT and ROS 2 rosbridge (npx @zagents/example-iot my-bot)",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/example-iot",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/example-iot",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/example-iot"
   },
   "license": "MIT",

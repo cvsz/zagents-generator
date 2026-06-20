@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — the rigorous close to the evolve arc; ADR-105 reproduced on real SWE code
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-136 (greedy local optimum), ADR-137 (naive crossover loses the building block), ADR-138 (noise floor), ADR-088/091 (MAP-Elites/diversity), ADR-089/093/105 (crossover, diversity-beats-greedy)
 
 > ADR-136 (naive n=1 hill-climb) and ADR-137 (naive crossover) both failed to reach `deepseek/searchreplace`. This combines the three fixes those failures motivated — **diversity-preserving selection** (per-model MAP-Elites niches), **crossover** across niche elites, and **averaged fitness** (n=3, ADR-138) — and asks whether the engine's own machinery can now do it.

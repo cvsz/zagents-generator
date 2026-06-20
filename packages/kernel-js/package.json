@@ -2,10 +2,10 @@
   "name": "@zagents/kernel",
   "version": "0.1.2",
   "description": "Cross-platform kernel for the zagents-generator — wasm primary, NAPI-RS native fallback",
-  "homepage": "https://github.com/ruvnet/zagents-generator",
+  "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "packages/kernel-js"
   },
   "license": "MIT",

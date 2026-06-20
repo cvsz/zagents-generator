@@ -183,5 +183,5 @@ All other tools — including `Bash`, `Edit`, and all MCP server tools — are e
 - Hugging Face JS libraries docs: [huggingface.co/docs/huggingface.js/en/index](https://huggingface.co/docs/huggingface.js/en/index)
 - Inference Providers docs: [huggingface.co/docs/inference-providers/index](https://huggingface.co/docs/inference-providers/index)
 - HF Access Tokens: [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
-- ADR-061 (this design): `docs/adrs/ADR-061-example-huggingface.md` in [ruvnet/zagents-generator](https://github.com/ruvnet/zagents-generator)
+- ADR-061 (this design): `docs/adrs/ADR-061-example-huggingface.md` in [cvsz/zagents-generator](https://github.com/cvsz/zagents-generator)
 - ADR-051 (examples program): `docs/adrs/ADR-051-third-party-sdk-showcase-examples.md`

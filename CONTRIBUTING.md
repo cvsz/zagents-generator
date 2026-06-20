@@ -25,7 +25,7 @@ Single command tells you every dev script + every `gemini` subcommand + every CI
 ## First-time setup
 
 ```bash
-git clone https://github.com/ruvnet/zagents-generator
+git clone https://github.com/cvsz/zagents-generator
 cd zagents-generator
 
 # Rust workspace

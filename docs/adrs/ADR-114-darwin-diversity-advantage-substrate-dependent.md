@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — a non-replication that tempers ADR-105
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-105 (diversity beats greedy on the MOCK substrate), ADR-106 (Tier-2 agent substrate), the adversarial review's item C
 
 > The review's highest-value next step was: replicate ADR-105's "diversity beats greedy on deception" on the *real* substrate before committing SWE-bench tokens — "if it does not replicate, you learn something important." It did not replicate. That is the finding, and it is more valuable than a confirmation.

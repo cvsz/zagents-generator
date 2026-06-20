@@ -23,7 +23,7 @@ describe('embedding math (pure)', () => {
 });
 
 const rustRepo: RepoInput = {
-  owner: 'ruvnet',
+  owner: 'cvsz',
   repo: 'ruvector',
   files: { 'README.md': 'Rust WASM vector db', 'Cargo.toml': '[package]\nname="ruvector"' },
 };

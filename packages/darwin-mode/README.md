@@ -319,4 +319,4 @@ MIT © rUv. See ADRs
 [073](../../docs/adrs/ADR-073-darwin-archive-and-selection.md) ·
 [074](../../docs/adrs/ADR-074-darwin-ruvector-memory-ruflo-fabric.md) ·
 [075](../../docs/adrs/ADR-075-darwin-prototype-roadmap-and-acceptance.md),
-and the [repository](https://github.com/ruvnet/zagents-generator).
+and the [repository](https://github.com/cvsz/zagents-generator).

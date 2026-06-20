@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured)
 **Date**: 2026-06-19
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-143 (repair solver), ADR-144 (baseline 300), ADR-146 (localization), ADR-126 (repair loop design), ADR-148 (next: hybrid escalation)
 
 ## Result (official `swebench` Docker gemini, FAIL_TO_PASS ∧ PASS_TO_PASS)

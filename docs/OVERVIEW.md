@@ -2,7 +2,7 @@
 
 > A CLI that scaffolds custom AI agent harnesses — the way `create-vite` scaffolds web apps, but for vertical agent systems.
 
-**Status**: v0.1.x beta. The repo `ruvnet/zagents-generator` is published — `zagents` on npm plus the `@zagents/*` kernel, host adapters, and example packages. This directory holds the Architecture Decision Records (ADRs) that define what the system is, how it is structured, what it ships, and which trade-offs were taken; the implementation tracks them.
+**Status**: v0.1.x beta. The repo `cvsz/zagents-generator` is published — `zagents` on npm plus the `@zagents/*` kernel, host adapters, and example packages. This directory holds the Architecture Decision Records (ADRs) that define what the system is, how it is structured, what it ships, and which trade-offs were taken; the implementation tracks them.
 
 **Read in order**: [adrs/INDEX.md](./adrs/INDEX.md).
 
@@ -28,7 +28,7 @@ Three forces are pushing toward this:
 | `adrs/INDEX.md` | Read-in-order index for the ADR series |
 | `adrs/ADR-001-…` through `adrs/ADR-016-…` (plus `ADR-002a-…`) | The decisions, each independently reviewable |
 
-No code lives here. No code should live here. This directory is the contract that the eventual repo `ruvnet/zagents-generator` will be built against.
+No code lives here. No code should live here. This directory is the contract that the eventual repo `cvsz/zagents-generator` will be built against.
 
 ## Three minute reading path
 

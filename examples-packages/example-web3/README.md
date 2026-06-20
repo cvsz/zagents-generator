@@ -14,7 +14,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/@zagents/example-web3)](https://www.npmjs.com/package/@zagents/example-web3)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org/)
-[![Built with ZAgents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/ruvnet/zagents-generator)
+[![Built with ZAgents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/cvsz/zagents-generator)
 
 ---
 
@@ -260,4 +260,4 @@ const balance = await provider.getBalance('0x...')
 - **Hoodi testnet announcement**: https://blog.ethereum.org/2025/03/18/hoodi-holesky
 - **ADR-065** (this design): `docs/adrs/ADR-065-example-web3.md`
 - **ADR-051** (examples program): `docs/adrs/ADR-051-third-party-sdk-showcase-examples.md`
-- **ZAgents GitHub**: https://github.com/ruvnet/zagents-generator
+- **ZAgents GitHub**: https://github.com/cvsz/zagents-generator

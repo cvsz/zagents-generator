@@ -1,8 +1,8 @@
 # @zagents/host-opencode
 
 > [OpenCode](https://opencode.ai) (sst/opencode) host adapter for
-> [zagents-generator](https://github.com/ruvnet/zagents-generator).
-> The 8th host adapter, per [ADR-036](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-036-host-opencode.md).
+> [zagents-generator](https://github.com/cvsz/zagents-generator).
+> The 8th host adapter, per [ADR-036](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-036-host-opencode.md).
 
 ## What it does
 
@@ -45,7 +45,7 @@ Emits per `adapter.generateConfig(spec)`:
 
 OpenCode evaluates `mcp.permissions.deny` **before** `allow`. This adapter
 copies the gemini's `.gemini/mcp-policy.json` deny rules verbatim, so the
-default-deny posture from [ADR-022](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-022-mcp-primitive.md)
+default-deny posture from [ADR-022](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-022-mcp-primitive.md)
 wins through OpenCode's own enforcement gate — no second source of truth.
 
 ## Constraints

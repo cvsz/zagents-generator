@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-073 (archive + score-based selection), ADR-072 (scorer ceiling), ADR-077 (DGM open-endedness), ADR-086 (efficiency tie-break), ADR-087 (graded promotion)
 
 > ADR-073 selects stalled-generation parents by top `finalScore`. Because the ADR-072 scorer ceilings at 0.985, "top finalScore" is a flat tie broken by insertion order — so the two parents are routinely the *same* mutation surface, and the search collapses onto one niche. This ADR adds opt-in MAP-Elites selection: keep the elite per behaviour niche so exploration stays diverse.

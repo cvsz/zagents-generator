@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-17
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-070 (Darwin Mode head), ADR-073 (archive + selection), ADR-006 (memory + learning), ADR-041 (ruvector substrate), ADR-047 (control plane), ADR-050 (gemini intelligence)
 
 > Part of the Darwin Mode series (ADR-070…075). The archive (ADR-073) is *local* memory of one repo's run. This ADR specifies the two substrates that make Darwin Mode more than local hill-climbing: **ruVector** as cross-repo evolutionary memory, and **RuFlo** as the population orchestrator.

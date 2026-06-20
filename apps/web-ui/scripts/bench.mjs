@@ -33,7 +33,7 @@ const cfg = {
 };
 
 const repoFiles = {
-  owner: 'ruvnet',
+  owner: 'cvsz',
   repo: 'ruvector',
   files: {
     'README.md': 'Rust + WASM vector and agentic database. cargo build, clippy, HNSW. '.repeat(20),

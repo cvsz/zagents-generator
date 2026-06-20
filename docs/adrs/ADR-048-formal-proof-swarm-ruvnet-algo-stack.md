@@ -2,9 +2,9 @@
 
 **Status**: Proposed
 **Date**: 2026-06-16
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-044 (host capability + live verify), ADR-045 (CLI host wiring), ADR-046 (real-install verification), ADR-047 (Algorithmic Agent Gemini control plane), ADR-011 (witness/provenance), ADR-040/043 (router)
-**External**: [`agenticsnz/unsorry`](https://github.com/agenticsnz/unsorry) · [`agenticsorg/lean-agentic`](https://github.com/agenticsorg/lean-agentic) · [`ruvnet/sublinear-time-solver`](https://github.com/ruvnet/sublinear-time-solver) · [`ruvnet/ruvector`](https://github.com/ruvnet/RuVector)
+**External**: [`agenticsnz/unsorry`](https://github.com/agenticsnz/unsorry) · [`agenticsorg/lean-agentic`](https://github.com/agenticsorg/lean-agentic) · [`ruvnet/sublinear-time-solver`](https://github.com/cvsz/sublinear-time-solver) · [`ruvnet/ruvector`](https://github.com/cvsz/RuVector)
 
 ---
 

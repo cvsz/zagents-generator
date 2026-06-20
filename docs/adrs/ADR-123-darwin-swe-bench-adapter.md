@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — implements ADR-098 step 2
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-098 (external-benchmark strategy — step 2 = runner adapter), ADR-120/121 (real-code loop), ADR-122 (validation gemini, step 1)
 
 > ADR-098 step 2: "Conform the gemini to a standard runner contract (SWE-bench Verified task format) so results are apples-to-apples." This ships the adapter — and, crucially, the **real** SWE-bench "resolved" criterion that ADR-117…121 did not check: a patch counts only if **every `FAIL_TO_PASS` test goes red→green AND every `PASS_TO_PASS` test stays green**.

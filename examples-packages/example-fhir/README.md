@@ -253,5 +253,5 @@ All write-side tools are denied by default. All tool calls are appended to `.gem
 - [SMART Health IT open R4 endpoint](https://r4.smarthealthit.org)
 - [SMART Backend Services spec (HL7)](https://hl7.org/fhir/smart-app-launch/backend-services.html)
 - [HL7 FHIR public test servers](https://confluence.hl7.org/display/FHIR/Public+Test+Servers)
-- [ADR-063: example-fhir design record](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-063-example-fhir.md)
-- [ADR-051: examples program](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ADR-063: example-fhir design record](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-063-example-fhir.md)
+- [ADR-051: examples program](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)

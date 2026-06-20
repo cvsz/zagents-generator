@@ -1,6 +1,6 @@
 # @zagents/vertical-trading
 
-Standalone vertical pack for the [zagents-generator](https://github.com/ruvnet/zagents-generator) — trading gemini with paper-mode-default + circuit breakers + fractional-Kelly position sizing.
+Standalone vertical pack for the [zagents-generator](https://github.com/cvsz/zagents-generator) — trading gemini with paper-mode-default + circuit breakers + fractional-Kelly position sizing.
 
 ## What you get
 

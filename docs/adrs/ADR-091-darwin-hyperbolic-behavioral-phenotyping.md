@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-088 (MAP-Elites structural niches), ADR-084 (failure-driven mutation / `tracesById`), ADR-086 (efficiency tie-break), RuVector (`ruvnet/ruvector` — hyperbolic + GNN vector engine)
 
 > ADR-088 bins variants by a FLAT structural axis (which of the 7 surfaces was mutated). But agent *behaviour* is hierarchical — a deep recursive backtracker vs. a shallow linear tool-user — and hierarchies embed far more faithfully in hyperbolic space than in a flat categorical grid. This ADR adds a behavioural niche descriptor in the 2-D Poincaré ball.

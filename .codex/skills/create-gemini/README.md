@@ -7,7 +7,7 @@ This skill scaffolds an AI agent gemini from inside the OpenAI Codex CLI.
 ```bash
 # User-global
 mkdir -p ~/.codex/skills/create-gemini
-curl -fsSL https://raw.githubusercontent.com/ruvnet/zagents-generator/main/.codex/skills/create-gemini/skill.toml \
+curl -fsSL https://raw.githubusercontent.com/cvsz/zagents-generator/main/.codex/skills/create-gemini/skill.toml \
   -o ~/.codex/skills/create-gemini/skill.toml
 
 # Or copy into a trusted project (.codex/skills/create-gemini/skill.toml)

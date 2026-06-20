@@ -192,7 +192,7 @@ export async function doctor(args: string[]): Promise<SubcommandResult> {
     `Next: capture the full diagnostic state for a support ticket:`,
     `  gemini diag ${dir} --bundle > bundle.json`,
     `(then attach bundle.json to a GitHub issue at`,
-    ` https://github.com/ruvnet/zagents-generator/issues — the`,
+    ` https://github.com/cvsz/zagents-generator/issues — the`,
     ` bundle is sanitised; secret_/token_/key_/password_ fields are redacted)`,
   );
   return { code: 1, lines };

@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — a real "optimize" finding on the model axis
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-085 (polyglot model frontier — cheap beats frontier for code), ADR-132 (multi-package corpus), ADR-130 (fitness)
 
 > The runner (123–134) has only ever used `gemini-2.5-flash`. "Optimize" raises the obvious question the SWE arc never asked: *which model* maximizes resolve-rate per dollar on the SWE-fix task? This is ADR-085's cheap-beats-frontier check applied to `runSweBenchTask` — and it finds the current default is not the best.

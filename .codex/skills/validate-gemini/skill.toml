@@ -9,7 +9,7 @@ name = "validate-gemini"
 version = "0.1.0"
 description = "Release-readiness umbrella check for a scaffolded gemini — runs doctor, witness verify, hardcoded-path scan, MCP server config, and GCP Secret Manager validation in one shot. Exits non-zero if any sub-check fails."
 author = "rUv <ruv@ruv.net>"
-homepage = "https://github.com/ruvnet/zagents-generator"
+homepage = "https://github.com/cvsz/zagents-generator"
 license = "MIT"
 
 [dispatch]

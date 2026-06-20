@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-073 (archive + selection), ADR-076 (benchmark), ADR-077 (DGM foundation), ADR-081 (Darwin Plus synthesis)
 
 > Grounds the clade-selection upgrade in the **Huxley–Gödel Machine** paper (arXiv:2510.21614) and maps it onto `src/bench/lineage.ts`.

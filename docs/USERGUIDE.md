@@ -44,7 +44,7 @@ codebase, owned by you, runs on your laptop.
 
 ### 1. Paste a GitHub URL and generate a gemini for it
 
-Open the Studio: <https://ruvnet.github.io/zagents-generator/>
+Open the Studio: <https://cvsz.github.io/zagents-generator/>
 
 1. Click the **Repo → Gemini** tab
 2. Paste a GitHub URL (e.g. `https://github.com/sindresorhus/ky`)
@@ -186,7 +186,7 @@ For witness-signed releases, also run `gemini sign` first.
 
 ### Q: What's the relationship to "ruflo"?
 
-[ruflo](https://github.com/ruvnet/ruflo) is the big bundled meta-gemini
+[ruflo](https://github.com/cvsz/ruflo) is the big bundled meta-gemini
 that this generator is a focused, factored-apart subset of. ruflo bundles
 the kernel **and** content (60+ agents, 30+ skills, 33 plugins) into a
 single thing. `zagents-generator` lets you take the kernel and
@@ -209,7 +209,7 @@ generate just the content you actually need, owned by you, branded by you.
 
 ## Next steps
 
-1. **Try the Studio:** <https://ruvnet.github.io/zagents-generator/>
+1. **Try the Studio:** <https://cvsz.github.io/zagents-generator/>
 2. **Generate a gemini for a repo you know:** the first time, pick a repo
    you're familiar with so you can sanity-check the output.
 3. **Read the agent prompts in `src/agents/*.ts`:** that's where the
@@ -222,8 +222,8 @@ generate just the content you actually need, owned by you, branded by you.
 
 ## Where to find help
 
-- Bug? <https://github.com/ruvnet/zagents-generator/issues>
-- Discussion? <https://github.com/ruvnet/zagents-generator/discussions>
+- Bug? <https://github.com/cvsz/zagents-generator/issues>
+- Discussion? <https://github.com/cvsz/zagents-generator/discussions>
 - Read the architecture: [`docs/ARCHITECTURE.md`](ARCHITECTURE.md)
 - Read the design decisions: [`docs/adrs/INDEX.md`](adrs/INDEX.md)
 - File a support ticket the right way: `gemini diag --bundle > bundle.json`

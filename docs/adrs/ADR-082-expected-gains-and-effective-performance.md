@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-076 (benchmark), ADR-077 (DGM), ADR-081 (Darwin Plus synthesis), ADR-075 (acceptance)
 
 > Pins what improvement to *expect* from gemini evolution, the single composite metric we report (not raw solve rate), the conditions under which it works and doesn't, and the business-credible framing. Implemented by `src/bench/metrics.ts`.

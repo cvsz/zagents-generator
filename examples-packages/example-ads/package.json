@@ -2,10 +2,10 @@
   "name": "@zagents/example-ads",
   "version": "0.2.0",
   "description": "ZAgents example \u2014 Google Ads + Meta Marketing API gemini, campaign/spend analysis read-only by default, mutations gated (npx @zagents/example-ads my-bot)",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/example-ads",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/example-ads",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/example-ads"
   },
   "license": "MIT",

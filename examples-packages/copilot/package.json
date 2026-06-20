@@ -2,10 +2,10 @@
   "name": "@zagents/copilot",
   "version": "0.1.0",
   "description": "ZAgents example — VSCode/Copilot mcp.json scaffold for agentic workflows (npx @zagents/copilot my-bot)",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/copilot",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/copilot",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/copilot"
   },
   "license": "MIT",

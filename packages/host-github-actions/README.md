@@ -1,6 +1,6 @@
 # @zagents/host-github-actions
 
-The **9th host adapter** for [zagents-generator](https://github.com/ruvnet/zagents-generator) — GitHub Actions (ADR-033).
+The **9th host adapter** for [zagents-generator](https://github.com/cvsz/zagents-generator) — GitHub Actions (ADR-033).
 
 The eight other hosts are interactive: a human starts a session and sees the
 result. GitHub Actions is different in kind — a CI/CD runtime with **no human

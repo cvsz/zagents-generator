@@ -170,6 +170,6 @@ A pull request that breaks any of (1)–(6) is blocked by branch protection unti
 - ADR-019: Release orchestration (decoupled cadence)
 - ADR-020: Web generator UI (PR #1)
 - ADR-021: Client-side packaging + Pages deploy (PR #1)
-- PR #1: `feat(web-ui): browser-based agent gemini generator + Claude skill/agent/command authoring` — https://github.com/ruvnet/zagents-generator/pull/1
+- PR #1: `feat(web-ui): browser-based agent gemini generator + Claude skill/agent/command authoring` — https://github.com/cvsz/zagents-generator/pull/1
 - `__tests__/e2e-lifecycle.test.ts` (iter 52)
 - `__tests__/workflows.test.ts` (iter 30)

@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured)
 **Date**: 2026-06-19
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-151 (v4-pro Barbarian), ADR-148 (V3+Scholar hybrid), ADR-149 (repair)
 
 ## Result (official `swebench` Docker gemini, full 300, batch-verified, 0 errors)

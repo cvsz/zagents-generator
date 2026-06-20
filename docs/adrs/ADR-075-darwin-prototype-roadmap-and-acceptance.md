@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-17
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-070 (Darwin Mode head), ADR-071 (mutation surfaces), ADR-072 (scoring), ADR-073 (archive), ADR-074 (memory + fabric)
 
 > Part of the Darwin Mode series (ADR-070…075). The preceding ADRs specify *what* Darwin Mode is and *how* its pieces work. This ADR specifies *the order we build it in* and *the bar that says it works* — so the series ships as measured increments, not a big-bang.

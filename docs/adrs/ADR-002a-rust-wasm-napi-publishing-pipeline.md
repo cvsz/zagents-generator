@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-002 (Kernel boundary), ADR-006 (Memory + learning, the emergent-time consumption), ADR-007 (CI guards, the publish-time matrix), ADR-011 (Witness, the determinism rationale)
 
 > This ADR is part of the kernel decision, split from ADR-002 for depth. ADR-002 specifies WHAT lives in the kernel and WHY it ships as Rust → wasm + native. This ADR specifies HOW the Cargo workspace is laid out, HOW the publishing matrix is wired, and WHICH gates protect the lockstep version contract between `@zagents/kernel` and the per-platform `@zagents/kernel-<platform>` packages.
@@ -26,7 +26,7 @@ This ADR exists because the publishing pipeline is non-trivial and load-bearing:
 ### Cargo workspace layout
 
 ```
-ruvnet/zagents-generator/
+cvsz/zagents-generator/
   crates/
     kernel/                  # Rust kernel — the substrate. Pure-rust crate. No JS bindings.
       Cargo.toml             # [lib] crate-type = ["rlib"]

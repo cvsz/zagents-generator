@@ -2,7 +2,7 @@
 
 **Status**: Proposed (FUTURE — deferred, not yet implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-076 (bench layer), ADR-090 (risk budget), ADR-094 (clade), ADR-096 (FDR), ADR-097 (curriculum)
 
 > Captured at the user's request ("add adr and do later in the loops"). This is a **strategy/roadmap** ADR — a deferred plan, not a shipped capability. It records HOW Darwin Mode would target public agentic benchmarks so a later loop can execute it without re-deriving the approach. Nothing here is implemented yet; do not claim benchmark results until a real run exists.

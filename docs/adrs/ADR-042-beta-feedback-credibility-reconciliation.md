@@ -2,7 +2,7 @@
 
 **Status**: Accepted
 **Date**: 2026-06-15
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-038/039/040 (DRACO), ADR-027 (CLI↔Studio), issue #4
 
 ---

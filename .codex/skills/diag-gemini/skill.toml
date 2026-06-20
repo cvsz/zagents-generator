@@ -12,7 +12,7 @@ name = "diag-gemini"
 version = "0.1.0"
 description = "Kernel-version skew check (ADR-027). Reports manifest surface + manifest kernel + installed kernel + verdict (match/patch-diff/minor-diff/major-diff). Exits 1 on minor/major skew with a copy-pasteable `npm install @zagents/kernel@X.Y.Z` next step. Exits 2 if no .gemini/manifest.json at path."
 author = "rUv <ruv@ruv.net>"
-homepage = "https://github.com/ruvnet/zagents-generator"
+homepage = "https://github.com/cvsz/zagents-generator"
 license = "MIT"
 
 [dispatch]

@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-17
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-070 (Darwin Mode head), ADR-071 (mutation surfaces + gate), ADR-073 (archive), ADR-037–040 (DRACO measured-win discipline), ADR-040/043 (routing/cost)
 
 > Part of the Darwin Mode series (ADR-070…075). This ADR defines **how a variant is scored** and **the strict gate under which a child replaces its parent**. Scoring is the spine of the whole system: it is what turns "looks better" into "is measurably better and safe."

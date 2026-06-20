@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — the definitive, un-cherry-picked, tight-CI Darwin SWE-bench Lite number
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-142 (stratified-25 pilot), ADR-143 (closed-loop A/B), ADR-135/139 (deepseek default), ADR-145 (router proposal — this run is its baseline + labels)
 
 > ADR-142/143 measured cherry-picked stratified-25 samples (12–16%). This is the **whole benchmark**: all 300 SWE-bench Lite (test) instances, open-loop fixed-deepseek, scored by the official `swebench` Docker gemini. No selection bias, n=300, a genuinely tight CI — the honest headline figure.

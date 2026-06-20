@@ -32,7 +32,7 @@ const JSON_OUT = args.includes('--json');
 const PROBE_PAGES = args.includes('--probe-pages');
 const onlyCheck = args.find(a => a.startsWith('--check='))?.slice('--check='.length);
 
-const STUDIO_URL = 'https://ruvnet.github.io/zagents-generator/';
+const STUDIO_URL = 'https://cvsz.github.io/zagents-generator/';
 
 const CHECKS = {
   async version() {
@@ -42,7 +42,7 @@ const CHECKS = {
     // packages/*
     const packages = await readdir(join(ROOT, 'packages'), { withFileTypes: true });
     // iter 149: the published CLI (zagents) + its library wrapper
-    // (@ruvnet/zagents-generator) version INDEPENDENTLY of the
+    // (@cvsz/zagents-generator) version INDEPENDENTLY of the
     // @zagents/* workspace packages — they ship to npm on their own semver
     // cadence. Exclude them from the workspace-coherence check.
     // @zagents/router is likewise a standalone published library on its own
@@ -56,7 +56,7 @@ const CHECKS = {
     // independently-versioned, like zagents/router/lib.
     const INDEPENDENT = new Set([
       'zagents',
-      '@ruvnet/zagents-generator',
+      '@cvsz/zagents-generator',
       '@zagents/router',
       '@zagents/kernel',
       '@zagents/host-claude-code',

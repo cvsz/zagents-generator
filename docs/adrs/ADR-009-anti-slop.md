@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-005 (Marketplace), ADR-007 (CI guards), ADR-011 (Witness)
 
 ## Context

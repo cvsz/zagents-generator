@@ -13,7 +13,7 @@ flags, so the result is byte-identical to the full CLI invocation.
 
 ```bash
 mkdir -p ~/.codex/skills/example-gemini
-curl -fsSL https://raw.githubusercontent.com/ruvnet/zagents-generator/main/.codex/skills/example-gemini/skill.toml \
+curl -fsSL https://raw.githubusercontent.com/cvsz/zagents-generator/main/.codex/skills/example-gemini/skill.toml \
   -o ~/.codex/skills/example-gemini/skill.toml
 ```
 
@@ -74,4 +74,4 @@ Every scaffold ships a `.claude-plugin/plugin.json`, so it also loads as a
 Claude Code plugin: `claude -p --plugin-dir <name> "..."`.
 
 Per-package deep-dive gists: see
-[`examples-packages/GISTS.md`](https://github.com/ruvnet/zagents-generator/blob/main/examples-packages/GISTS.md).
+[`examples-packages/GISTS.md`](https://github.com/cvsz/zagents-generator/blob/main/examples-packages/GISTS.md).

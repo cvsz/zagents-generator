@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-071 (mutation surfaces + safety gate), ADR-073 (archive tree), ADR-084 (failure-driven mutation), ADR-088 (MAP-Elites selection)
 
 > Until now a child came from ONE parent via ONE mutation. But two high-fitness parents may each carry a *different* good surface — a better `planner` here, a better `retryPolicy` there. Mutation alone cannot combine them. This ADR adds opt-in crossover: recombine two parents' surfaces into one child.

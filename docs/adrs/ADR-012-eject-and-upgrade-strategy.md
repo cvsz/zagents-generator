@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-002 (Kernel boundary), ADR-003 (Generator architecture, the gemini manifest), ADR-008 (Drift detection)
 
 ## Context

@@ -2,7 +2,7 @@
 
 **Status**: Accepted
 **Date**: 2026-06-15
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-040 (cost-optimal routing), `@zagents/router`, `@ruvector/tiny-dancer`
 
 ---

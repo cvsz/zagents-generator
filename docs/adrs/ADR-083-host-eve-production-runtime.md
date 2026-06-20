@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-004 (host integration model), ADR-022 (MCP primitive), ADR-011 (witness + provenance), ADR-006 (memory + learning), ADR-036 (host-opencode pattern), ADR-076 (benchmark), ADR-070 (Darwin Mode)
 
 ---

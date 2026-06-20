@@ -1,6 +1,6 @@
 # zagents
 
-Scaffold your own focused AI agent gemini — like [ruflo](https://github.com/ruvnet/ruflo), uniquely yours.
+Scaffold your own focused AI agent gemini — like [ruflo](https://github.com/cvsz/ruflo), uniquely yours.
 
 > Published as **`zagents`** (the `zagents` and `gemini` CLIs). Earlier versions were published as `create-agent-gemini`.
 
@@ -68,7 +68,7 @@ Lifts agents/skills/commands, rewrites every `ruflo` / `claude-flow` reference, 
 
 ## Full walkthrough
 
-See [USAGE.md](https://github.com/ruvnet/zagents-generator/blob/main/docs/USAGE.md).
+See [USAGE.md](https://github.com/cvsz/zagents-generator/blob/main/docs/USAGE.md).
 
 ## License
 

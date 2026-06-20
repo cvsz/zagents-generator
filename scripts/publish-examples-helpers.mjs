@@ -29,10 +29,10 @@ export function packageJsonFor(target, description) {
     name: `@zagents/${target.name}`,
     version: '0.1.0',
     description,
-    homepage: `https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/${target.name}`,
+    homepage: `https://github.com/cvsz/zagents-generator/tree/main/examples-packages/${target.name}`,
     repository: {
       type: 'git',
-      url: 'https://github.com/ruvnet/zagents-generator.git',
+      url: 'https://github.com/cvsz/zagents-generator.git',
       directory: `examples-packages/${target.name}`,
     },
     license: 'MIT',

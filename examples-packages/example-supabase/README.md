@@ -8,13 +8,13 @@
 [![npm downloads](https://img.shields.io/npm/dm/@zagents/example-supabase)](https://www.npmjs.com/package/@zagents/example-supabase)
 [![license](https://img.shields.io/npm/l/@zagents/example-supabase)](./LICENSE)
 [![node](https://img.shields.io/node/v/@zagents/example-supabase)](https://nodejs.org/)
-[![built with zagents](https://img.shields.io/badge/built%20with-zagents-6E40C9)](https://github.com/ruvnet/zagents-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-6E40C9)](https://github.com/cvsz/zagents-generator)
 
 ---
 
 ## Intro
 
-`@zagents/example-supabase` is one package in the [ZAgents SDK showcase series](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md) (ADR-051). Running it with `npx` scaffolds a ready-to-run agent gemini pre-wired to your Supabase project using the official `@supabase/supabase-js` v2 SDK.
+`@zagents/example-supabase` is one package in the [ZAgents SDK showcase series](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md) (ADR-051). Running it with `npx` scaffolds a ready-to-run agent gemini pre-wired to your Supabase project using the official `@supabase/supabase-js` v2 SDK.
 
 **What it is**: a scaffold that drops a three-agent gemini (planner, executor, verifier) into a new directory, configured for the host of your choice (Claude Code, Codex, Copilot, GitHub Actions, and others). It demonstrates the correct anon vs. service-role key distinction, RLS-filtered querying, pgvector semantic search with per-user data isolation, and Storage bucket inspection — all read-only by default.
 
@@ -275,6 +275,6 @@ Because the function uses `security invoker`, the caller's Postgres role (and th
 - API key migration guide: https://supabase.com/docs/guides/getting-started/migrating-to-new-api-keys
 - pgvector + RAG with permissions: https://supabase.com/docs/guides/ai/rag-with-permissions
 - Local development guide: https://supabase.com/docs/guides/local-development
-- ADR-060 (this package): https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-060-example-supabase.md
-- ADR-051 (examples program): https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md
-- ZAgents generator: https://github.com/ruvnet/zagents-generator
+- ADR-060 (this package): https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-060-example-supabase.md
+- ADR-051 (examples program): https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md
+- ZAgents generator: https://github.com/cvsz/zagents-generator

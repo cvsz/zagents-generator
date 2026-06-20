@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: every other ADR
 
 ## Context

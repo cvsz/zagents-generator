@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-076 (statistical promotion + bootstrap), ADR-087 (graded promotion in evolve), ADR-090 (SGM). Closes the horizon-tracker's **Gap 6** (multiple-testing).
 
 > The bootstrap promotion gate (ADR-076) uses a per-comparison 95% bound — fine for one child vs one parent. But `evolve()` tests MANY children per generation, so at scale ~2–3 "lucky" variants promote by chance each generation. This ADR adds generation-wide Benjamini–Hochberg false-discovery-rate control.

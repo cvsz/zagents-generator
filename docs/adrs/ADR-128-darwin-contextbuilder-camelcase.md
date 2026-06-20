@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — core gemini fix for the ADR-127 file-selection finding
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-127 (camelCase selection finding), ADR-113 (ranking is causal), ADR-071 (contextBuilder surface)
 
 > ADR-127 found the contextBuilder mis-selects files when a bug report names camelCase symbols: `paretoFront` lowercased+split to `paretofront`, which never matched the file `pareto.ts`. This fixes the tokenizer — and measures exactly how far a path-based fix can go.

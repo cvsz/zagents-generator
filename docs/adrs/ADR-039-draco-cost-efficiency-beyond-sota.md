@@ -2,7 +2,7 @@
 
 **Status**: Accepted
 **Date**: 2026-06-15
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-037 (DRACO benchmark), ADR-038 (quality ceiling finding)
 
 ---

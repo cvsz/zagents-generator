@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-16
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-044 (capability coverage), ADR-046 (real-install verification), ADR-047 (control plane), ADR-048 (ruvnet algo stack), ADR-049 (non-trivial targets)
 
 ---

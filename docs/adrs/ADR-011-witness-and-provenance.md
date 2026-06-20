@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-002 (Kernel boundary §6 Witness), ADR-005 (Marketplace §3 Three-layer provenance), ADR-007 (CI guards §A15, §B4), ADR-008 (Drift detection §Witness drift), ADR-009 (Anti-slop)
 
 ## Context

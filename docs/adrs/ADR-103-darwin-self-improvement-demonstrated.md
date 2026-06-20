@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-102 (live manifold), ADR-094 (clade), ADR-091 (phenotype), ADR-097 (curriculum), ADR-073 (archive)
 
 > ADR-102 made the manifold live (traces depend on surfaces). The decisive question remained: does the loop actually *self-improve*? This ADR answers it with reproducible numbers — yes, when the fitness gradient is reachable by the mutator — and is equally explicit about the cases where it does **not**.

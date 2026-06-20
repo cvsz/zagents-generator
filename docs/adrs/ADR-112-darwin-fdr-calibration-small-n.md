@@ -2,7 +2,7 @@
 
 **Status**: Accepted (falsification — corrects/conditions ADR-096)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-096 (BH FDR control), ADR-087 (statistical promotion), ADR-076 (bootstrap)
 
 > The adversarial review (A2) noted ADR-096 validated BH only on idealised `Uniform(0,1)` nulls, not on the **bootstrap p-values at the small sample sizes `evolve` actually uses**. I ran the calibration check. The gate does **not** control FDR at n=3. This conditions the ADR-096 claim and is recorded as a real limitation.

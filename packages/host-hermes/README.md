@@ -1,6 +1,6 @@
 # @zagents/host-hermes
 
-[Hermes Agent (NousResearch)](https://hermes-agent.nousresearch.com/docs/) host adapter for the [zagents-generator](https://github.com/ruvnet/zagents-generator) project.
+[Hermes Agent (NousResearch)](https://hermes-agent.nousresearch.com/docs/) host adapter for the [zagents-generator](https://github.com/cvsz/zagents-generator) project.
 
 Generates the host-specific files a Hermes-targeted gemini needs:
 

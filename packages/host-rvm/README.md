@@ -1,6 +1,6 @@
 # @zagents/host-rvm
 
-[RVM](https://github.com/ruvnet/rvm) — the Agentic Virtual Machine — host adapter for the [zagents-generator](https://github.com/ruvnet/zagents-generator) project.
+[RVM](https://github.com/cvsz/rvm) — the Agentic Virtual Machine — host adapter for the [zagents-generator](https://github.com/cvsz/zagents-generator) project.
 
 > Agents don't fit in VMs. They need something that understands how they think.
 

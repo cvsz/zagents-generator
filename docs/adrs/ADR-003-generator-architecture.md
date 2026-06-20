@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-001 (Goals), ADR-002 (Kernel boundary), ADR-004 (Host integration), ADR-008 (Drift detection), ADR-012 (Eject + upgrade)
 
 ## Context

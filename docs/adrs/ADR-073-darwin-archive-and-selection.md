@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-17
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-070 (Darwin Mode head), ADR-072 (scoring + promotion), ADR-074 (ruVector memory), ADR-011 (witness/provenance), ADR-014 (self-evolution)
 
 > Part of the Darwin Mode series (ADR-070…075). This ADR pins **the archive** — the single most important idea Darwin Mode borrows from DGM — and the **selection policy** that samples from it.

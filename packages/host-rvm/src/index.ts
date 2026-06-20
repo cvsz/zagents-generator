@@ -2,7 +2,7 @@
 //
 // @zagents/host-rvm — RVM (Agentic Virtual Machine) host adapter.
 //
-// Verified integration surface (from https://github.com/ruvnet/rvm):
+// Verified integration surface (from https://github.com/cvsz/rvm):
 //   - Bare-metal microhypervisor for AArch64
 //   - Rust 95-99% (~500 LoC assembly); forbids unsafe in most subsystems
 //   - Coherence domains (dynamic graph-mincut partitions; merge on heavy
@@ -236,7 +236,7 @@ export function installScript(spec: HarnessSpec): string {
     '  echo "Building RVM from source (cargo + AArch64 target required)..."',
     '  cargo install rvm-loader || {',
     '    echo "rvm-loader is not on crates.io yet — build from source:"',
-    '    echo "  git clone --recurse-submodules https://github.com/ruvnet/rvm.git"',
+    '    echo "  git clone --recurse-submodules https://github.com/cvsz/rvm.git"',
     '    echo "  cd rvm && make build && cargo install --path crates/rvm-loader"',
     '    exit 1',
     '  }',

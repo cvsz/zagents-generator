@@ -8,7 +8,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/@zagents/example-datadog)](https://www.npmjs.com/package/@zagents/example-datadog)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org/)
-[![Built with ZAgents](https://img.shields.io/badge/built--with-ZAgents-blue)](https://github.com/ruvnet/zagents-generator)
+[![Built with ZAgents](https://img.shields.io/badge/built--with-ZAgents-blue)](https://github.com/cvsz/zagents-generator)
 
 ---
 
@@ -181,5 +181,5 @@ All other Datadog MCP tools: **denied** (default-deny per ADR-022).
 - [Datadog TypeScript client — GitHub](https://github.com/DataDog/datadog-api-client-typescript)
 - [Datadog TypeScript client — npm](https://www.npmjs.com/package/@datadog/datadog-api-client)
 - [Datadog Authentication docs](https://docs.datadoghq.com/api/latest/authentication/)
-- [ADR-059: example-datadog](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-059-example-datadog.md)
-- [ZAgents — zagents-generator](https://github.com/ruvnet/zagents-generator)
+- [ADR-059: example-datadog](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-059-example-datadog.md)
+- [ZAgents — zagents-generator](https://github.com/cvsz/zagents-generator)

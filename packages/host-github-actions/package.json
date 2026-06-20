@@ -2,10 +2,10 @@
   "name": "@zagents/host-github-actions",
   "version": "0.1.2",
   "description": "GitHub Actions host adapter for zagents-generator. Emits .github/workflows/<name>.yml + a composite action.yml for non-interactive CI/CD agent harnesses (ADR-033).",
-  "homepage": "https://github.com/ruvnet/zagents-generator",
+  "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "packages/host-github-actions"
   },
   "license": "MIT",

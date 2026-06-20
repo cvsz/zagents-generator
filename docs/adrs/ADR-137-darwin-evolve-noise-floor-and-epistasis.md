@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — an honest limitation finding; concludes the micro-evolve thread
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-136 (local optimum), ADR-135 (model frontier), ADR-093 (epistatic linkage / topology-aware crossover), ADR-116 (retention inconclusive at n=2)
 
 > ADR-137 set out to show diversity+crossover escaping ADR-136's local optimum by recombining the `deepseek` and `searchreplace` genes (the ADR-105 analogue on real SWE code). It did **not** — and the reasons are themselves the finding: per-cell LLM-fitness variance dominates at this scale, and the genome is **epistatic**, so naive uniform crossover destroys the winning combination. This ADR records that honestly and stops the micro-evolve thread as noise-limited.

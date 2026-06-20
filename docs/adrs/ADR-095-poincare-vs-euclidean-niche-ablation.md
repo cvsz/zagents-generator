@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — honest, nuanced result
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-091 (hyperbolic phenotyping), ADR-092 (niche steering), ADR-088 (MAP-Elites). Closes the horizon-tracker's **Gap 1** (the biggest credibility gap: Poincaré-ball QD niches have zero published prior art and, until now, zero ablation).
 
 > A reviewer's first demand: does the hyperbolic geometry actually buy diversity, or is it decorative? This ADR runs the controlled comparison and reports the result honestly — including where Euclidean wins.

@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented, tested, published) — `zagents@0.2.0`
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-070…146 (Darwin Mode), ADR-145 (router proposal), the `zagents` scaffolder (`packages/create-agent-gemini`)
 
 > Previously `zagents` (the `npx zagents` scaffolder) and `@zagents/darwin` (the evolutionary engine) were sibling packages with **no integration** — generated harnesses shipped only a stub `evolve` skill. This makes the integration real: every scaffolded gemini gets working Darwin Mode self-improvement out of the box.

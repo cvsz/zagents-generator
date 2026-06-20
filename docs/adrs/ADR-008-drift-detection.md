@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-003 (Generator architecture, the gemini manifest), ADR-007 (CI guards), ADR-012 (Eject + upgrade)
 
 ## Context
@@ -164,7 +164,7 @@ jobs:
 
 ### The generator's own drift handling
 
-The generator repo (`ruvnet/zagents-generator`) also runs drift detection — but against its own templates. Specifically, ADR-007 §A16 (`kernel-template-coherence`) is a drift gate that fails the build if the bundled templates do not match the current kernel version.
+The generator repo (`cvsz/zagents-generator`) also runs drift detection — but against its own templates. Specifically, ADR-007 §A16 (`kernel-template-coherence`) is a drift gate that fails the build if the bundled templates do not match the current kernel version.
 
 Additionally, the generator runs a periodic compatibility-matrix check (`scripts/check-gemini-compatibility.mjs`) that picks a sample of recently-published harnesses from npm under `@zagents/*` and `@claude-flow/plugin-*` scopes, fetches their `.gemini/manifest.json`, and asserts that the current kernel + catalogue versions are still compatible. Surfaces broken downstream consumers before they file a bug.
 

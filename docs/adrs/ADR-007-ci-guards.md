@@ -2,14 +2,14 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-002 (Kernel boundary), ADR-003 (Generator architecture), ADR-008 (Drift detection), ADR-009 (Anti-slop), ADR-010 (TDD test contracts), ADR-011 (Witness)
 
 ## Context
 
 Two repos publish things to the world:
 
-1. **`ruvnet/zagents-generator`** — publishes the kernel (`@zagents/kernel`), the generator (`@zagents/create-agent-gemini` and its marketplace plugin), the host adapters (`@zagents/host-*`), the catalogue (`@zagents/catalogue`), the test gemini, and the vertical packs (`@zagents/vertical-*`).
+1. **`cvsz/zagents-generator`** — publishes the kernel (`@zagents/kernel`), the generator (`@zagents/create-agent-gemini` and its marketplace plugin), the host adapters (`@zagents/host-*`), the catalogue (`@zagents/catalogue`), the test gemini, and the vertical packs (`@zagents/vertical-*`).
 2. **Each generated gemini** — publishes its own npm package and, optionally, its own plugins to the marketplace.
 
 Both need CI guards. They are different guards because the failure modes are different. The generator's risks are: a kernel breaking change ships before adapters are ready; a malformed template lands; a marketplace publish flow leaks credentials. A generated gemini's risks are: it publishes without provenance; it ships a plugin that fails its smoke test; its kernel-engines range drifted from what it actually runs against; it forgot to regenerate the witness manifest.
@@ -20,14 +20,14 @@ This ADR pins down both gate sets. The gates are concrete enough that a CI engin
 
 ### Two gate suites
 
-- **Generator-side gates** (run on `ruvnet/zagents-generator` PRs and releases) — Section A below.
+- **Generator-side gates** (run on `cvsz/zagents-generator` PRs and releases) — Section A below.
 - **Gemini-side gates** (scaffolded into every generated gemini's `.github/workflows/`) — Section B below.
 
 Each gate has: a name, a trigger, what it asserts, the failure mode, and the recovery action.
 
 ## Section A — Generator-side CI gates
 
-These run in `.github/workflows/` of the `ruvnet/zagents-generator` repo.
+These run in `.github/workflows/` of the `cvsz/zagents-generator` repo.
 
 ### A1. `build-and-lint` — every PR
 

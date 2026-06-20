@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — most authentic real-code oracle in the series
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-120 (real package code, hand-written contract test), ADR-098 (frontier)
 
 > ADR-120 fixed a bug in the package's real `pareto.ts`, but the verdict was a *hand-written* contract assert. The skeptic's remaining gap: "your oracle isn't the real test suite." This closes it — the verdict is the package's **own committed `pareto.test.ts`, run under vitest**.

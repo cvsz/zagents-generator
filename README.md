@@ -4,17 +4,17 @@
 
 ### Mint a custom AI agent gemini from any repo.
 
-`npx zagents` · [open the Studio →](https://ruvnet.github.io/zagents-generator/)
+`npx zagents` · [open the Studio →](https://cvsz.github.io/zagents-generator/)
 
 <sub>(Repo: `cvsz/zagents-generator` · CLI: `zagents` · Library: `@cvsz/zagents-generator`)</sub>
 
-[![Open the Studio](https://img.shields.io/badge/Studio-open_in_browser_↗-7c5cff?style=for-the-badge&logo=githubpages&logoColor=white)](https://ruvnet.github.io/zagents-generator/)
+[![Open the Studio](https://img.shields.io/badge/Studio-open_in_browser_↗-7c5cff?style=for-the-badge&logo=githubpages&logoColor=white)](https://cvsz.github.io/zagents-generator/)
 [![User guide](https://img.shields.io/badge/User_guide-plain_language-22c55e?style=for-the-badge)](docs/USERGUIDE.md)
 [![Tests — 568 passing](https://img.shields.io/badge/tests-568%20passing-22c55e?style=for-the-badge)](docs/ARCHITECTURE.md)
 [![npm publish smoke](https://github.com/cvsz/zagents-generator/actions/workflows/published-smoke.yml/badge.svg)](https://github.com/cvsz/zagents-generator/actions/workflows/published-smoke.yml)
 [![License MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
-[![Agent Gemini Studio](docs/web-ui/screenshot-desktop.png)](https://ruvnet.github.io/zagents-generator/)
+[![Agent Gemini Studio](docs/web-ui/screenshot-desktop.png)](https://cvsz.github.io/zagents-generator/)
 
 </div>
 
@@ -94,7 +94,7 @@ learned from your own eval logs. `npm i @zagents/router`.
 
 ```bash
 # In the browser — zero install, nothing leaves the page
-open https://ruvnet.github.io/zagents-generator/
+open https://cvsz.github.io/zagents-generator/
 
 # Or in the terminal — the same gemini (behaviourally equivalent output)
 npx zagents my-bot --template vertical:coding --host claude-code
@@ -131,7 +131,7 @@ The same gemini output runs on **nine** agent hosts — eight interactive, plus 
 | [**pi.dev**](https://pi.dev/) | Pi extension via `pi.registerTool()` | No MCP by design |
 | [**Hermes**](https://hermes-agent.nousresearch.com/docs/) | MCP runtime, `<think>` scrubbing | Per Hermes issue #741 |
 | [**OpenClaw**](https://github.com/openclaw/openclaw) | `~/.openclaw/openclaw.json` + workspace skills | Personal-AI gateway |
-| [**RVM**](https://github.com/ruvnet/rvm) | Bare-metal microhypervisor + capability tokens | Hardware isolation for untrusted peers |
+| [**RVM**](https://github.com/cvsz/rvm) | Bare-metal microhypervisor + capability tokens | Hardware isolation for untrusted peers |
 | [**GitHub Copilot**](https://code.visualstudio.com/docs/copilot/mcp) | MCP via `.vscode/mcp.json` | VSCode 1.99+ (ADR-032) |
 | [**OpenCode**](https://opencode.ai/) | MCP via `.opencode/opencode.json` | sst/opencode TUI (ADR-036) |
 | [**GitHub Actions**](https://docs.github.com/actions) | `.github/workflows/` + composite `action.yml` | **Non-interactive** CI/CD; default-deny via `permissions:` (ADR-033) |
@@ -264,7 +264,7 @@ across Rust × 3 OS + WASM × 3 OS + Node 20+22 × 3 OS + Bench + pack+install �
 | CI matrix | 16 jobs green |
 | Security pipeline | cargo-audit · cargo-deny · npm-audit · CodeQL · SBOM (SPDX-2.3) |
 | Publish pipeline | GCP WIF + 2 gates + 11 packages + IPFS pin |
-| Agent Gemini Studio | Live at <https://ruvnet.github.io/zagents-generator/> |
+| Agent Gemini Studio | Live at <https://cvsz.github.io/zagents-generator/> |
 
 ---
 
@@ -321,8 +321,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Related
 
-- [**ruflo**](https://github.com/ruvnet/ruflo) — the meta-gemini this generator factors apart
-- [**ruvector**](https://github.com/ruvnet/ruvector) — vector + agentic database (memory backend)
+- [**ruflo**](https://github.com/cvsz/ruflo) — the meta-gemini this generator factors apart
+- [**ruvector**](https://github.com/cvsz/ruvector) — vector + agentic database (memory backend)
 - [**@ruvector/emergent-time**](https://www.npmjs.com/package/@ruvector/emergent-time) — memory-decay clock the kernel uses
 
 ## License

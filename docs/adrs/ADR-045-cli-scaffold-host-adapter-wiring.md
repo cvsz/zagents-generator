@@ -2,7 +2,7 @@
 
 **Status**: Implemented (2026-06-16)
 **Date**: 2026-06-16
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-004 (host integration model), ADR-027 (CLI ↔ web-UI parity), ADR-044 (host capability coverage)
 
 ---

@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-15
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-037 (DRACO), ADR-038 (quality ceiling), ADR-039 (cost dominance)
 
 ---

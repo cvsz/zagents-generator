@@ -6,9 +6,9 @@
 
 [![npm version](https://img.shields.io/npm/v/@zagents/example-github?label=%40zagents%2Fexample-github)](https://www.npmjs.com/package/@zagents/example-github)
 [![npm downloads](https://img.shields.io/npm/dm/@zagents/example-github)](https://www.npmjs.com/package/@zagents/example-github)
-[![license](https://img.shields.io/npm/l/@zagents/example-github)](https://github.com/ruvnet/zagents-generator/blob/main/LICENSE)
+[![license](https://img.shields.io/npm/l/@zagents/example-github)](https://github.com/cvsz/zagents-generator/blob/main/LICENSE)
 [![node >=20](https://img.shields.io/node/v/@zagents/example-github)](https://nodejs.org/)
-[![built with zagents](https://img.shields.io/badge/built%20with-zagents-6e40c9)](https://github.com/ruvnet/zagents-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-6e40c9)](https://github.com/cvsz/zagents-generator)
 
 ---
 
@@ -106,7 +106,7 @@ GitHub does not provide a sandbox API endpoint or test-key mechanism. The safe-b
 ### Slash command
 
 ```
-/review-pr ruvnet/zagents-generator#142
+/review-pr cvsz/zagents-generator#142
 ```
 
 Triggers the full pipeline: pr-analyst reads the PR and its diff, produces a structured review report, issue-triager cross-references any linked issues, and the verification gate re-fetches the PR to confirm the summary is consistent with live state.
@@ -114,18 +114,18 @@ Triggers the full pipeline: pr-analyst reads the PR and its diff, produces a str
 ### Natural-language prompts
 
 ```
-Triage all open issues in ruvnet/zagents-generator. Suggest a label and priority (P0/P1/P2) for each. Do not post anything — show me the triage plan first.
+Triage all open issues in cvsz/zagents-generator. Suggest a label and priority (P0/P1/P2) for each. Do not post anything — show me the triage plan first.
 ```
 
 ```
-Draft release notes for the next tag after v0.3.2 in ruvnet/zagents-generator. Use the generateReleaseNotes API and then produce an editorial summary grouped by feature, fix, and chore.
+Draft release notes for the next tag after v0.3.2 in cvsz/zagents-generator. Use the generateReleaseNotes API and then produce an editorial summary grouped by feature, fix, and chore.
 ```
 
 ### Enable writes (explicit opt-in)
 
 ```bash
 ALLOW_WRITES=true claude -p --plugin-dir my-bot \
-  "/review-pr ruvnet/zagents-generator#142 --post-comment"
+  "/review-pr cvsz/zagents-generator#142 --post-comment"
 ```
 
 With `ALLOW_WRITES=true`, the pr-analyst will post its review comment to GitHub after the verification gate passes. Without it, the review is printed locally only.
@@ -192,6 +192,6 @@ The audit log (`ALLOW_WRITES=true` sessions) records each tool call, its argumen
 - `@octokit/rest` on npm: [npmjs.com/package/@octokit/rest](https://www.npmjs.com/package/@octokit/rest)
 - `@octokit/graphql` on npm: [npmjs.com/package/@octokit/graphql](https://www.npmjs.com/package/@octokit/graphql)
 - GitHub fine-grained PAT permissions: [docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens)
-- ADR-057 (this design): [docs/adrs/ADR-057-example-github.md](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-057-example-github.md)
-- ADR-051 (examples program): [docs/adrs/ADR-051-third-party-sdk-showcase-examples.md](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
-- zagents: [github.com/ruvnet/zagents-generator](https://github.com/ruvnet/zagents-generator)
+- ADR-057 (this design): [docs/adrs/ADR-057-example-github.md](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-057-example-github.md)
+- ADR-051 (examples program): [docs/adrs/ADR-051-third-party-sdk-showcase-examples.md](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- zagents: [github.com/cvsz/zagents-generator](https://github.com/cvsz/zagents-generator)

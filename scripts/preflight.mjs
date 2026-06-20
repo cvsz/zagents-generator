@@ -147,7 +147,7 @@ if (!skipWasm) {
 step('npm tests', () => sh('npm test'));
 
 // iter 77: opt-in `--probe-pages` gates on the live Studio at
-// https://ruvnet.github.io/zagents-generator/. Delegates to the
+// https://cvsz.github.io/zagents-generator/. Delegates to the
 // iter-72 healthcheck pages check so there's one HTTP probe
 // implementation in the repo (no duplication). Without --probe-pages
 // the step is skipped — preflight stays offline-friendly by default,

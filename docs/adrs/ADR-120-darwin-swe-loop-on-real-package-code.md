@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — closes the "toy repos" caveat of ADR-117/118
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-117 (multi-file nucleus), ADR-118 (generalization), ADR-098 (frontier)
 
 > ADR-117/118 used hand-built toy repos. The skeptic's caveat: real code is bigger and messier. This runs the loop on **this package's own production TypeScript** — the contextBuilder selects among the 21 real `src/*.ts` files, and a real LLM fixes a real bug in real code, verified by a real test.

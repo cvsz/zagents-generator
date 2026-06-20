@@ -4,7 +4,7 @@ import { buildScaffold } from '../scaffold';
 import type { RepoInput } from '../repo';
 
 const rustRepo: RepoInput = {
-  owner: 'ruvnet',
+  owner: 'cvsz',
   repo: 'ruvector',
   files: {
     'README.md': 'ruvector is a Rust + WASM vector and agentic database. cargo build, clippy, wasm-pack. HNSW.',
@@ -25,8 +25,8 @@ const mcpRepo: RepoInput = {
 
 describe('parseGitHubUrl', () => {
   it.each([
-    ['https://github.com/ruvnet/ruflo', { owner: 'ruvnet', repo: 'ruflo' }],
-    ['https://github.com/ruvnet/ruflo.git', { owner: 'ruvnet', repo: 'ruflo' }],
+    ['https://github.com/cvsz/ruflo', { owner: 'cvsz', repo: 'ruflo' }],
+    ['https://github.com/cvsz/ruflo.git', { owner: 'cvsz', repo: 'ruflo' }],
     ['git@github.com:org/proj.git', { owner: 'org', repo: 'proj' }],
     ['https://github.com/org/proj/tree/main', { owner: 'org', repo: 'proj' }],
   ])('%s', (url, expected) => {

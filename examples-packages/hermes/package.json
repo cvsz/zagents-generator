@@ -2,10 +2,10 @@
   "name": "@zagents/hermes",
   "version": "0.1.1",
   "description": "ZAgents example — Hermes cli-config gemini scaffold for AI agents (npx @zagents/hermes my-bot)",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/hermes",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/hermes",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/hermes"
   },
   "license": "MIT",

@@ -114,7 +114,7 @@ export const GUIDES: HostGuide[] = [
     steps: [
       {
         title: '1. Install RVM',
-        body: 'See https://github.com/ruvnet/rvm for the install path.',
+        body: 'See https://github.com/cvsz/rvm for the install path.',
       },
       {
         title: '2. Launch partition',

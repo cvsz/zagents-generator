@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-15
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-037–040 (DRACO + cost-optimal routing), ADR-034 (OIA)
 
 ---

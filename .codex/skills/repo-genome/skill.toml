@@ -10,7 +10,7 @@ name = "repo-genome"
 version = "0.1.0"
 description = "7-section readiness scorecard for a LOCAL repo. Reports repo type + agent topology + MCP risk + test confidence + release readiness + recommended gemini plan + scorecard. Exit 0 ready, 1 needs-work, 2 blocked. --json for the 6-field scorecard, --bundle for the ADR-031 schema-1 envelope."
 author = "rUv <ruv@ruv.net>"
-homepage = "https://github.com/ruvnet/zagents-generator"
+homepage = "https://github.com/cvsz/zagents-generator"
 license = "MIT"
 
 [dispatch]

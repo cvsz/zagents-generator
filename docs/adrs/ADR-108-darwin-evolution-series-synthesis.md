@@ -2,7 +2,7 @@
 
 **Status**: Accepted (synthesis / index)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Indexes**: ADR-084 … ADR-141 (the evolution stack + the SWE-bench arc, built on the ADR-070…083 baseline)
 
 > One document a reviewer can read to understand the whole contribution. Darwin Mode's differentiator is not a model — it is an **auditable, statistically-gated, recursive lineage**: a self-improving agent gemini where every claim is a committed, reproducible number and every limitation is recorded. This ADR is the provenance.

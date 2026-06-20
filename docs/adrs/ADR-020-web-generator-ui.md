@@ -12,7 +12,7 @@
 2. **Claude desktop / claude.ai users** who want a single `SKILL.md` folder to drop into their skills directory and have no reason to install a Node toolchain to get one.
 3. **Mobile / tablet visitors** arriving from a README badge or a social link, for whom a CLI is simply unreachable.
 
-[Ruflo](https://github.com/ruvnet/ruflo) already proved the pattern with its [goal UI](https://goal.ruv.io) — a browser front-end that makes the gemini's value legible without an install. We want the equivalent on-ramp for the *meta*-gemini: a place you can compose a gemini, see exactly what it emits, and walk away with a zip — no account, no backend, no install.
+[Ruflo](https://github.com/cvsz/ruflo) already proved the pattern with its [goal UI](https://goal.ruv.io) — a browser front-end that makes the gemini's value legible without an install. We want the equivalent on-ramp for the *meta*-gemini: a place you can compose a gemini, see exactly what it emits, and walk away with a zip — no account, no backend, no install.
 
 The hard constraint is **trust and reach**: the page must run anywhere a browser runs, must not exfiltrate the user's inputs to a server, and must produce output that is byte-for-byte what the CLI would have produced (ADR-003), so the web path is never a second-class, drifting fork of the generator.
 

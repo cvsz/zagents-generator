@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-005 (Marketplace), ADR-009 (Anti-slop), ADR-006 (Memory + learning, JUDGE/DISTILL plug points)
 
 ## Context
@@ -103,7 +103,7 @@ We recognise two kinds of vertical pack ownership:
 
 #### Bundled vertical pack (`@zagents/vertical-*`)
 
-Ships from `packages/vertical-packs/<domain>/` in the `ruvnet/zagents-generator` repo. Code-owned by a CODEOWNERS group named per pack (e.g. `@ruflo-vertical-trading`). Reviewed inside the same repo; published via the repo's release flow.
+Ships from `packages/vertical-packs/<domain>/` in the `cvsz/zagents-generator` repo. Code-owned by a CODEOWNERS group named per pack (e.g. `@ruflo-vertical-trading`). Reviewed inside the same repo; published via the repo's release flow.
 
 These are the "first-party" verticals. Initially: `legal`, `trading`, `customer-support`. The bar to add one is high: there must be a maintainer team, ongoing maintenance commitment, and at least two scenario tests.
 

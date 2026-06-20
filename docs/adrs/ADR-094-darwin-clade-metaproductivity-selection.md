@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-073 (archive), ADR-090 (SGM risk budget — τ source), ADR-092 (niche steering), ADR-077/078 (DGM/HGM grounding)
 
 > Selecting parents by current score is a known failure mode: the best-*scoring* variant is a poor *parent* because its descendant line is exhausted (the "metaproductivity–performance mismatch", Huxley-Gödel Machine, Wang/Piękos/Li et al., arXiv:2510.21614, 2025). This ADR selects parents by **descendant potential** — the success rate of a variant's whole subtree — via Thompson sampling, with the exploration schedule tied to the SGM risk budget.

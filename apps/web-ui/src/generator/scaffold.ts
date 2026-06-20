@@ -416,7 +416,7 @@ function readme(cfg: HarnessConfig): string {
 
 > ${cfg.description}
 
-Generated with the [zagents-generator](https://github.com/ruvnet/zagents-generator) web UI.
+Generated with the [zagents-generator](https://github.com/cvsz/zagents-generator) web UI.
 
 - **Template:** ${tmpl?.name ?? cfg.template}
 - **Hosts:** ${hostNames}

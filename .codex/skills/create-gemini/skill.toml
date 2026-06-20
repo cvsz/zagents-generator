@@ -9,7 +9,7 @@ name = "create-gemini"
 version = "0.1.0"
 description = "Scaffold your own focused AI agent gemini — pick host (Claude Code, Codex, pi.dev, Hermes), template, agents, skills, and ship a npm-publishable gemini with its own npx CLI."
 author = "rUv <ruv@ruv.net>"
-homepage = "https://github.com/ruvnet/zagents-generator"
+homepage = "https://github.com/cvsz/zagents-generator"
 license = "MIT"
 
 # Mapped onto a single MCP tool invocation. Codex calls this tool with

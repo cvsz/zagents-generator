@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-072 (lightweight scorer), ADR-076 (parent-vs-child benchmark + statistical promotion), ADR-079 (risk budget), ADR-084 (failure-driven mutation), ADR-086 (efficiency-aware selection)
 
 > ADR-076 built a full graded benchmark layer — `evaluateChildAgainstParent` runs a child vs its parent over a hash-pinned suite in the real sandbox, scores with `scoreBenchmark`, and `decidePromotion` returns a statistically-grounded decision. But that layer was never connected to the loop: `evolve()` promoted on the single-run ADR-072 delta. This ADR connects them — opt-in.

@@ -2,7 +2,7 @@
 
 **Status**: Proposed (HEADLINE / keystone — design + evidence; implementation deferred)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-070 (loop), ADR-071 (surfaces), ADR-091/092 (phenotype + steering), ADR-099 (audit), ADR-100 (Pareto). Supersedes the "future sandbox" notes scattered across 091/099/100 with one authoritative requirement.
 
 > Seventeen ADRs built a rigorously-validated evolutionary engine — clade selection, hyperbolic niches + steering, epistatic crossover, FDR-controlled promotion, curriculum, Pareto. **Two independent measurements tonight show the engine is running without fuel.** This ADR names the fuel: a sandbox that executes the gemini *as an agent*, so a variant's surface files actually shape its execution trace. It is the single keystone that activates the dormant stack.

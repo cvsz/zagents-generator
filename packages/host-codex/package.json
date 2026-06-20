@@ -2,10 +2,10 @@
   "name": "@zagents/host-codex",
   "version": "0.1.2",
   "description": "OpenAI Codex CLI host adapter for zagents-generator (MCP via ~/.codex/config.toml)",
-  "homepage": "https://github.com/ruvnet/zagents-generator",
+  "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "packages/host-codex"
   },
   "license": "MIT",

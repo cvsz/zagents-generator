@@ -2,10 +2,10 @@
   "name": "@zagents/pi-dev",
   "version": "0.1.0",
   "description": "ZAgents example — pi.dev AGENTS.md gemini with a minimal scaffold ready for pi.dev agents (npx @zagents/pi-dev my-bot)",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/pi-dev",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/pi-dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/pi-dev"
   },
   "license": "MIT",

@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: MIT
 //
-// @ruvnet/zagents-generator — library/core API for the gemini generator.
+// @cvsz/zagents-generator — library/core API for the gemini generator.
 //
 // The actual implementation lives in the `zagents` package (which is the
 // published CLI). This package re-exports the JS API surface so consumers can
 // import it cleanly without depending on the CLI's `bin` entry:
 //
 //     import { scaffold, validateHarnessName, HOSTS, TEMPLATES }
-//       from '@ruvnet/zagents-generator';
+//       from '@cvsz/zagents-generator';
 //
 // Why split? Per the user's iter-108 naming directive:
 //   - `zagents`                     — the CLI, what users run (`npx zagents`)
-//   - `@ruvnet/zagents-generator` — the library, what code imports
+//   - `@cvsz/zagents-generator` — the library, what code imports
 //
 // One source of truth (zagents), two published names. The wrapper has no
 // implementation of its own — if you find yourself adding logic here, that

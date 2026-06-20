@@ -1,4 +1,4 @@
-# @ruvnet/zagents-generator
+# @cvsz/zagents-generator
 
 > Library / core package for the **ZAgents Generator**. Pair with
 > [`zagents`](https://www.npmjs.com/package/zagents) for the CLI.
@@ -14,7 +14,7 @@ use this package.
 npx zagents my-bot --template vertical:coding
 
 # Import it (library)
-npm install @ruvnet/zagents-generator
+npm install @cvsz/zagents-generator
 ```
 
 ```ts
@@ -23,7 +23,7 @@ import {
   validateHarnessName,
   HOSTS,
   TEMPLATES,
-} from '@ruvnet/zagents-generator';
+} from '@cvsz/zagents-generator';
 
 // Generate a gemini programmatically:
 const result = await scaffold({
@@ -63,7 +63,7 @@ the gemini has already been written to disk and is being inspected.
   └────────────┬────────────────────┘
                │ depends on
   ┌────────────┴────────────────────┐
-  │ @ruvnet/zagents-generator │   ← this package: thin re-export
+  │ @cvsz/zagents-generator │   ← this package: thin re-export
   │  • no bin                       │     `import { scaffold } from …`
   │  • re-exports the library API   │
   └─────────────────────────────────┘
@@ -76,7 +76,7 @@ implementation — if logic ever leaks into this package, it's a bug.
 
 - **`zagents`** — you want the command-line tool, full subcommand
   surface, marketplace plugin, Codex skills.
-- **`@ruvnet/zagents-generator`** — you're embedding the generator
+- **`@cvsz/zagents-generator`** — you're embedding the generator
   in a build script, a web service, or another tool, and don't want the
   `bin` baggage.
 

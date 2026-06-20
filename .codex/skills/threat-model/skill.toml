@@ -9,7 +9,7 @@ name = "threat-model"
 version = "0.1.0"
 description = "MCP threat-model artifact for a scaffolded gemini. Reports allowed/denied tools, dangerous permissions count, secrets reachability, network/shell/file-write grants, default-deny posture. Verdict: clean (exit 0) / medium (exit 1) / high (exit 2). The 'enterprise gold' artifact for PR + compliance review."
 author = "rUv <ruv@ruv.net>"
-homepage = "https://github.com/ruvnet/zagents-generator"
+homepage = "https://github.com/cvsz/zagents-generator"
 license = "MIT"
 
 [dispatch]

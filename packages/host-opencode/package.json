@@ -2,10 +2,10 @@
   "name": "@zagents/host-opencode",
   "version": "0.1.2",
   "description": "OpenCode (sst/opencode) host adapter for zagents-generator. Emits .opencode/opencode.json (ADR-036).",
-  "homepage": "https://github.com/ruvnet/zagents-generator",
+  "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "packages/host-opencode"
   },
   "license": "MIT",

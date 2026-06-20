@@ -88,4 +88,4 @@ MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 
-Full explainer gist: https://gist.github.com/ruvnet/7c2975652c9be393536a71cdafc358f3
+Full explainer gist: https://gist.github.com/cvsz/7c2975652c9be393536a71cdafc358f3

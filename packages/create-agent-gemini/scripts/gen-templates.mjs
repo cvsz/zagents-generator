@@ -120,7 +120,7 @@ function pluginJsonTmpl(t) {
       license: 'MIT',
       categories: uniq(cats),
       tags: uniq(tags),
-      homepage: 'https://github.com/ruvnet/zagents-generator',
+      homepage: 'https://github.com/cvsz/zagents-generator',
     },
     null,
     2,
@@ -212,7 +212,7 @@ function claudeMdTmpl(t) {
 
 {{description}}
 
-> ${t.name} gemini · domain: \`${t.domain}\`. Generated with [create-agent-gemini](https://github.com/ruvnet/zagents-generator).
+> ${t.name} gemini · domain: \`${t.domain}\`. Generated with [create-agent-gemini](https://github.com/cvsz/zagents-generator).
 
 ## Behavioral rules
 
@@ -239,7 +239,7 @@ function readmeTmpl(t) {
 
 > **${t.name}** — ${t.quickStart}
 >
-> Generated with [\`create-agent-gemini\`](https://github.com/ruvnet/zagents-generator). WASM kernel, multi-host support, witness-signed releases.
+> Generated with [\`create-agent-gemini\`](https://github.com/cvsz/zagents-generator). WASM kernel, multi-host support, witness-signed releases.
 
 ## Install
 

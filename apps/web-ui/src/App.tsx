@@ -42,10 +42,10 @@ export default function App() {
       <header className="mb-8 flex flex-col gap-5">
         <div className="flex items-center justify-between gap-4">
           <a
-            href="https://github.com/ruvnet/zagents-generator"
+            href="https://github.com/cvsz/zagents-generator"
             className="inline-flex items-center gap-1.5 rounded-lg border border-ink-700 bg-ink-800/60 px-3 py-1.5 text-xs text-slate-300 transition hover:border-ink-600 hover:text-white"
           >
-            <Github size={14} /> ruvnet/zagents-generator
+            <Github size={14} /> cvsz/zagents-generator
           </a>
           <div className="flex items-center gap-2">
             <button

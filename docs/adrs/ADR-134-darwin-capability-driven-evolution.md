@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — the capability half of the evolve capstone
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-133 (cost-driven evolution on an easy corpus), ADR-126/127 (whole-file vs search/replace), ADR-130 (fitness function)
 
 > ADR-133 evolved over an easy corpus where resolve-rate saturated, so evolution converged on **cost**. The honest question it raised: does **capability** drive evolution when the corpus is hard enough to discriminate? This answers it with a corpus that includes a real **multi-fault** bug (a legitimate, common category — not a contrivance) where whole-file repair fails per-attempt.

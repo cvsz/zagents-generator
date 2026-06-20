@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-070…076 (Darwin Mode + benchmark), ADR-077 (DGM), ADR-078 (HGM), ADR-079 (SGM), ADR-080 (Hyperagents)
 
 > The umbrella ADR. It composes the four grounding ADRs into one architecture — **ZAgents Darwin Plus** — and pins the SOTA promotion rule, the CLI surface, the report card, and the acceptance test.

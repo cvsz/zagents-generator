@@ -67,7 +67,7 @@ function buildPluginJson(s: ReturnType<typeof manifestSummary>): string {
     license: 'MIT',
     categories: cats,
     tags,
-    homepage: 'https://github.com/ruvnet/zagents-generator',
+    homepage: 'https://github.com/cvsz/zagents-generator',
   }, null, 2) + '\n';
 }
 

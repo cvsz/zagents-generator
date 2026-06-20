@@ -1,6 +1,6 @@
 # @zagents/host-claude-code
 
-[Claude Code](https://code.claude.com/docs/en/mcp) host adapter for the [zagents-generator](https://github.com/ruvnet/zagents-generator) project.
+[Claude Code](https://code.claude.com/docs/en/mcp) host adapter for the [zagents-generator](https://github.com/cvsz/zagents-generator) project.
 
 Generates the host-specific config a Claude Code-targeted gemini needs:
 

@@ -2,10 +2,10 @@
   "name": "@zagents/devops",
   "version": "0.1.1",
   "description": "ZAgents example — Claude Code incident-response vertical with responder, runbook-runner, escalator, postmortem agents (npx @zagents/devops my-bot)",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/devops",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/devops",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/devops"
   },
   "license": "MIT",

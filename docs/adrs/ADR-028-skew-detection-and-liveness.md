@@ -10,7 +10,7 @@
 By iter 65 the project had three production surfaces:
 
 1. **The CLI generator** (`packages/create-agent-gemini/`) + 15 `gemini` subcommands
-2. **The Studio** deployed to GitHub Pages (`https://ruvnet.github.io/zagents-generator/`)
+2. **The Studio** deployed to GitHub Pages (`https://cvsz.github.io/zagents-generator/`)
 3. **The published npm packages** that downstream harnesses depend on (`@zagents/kernel`, 6 host adapters, `create-agent-gemini`, …)
 
 Every one of those surfaces can drift independently:

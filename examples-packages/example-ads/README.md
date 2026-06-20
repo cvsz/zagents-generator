@@ -10,7 +10,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/%40zagents%2Fexample-ads)](https://www.npmjs.com/package/@zagents/example-ads)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org/)
-[![built with zagents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/ruvnet/zagents-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/cvsz/zagents-generator)
 
 ---
 
@@ -281,8 +281,8 @@ silent drops.
 - [facebook-nodejs-business-sdk on GitHub](https://github.com/facebook/facebook-nodejs-business-sdk)
 - [Meta Marketing API docs](https://developers.facebook.com/docs/marketing-apis/)
 - [Meta Marketing API Sandbox Ad Accounts](https://developers.facebook.com/ads/blog/post/v2/2016/10/19/sandbox-ad-accounts/)
-- [ADR-064 — this design record](https://github.com/ruvnet/zagents-generator/tree/main/docs/adrs/ADR-064-example-ads.md)
-- [ADR-051 — examples program contract](https://github.com/ruvnet/zagents-generator/tree/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ADR-064 — this design record](https://github.com/cvsz/zagents-generator/tree/main/docs/adrs/ADR-064-example-ads.md)
+- [ADR-051 — examples program contract](https://github.com/cvsz/zagents-generator/tree/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
 
 ---
 

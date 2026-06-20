@@ -1,6 +1,6 @@
 # @zagents/host-codex
 
-[OpenAI Codex CLI](https://developers.openai.com/codex) host adapter for the [zagents-generator](https://github.com/ruvnet/zagents-generator) project.
+[OpenAI Codex CLI](https://developers.openai.com/codex) host adapter for the [zagents-generator](https://github.com/cvsz/zagents-generator) project.
 
 Generates the host-specific config a Codex-targeted gemini needs:
 

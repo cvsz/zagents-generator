@@ -33,10 +33,10 @@
   ],
   "author": "rUv <ruv@ruv.net>",
   "license": "MIT",
-  "homepage": "https://github.com/ruvnet/zagents-generator",
+  "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator"
+    "url": "https://github.com/cvsz/zagents-generator"
   },
   "engines": {
     "node": ">=20.0.0"

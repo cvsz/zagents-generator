@@ -42,7 +42,7 @@ async function fetchRepoFiles(owner: string, repo: string, token?: string): Prom
 }
 
 export function RepoImporter({ onUse }: { onUse: (cfg: HarnessConfig) => void }) {
-  const [url, setUrl] = useState('https://github.com/ruvnet/ruflo');
+  const [url, setUrl] = useState('https://github.com/cvsz/ruflo');
   const [token, setToken] = useState('');
   const [engine, setEngine] = useState<Engine>('lexical');
   const [busy, setBusy] = useState(false);

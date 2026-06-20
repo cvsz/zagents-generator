@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-072 (lightweight scorer + promotion gate), ADR-073 (archive + selection), ADR-075 (reproducibility clause), ADR-084 (failure-driven mutation), ADR-076 (rigorous benchmark layer)
 
 > A measured fact about ADR-072's scorer: every safe, test-passing variant earns `finalScore = 0.985`. The scorer is a correctness/safety **gate**, not a quality discriminator — so `archive.best()` picks among ceiling-tied variants by insertion order, which is arbitrary. This ADR adds an **opt-in** tie-break that gives selection a real efficiency gradient without touching the frozen, reproducible scorer.

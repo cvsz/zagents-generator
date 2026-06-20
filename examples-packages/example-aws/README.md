@@ -8,7 +8,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/%40zagents%2Fexample-aws?style=flat-square)](https://www.npmjs.com/package/@zagents/example-aws)
 [![license](https://img.shields.io/npm/l/%40zagents%2Fexample-aws?style=flat-square)](LICENSE)
 [![node](https://img.shields.io/node/v/%40zagents%2Fexample-aws?style=flat-square)](https://nodejs.org)
-[![built with zagents](https://img.shields.io/badge/built%20with-zagents-6366f1?style=flat-square)](https://github.com/ruvnet/zagents-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-6366f1?style=flat-square)](https://github.com/cvsz/zagents-generator)
 
 ---
 
@@ -225,5 +225,5 @@ Mutating tools are absent. Every call is logged to `.gemini/mcp-audit.jsonl`.
 - [EC2 RunInstances — DryRun](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/RunInstancesCommand)
 - [STS AssumeRole examples (JavaScript v3)](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/javascript_sts_code_examples.html)
 - [LocalStack — AWS emulator](https://docs.localstack.cloud)
-- [ADR-052 — design record for this example](https://github.com/ruvnet/zagents-generator/tree/main/docs/adrs/ADR-052-example-aws.md)
-- [ADR-051 — examples program](https://github.com/ruvnet/zagents-generator/tree/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ADR-052 — design record for this example](https://github.com/cvsz/zagents-generator/tree/main/docs/adrs/ADR-052-example-aws.md)
+- [ADR-051 — examples program](https://github.com/cvsz/zagents-generator/tree/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)

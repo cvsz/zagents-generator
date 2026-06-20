@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — runner capability upgrade + an honest limitation finding
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-125 (consolidated runner), ADR-124 (whole-file primitive), ADR-123 (resolved criterion)
 
 > ADR-125's runner did one shot per instance. This adds an iterative **repair loop** (feed failing tests back, retry up to N), **regression-aware feedback** (also report newly-broken `PASS_TO_PASS`), and **robust patch parsing**. The robust parsing fixes a real latent bug; the repair loop helps on single-fault instances and surfaces an honest limitation on multi-fault/large-file ones.

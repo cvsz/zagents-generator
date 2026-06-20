@@ -2,10 +2,10 @@
   "name": "@zagents/host-rvm",
   "version": "0.1.2",
   "description": "RVM (Agentic Virtual Machine) host adapter for zagents-generator — hardware-isolated deployment via capability tokens",
-  "homepage": "https://github.com/ruvnet/zagents-generator",
+  "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "packages/host-rvm"
   },
   "license": "MIT",

@@ -2,10 +2,10 @@
   "name": "@zagents/example-huggingface",
   "version": "0.2.0",
   "description": "ZAgents example \u2014 Hugging Face SDK showcase: model/dataset discovery, serverless inference, and Space exploration (npx @zagents/example-huggingface my-bot)",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/example-huggingface",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/example-huggingface",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/example-huggingface"
   },
   "license": "MIT",

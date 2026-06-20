@@ -2,10 +2,10 @@
   "name": "@zagents/legal",
   "version": "0.1.0",
   "description": "ZAgents example — contract redline, citation check, and risk rating drafts for Claude Code (npx @zagents/legal my-bot)",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/legal",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/legal",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/legal"
   },
   "license": "MIT",

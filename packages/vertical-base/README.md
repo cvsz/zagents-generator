@@ -1,10 +1,10 @@
 # @zagents/vertical-base
 
-Shared contract for [`@zagents/vertical-*`](https://github.com/ruvnet/zagents-generator) packs — the type-only / runtime-helper module that every standalone vertical pack consumes so the generator can load them uniformly.
+Shared contract for [`@zagents/vertical-*`](https://github.com/cvsz/zagents-generator) packs — the type-only / runtime-helper module that every standalone vertical pack consumes so the generator can load them uniformly.
 
 ## What it is
 
-Per [ADR-013](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-013-vertical-packs-publishing.md), vertical packs (trading, legal, research, …) are **published as standalone npm packages** so each can be owned by a domain expert without touching `create-agent-gemini`. This module is the contract those packs implement.
+Per [ADR-013](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-013-vertical-packs-publishing.md), vertical packs (trading, legal, research, …) are **published as standalone npm packages** so each can be owned by a domain expert without touching `create-agent-gemini`. This module is the contract those packs implement.
 
 ```
 @zagents/vertical-base               <- shared contract (this package)
@@ -66,7 +66,7 @@ npx create-agent-gemini my-bot --vertical @your-scope/vertical-my-vertical
 
 ## See also
 
-- [ADR-013 — Vertical packs publishing](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-013-vertical-packs-publishing.md)
+- [ADR-013 — Vertical packs publishing](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-013-vertical-packs-publishing.md)
 - [`@zagents/vertical-trading`](https://www.npmjs.com/package/@zagents/vertical-trading) — reference implementation
 - [`create-agent-gemini`](https://www.npmjs.com/package/create-agent-gemini) — consumer
 

@@ -1,7 +1,7 @@
 # ADR-046: Real-Install Host Verification (and the schema bugs it caught)
 
 **Status**: Implemented (2026-06-16)
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-036 (host-opencode), ADR-004 (host integration), ADR-044 (capability coverage), ADR-045 (CLI host wiring)
 
 ---

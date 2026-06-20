@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-002 (Kernel boundary), ADR-003 (Generator architecture), ADR-015 (Naming + branding)
 
 ## Context
@@ -149,7 +149,7 @@ A stripped-down `ruflo-lite` package that users can fork. Rejected because a for
 
 ### Alternative 2: A template repo on GitHub that users `git clone`
 
-`https://github.com/ruvnet/ruflo-template`, click "Use this template", you have a gemini. Rejected because (a) it doesn't solve the host-fragmentation problem (still locked to one host's templates), (b) it doesn't solve the kernel-upgrade problem (cloned repos drift immediately), and (c) it has no composability — the user gets whatever the template author put in, take it or leave it. The generator decision is a strict superset of the template-repo decision.
+`https://github.com/cvsz/ruflo-template`, click "Use this template", you have a gemini. Rejected because (a) it doesn't solve the host-fragmentation problem (still locked to one host's templates), (b) it doesn't solve the kernel-upgrade problem (cloned repos drift immediately), and (c) it has no composability — the user gets whatever the template author put in, take it or leave it. The generator decision is a strict superset of the template-repo decision.
 
 ### Alternative 3: An opinionated wizard inside ruflo, no separate package
 

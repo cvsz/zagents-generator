@@ -2,10 +2,10 @@
   "name": "@zagents/github-actions",
   "version": "0.1.0",
   "description": "ZAgents example — GitHub Actions CI/CD gemini (.github/workflows + composite action.yml, non-interactive, ADR-033) (npx @zagents/github-actions my-bot)",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/github-actions",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/github-actions",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/github-actions"
   },
   "license": "MIT",

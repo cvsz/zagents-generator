@@ -2,10 +2,10 @@
   "name": "@zagents/sdk",
   "version": "0.1.0",
   "description": "Convenience helpers for gemini authors — defineHarness, defineAgent, defineSkill, defineTool. Light wrappers around @zagents/kernel.",
-  "homepage": "https://github.com/ruvnet/zagents-generator",
+  "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "packages/sdk"
   },
   "license": "MIT",

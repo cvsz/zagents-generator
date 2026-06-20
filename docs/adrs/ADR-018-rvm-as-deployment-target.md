@@ -15,7 +15,7 @@ For **federated harnesses across trust boundaries**, OS-level isolation is the w
 3. A failure-class model that allows rollback without rebooting the entire host
 4. A way for gemini A's claims to be honored at gemini B's deployment without trusting the host operator
 
-[RVM](https://github.com/ruvnet/rvm) — the Agentic Virtual Machine — is purpose-built for exactly this. It's a bare-metal microhypervisor for AArch64 with:
+[RVM](https://github.com/cvsz/rvm) — the Agentic Virtual Machine — is purpose-built for exactly this. It's a bare-metal microhypervisor for AArch64 with:
 
 - **Coherence domains** — dynamic graph-mincut partitions that merge/split based on agent communication patterns
 - **Capability tokens** with 7 rights: READ, WRITE, GRANT, REVOKE, EXECUTE, PROVE, GRANT_ONCE
@@ -85,7 +85,7 @@ For everyday local-dev, the OS-level adapters are correct. For federation across
 
 ## References
 
-- RVM: https://github.com/ruvnet/rvm
+- RVM: https://github.com/cvsz/rvm
 - ADR-004 §host adapter contract
 - ADR-014 §federation
 - ADR-011 §witness manifest (composes with RVM witness-native syscalls)

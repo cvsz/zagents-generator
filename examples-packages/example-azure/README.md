@@ -8,7 +8,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/@zagents/example-azure)](https://www.npmjs.com/package/@zagents/example-azure)
 [![license](https://img.shields.io/npm/l/@zagents/example-azure)](LICENSE)
 [![node](https://img.shields.io/node/v/@zagents/example-azure)](https://nodejs.org)
-[![built with zagents](https://img.shields.io/badge/built%20with-zagents-6c6ef2)](https://github.com/ruvnet/zagents-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-6c6ef2)](https://github.com/cvsz/zagents-generator)
 
 ---
 
@@ -239,5 +239,5 @@ All other tools: denied. All calls audited to `.gemini/mcp-audit.jsonl`.
 - `openai` npm (AzureOpenAI client): https://www.npmjs.com/package/openai
 - Azurite local emulator: https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite
 - DefaultAzureCredential overview: https://aka.ms/azsdk/js/identity/credential-chains
-- ADR-054 (this design): https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-054-example-azure.md
-- ADR-051 (examples program): https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md
+- ADR-054 (this design): https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-054-example-azure.md
+- ADR-051 (examples program): https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md

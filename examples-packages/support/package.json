@@ -2,10 +2,10 @@
   "name": "@zagents/support",
   "version": "0.1.0",
   "description": "ZAgents example — customer-support multi-agent template (triager, KB-searcher, responder, escalator) for Claude Code. npx @zagents/support my-bot",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/support",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/support",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/support"
   },
   "license": "MIT",

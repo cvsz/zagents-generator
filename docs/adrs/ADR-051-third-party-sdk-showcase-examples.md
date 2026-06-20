@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-001 (Goals/Non-Goals), ADR-015 (Naming + branding), ADR-022 (MCP default-deny gate), ADR-044/045/046 (host coverage + real-install verification), ADR-050 (gemini intelligence — verification-gated output)
 **Series**: ADR-052…ADR-069 (one per platform — see catalog below)
 

@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — converts ADR-137's qualitative claim into a number
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-137 (noise-floor stop), ADR-136 (local optimum), ADR-112/116 (statistical-rigor / small-n honesty)
 
 > ADR-137 *asserted* that per-cell LLM fitness variance dominates single-run micro-evolve. This **measures** it: each genome run repeatedly on the same 3-package corpus, reporting the resolve-count distribution — the rigorous basis for "average N runs" and for the ADR-137 stop.

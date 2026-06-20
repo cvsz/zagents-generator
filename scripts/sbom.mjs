@@ -163,7 +163,7 @@ function buildSpdx(npm, cargo) {
     dataLicense: 'CC0-1.0',
     SPDXID: 'SPDXRef-DOCUMENT',
     name: 'zagents-generator-sbom',
-    documentNamespace: `https://github.com/ruvnet/zagents-generator/sbom-${packageVerificationCode(allPkgs.length).slice(0, 16)}`,
+    documentNamespace: `https://github.com/cvsz/zagents-generator/sbom-${packageVerificationCode(allPkgs.length).slice(0, 16)}`,
     creationInfo: {
       created: now,
       creators: ['Tool: scripts/sbom.mjs (iter 50)'],

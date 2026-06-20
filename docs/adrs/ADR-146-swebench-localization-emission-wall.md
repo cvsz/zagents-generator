@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — Stage-B context fix; recall win, resolve-rate flat, bottleneck relocated
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-144 (full-300 baseline 7.7%), ADR-142 (empty-patch flag), ADR-143 (repair loop), ADR-126/127 (search/replace)
 
 > ADR-144's baseline had a 67% empty-patch rate. The diagnostic (this ADR's first half) showed **selection recall was only 44.7%** and 65% of empties were selection-misses → localization was the indicated fix. This ADR ships it, measures it on the full 300, and reports an honest result: **recall rose +15pp, but resolve-rate did not move** — the bottleneck relocated from retrieval to patch-emission.

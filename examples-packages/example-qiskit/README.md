@@ -8,7 +8,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/@zagents/example-qiskit?label=downloads)](https://www.npmjs.com/package/@zagents/example-qiskit)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![node](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org)
-[![built with zagents](https://img.shields.io/badge/built%20with-zagents-8a2be2)](https://github.com/ruvnet/zagents-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-8a2be2)](https://github.com/cvsz/zagents-generator)
 
 ---
 
@@ -218,6 +218,6 @@ The gate in `verify-reporter` computes the KL divergence between the ideal proba
 - Qiskit IBM Runtime (Python SDK, PyPI): https://pypi.org/project/qiskit-ibm-runtime/
 - IBM Quantum REST API reference: https://quantum.cloud.ibm.com/docs/en/api/qiskit-runtime-rest
 - Qiskit Runtime local testing mode: https://quantum.cloud.ibm.com/docs/en/guides/local-testing-mode
-- ruqu-mcp MCP server (ADR-008): https://github.com/ruvnet/zagents-generator
-- ADR-068 (this design): https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-068-example-qiskit.md
-- ADR-051 (examples program): https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md
+- ruqu-mcp MCP server (ADR-008): https://github.com/cvsz/zagents-generator
+- ADR-068 (this design): https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-068-example-qiskit.md
+- ADR-051 (examples program): https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md

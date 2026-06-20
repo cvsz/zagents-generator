@@ -2,10 +2,10 @@
   "name": "@zagents/openclaw",
   "version": "0.1.0",
   "description": "ZAgents example — minimal scaffold wired to OpenClaw's .openclaw/ config (npx @zagents/openclaw my-bot)",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/openclaw",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/openclaw",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/openclaw"
   },
   "license": "MIT",

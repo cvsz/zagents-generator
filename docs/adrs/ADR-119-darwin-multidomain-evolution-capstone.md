@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — multi-domain dynamic capstone
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-110 (single-task evolution capstone), ADR-117/118 (real multi-file nucleus + generalization), ADR-111 (window-vs-ranking honesty)
 
 > ADR-110 evolved one gemini parameter to lift a single real-LLM task; ADR-118 showed the real loop generalizes statically across five domains. This ties them: a real evolutionary loop that lifts the real-LLM real-test pass-rate across all five domains at once.

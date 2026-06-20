@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-002 (Kernel boundary §3 Memory), ADR-014 (Self-evolution + federation)
 
 ## Context
@@ -345,7 +345,7 @@ This ADR is satisfied when the following exist:
 
 - **`@ruvector/emergent-time@0.1.0`** (live npm wasm package — the integration we ship): https://www.npmjs.com/package/@ruvector/emergent-time.
 - `emergent-time` Rust crate (the source the wasm package is built from): https://crates.io/crates/emergent-time, https://docs.rs/emergent-time.
-- Source repo (wasm wrapper at `crates/emergent-time-wasm`, npm at `npm/packages/emergent-time`): https://github.com/ruvnet/ruvector. PR #566 contains the wasm package source.
+- Source repo (wasm wrapper at `crates/emergent-time-wasm`, npm at `npm/packages/emergent-time`): https://github.com/cvsz/ruvector. PR #566 contains the wasm package source.
 - HNSW paper: Malkov & Yashunin, https://arxiv.org/abs/1603.09320.
 - RaBitQ paper: https://arxiv.org/abs/2405.12497 (the random-bit quantization technique).
 - ReasoningBank — see the ruflo intelligence audit at `docs/reviews/intelligence-system-audit-2026-05-29.md`.

@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-001 (Goals), ADR-002a (Rust crate + WASM/NAPI-RS publishing pipeline), ADR-003 (Generator architecture), ADR-004 (Host integration), ADR-005 (Marketplace), ADR-006 (Memory + learning), ADR-012 (Eject + upgrade)
 
 > This is the load-bearing decision of the series. Every subsequent ADR depends on what is in the kernel and what is not. Spend the time here.
@@ -352,7 +352,7 @@ For each kernel subsystem (`mcp`, `hooks`, `memory`, `routing`, `marketplace`, `
 - Vite plugin API: https://vitejs.dev/guide/api-plugin.html
 - CRA eject critique: see the Vite team's reasoning in https://vitejs.dev/guide/why and the general Next.js / Vite displacement of CRA in the React ecosystem post-2022.
 - `@ruvector/emergent-time@0.1.0` — the working Rust → wasm-pack → npm precedent: https://www.npmjs.com/package/@ruvector/emergent-time.
-- `emergent-time` crate (Rust source): https://crates.io/crates/emergent-time, https://docs.rs/emergent-time, https://github.com/ruvnet/ruvector.
+- `emergent-time` crate (Rust source): https://crates.io/crates/emergent-time, https://docs.rs/emergent-time, https://github.com/cvsz/ruvector.
 - `wasm-bindgen` — https://rustwasm.github.io/docs/wasm-bindgen/
 - `wasm-pack` — https://rustwasm.github.io/docs/wasm-pack/
 - NAPI-RS — https://napi.rs/

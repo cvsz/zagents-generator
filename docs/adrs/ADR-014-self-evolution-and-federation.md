@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-006 (Memory + learning), ADR-002 (Kernel boundary), ADR-011 (Witness)
 
 > This ADR covers two of the user prompt's exotic-tier compositions: a gemini that uses its learning loop to optimise its own routing over time, and a gemini that runs as multiple federated instances. Both lean heavily on kernel mechanisms already specified in earlier ADRs; this ADR pins what changes at the gemini level when those features are turned on, and where the trade-offs live.

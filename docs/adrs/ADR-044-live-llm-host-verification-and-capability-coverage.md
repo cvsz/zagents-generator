@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-16
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Supersedes**: none
 **Related**: ADR-004 (host integration model), ADR-022 (MCP primitive / default-deny), ADR-028 (skew detection & liveness), ADR-037 (DRACO OpenRouter fusion — source of the live transport), ADR-033 (host-github-actions)
 

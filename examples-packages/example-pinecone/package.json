@@ -2,10 +2,10 @@
   "name": "@zagents/example-pinecone",
   "version": "0.2.0",
   "description": "ZAgents example \u2014 Pinecone RAG memory agent scaffold with tiered routing, MCP default-deny, and verification gate (npx @zagents/example-pinecone my-bot)",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/example-pinecone",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/example-pinecone",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/example-pinecone"
   },
   "license": "MIT",

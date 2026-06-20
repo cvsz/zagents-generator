@@ -2,7 +2,7 @@
 
 **Status**: Accepted
 **Date**: 2026-06-14
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-001 (goals & non-goals — coins "meta-gemini"), ADR-019 (release orchestration), ADR-030 (Discovery Loop propagation)
 **Supersedes**: implicit naming choices from iter 108 (agentmint), iter 108b (mintagent), iter 118 (openharness)
 
@@ -28,7 +28,7 @@ The thrash was painful (~200 source-level rename touches across three iters), bu
 
 3. **The CLI invocation reads as a verb of art.** `npx zagents` parses as "run the meta-gemini" — coherent with the project's positioning as "a factory for agent frameworks" (the user's iter-107 directive). `npx mintagent` and `npx openharness` both worked, but neither anchored on a concept the codebase already taught.
 
-The repository slug `ruvnet/zagents-generator` stays unchanged. It's the **category** ("agent gemini generator"). The npm name is the **brand** ("ZAgents"). This dual-handle pattern matches the iter-117 user directive that introduced the MintAgent/OpenHarness distinction in the first place.
+The repository slug `cvsz/zagents-generator` stays unchanged. It's the **category** ("agent gemini generator"). The npm name is the **brand** ("ZAgents"). This dual-handle pattern matches the iter-117 user directive that introduced the MintAgent/OpenHarness distinction in the first place.
 
 ## Decision
 
@@ -38,9 +38,9 @@ Concretely:
 
 | Layer | Name | Notes |
 |---|---|---|
-| GitHub repo (category, SEO) | `ruvnet/zagents-generator` | Unchanged. Repository description, README, and badges keep this as the discoverable category. |
+| GitHub repo (category, SEO) | `cvsz/zagents-generator` | Unchanged. Repository description, README, and badges keep this as the discoverable category. |
 | Published CLI (npm) | `zagents` | One word, all lowercase. `npx zagents ...` is the user-facing invocation. |
-| Published library (npm) | `@ruvnet/zagents-generator` | The thin re-export wrapper from iter 116 stays scoped (`@ruvnet/...`) under the category name. |
+| Published library (npm) | `@cvsz/zagents-generator` | The thin re-export wrapper from iter 116 stays scoped (`@ruvnet/...`) under the category name. |
 | Product/brand display | **ZAgents** | Used in README H1, Web UI heading ("Open Gemini Studio" → "ZAgents Studio" follow-up), marketing copy. |
 | Tagline | "Mint a custom AI agent gemini from any repo." | Inherited from the iter-107 OpenHarness rebrand; the action verb ("mint") still fits ZAgents. |
 | Repo description | "ZAgents — the meta-gemini for AI agents. Mint a custom agent gemini from any repo." | One sentence; brand + category + outcome. |
@@ -53,7 +53,7 @@ The CLI surface inside the gemini stays `gemini <subcommand>` (21 subcommands at
 
 - **`zagents`** — published. The unscoped CLI binary. Bin entries: `zagents` (the scaffolder) and `gemini` (the per-gemini toolkit).
 - **`meta-gemini`** (dashed) — npm-blocked by similarity; *we cannot register it and neither can anyone else*. This is the intended defensive moat.
-- **`@ruvnet/zagents`** — reserved for future use (e.g. if we ever need to ship an internal pre-release lane separately from the public `zagents` channel).
+- **`@cvsz/zagents`** — reserved for future use (e.g. if we ever need to ship an internal pre-release lane separately from the public `zagents` channel).
 
 ### Migration discipline for end users
 
@@ -71,7 +71,7 @@ The Discovery Loop (ADR-030) will propagate the rename across: README H1, USAGE.
 ### Required follow-on work (mechanical, this iter and the next)
 
 1. **Source-level rename** across all 14+ files that still reference `mintagent` or `openharness`. Bulk sed; verify with `grep -rln 'mintagent\|openharness\|MintAgent\|OpenHarness' --include='*.ts' --include='*.md' --include='*.json'` returning empty.
-2. **Wrapper dependency**: `@ruvnet/zagents-generator` re-exports from `zagents` (was `openharness` after iter 118, was `mintagent` before iter 118).
+2. **Wrapper dependency**: `@cvsz/zagents-generator` re-exports from `zagents` (was `openharness` after iter 118, was `mintagent` before iter 118).
 3. **Web UI in-app heading**: "Open Gemini Studio" → "ZAgents Studio". The iter-118 rename to "Open Gemini Studio" was made specifically because the user wrote it in lowercase ("the web ui is Open Gemini Studio") — that directive is now superseded by this ADR.
 4. **Marketplace plugin.json `displayName`**: "OpenHarness" → "ZAgents".
 5. **Test files referencing the bin name**: `__tests__/openharness-subcommands.test.ts` → `__tests__/zagents-subcommands.test.ts` (file rename + body update).
@@ -95,14 +95,14 @@ The Discovery Loop (ADR-030) will propagate the rename across: README H1, USAGE.
 
 2. **Pick another available unscoped name** (e.g. `harnessgen`, `agentforge`, `mintforge`). Rejected: every candidate either had the same similarity-rule risk or carried less conceptual weight than `zagents`. The repo has been talking about itself as a *meta-gemini* for two months; choosing anything else would have been a brand reset, not a brand consolidation.
 
-3. **Sunset the published CLI entirely, ship only the library `@ruvnet/zagents-generator`.** Rejected: the user's iter-107 directive ("Paste any GitHub repo. Get a custom agent gemini.") and the entire Studio onboarding flow are built around an `npx`-runnable CLI. The library wrapper exists for embedding; the CLI exists for hands.
+3. **Sunset the published CLI entirely, ship only the library `@cvsz/zagents-generator`.** Rejected: the user's iter-107 directive ("Paste any GitHub repo. Get a custom agent gemini.") and the entire Studio onboarding flow are built around an `npx`-runnable CLI. The library wrapper exists for embedding; the CLI exists for hands.
 
 ## Test Contract
 
 | # | File | Assertion |
 |---|---|---|
 | 1 | `__tests__/zagents-subcommands.test.ts` | The `main()` router exists and the subcommand verbs (`new`, `from-repo`, `analyze`, `genome`) all route correctly. |
-| 2 | `__tests__/zagents-generator-lib.test.ts` | `@ruvnet/zagents-generator` re-exports `scaffold`, `HOSTS`, `TEMPLATES` (no asserting on what package they live in — re-exports are opaque to the consumer). |
+| 2 | `__tests__/zagents-generator-lib.test.ts` | `@cvsz/zagents-generator` re-exports `scaffold`, `HOSTS`, `TEMPLATES` (no asserting on what package they live in — re-exports are opaque to the consumer). |
 | 3 | grep gate | `grep -rln 'mintagent\|openharness\|MintAgent\|OpenHarness' --include='*.ts' --include='*.json' --include='*.md' --include='*.mjs' \| grep -v node_modules \| grep -v dist/` returns empty. (Run by CI to catch a future regression.) |
 | 4 | `apps/web-ui/e2e/generator.spec.ts` | The H1 matcher reads `/ZAgents Studio/i`. |
 | 5 | npm publish surface | `npm view zagents version` returns the current published version. |

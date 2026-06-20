@@ -8,7 +8,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/@zagents/example-stripe?color=6772e5)](https://www.npmjs.com/package/@zagents/example-stripe)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org)
-[![Built with ZAgents](https://img.shields.io/badge/built%20with-zagents-8b5cf6)](https://github.com/ruvnet/zagents-generator)
+[![Built with ZAgents](https://img.shields.io/badge/built%20with-zagents-8b5cf6)](https://github.com/cvsz/zagents-generator)
 
 ---
 
@@ -225,5 +225,5 @@ Every tool call is written to `.gemini/mcp-audit.jsonl` with timestamp, agent id
 - [Stripe webhook signature verification](https://docs.stripe.com/webhooks)
 - [Stripe sandboxes](https://docs.stripe.com/sandboxes)
 - [Stripe agent billing workflows](https://docs.stripe.com/agents-billing-workflows)
-- [ADR-055: example-stripe design rationale](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-055-example-stripe.md)
-- [ADR-051: Third-party SDK showcase examples program](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ADR-055: example-stripe design rationale](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-055-example-stripe.md)
+- [ADR-051: Third-party SDK showcase examples program](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)

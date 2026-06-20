@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented + measured)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-071 (mutation surfaces), ADR-084 (mutation context), ADR-103 (which found this bug)
 
 > ADR-103's instrumentation found that the `DeterministicMutator` never grew the retry budget: `maxAttempts` explored only `{1,2,3}` (≤ baseline). Root cause: all siblings mutating the same surface produced the *same* edit, so a generation explored one direction, not both. This ADR fixes it with a deterministic sibling nonce.

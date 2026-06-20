@@ -1,6 +1,6 @@
 # @zagents/host-openclaw
 
-[OpenClaw](https://github.com/openclaw/openclaw) host adapter for the [zagents-generator](https://github.com/ruvnet/zagents-generator) project.
+[OpenClaw](https://github.com/openclaw/openclaw) host adapter for the [zagents-generator](https://github.com/cvsz/zagents-generator) project.
 
 > OpenClaw — Personal AI Assistant. Any OS. Any Platform. The lobster way. 🦞
 

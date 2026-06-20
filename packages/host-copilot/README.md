@@ -1,7 +1,7 @@
 # @zagents/host-copilot
 
-> GitHub Copilot (VSCode) host adapter for [zagents-generator](https://github.com/ruvnet/zagents-generator).
-> The 7th host adapter, per [ADR-032](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-032-host-copilot.md).
+> GitHub Copilot (VSCode) host adapter for [zagents-generator](https://github.com/cvsz/zagents-generator).
+> The 7th host adapter, per [ADR-032](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-032-host-copilot.md).
 
 ## What it does
 

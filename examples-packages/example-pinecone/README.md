@@ -6,7 +6,7 @@ Scaffold a production-pattern RAG memory gemini pre-wired to Pinecone's serverle
 
 [![npm version](https://img.shields.io/npm/v/@zagents/example-pinecone?label=%40zagents%2Fexample-pinecone)](https://www.npmjs.com/package/@zagents/example-pinecone)
 [![npm downloads](https://img.shields.io/npm/dm/@zagents/example-pinecone)](https://www.npmjs.com/package/@zagents/example-pinecone)
-[![license](https://img.shields.io/npm/l/@zagents/example-pinecone)](https://github.com/ruvnet/zagents-generator/blob/main/LICENSE)
+[![license](https://img.shields.io/npm/l/@zagents/example-pinecone)](https://github.com/cvsz/zagents-generator/blob/main/LICENSE)
 [![node](https://img.shields.io/node/v/@zagents/example-pinecone)](https://nodejs.org)
 [![built with zagents](https://img.shields.io/badge/built%20with-zagents-6366f1)](https://www.npmjs.com/package/zagents)
 
@@ -210,5 +210,5 @@ All other MCP tools are denied. Shell, file-write, and arbitrary-network tools a
 - [Pinecone MCP server (`pinecone-io/pinecone-mcp`)](https://github.com/pinecone-io/pinecone-mcp)
 - [Pinecone integrated inference guide](https://github.com/pinecone-io/pinecone-ts-client/blob/main/guides/inference/integrated-inference.md)
 - [Pinecone authentication](https://docs.pinecone.io/reference/api/authentication)
-- [ADR-062 (this example's design record)](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-062-example-pinecone.md)
-- [ADR-051 (examples program)](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ADR-062 (this example's design record)](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-062-example-pinecone.md)
+- [ADR-051 (examples program)](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)

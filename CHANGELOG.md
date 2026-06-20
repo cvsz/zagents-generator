@@ -358,7 +358,7 @@ All notable changes to this project are documented here. Format follows [Keep a 
   Next: capture the full diagnostic state for a support ticket:
     gemini diag /path/to/gemini --bundle > bundle.json
   (then attach bundle.json to a GitHub issue at
-   https://github.com/ruvnet/zagents-generator/issues — the
+   https://github.com/cvsz/zagents-generator/issues — the
    bundle is sanitised; secret_/token_/key_/password_ fields are redacted)
   ```
 - **HEALTHY output is unchanged** — the bundle suggestion would be
@@ -389,7 +389,7 @@ All notable changes to this project are documented here. Format follows [Keep a 
   Next: capture the full diagnostic state for a support ticket:
     gemini diag /path/to/gemini --bundle > bundle.json
   (then attach bundle.json to a GitHub issue at
-   https://github.com/ruvnet/zagents-generator/issues — the
+   https://github.com/cvsz/zagents-generator/issues — the
    bundle is sanitised; secret_/token_/key_/password_ fields are redacted)
   ```
 - **Sanitisation reassurance is load-bearing** — users hitting their
@@ -999,7 +999,7 @@ All notable changes to this project are documented here. Format follows [Keep a 
 ### Added — Iter 72 (2026-06-14)
 
 - **`scripts/healthcheck.mjs --probe-pages`** — opt-in HTTP probe of
-  the live Studio at <https://ruvnet.github.io/zagents-generator/>.
+  the live Studio at <https://cvsz.github.io/zagents-generator/>.
   iter-42 healthcheck was deliberately offline (file-system only); the
   Pages site has become a primary distribution surface so the daily
   driver should know how to verify it's alive.
@@ -1015,7 +1015,7 @@ All notable changes to this project are documented here. Format follows [Keep a 
   live-site verification one flag away.
 - New live output with `--probe-pages`:
   ```
-  PASS pages       https://ruvnet.github.io/zagents-generator/ OK + Vite bundle 200
+  PASS pages       https://cvsz.github.io/zagents-generator/ OK + Vite bundle 200
   ```
 - `__tests__/healthcheck.test.ts` 7 → 9 cases (+2):
   - pages check is SKIP by default (no network)
@@ -2573,7 +2573,7 @@ All notable changes to this project are documented here. Format follows [Keep a 
 ### Added — Iter 12 (2026-06-13)
 
 - **Sixth host adapter: `@zagents/host-rvm`** for
-  [RVM](https://github.com/ruvnet/rvm) — the Agentic Virtual Machine.
+  [RVM](https://github.com/cvsz/rvm) — the Agentic Virtual Machine.
   Positioned as the **hardware-isolated deployment target** (vs the
   five OS-level adapters)
   - Generates `rvm-partition.toml` (TOML partition manifest), `capability-

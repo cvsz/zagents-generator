@@ -8,7 +8,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/@zagents/example-slack)](https://www.npmjs.com/package/@zagents/example-slack)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org/)
-[![built with zagents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/ruvnet/zagents-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/cvsz/zagents-generator)
 
 ---
 
@@ -224,5 +224,5 @@ All grant evaluations are written to `.gemini/audit.jsonl`.
 - [Slack OAuth scopes reference](https://api.slack.com/scopes)
 - [Slack Developer Sandboxes](https://docs.slack.dev/tools/developer-sandboxes/)
 - [Socket Mode guide](https://docs.slack.dev/apis/events-api/using-socket-mode/)
-- [ADR-056: example-slack design record](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-056-example-slack.md)
-- [ADR-051: Third-party SDK showcase examples program](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ADR-056: example-slack design record](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-056-example-slack.md)
+- [ADR-051: Third-party SDK showcase examples program](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)

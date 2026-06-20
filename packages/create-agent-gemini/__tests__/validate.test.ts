@@ -78,7 +78,7 @@ describe('gemini validate', () => {
       const txt = r.lines.join('\n');
       expect(txt).toMatch(/Next:\s*capture the full diagnostic state/);
       expect(txt).toMatch(/gemini diag .* --bundle > bundle\.json/);
-      expect(txt).toContain('github.com/ruvnet/zagents-generator/issues');
+      expect(txt).toContain('github.com/cvsz/zagents-generator/issues');
       expect(txt).toMatch(/secret_\/token_\/key_\/password_ fields are redacted/);
     } finally {
       await rm(dir, { recursive: true, force: true });

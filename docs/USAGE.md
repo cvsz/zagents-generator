@@ -36,7 +36,7 @@ No global install required. The package downloads itself on use.
 If you're working from the repo directly:
 
 ```bash
-git clone https://github.com/ruvnet/zagents-generator
+git clone https://github.com/cvsz/zagents-generator
 cd zagents-generator
 npm install
 npm run build
@@ -260,7 +260,7 @@ Honesty caveat from the underlying `@ruvector/emergent-time` package: the SDK is
 | `unknown template` | Check `npx zagents --list` for the current template list (19 verticals at iter 96) |
 | `witness verification failed` on publish | Your `.gemini/witness.json` was tampered with OR `gemini sign` was never run |
 | `npm publish: 403` | Token expired — rotate via `gcloud secrets versions add NPM_TOKEN --data-file=-` |
-| `gemini doctor` reports issues you don't understand | Run `gemini diag <path> --bundle > bundle.json` and attach to an issue at <https://github.com/ruvnet/zagents-generator/issues>. The bundle is sanitised (secret/token/key/password fields redacted). |
+| `gemini doctor` reports issues you don't understand | Run `gemini diag <path> --bundle > bundle.json` and attach to an issue at <https://github.com/cvsz/zagents-generator/issues>. The bundle is sanitised (secret/token/key/password fields redacted). |
 | `gemini diag` says `MAJOR skew — APIs may have changed; expect breakage` | Your local `@zagents/kernel` is on a different major than the version your gemini was scaffolded against. Run `npm install @zagents/kernel@<manifest-version>` (the diag output names the version). See [ADR-028](adrs/ADR-028-skew-detection-and-liveness.md). |
 | Want to share your MCP/Bash/claims config for a security review without zipping the whole gemini | `gemini export-config <path> > config.json` (iter 97) — emits a single sanitised JSON. |
 | Want to share npm-audit findings (machine-parseable, for grep / CI / vuln review) | `gemini audit <path> --bundle > audit.json` (iter 102) — emits `{ schema, level, total, counts, offenders, failCount, exitCode }`. Error paths (no-package-json / no-lockfile / unknown-level) are also JSON. |

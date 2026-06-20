@@ -8,7 +8,7 @@
 [![npm downloads](https://img.shields.io/npm/dw/@zagents/example-twilio?style=flat-square)](https://www.npmjs.com/package/@zagents/example-twilio)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](./LICENSE)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen?style=flat-square)](https://nodejs.org/)
-[![built with zagents](https://img.shields.io/badge/built%20with-zagents-7c3aed?style=flat-square)](https://github.com/ruvnet/zagents-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-7c3aed?style=flat-square)](https://github.com/cvsz/zagents-generator)
 
 ---
 
@@ -227,5 +227,5 @@ The scaffold delegates to the `zagents` CLI and the relevant `@zagents/host-<id>
 - [Twilio WhatsApp Sandbox](https://www.twilio.com/docs/whatsapp/sandbox)
 - [Twilio Programmable Voice API](https://www.twilio.com/docs/voice/api)
 - [Send SMS with Messaging Service (Node.js)](https://www.twilio.com/docs/messaging/tutorials/send-messages-with-messaging-services)
-- [ADR-058: example-twilio design record](https://github.com/ruvnet/zagents-generator/tree/main/docs/adrs/ADR-058-example-twilio.md)
-- [ADR-051: Third-party SDK showcase examples program](https://github.com/ruvnet/zagents-generator/tree/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ADR-058: example-twilio design record](https://github.com/cvsz/zagents-generator/tree/main/docs/adrs/ADR-058-example-twilio.md)
+- [ADR-051: Third-party SDK showcase examples program](https://github.com/cvsz/zagents-generator/tree/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)

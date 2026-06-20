@@ -8,7 +8,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/@zagents/example-gcp)](https://www.npmjs.com/package/@zagents/example-gcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org)
-[![built with zagents](https://img.shields.io/badge/built%20with-zagents-8A2BE2)](https://github.com/ruvnet/zagents-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-8A2BE2)](https://github.com/cvsz/zagents-generator)
 
 ---
 
@@ -240,6 +240,6 @@ const ai = new GoogleGenAI();                     // ADC + GOOGLE_GENAI_USE_VERT
 - [Application Default Credentials guide](https://cloud.google.com/docs/authentication/application-default-credentials)
 - [BigQuery dry-run sample](https://cloud.google.com/bigquery/docs/samples/bigquery-query-dry-run)
 - [BigQuery Sandbox (free tier)](https://cloud.google.com/bigquery/docs/sandbox)
-- [ADR-053: example-gcp design record](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-053-example-gcp.md)
-- [ADR-051: examples program](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
-- [ZAgents generator](https://github.com/ruvnet/zagents-generator)
+- [ADR-053: example-gcp design record](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-053-example-gcp.md)
+- [ADR-051: examples program](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ZAgents generator](https://github.com/cvsz/zagents-generator)

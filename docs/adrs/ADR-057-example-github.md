@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -115,7 +115,7 @@ GitHub Apps authentication (`createAppAuth` from `@octokit/auth-app`) is documen
 - Provides a one-command, immediately runnable demonstration that a zagents-generated agent can drive real GitHub operations safely and verifiably.
 - The three showcased capabilities (PR review, issue triage, release notes) cover the full read-to-write spectrum and demonstrate both REST and GraphQL surfaces.
 - Read-only default means a first-time operator can run `npx @zagents/example-github@latest my-bot` against their own repo with no risk of unintended mutations.
-- Serves as the dogfood test: this scaffold can be run against `ruvnet/zagents-generator` itself to validate each release.
+- Serves as the dogfood test: this scaffold can be run against `cvsz/zagents-generator` itself to validate each release.
 - The verification gate (read-back after any write) satisfies ADR-050 without requiring a separate sandbox infrastructure.
 
 ### Limitations

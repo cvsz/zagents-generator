@@ -9,7 +9,7 @@
 #
 # Requirements:
 #   - gcloud CLI authenticated as a project owner
-#   - GitHub repo "ruvnet/zagents-generator" exists
+#   - GitHub repo "cvsz/zagents-generator" exists
 #   - $NPM_TOKEN env var set to the publish token (Automation type)
 #
 # Usage:
@@ -19,7 +19,7 @@
 
 set -euo pipefail
 
-REPO="${REPO:-ruvnet/zagents-generator}"
+REPO="${REPO:-cvsz/zagents-generator}"
 POOL="${POOL:-github-pool}"
 PROVIDER="${PROVIDER:-github-provider}"
 SA_NAME="${SA_NAME:-agent-gemini-publisher}"

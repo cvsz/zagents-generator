@@ -12,7 +12,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/@zagents/example-iot.svg)](https://www.npmjs.com/package/@zagents/example-iot)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)](https://nodejs.org/)
-[![built with zagents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/ruvnet/zagents-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/cvsz/zagents-generator)
 
 ---
 
@@ -249,4 +249,4 @@ The audit log records every tool call for post-incident review.
 - **Mosquitto test broker**: https://test.mosquitto.org
 - **ADR-066** (this design): `docs/adrs/ADR-066-example-iot.md` in the generator repo
 - **ADR-051** (examples program): `docs/adrs/ADR-051-third-party-sdk-showcase-examples.md`
-- **zagents repo**: https://github.com/ruvnet/zagents-generator
+- **zagents repo**: https://github.com/cvsz/zagents-generator

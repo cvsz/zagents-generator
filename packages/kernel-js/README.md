@@ -1,6 +1,6 @@
 # @zagents/kernel
 
-Cross-platform kernel for the [zagents-generator](https://github.com/ruvnet/zagents-generator) project.
+Cross-platform kernel for the [zagents-generator](https://github.com/cvsz/zagents-generator) project.
 
 ## What it is
 

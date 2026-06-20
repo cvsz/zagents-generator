@@ -8,7 +8,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/@zagents/example-bio.svg)](https://www.npmjs.com/package/@zagents/example-bio)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)](https://nodejs.org/)
-[![Built with zagents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/ruvnet/zagents-generator)
+[![Built with zagents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/cvsz/zagents-generator)
 
 ---
 
@@ -189,6 +189,6 @@ All other tools and all other network destinations are denied by default.
 - `node-ncbi` GitHub: https://github.com/CAYdenberg/node-ncbi
 - Ensembl REST API: https://rest.ensembl.org/
 - Ensembl REST rate limits: https://github.com/Ensembl/ensembl-rest/wiki/Rate-Limits
-- ADR-069 (this design): https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-069-example-bio-bioinformatics-sdk-showcase.md
-- ADR-051 (examples program): https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md
-- zagents generator: https://github.com/ruvnet/zagents-generator
+- ADR-069 (this design): https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-069-example-bio-bioinformatics-sdk-showcase.md
+- ADR-051 (examples program): https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md
+- zagents generator: https://github.com/cvsz/zagents-generator

@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — generalization of ADR-117
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-117 (single-bug SWE nucleus), ADR-113 (ranking causal), ADR-098 (frontier)
 
 > ADR-117 fixed one real multi-file bug end-to-end. The obvious skeptic's question: a fluke? This runs five independent bugs across different domains through the same real loop. 5/5.

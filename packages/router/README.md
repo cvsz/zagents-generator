@@ -1,7 +1,7 @@
 # @zagents/router
 
 **Route each query to the cheapest model that's good enough.** The productized
-form of the DRACO Phase-2 finding (`ruvnet/zagents-generator`, ADR-040):
+form of the DRACO Phase-2 finding (`cvsz/zagents-generator`, ADR-040):
 on cross-domain research, structure/fusion does *not* beat a strong model on
 quality — but routing each query to the *right, cheapest* model is a measured
 Pareto win. A learned embedding router beat the best fixed model on DRACO, and

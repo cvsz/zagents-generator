@@ -2,10 +2,10 @@
   "name": "zagents",
   "version": "0.2.2",
   "description": "ZAgents — mint a custom AI agent gemini from any repo. Browser Studio + `npx zagents` CLI. Runs on Claude Code, Codex, pi.dev, Hermes, OpenClaw, RVM.",
-  "homepage": "https://github.com/ruvnet/zagents-generator",
+  "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "packages/create-agent-gemini"
   },
   "license": "MIT",

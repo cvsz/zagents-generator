@@ -8,7 +8,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/@zagents/example-nasa?style=flat-square)](https://www.npmjs.com/package/@zagents/example-nasa)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen?style=flat-square)](https://nodejs.org/)
-[![Built with ZAgents](https://img.shields.io/badge/built%20with-zagents-blueviolet?style=flat-square)](https://github.com/ruvnet/zagents-generator)
+[![Built with ZAgents](https://img.shields.io/badge/built%20with-zagents-blueviolet?style=flat-square)](https://github.com/cvsz/zagents-generator)
 
 ---
 
@@ -206,6 +206,6 @@ Supported hosts: `claude-code`, `codex`, `copilot`, `github-actions`, `hermes`, 
 - **satellite.js (GitHub)** — [https://github.com/shashwatak/satellite-js](https://github.com/shashwatak/satellite-js)
 - **CelesTrak GP data formats** — [https://celestrak.org/NORAD/documentation/gp-data-formats.php](https://celestrak.org/NORAD/documentation/gp-data-formats.php)
 - **NASA API rate limits** — [https://api.nasa.gov/assets/html/authentication.html](https://api.nasa.gov/assets/html/authentication.html)
-- **ADR-067** (this design) — [docs/adrs/ADR-067-example-nasa.md](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-067-example-nasa.md)
-- **ADR-051** (examples program) — [docs/adrs/ADR-051-third-party-sdk-showcase-examples.md](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
-- **ZAgents generator** — [https://github.com/ruvnet/zagents-generator](https://github.com/ruvnet/zagents-generator)
+- **ADR-067** (this design) — [docs/adrs/ADR-067-example-nasa.md](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-067-example-nasa.md)
+- **ADR-051** (examples program) — [docs/adrs/ADR-051-third-party-sdk-showcase-examples.md](https://github.com/cvsz/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- **ZAgents generator** — [https://github.com/cvsz/zagents-generator](https://github.com/cvsz/zagents-generator)

@@ -2,10 +2,10 @@
   "name": "@zagents/example-datadog",
   "version": "0.2.0",
   "description": "ZAgents scaffold for Datadog incident triage \u2014 npx @zagents/example-datadog@latest <project-name> to generate a read-only AI triage bot wired to the Datadog API",
-  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/example-datadog",
+  "homepage": "https://github.com/cvsz/zagents-generator/tree/main/examples-packages/example-datadog",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/zagents-generator.git",
+    "url": "https://github.com/cvsz/zagents-generator.git",
     "directory": "examples-packages/example-datadog"
   },
   "license": "MIT",

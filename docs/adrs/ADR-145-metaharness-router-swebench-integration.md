@@ -2,7 +2,7 @@
 
 **Status**: Proposed (roadmap — not yet implemented; deferred behind the ADR-144 full-300 baseline)
 **Date**: 2026-06-18
-**Project**: `ruvnet/zagents-generator`
+**Project**: `cvsz/zagents-generator`
 **Related**: ADR-040 (DRACO routing → `@zagents/router`), ADR-135 (SWE-fix model frontier), ADR-136/137 (model-as-gene, ad-hoc), ADR-143 (closed-loop repair), ADR-142/144 (SWE-bench Lite numbers)
 
 > The user's observation: the zagents already ships a learned cost-optimal **router** (`packages/router`, `@zagents/router`), and the SWE-bench solver currently **fixes one model (`deepseek-chat`) for every instance**. Routing each instance to the *cheapest model good enough for it* — and making that routing policy an **evolvable surface** — is squarely the zagents thesis and a measured Pareto lever. This ADR captures the integration so a later loop can execute it without re-deriving it. **Nothing here is implemented yet; no routed number is claimed until a real run exists (per ADR-098).**
