@@ -1,0 +1,497 @@
+# Instincts generated from https://github.com/cvsz/zagents-generator
+# Generated: 2026-06-20T06:36:31.413Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: zagents-generator-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/cvsz/zagents-generator
+---
+
+# Zagents Generator Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: feat, refactor
+
+## Evidence
+
+- 7 commits analyzed
+- Detected conventional commit pattern
+- Examples: feat: scaffold new features (darwin action, ollama host, code-review vertical, web-ui stubs), refactor: rename HarnessBuilder to ZBuilder
+
+---
+id: zagents-generator-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/cvsz/zagents-generator
+---
+
+# Zagents Generator Commit Length
+
+## Action
+
+Write moderate-length commit messages (~67 characters)
+
+## Evidence
+
+- Average commit message length: 67 chars
+- Based on 7 commits
+
+---
+id: zagents-generator-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/cvsz/zagents-generator
+---
+
+# Zagents Generator Naming Files
+
+## Action
+
+Use PascalCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: PascalCase
+
+---
+id: zagents-generator-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/cvsz/zagents-generator
+---
+
+# Zagents Generator Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: zagents-generator-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/cvsz/zagents-generator
+---
+
+# Zagents Generator Export Style
+
+## Action
+
+Prefer mixed exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: mixed
+
+---
+id: zagents-generator-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/cvsz/zagents-generator
+---
+
+# Zagents Generator Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: zagents-generator-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/cvsz/zagents-generator
+---
+
+# Zagents Generator Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~26x per month
+- Files: apps/web-ui/src/*, packages/host-ollama/__tests__/*, packages/host-ollama/src/*
+
+---
+id: zagents-generator-workflow-update-skill-catalog
+trigger: "when doing update skill catalog"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/cvsz/zagents-generator
+---
+
+# Zagents Generator Workflow Update Skill Catalog
+
+## Action
+
+Follow the update-skill-catalog workflow:
+1. Edit packages/create-agent-gemini/templates/catalog.def.mjs to add or update skills/agents
+2. Commit changes with a message referencing skills or catalog
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: packages/create-agent-gemini/templates/catalog.def.mjs
+
+---
+id: zagents-generator-workflow-add-or-update-admincp-feature
+trigger: "when doing add or update admincp feature"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/cvsz/zagents-generator
+---
+
+# Zagents Generator Workflow Add Or Update Admincp Feature
+
+## Action
+
+Follow the add-or-update-admincp-feature workflow:
+1. Edit or create apps/web-ui/src/components/AdminCP.tsx
+2. Optionally update apps/web-ui/src/App.tsx to integrate AdminCP changes
+3. Commit changes with a message referencing AdminCP
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: apps/web-ui/src/components/AdminCP.tsx, apps/web-ui/src/App.tsx
+
+---
+id: zagents-generator-workflow-scaffold-new-package
+trigger: "when doing scaffold new package"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/cvsz/zagents-generator
+---
+
+# Zagents Generator Workflow Scaffold New Package
+
+## Action
+
+Follow the scaffold-new-package workflow:
+1. Create package directory under packages/
+2. Add LICENSE, README.md, package.json, tsconfig.json
+3. Create src/index.ts and __tests__/*.test.ts
+4. Add any templates or manifest files as needed
+5. Commit all new files
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: packages/*/LICENSE, packages/*/README.md, packages/*/package.json
+
+---
+id: zagents-generator-instinct-file-naming
+trigger: "When creating or renaming files in the codebase"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: cvsz/zagents-generator
+---
+
+# Zagents Generator Instinct File Naming
+
+## Action
+
+Use PascalCase for file names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files
+- Consistent with files like App.tsx, AdminCP.tsx
+
+---
+id: zagents-generator-instinct-function-naming
+trigger: "When defining functions"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: cvsz/zagents-generator
+---
+
+# Zagents Generator Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions
+
+---
+id: zagents-generator-instinct-class-naming
+trigger: "When defining classes"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: cvsz/zagents-generator
+---
+
+# Zagents Generator Instinct Class Naming
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes
+
+---
+id: zagents-generator-instinct-constant-naming
+trigger: "When defining constants"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: cvsz/zagents-generator
+---
+
+# Zagents Generator Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants
+
+---
+id: zagents-generator-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: cvsz/zagents-generator
+---
+
+# Zagents Generator Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+
+---
+id: zagents-generator-instinct-export-style
+trigger: "When exporting modules or symbols"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: cvsz/zagents-generator
+---
+
+# Zagents Generator Instinct Export Style
+
+## Action
+
+Use mixed export style (default and named exports as appropriate)
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+
+---
+id: zagents-generator-instinct-test-location
+trigger: "When adding tests for a package"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: cvsz/zagents-generator
+---
+
+# Zagents Generator Instinct Test Location
+
+## Action
+
+Place test files in __tests__ directories within the package or alongside source files
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation
+- Files like packages/host-ollama/__tests__/scrub.test.ts
+
+---
+id: zagents-generator-instinct-test-naming
+trigger: "When naming test files"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: cvsz/zagents-generator
+---
+
+# Zagents Generator Instinct Test Naming
+
+## Action
+
+Use the .test.ts or .test.tsx suffix
+
+## Evidence
+
+- Files like packages/host-ollama/__tests__/scrub.test.ts
+- Pattern in workflows.feature-development.filesInvolved
+
+---
+id: zagents-generator-instinct-test-workflow
+trigger: "When implementing a new feature"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: cvsz/zagents-generator
+---
+
+# Zagents Generator Instinct Test Workflow
+
+## Action
+
+Add corresponding tests after feature implementation and before documentation updates
+
+## Evidence
+
+- Commit sequence in workflows.feature-development
+
+---
+id: zagents-generator-instinct-git-commit-format
+trigger: "When making a commit"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: cvsz/zagents-generator
+---
+
+# Zagents Generator Instinct Git Commit Format
+
+## Action
+
+Use conventional commit prefixes (feat, refactor) followed by a colon and a concise message
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Examples like 'feat: scaffold new features...'
+
+---
+id: zagents-generator-instinct-git-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: cvsz/zagents-generator
+---
+
+# Zagents Generator Instinct Git Commit Length
+
+## Action
+
+Keep the commit message around 67 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength
+
+---
+id: zagents-generator-instinct-update-skill-catalog
+trigger: "When someone wants to add, import, or refactor skills/agents in the catalog"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: cvsz/zagents-generator
+---
+
+# Zagents Generator Instinct Update Skill Catalog
+
+## Action
+
+Edit packages/create-agent-gemini/templates/catalog.def.mjs and commit changes referencing skills or catalog
+
+## Evidence
+
+- Workflow: update-skill-catalog
+- Commits like 'Edit packages/create-agent-gemini/templates/catalog.def.mjs to add or update skills/agents'
+
+---
+id: zagents-generator-instinct-admincp-feature
+trigger: "When someone wants to add or enhance AdminCP functionality"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: cvsz/zagents-generator
+---
+
+# Zagents Generator Instinct Admincp Feature
+
+## Action
+
+Edit or create apps/web-ui/src/components/AdminCP.tsx and optionally update apps/web-ui/src/App.tsx, then commit referencing AdminCP
+
+## Evidence
+
+- Workflow: add-or-update-admincp-feature
+- Commits referencing AdminCP
+
+---
+id: zagents-generator-instinct-scaffold-package
+trigger: "When someone wants to scaffold a new feature or vertical as a package"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: cvsz/zagents-generator
+---
+
+# Zagents Generator Instinct Scaffold Package
+
+## Action
+
+Create a new directory under packages/ with LICENSE, README.md, package.json, tsconfig.json, src/index.ts, __tests__/*.test.ts, and templates/manifest.json, then commit all new files
+
+## Evidence
+
+- Workflow: scaffold-new-package
+- Commit sequences for new packages
+
