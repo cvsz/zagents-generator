@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Boxes, Github, HelpCircle, Sparkles, Gauge, Route, ShieldCheck, Globe } from 'lucide-react';
-import { HarnessBuilder } from './components/HarnessBuilder';
+import { ZBuilder } from './components/ZBuilder';
 import { ArtifactBuilder } from './components/ArtifactBuilder';
 import { RepoImporter } from './components/RepoImporter';
 import { VerifyPanel } from './components/VerifyPanel';
 import { SegTabs } from './components/ui';
+import { FileUp, BarChart3, TrendingUp, Save } from 'lucide-react';
 import { OnboardingModal, clearOnboardingDismissal } from './components/OnboardingModal';
+import { AdminCP } from './components/AdminCP';
 import type { HarnessConfig } from './generator';
 
-type Mode = 'repo' | 'gemini' | 'artifact' | 'verify';
+type Mode = 'repo' | 'import' | 'gemini' | 'artifact' | 'verify' | 'dashboard' | 'admin';
 
 export default function App() {
   const { t, i18n } = useTranslation();
@@ -19,7 +21,7 @@ export default function App() {
     i18n.changeLanguage(i18n.language === 'en' ? 'th' : 'en');
   };
   const [seed, setSeed] = useState<HarnessConfig | undefined>(undefined);
-  // Bump to force-remount HarnessBuilder when a repo plan seeds a new config.
+  // Bump to force-remount ZBuilder when a repo plan seeds a new config.
   const [seedKey, setSeedKey] = useState(0);
   // iter 106 — onboarding modal state (undefined → modal decides from localStorage)
   const [forceOnboarding, setForceOnboarding] = useState<boolean | undefined>(undefined);
@@ -102,9 +104,12 @@ export default function App() {
             onChange={(m) => setMode(m as Mode)}
             options={[
               { id: 'repo', label: t('app.tabs.repo') },
+              { id: 'import', label: 'Import ZIP' },
               { id: 'gemini', label: t('app.tabs.gemini') },
               { id: 'artifact', label: t('app.tabs.artifact') },
               { id: 'verify', label: t('app.tabs.verify') },
+              { id: 'dashboard', label: 'Router Dashboard' },
+              { id: 'admin', label: 'Admin CP' },
             ]}
           />
         </div>
@@ -112,9 +117,76 @@ export default function App() {
 
       <main>
         {mode === 'repo' && <RepoImporter onUse={useRepoPlan} />}
-        {mode === 'gemini' && <HarnessBuilder key={seedKey} seed={seed} />}
+        {mode === 'import' && (
+          <div className="flex flex-col items-center justify-center py-24 text-center">
+            <div className="bg-brand/10 p-4 rounded-full mb-4">
+              <FileUp size={32} className="text-brand-glow" />
+            </div>
+            <h2 className="text-2xl font-bold text-slate-200">Import Existing Gemini</h2>
+            <p className="text-slate-400 mt-2 max-w-md">
+              Drag and drop your previously generated <code>.zip</code> file or <code>manifest.json</code> here to load it into the Visual Editor.
+            </p>
+            <div className="mt-8 border-2 border-dashed border-ink-600 p-12 w-full max-w-xl rounded-xl bg-ink-800/30 transition hover:bg-ink-800/60 hover:border-brand/50 cursor-pointer flex flex-col items-center gap-4">
+               <input type="file" accept=".zip,.json" className="hidden" id="file-upload" />
+               <label htmlFor="file-upload" className="cursor-pointer bg-brand hover:bg-brand/80 text-white font-bold py-2 px-6 rounded-lg transition">
+                 Select File
+               </label>
+               <span className="text-sm text-slate-500">or drop file here</span>
+            </div>
+          </div>
+        )}
+        {mode === 'gemini' && <ZBuilder key={seedKey} seed={seed} />}
         {mode === 'artifact' && <ArtifactBuilder />}
         {mode === 'verify' && <VerifyPanel />}
+        {mode === 'dashboard' && (
+          <div className="py-8 w-full max-w-4xl mx-auto">
+            <div className="flex items-center gap-3 mb-8">
+              <BarChart3 className="text-brand-glow" size={28} />
+              <h2 className="text-2xl font-bold text-slate-200">Router Analytics Dashboard</h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              <div className="bg-ink-800/50 border border-ink-700 p-6 rounded-xl flex flex-col gap-2">
+                <span className="text-slate-400 text-sm font-medium">Total Requests Routed</span>
+                <span className="text-3xl font-bold text-white">12,458</span>
+                <span className="text-green-400 text-xs flex items-center gap-1"><TrendingUp size={12}/> +14% this week</span>
+              </div>
+              <div className="bg-ink-800/50 border border-ink-700 p-6 rounded-xl flex flex-col gap-2">
+                <span className="text-slate-400 text-sm font-medium">Est. Cost Savings</span>
+                <span className="text-3xl font-bold text-brand-glow">$342.50</span>
+                <span className="text-slate-500 text-xs">compared to strictly frontier models</span>
+              </div>
+              <div className="bg-ink-800/50 border border-ink-700 p-6 rounded-xl flex flex-col gap-2">
+                <span className="text-slate-400 text-sm font-medium">Tier Downgrades</span>
+                <span className="text-3xl font-bold text-white">68%</span>
+                <span className="text-slate-500 text-xs">requests successfully handled by cheaper tier</span>
+              </div>
+            </div>
+
+            <div className="bg-ink-800/30 border border-ink-700 rounded-xl p-6">
+              <h3 className="text-lg font-bold text-slate-300 mb-4 flex items-center gap-2"><Save size={18}/> Model Usage Distribution</h3>
+              <div className="space-y-4">
+                {[
+                  { name: 'claude-3-haiku', pct: 45, color: 'bg-blue-500' },
+                  { name: 'llama-3-8b-instruct', pct: 23, color: 'bg-green-500' },
+                  { name: 'gpt-4o-mini', pct: 20, color: 'bg-purple-500' },
+                  { name: 'claude-3.5-sonnet', pct: 12, color: 'bg-orange-500' },
+                ].map(model => (
+                  <div key={model.name}>
+                    <div className="flex justify-between text-sm mb-1">
+                      <span className="text-slate-300 font-mono">{model.name}</span>
+                      <span className="text-slate-400">{model.pct}%</span>
+                    </div>
+                    <div className="w-full bg-ink-900 rounded-full h-2.5">
+                      <div className={`${model.color} h-2.5 rounded-full`} style={{ width: `${model.pct}%` }}></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+        {mode === 'admin' && <AdminCP />}
       </main>
 
       <OnboardingModal

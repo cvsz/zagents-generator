@@ -1,0 +1,33 @@
+{
+  "id": "code-reviewer-gemini",
+  "name": "code-reviewer-gemini",
+  "description": "Code Review Agent: Analyzes pull requests, enforces style guides, and detects security flaws.",
+  "systemPrompt": "You are an expert Principal Engineer performing a code review. Analyze all code diffs for:\n1. Security vulnerabilities (OWASP top 10)\n2. Performance bottlenecks\n3. Architecture and SOLID principles violations\n4. Code style inconsistencies\nAlways provide actionable, specific feedback. Include code snippets to demonstrate improvements. Never just say 'looks good' without justification.",
+  "agents": [
+    {
+      "name": "security-auditor",
+      "systemPrompt": "You are the Security Auditor agent. Your only focus is identifying security flaws in the diff."
+    },
+    {
+      "name": "performance-profiler",
+      "systemPrompt": "You are the Performance Profiler agent. Focus purely on algorithmic complexity, memory leaks, and optimal rendering."
+    }
+  ],
+  "files": [
+    { "src": "package.json.tmpl", "dst": "package.json", "render": true },
+    { "src": "CLAUDE.md.tmpl", "dst": "CLAUDE.md", "render": true },
+    { "src": "README.md.tmpl", "dst": "README.md", "render": true },
+    { "src": ".claude/settings.json.tmpl", "dst": ".claude/settings.json", "render": true },
+    { "src": "src/init.ts.tmpl", "dst": "src/init.ts", "render": true },
+    { "src": "src/agents/market-watcher.ts.tmpl", "dst": "src/agents/market-watcher.ts", "render": true },
+    { "src": "src/agents/signal-gen.ts.tmpl", "dst": "src/agents/signal-gen.ts", "render": true },
+    { "src": "src/agents/risk-checker.ts.tmpl", "dst": "src/agents/risk-checker.ts", "render": true },
+    { "src": "src/agents/executor.ts.tmpl", "dst": "src/agents/executor.ts", "render": true },
+    { "src": "src/agents/postmortem.ts.tmpl", "dst": "src/agents/postmortem.ts", "render": true }
+  ],
+  "vars": [
+    { "name": "name", "prompt": "Gemini name (kebab-case)", "validate": "^[a-z0-9-]+$" },
+    { "name": "description", "prompt": "One-line description", "default": "Quant trading with paper-default and circuit-breakers" },
+    { "name": "host", "prompt": "Host adapter", "default": "claude-code", "choices": ["claude-code", "codex", "pi-dev", "hermes", "openclaw", "rvm"] }
+  ]
+}
