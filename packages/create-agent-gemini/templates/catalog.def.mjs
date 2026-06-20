@@ -50,6 +50,25 @@ const doctorCommand = {
   body: 'Run a full health check and print a PASS/FAIL table.\n\n1. Kernel loads and `kernelInfo().version` matches package.json.\n2. The MCP server starts and lists its tools.\n3. The memory backend is reachable.\n4. The configured host adapter is present.\n\nExit non-zero if any check fails.',
 };
 
+
+
+export const SKILL_CATALOG = {
+  'plan-change': { id: 'plan-change', name: 'plan-change', description: 'Turn a feature request into a minimal, file-level implementation plan before any code.', body: 'Produce an implementation plan for a requested change.\n\n1. Restate the goal in one sentence.\n2. List the files to touch and why.\n3. Name the smallest interface that satisfies it.\n4. Flag anything that ripples beyond three files or widens a permission.\n\nHand the plan to the implementer; do not write code in this step.' },
+  'review-diff': { id: 'review-diff', name: 'review-diff', description: 'Review the current working diff for correctness, security, and reuse.', body: 'Review the current git diff.\n\n1. `git diff` to read the change.\n2. Report only high-confidence findings as `file:line — issue — fix`.\n3. Separate bugs from nits.\n4. End with APPROVE or REQUEST-CHANGES and a one-line reason.' },
+  'quarterly-plan': { id: 'quarterly-plan', name: 'quarterly-plan', description: 'Build a quarterly plan: findings → strategy → owned action items tied to KPIs.', body: 'Build a quarterly plan.\n\n1. Analyst pulls KPIs and reports what moved.\n2. Strategist frames options and recommends one, tied to a metric.\n3. Ops-coordinator breaks it into owned, dated action items.\n4. Output a one-page plan: goal, bet, metrics, owners, risks.' },
+  'campaign-brief': { id: 'campaign-brief', name: 'campaign-brief', description: 'Produce a campaign brief: audience, message, channels, content plan, and the metric.', body: 'Write a campaign brief.\n\n1. Strategist names the audience, the message, and the channels.\n2. SEO-analyst supplies the target queries and demand.\n3. Content-creator drafts the hero asset and variants.\n4. Output the brief with the single funnel metric the campaign moves.' },
+  'media-plan': { id: 'media-plan', name: 'media-plan', description: 'Build a cross-channel media plan with budget split, creative, and KPIs.', body: 'Build a media plan.\n\n1. Media-planner splits the budget across online + traditional channels with justification.\n2. Copywriter drafts a flagship execution per channel.\n3. Performance-analyst sets the KPI and the reallocation rule.\n4. Output the plan: channel, budget, creative, KPI, test reserve.' },
+  'eval-report': { id: 'eval-report', name: 'eval-report', description: 'Produce an honest eval report: metrics, subgroup slices, baseline delta, ship/no-ship.', body: 'Produce an evaluation report.\n\n1. Evaluate on the held-out set with objective-aligned metrics.\n2. Slice by subgroup and report the worst slice.\n3. Compare against the baseline; show the delta.\n4. End with SHIP or NO-SHIP and the number behind it.' },
+  'run-swarm': { id: 'run-swarm', name: 'run-swarm', description: 'Decompose a goal and run the orchestrator→planner→worker→critic loop to completion.', body: 'Run a swarm against a goal.\n\n1. Planner builds the dependency-aware plan.\n2. Orchestrator dispatches tasks to workers over the bus.\n3. Workers execute and write results to shared memory.\n4. Critic gates each output; orchestrator replans on failure.\n5. Stop when the goal state is satisfied; report the trajectory.' },
+  'wellness-intake': { id: 'wellness-intake', name: 'wellness-intake', description: 'Run a safe, structured wellness intake that escalates red flags to professionals.', body: 'Run a wellness intake.\n\n1. Intake collects goals, volunteered history, and routine.\n2. On any red-flag symptom, STOP and direct to emergency/professional care.\n3. Triage routes to the right resource (clinician / dietitian / mental-health / info).\n4. Care-coordinator organises logistics and questions for a real clinician.\n\nThis gemini is informational only and is not a substitute for professional medical advice.' },
+  'design-doc-diff': { id: 'design-doc-diff', name: 'design-doc-diff', description: 'Diff the current design doc against the previous build and surface unresolved tensions.', body: 'Generate the design-doc diff.\n\n1. Read the previous + current design doc from memory.\n2. Surface adds / removes / changes by section (mechanics, economy, narrative).\n3. For each change, check whether the OTHER three sections have been updated to reflect it (a mechanic change without a balance update is a tension; a narrative change without a dialog update is a tension).\n4. Report tensions as `section A changed → section B not aligned → suggested fix`.\n5. Stop. Do not write the fix; designer decides.\n\nA design doc is a system; changing one piece propagates. Surface the propagation cost.' },
+  'qualify-lead': { id: 'qualify-lead', name: 'qualify-lead', description: 'Run one qualification pass on a lead: BANT/MEDDPICC score + missing-fact list + go/no-go.', body: 'Run one lead qualification pass.\n\n1. Pull the lead brief + framework rubric from memory.\n2. Score budget / authority / need / timeline; mark the missing fact for each axis.\n3. Make a go/no-go call with one-line rationale.\n4. If go: hand the brief to demo-coach. If no-go: write a polite disqualification note + the trigger that would re-qualify them.\n\nBias toward disqualification — running a no-fit lead through the pipeline costs more than declining it.' },
+  'pipeline-report': { id: 'pipeline-report', name: 'pipeline-report', description: 'Summarise the current pipeline by stage + the one bottleneck to address this week.', body: 'Generate the weekly pipeline report.\n\n1. Read the open opportunities from CRM memory.\n2. Group by stage (qualified / demo / negotiation / closed-won / closed-lost).\n3. Compute the conversion rate per stage from the last 90 days.\n4. Identify the ONE stage with the worst conversion + write a one-paragraph hypothesis for why.\n5. End with the ONE action for the team this week — not a list of 10.\n\nReports that say "everything is fine" or "ten things to fix" do not change behaviour. Pick the bottleneck.' },
+  'repo-triage': { id: 'repo-triage', name: 'repo-triage', description: 'Maintainer triage: what changed, what is risky, what to review first.', body: 'Triage the current repo state.\n\n1. `git status` to see what is uncommitted.\n2. `git log --oneline -20` to see the recent history.\n3. `git diff HEAD~1` for the latest commit.\n4. Report:\n   - headline risk\n   - files most likely to regress\n   - smallest test the team should run before merging\n   - any permissions widened in the diff\n\nDo not auto-fix; surface findings only.' },
+  'release-check': { id: 'release-check', name: 'release-check', description: 'Run the release-readiness umbrella + draft a tweet-length announcement.', body: 'Run the release-readiness check.\n\n1. `gemini validate` — umbrella check, must be green.\n2. `gemini sbom` — emit the SBOM artifact.\n3. `gemini score` — the scorecard must be >= 70 (B grade).\n4. If any gate is red, REFUSE to draft and name the specific blocker.\n5. Otherwise: draft the GitHub release body from the conventional-commit log since the last tag, grouped by feat/fix/docs/chore.\n\nNever push or tag in this command; the operator decides when to ship.' },
+  'evolve': { id: 'evolve', name: 'evolve', description: 'Run one safe self-improvement cycle: hypothesize → experiment → record → (maybe) federate.', body: 'Run one evolution cycle.\n\n1. Hypothesizer reads the evolution log and proposes a falsifiable change with a metric.\n2. Experimenter tests it in a sandbox and records a signed kept/killed result.\n3. Federator shares it to peers only if witness-signed and reproduced.\n\nGuard against Goodharting the metric. See ADR-014 (self-evolution + federation).' },
+};
+
 export const CATALOG = [
   // ===== Hand-authored, metadata-only (not regenerated) ====================
   {
@@ -108,11 +127,11 @@ export const CATALOG = [
       { id: 'test-writer', name: 'Test Writer', tier: 'sonnet', role: 'Adds the missing tests for the change.', systemPrompt: 'You write the tests the change needs: the happy path, the boundary, and the one failure mode most likely to regress. Mirror the project\'s existing test style and runner. A test that cannot fail is worse than no test — assert behaviour, not implementation.' },
     ],
     skills: [
-      { id: 'plan-change', name: 'plan-change', description: 'Turn a feature request into a minimal, file-level implementation plan before any code.', body: 'Produce an implementation plan for a requested change.\n\n1. Restate the goal in one sentence.\n2. List the files to touch and why.\n3. Name the smallest interface that satisfies it.\n4. Flag anything that ripples beyond three files or widens a permission.\n\nHand the plan to the implementer; do not write code in this step.' },
+      SKILL_CATALOG['plan-change'],
     ],
     commands: [
       doctorCommand,
-      { id: 'review-diff', name: 'review-diff', description: 'Review the current working diff for correctness, security, and reuse.', body: 'Review the current git diff.\n\n1. `git diff` to read the change.\n2. Report only high-confidence findings as `file:line — issue — fix`.\n3. Separate bugs from nits.\n4. End with APPROVE or REQUEST-CHANGES and a one-line reason.' },
+      SKILL_CATALOG['review-diff'],
     ],
   },
 
@@ -221,7 +240,7 @@ export const CATALOG = [
       { id: 'ops-coordinator', name: 'Ops Coordinator', tier: 'sonnet', role: 'Turns the chosen bet into owned actions.', systemPrompt: 'You convert the chosen strategy into execution: concrete, owned, dated action items with a success metric each. You surface dependencies and the first thing that will go wrong. No action item ships without an owner and a date.' },
     ],
     skills: [
-      { id: 'quarterly-plan', name: 'quarterly-plan', description: 'Build a quarterly plan: findings → strategy → owned action items tied to KPIs.', body: 'Build a quarterly plan.\n\n1. Analyst pulls KPIs and reports what moved.\n2. Strategist frames options and recommends one, tied to a metric.\n3. Ops-coordinator breaks it into owned, dated action items.\n4. Output a one-page plan: goal, bet, metrics, owners, risks.' },
+      SKILL_CATALOG['quarterly-plan'],
     ],
     commands: [doctorCommand],
   },
@@ -267,7 +286,7 @@ export const CATALOG = [
       { id: 'seo-analyst', name: 'SEO Analyst', tier: 'sonnet', role: 'Grounds content in real search demand.', systemPrompt: 'You ground content in search demand from the analytics MCP: the queries real people use, the intent behind them, and the gap competitors leave. Recommend the target query, the title, and the internal links. Optimise for the human first and the crawler second.' },
     ],
     skills: [
-      { id: 'campaign-brief', name: 'campaign-brief', description: 'Produce a campaign brief: audience, message, channels, content plan, and the metric.', body: 'Write a campaign brief.\n\n1. Strategist names the audience, the message, and the channels.\n2. SEO-analyst supplies the target queries and demand.\n3. Content-creator drafts the hero asset and variants.\n4. Output the brief with the single funnel metric the campaign moves.' },
+      SKILL_CATALOG['campaign-brief'],
     ],
     commands: [doctorCommand],
   },
@@ -291,7 +310,7 @@ export const CATALOG = [
       { id: 'performance-analyst', name: 'Performance Analyst', tier: 'sonnet', role: 'Reads results and reallocates spend.', systemPrompt: 'You read campaign performance from the ad-metrics MCP and reallocate: cut what is not converting, scale what is, and attribute carefully across online and offline touchpoints. Report CPA, ROAS, and reach. Recommend the next budget move with the number that justifies it.' },
     ],
     skills: [
-      { id: 'media-plan', name: 'media-plan', description: 'Build a cross-channel media plan with budget split, creative, and KPIs.', body: 'Build a media plan.\n\n1. Media-planner splits the budget across online + traditional channels with justification.\n2. Copywriter drafts a flagship execution per channel.\n3. Performance-analyst sets the KPI and the reallocation rule.\n4. Output the plan: channel, budget, creative, KPI, test reserve.' },
+      SKILL_CATALOG['media-plan'],
     ],
     commands: [doctorCommand],
   },
@@ -316,7 +335,7 @@ export const CATALOG = [
       { id: 'deployer', name: 'Deployer', tier: 'sonnet', role: 'Ships behind a guardrail.', systemPrompt: 'You deploy only models that passed the evaluator. Ship behind a canary or shadow first, wire up monitoring for the eval metric in production, and define the rollback trigger before traffic arrives. A model with no monitoring is not deployed — it is abandoned.' },
     ],
     skills: [
-      { id: 'eval-report', name: 'eval-report', description: 'Produce an honest eval report: metrics, subgroup slices, baseline delta, ship/no-ship.', body: 'Produce an evaluation report.\n\n1. Evaluate on the held-out set with objective-aligned metrics.\n2. Slice by subgroup and report the worst slice.\n3. Compare against the baseline; show the delta.\n4. End with SHIP or NO-SHIP and the number behind it.' },
+      SKILL_CATALOG['eval-report'],
     ],
     commands: [doctorCommand],
   },
@@ -342,7 +361,7 @@ export const CATALOG = [
     ],
     skills: [
       memorySkill,
-      { id: 'run-swarm', name: 'run-swarm', description: 'Decompose a goal and run the orchestrator→planner→worker→critic loop to completion.', body: 'Run a swarm against a goal.\n\n1. Planner builds the dependency-aware plan.\n2. Orchestrator dispatches tasks to workers over the bus.\n3. Workers execute and write results to shared memory.\n4. Critic gates each output; orchestrator replans on failure.\n5. Stop when the goal state is satisfied; report the trajectory.' },
+      SKILL_CATALOG['run-swarm'],
     ],
     commands: [doctorCommand],
   },
@@ -391,7 +410,7 @@ export const CATALOG = [
       { id: 'care-coordinator', name: 'Care Coordinator', tier: 'sonnet', role: 'Organises logistics and reminders.', systemPrompt: 'You handle non-clinical coordination: summarising appointments, organising questions to ask a real clinician, and setting wellness reminders. You never give medical advice, dosages, or diagnoses. Your value is logistics and clarity, leaving every clinical judgement to a licensed human.' },
     ],
     skills: [
-      { id: 'wellness-intake', name: 'wellness-intake', description: 'Run a safe, structured wellness intake that escalates red flags to professionals.', body: 'Run a wellness intake.\n\n1. Intake collects goals, volunteered history, and routine.\n2. On any red-flag symptom, STOP and direct to emergency/professional care.\n3. Triage routes to the right resource (clinician / dietitian / mental-health / info).\n4. Care-coordinator organises logistics and questions for a real clinician.\n\nThis gemini is informational only and is not a substitute for professional medical advice.' },
+      SKILL_CATALOG['wellness-intake'],
     ],
     commands: [doctorCommand],
   },
@@ -421,7 +440,7 @@ export const CATALOG = [
     ],
     commands: [
       doctorCommand,
-      { id: 'design-doc-diff', name: 'design-doc-diff', description: 'Diff the current design doc against the previous build and surface unresolved tensions.', body: 'Generate the design-doc diff.\n\n1. Read the previous + current design doc from memory.\n2. Surface adds / removes / changes by section (mechanics, economy, narrative).\n3. For each change, check whether the OTHER three sections have been updated to reflect it (a mechanic change without a balance update is a tension; a narrative change without a dialog update is a tension).\n4. Report tensions as `section A changed → section B not aligned → suggested fix`.\n5. Stop. Do not write the fix; designer decides.\n\nA design doc is a system; changing one piece propagates. Surface the propagation cost.' },
+      SKILL_CATALOG['design-doc-diff'],
     ],
   },
 
@@ -446,11 +465,11 @@ export const CATALOG = [
     ],
     skills: [
       memorySkill,
-      { id: 'qualify-lead', name: 'qualify-lead', description: 'Run one qualification pass on a lead: BANT/MEDDPICC score + missing-fact list + go/no-go.', body: 'Run one lead qualification pass.\n\n1. Pull the lead brief + framework rubric from memory.\n2. Score budget / authority / need / timeline; mark the missing fact for each axis.\n3. Make a go/no-go call with one-line rationale.\n4. If go: hand the brief to demo-coach. If no-go: write a polite disqualification note + the trigger that would re-qualify them.\n\nBias toward disqualification — running a no-fit lead through the pipeline costs more than declining it.' },
+      SKILL_CATALOG['qualify-lead'],
     ],
     commands: [
       doctorCommand,
-      { id: 'pipeline-report', name: 'pipeline-report', description: 'Summarise the current pipeline by stage + the one bottleneck to address this week.', body: 'Generate the weekly pipeline report.\n\n1. Read the open opportunities from CRM memory.\n2. Group by stage (qualified / demo / negotiation / closed-won / closed-lost).\n3. Compute the conversion rate per stage from the last 90 days.\n4. Identify the ONE stage with the worst conversion + write a one-paragraph hypothesis for why.\n5. End with the ONE action for the team this week — not a list of 10.\n\nReports that say "everything is fine" or "ten things to fix" do not change behaviour. Pick the bottleneck.' },
+      SKILL_CATALOG['pipeline-report'],
     ],
   },
 
@@ -508,8 +527,8 @@ export const CATALOG = [
     ],
     commands: [
       doctorCommand,
-      { id: 'repo-triage', name: 'repo-triage', description: 'Maintainer triage: what changed, what is risky, what to review first.', body: 'Triage the current repo state.\n\n1. `git status` to see what is uncommitted.\n2. `git log --oneline -20` to see the recent history.\n3. `git diff HEAD~1` for the latest commit.\n4. Report:\n   - headline risk\n   - files most likely to regress\n   - smallest test the team should run before merging\n   - any permissions widened in the diff\n\nDo not auto-fix; surface findings only.' },
-      { id: 'release-check', name: 'release-check', description: 'Run the release-readiness umbrella + draft a tweet-length announcement.', body: 'Run the release-readiness check.\n\n1. `gemini validate` — umbrella check, must be green.\n2. `gemini sbom` — emit the SBOM artifact.\n3. `gemini score` — the scorecard must be >= 70 (B grade).\n4. If any gate is red, REFUSE to draft and name the specific blocker.\n5. Otherwise: draft the GitHub release body from the conventional-commit log since the last tag, grouped by feat/fix/docs/chore.\n\nNever push or tag in this command; the operator decides when to ship.' },
+      SKILL_CATALOG['repo-triage'],
+      SKILL_CATALOG['release-check'],
     ],
   },
 
@@ -533,7 +552,7 @@ export const CATALOG = [
     ],
     skills: [
       memorySkill,
-      { id: 'evolve', name: 'evolve', description: 'Run one safe self-improvement cycle: hypothesize → experiment → record → (maybe) federate.', body: 'Run one evolution cycle.\n\n1. Hypothesizer reads the evolution log and proposes a falsifiable change with a metric.\n2. Experimenter tests it in a sandbox and records a signed kept/killed result.\n3. Federator shares it to peers only if witness-signed and reproduced.\n\nGuard against Goodharting the metric. See ADR-014 (self-evolution + federation).' },
+      SKILL_CATALOG['evolve'],
     ],
     commands: [doctorCommand],
   },
