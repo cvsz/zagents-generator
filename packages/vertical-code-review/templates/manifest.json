@@ -1,7 +1,18 @@
 {
-  "id": "vertical:trading",
-  "description": "Code Review gemini — market-watcher, signal-gen, risk-checker, executor (paper by default), postmortem. Includes circuit-breaker safety patterns.",
-  "domain": "trading/quantitative",
+  "id": "code-reviewer-gemini",
+  "name": "code-reviewer-gemini",
+  "description": "Code Review Agent: Analyzes pull requests, enforces style guides, and detects security flaws.",
+  "systemPrompt": "You are an expert Principal Engineer performing a code review. Analyze all code diffs for:\n1. Security vulnerabilities (OWASP top 10)\n2. Performance bottlenecks\n3. Architecture and SOLID principles violations\n4. Code style inconsistencies\nAlways provide actionable, specific feedback. Include code snippets to demonstrate improvements. Never just say 'looks good' without justification.",
+  "agents": [
+    {
+      "name": "security-auditor",
+      "systemPrompt": "You are the Security Auditor agent. Your only focus is identifying security flaws in the diff."
+    },
+    {
+      "name": "performance-profiler",
+      "systemPrompt": "You are the Performance Profiler agent. Focus purely on algorithmic complexity, memory leaks, and optimal rendering."
+    }
+  ],
   "files": [
     { "src": "package.json.tmpl", "dst": "package.json", "render": true },
     { "src": "CLAUDE.md.tmpl", "dst": "CLAUDE.md", "render": true },
