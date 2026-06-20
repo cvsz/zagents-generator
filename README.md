@@ -4,17 +4,17 @@
 
 ### Mint a custom AI agent gemini from any repo.
 
-`npx metaharness` · [open the Studio →](https://ruvnet.github.io/agent-gemini-generator/)
+`npx metaharness` · [open the Studio →](https://ruvnet.github.io/zagents-generator/)
 
-<sub>(Repo: `ruvnet/agent-gemini-generator` · CLI: `metaharness` · Library: `@ruvnet/agent-gemini-generator`)</sub>
+<sub>(Repo: `cvsz/zagents-generator` · CLI: `metaharness` · Library: `@cvsz/zagents-generator`)</sub>
 
-[![Open the Studio](https://img.shields.io/badge/Studio-open_in_browser_↗-7c5cff?style=for-the-badge&logo=githubpages&logoColor=white)](https://ruvnet.github.io/agent-gemini-generator/)
+[![Open the Studio](https://img.shields.io/badge/Studio-open_in_browser_↗-7c5cff?style=for-the-badge&logo=githubpages&logoColor=white)](https://ruvnet.github.io/zagents-generator/)
 [![User guide](https://img.shields.io/badge/User_guide-plain_language-22c55e?style=for-the-badge)](docs/USERGUIDE.md)
 [![Tests — 568 passing](https://img.shields.io/badge/tests-568%20passing-22c55e?style=for-the-badge)](docs/ARCHITECTURE.md)
-[![npm publish smoke](https://github.com/ruvnet/agent-gemini-generator/actions/workflows/published-smoke.yml/badge.svg)](https://github.com/ruvnet/agent-gemini-generator/actions/workflows/published-smoke.yml)
+[![npm publish smoke](https://github.com/cvsz/zagents-generator/actions/workflows/published-smoke.yml/badge.svg)](https://github.com/cvsz/zagents-generator/actions/workflows/published-smoke.yml)
 [![License MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
-[![Agent Gemini Studio](docs/web-ui/screenshot-desktop.png)](https://ruvnet.github.io/agent-gemini-generator/)
+[![Agent Gemini Studio](docs/web-ui/screenshot-desktop.png)](https://ruvnet.github.io/zagents-generator/)
 
 </div>
 
@@ -94,7 +94,7 @@ learned from your own eval logs. `npm i @metaharness/router`.
 
 ```bash
 # In the browser — zero install, nothing leaves the page
-open https://ruvnet.github.io/agent-gemini-generator/
+open https://ruvnet.github.io/zagents-generator/
 
 # Or in the terminal — the same gemini (behaviourally equivalent output)
 npx metaharness my-bot --template vertical:coding --host claude-code
@@ -264,7 +264,7 @@ across Rust × 3 OS + WASM × 3 OS + Node 20+22 × 3 OS + Bench + pack+install �
 | CI matrix | 16 jobs green |
 | Security pipeline | cargo-audit · cargo-deny · npm-audit · CodeQL · SBOM (SPDX-2.3) |
 | Publish pipeline | GCP WIF + 2 gates + 11 packages + IPFS pin |
-| Agent Gemini Studio | Live at <https://ruvnet.github.io/agent-gemini-generator/> |
+| Agent Gemini Studio | Live at <https://ruvnet.github.io/zagents-generator/> |
 
 ---
 
@@ -272,7 +272,7 @@ across Rust × 3 OS + WASM × 3 OS + Node 20+22 × 3 OS + Bench + pack+install �
 
 ```
 You (gemini author)
-   └→ agent-gemini-generator    ← the factory
+   └→ zagents-generator    ← the factory
         └→ Your gemini (.zip)    ← what you ship
              ├ npx <your-name>     ← your identity
              ├ <your agents>       ← your content
@@ -303,8 +303,8 @@ You operate the factory. The factory produces your gemini. Your users never see 
 ## Developer quick-start
 
 ```bash
-git clone https://github.com/ruvnet/agent-gemini-generator
-cd agent-gemini-generator
+git clone https://github.com/cvsz/zagents-generator
+cd zagents-generator
 
 cargo test --workspace
 cargo clippy --workspace --all-targets -- -D warnings
