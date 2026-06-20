@@ -6,7 +6,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "zagents-darwin": "./dist/cli.js"
+    "zagents-darwin": "dist/cli.js"
   },
   "exports": {
     ".": {
@@ -46,7 +46,7 @@
   "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cvsz/zagents-generator",
+    "url": "git+https://github.com/cvsz/zagents-generator.git",
     "directory": "packages/darwin-mode"
   },
   "engines": {

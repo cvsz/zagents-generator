@@ -5,7 +5,7 @@
   "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cvsz/zagents-generator.git",
+    "url": "git+https://github.com/cvsz/zagents-generator.git",
     "directory": "packages/vertical-base"
   },
   "license": "MIT",
@@ -18,18 +18,29 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist/**", "README.md"],
+  "files": [
+    "dist/**",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "vitest run --passWithNoTests",
     "lint": "tsc --noEmit"
   },
-  "keywords": ["agent-gemini", "vertical-pack", "ruflo"],
-  "publishConfig": { "access": "public" },
+  "keywords": [
+    "agent-gemini",
+    "vertical-pack",
+    "ruflo"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@types/node": "^26.0.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.9"
   },
-  "engines": { "node": ">=20.0.0" }
+  "engines": {
+    "node": ">=20.0.0"
+  }
 }

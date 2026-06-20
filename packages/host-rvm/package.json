@@ -5,7 +5,7 @@
   "homepage": "https://github.com/cvsz/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cvsz/zagents-generator.git",
+    "url": "git+https://github.com/cvsz/zagents-generator.git",
     "directory": "packages/host-rvm"
   },
   "license": "MIT",
