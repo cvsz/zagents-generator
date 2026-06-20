@@ -1,0 +1,52 @@
+{
+  "name": "@metaharness/host-codex",
+  "version": "0.1.2",
+  "description": "OpenAI Codex CLI host adapter for agent-gemini-generator (MCP via ~/.codex/config.toml)",
+  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "directory": "packages/host-codex"
+  },
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/**",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run --passWithNoTests",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "agent-gemini",
+    "openai-codex",
+    "codex",
+    "mcp",
+    "host-adapter",
+    "ruflo"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@metaharness/kernel": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

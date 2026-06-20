@@ -1,0 +1,129 @@
+{
+  "name": "agent-gemini-generator",
+  "displayName": "MetaHarness",
+  "description": "MetaHarness — mint a custom AI agent gemini from any repo. Paste a GitHub URL or start blank; output runs on Claude Code, OpenAI Codex, pi.dev, Hermes, OpenClaw, or RVM. WASM kernel (Rust → wasm-bindgen + NAPI-RS), 6 hosts, witness-signed Ed25519 releases, GCP Secret Manager validation. Browser Studio + `npx metaharness` CLI.",
+  "version": "0.1.0",
+  "author": {
+    "id": "ruvnet",
+    "displayName": "rUv",
+    "url": "https://ruv.io"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ruvnet/agent-gemini-generator"
+  },
+  "categories": ["scaffolding", "agent-tooling", "marketplace"],
+  "tags": [
+    "metaharness",
+    "agent-gemini",
+    "agent-gemini-generator",
+    "ai-agent",
+    "ai-agent-cli",
+    "repo-to-agent",
+    "scaffold",
+    "generator",
+    "agent-factory",
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "claude-code",
+    "claude-code-plugin",
+    "anthropic",
+    "codex",
+    "openai-codex",
+    "pi-dev",
+    "hermes-agent",
+    "openclaw",
+    "rvm",
+    "rust",
+    "wasm",
+    "napi-rs",
+    "ed25519",
+    "witness",
+    "provenance",
+    "sbom",
+    "spdx",
+    "gcp-secret-manager",
+    "agentic-ai",
+    "multi-agent",
+    "autonomous-agents"
+  ],
+  "minClaudeFlowVersion": "3.0.0",
+  "type": "scaffolding",
+  "skills": [
+    "create-gemini",
+    "list-templates",
+    "publish-gemini",
+    "validate-gemini",
+    "gemini-secrets",
+    "verify-witness",
+    "upgrade-gemini",
+    "diag-gemini",
+    "compare-harnesses",
+    "repo-genome",
+    "score-gemini",
+    "threat-model",
+    "oia-manifest",
+    "example-gemini"
+  ],
+  "commands": [
+    {
+      "name": "create-gemini",
+      "description": "Scaffold a new AI agent gemini in the current directory"
+    },
+    {
+      "name": "publish-gemini",
+      "description": "Smoke-test + witness-sign + npm publish for a generated gemini"
+    },
+    {
+      "name": "validate-gemini",
+      "description": "Release-readiness umbrella: doctor + verify + path-guard + mcp + secrets"
+    },
+    {
+      "name": "gemini-secrets",
+      "description": "GCP Secret Manager helpers — check / fetch / validate-token"
+    },
+    {
+      "name": "verify-witness",
+      "description": "Verify the Ed25519 witness manifest of a scaffolded gemini"
+    },
+    {
+      "name": "upgrade-gemini",
+      "description": "Drift detection + apply against the latest generator template (--apply opt-in)"
+    },
+    {
+      "name": "diag-gemini",
+      "description": "Kernel-version skew check (ADR-027). Surfaces manifest kernel + installed kernel + verdict with copy-pasteable next step. --json for CI gating; --bundle (iter 90) emits a full support-ticket JSON (sanitised manifest + deps + env)."
+    },
+    {
+      "name": "compare-harnesses",
+      "description": "Diff two scaffolded harnesses: manifest meta + host list + per-file SHA-256 fingerprints. Exit 0 IDENTICAL, 1 DRIFT, 2 missing manifest. --bundle emits ADR-031 schema-1 JSON for CI."
+    },
+    {
+      "name": "repo-genome",
+      "description": "7-section readiness scorecard for a LOCAL repo — repo type, agent topology, MCP risk, test confidence, release readiness, recommended plan, scorecard. The 'is this repo READY for a gemini?' question (iter 110)."
+    },
+    {
+      "name": "score-gemini",
+      "description": "5-dimension 0-100 gemini scorecard with 6-field badge block (score + mcpRisk + 4 booleans). Grade A/B/C/F. Target: A (>=85) without manual edits (iter 111)."
+    },
+    {
+      "name": "threat-model",
+      "description": "MCP threat-model artifact for PR / compliance review — allowed/denied tools, dangerous perms, secrets reachability, network/shell/file-write grants, default-deny posture (iter 112, 'enterprise gold')."
+    },
+    {
+      "name": "oia-manifest",
+      "description": "Emit/validate `.gemini/oia-manifest.json` — OIA v0.1 9-layer reference architecture alignment (ADR-034). Self-describes MCP wiring, witness signing, audit-log, identity posture. --check shape-validates; PASS 0 / DRIFT 1 / missing 2."
+    },
+    {
+      "name": "example-gemini",
+      "description": "One-command picker over the 19 published @metaharness/* example packages — 9 host integrations (Claude Code, Codex, Hermes, pi.dev, OpenClaw, RVM, Copilot, OpenCode, GitHub Actions) + 10 vertical pods. Shell-dispatch: runs `npx @metaharness/<pkg> <name>` (iter 143/148)."
+    }
+  ],
+  "permissions": ["memory", "filesystem", "network"],
+  "hooks": [],
+  "trustLevel": "official",
+  "verified": true
+}

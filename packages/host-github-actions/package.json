@@ -1,0 +1,56 @@
+{
+  "name": "@metaharness/host-github-actions",
+  "version": "0.1.2",
+  "description": "GitHub Actions host adapter for agent-gemini-generator. Emits .github/workflows/<name>.yml + a composite action.yml for non-interactive CI/CD agent harnesses (ADR-033).",
+  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "directory": "packages/host-github-actions"
+  },
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/**",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run --passWithNoTests",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "agent-gemini",
+    "github-actions",
+    "ci-cd",
+    "workflow",
+    "composite-action",
+    "non-interactive",
+    "host-adapter",
+    "ruflo",
+    "ADR-033"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@metaharness/kernel": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

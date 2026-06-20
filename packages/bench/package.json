@@ -1,0 +1,37 @@
+{
+  "name": "@metaharness/bench",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Benchmark gemini for the kernel memory pipeline (vs Mem0 / ReasoningBank baseline shapes)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run --passWithNoTests",
+    "bench": "node ./dist/bin.js",
+    "bench:hosts": "node ./dist/host-bin.js",
+    "bench:draco": "node ./dist/draco/draco-bin.js",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@metaharness/kernel": "^0.1.0",
+    "@metaharness/host-claude-code": "0.1.0",
+    "@metaharness/host-codex": "0.1.0",
+    "@metaharness/host-pi-dev": "0.1.0",
+    "@metaharness/host-hermes": "0.1.0",
+    "@metaharness/host-openclaw": "0.1.0",
+    "@metaharness/host-rvm": "0.1.0",
+    "@metaharness/host-copilot": "0.1.0",
+    "@metaharness/host-opencode": "0.1.0",
+    "@metaharness/host-github-actions": "0.1.0",
+    "@metaharness/router": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,33 @@
+# Codex skill: kernel-version skew diagnostic for a generated gemini.
+#
+# Wraps the iter-66 `gemini diag` CLI command. Single-question:
+# does my LOCAL @metaharness/kernel match what this gemini was scaffolded
+# against? Surfaces manifest.meta.surface (iter 56) +
+# manifest.meta.kernel_version (iter 58) + the locally-resolved
+# kernel version, computes the skew verdict, and prints a
+# copy-pasteable next step.
+
+[skill]
+name = "diag-gemini"
+version = "0.1.0"
+description = "Kernel-version skew check (ADR-027). Reports manifest surface + manifest kernel + installed kernel + verdict (match/patch-diff/minor-diff/major-diff). Exits 1 on minor/major skew with a copy-pasteable `npm install @metaharness/kernel@X.Y.Z` next step. Exits 2 if no .gemini/manifest.json at path."
+author = "rUv <ruv@ruv.net>"
+homepage = "https://github.com/ruvnet/agent-gemini-generator"
+license = "MIT"
+
+[dispatch]
+type = "mcp_tool"
+server = "agent-gemini-generator"
+tool = "diag_harness"
+
+[command]
+name = "diag-gemini"
+synopsis = "Single-question check: is my local @metaharness/kernel compatible with this gemini?"
+
+[[args]]
+name = "path"
+prompt = "Path to the gemini directory"
+default = "."
+
+[catalog]
+tags = ["diag", "kernel", "skew", "diagnostic", "support", "ADR-027"]

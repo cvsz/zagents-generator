@@ -1,0 +1,138 @@
+// SPDX-License-Identifier: MIT
+//
+// ADR-125 — the consolidated, corpus-ready SWE-bench runner. ONE function an external
+// corpus iterates: `for (const task of dataset) await runSweBenchTask(task, opts)`.
+// It unifies the pieces proven separately:
+//   - ADR-123: auto-derive FAIL_TO_PASS/PASS_TO_PASS + the real resolved criterion.
+//   - ADR-124's DECISION: the reliable patch primitive is whole-file → `git diff` → apply
+//     (raw LLM diffs corrupt). So the model emits a whole corrected file; the runner writes
+//     it, captures the real unified-diff artifact via `git diff`, and scores the criterion.
+// The gemini's own contextBuilder does file selection (real, gated). No fabrication: every
+// number returned is a measured test outcome.
+//
+// A `task` is: {
+//   instance_id, problem_statement, test_suites: string[],
+//   materialize(workDir): void   // populate workDir with the repo at the FAILING base state
+// }
+// Returns: { instance_id, resolved, f2p, p2p, chose, patchBytes, tokens, cost_usd }.
+
+import { mkdtempSync, writeFileSync, readFileSync, readdirSync, existsSync } from 'node:fs';
+import { execSync } from 'node:child_process';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { generateBaselineHarness } from '../dist/generator.js';
+import { profileRepo } from '../dist/repo_profiler.js';
+
+const GIT_ENV = { GIT_AUTHOR_NAME: 'b', GIT_AUTHOR_EMAIL: 'b@b', GIT_COMMITTER_NAME: 'b', GIT_COMMITTER_EMAIL: 'b@b' };
+const g = (work, c) => execSync(c, { cwd: work, stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, ...GIT_ENV } });
+
+function runTests(work, suites) {
+  const out = join(work, '_vitest.json');
+  try { execSync(`npx vitest run ${suites.join(' ')} --reporter=json --outputFile=${out}`, { cwd: work, timeout: 120000, stdio: ['ignore', 'pipe', 'pipe'] }); } catch { /* fails → JSON still written */ }
+  if (!existsSync(out)) return { status: {}, messages: {} };
+  const j = JSON.parse(readFileSync(out, 'utf8')); const status = {}, messages = {};
+  for (const tr of j.testResults ?? []) {
+    const f = (tr.name || '').split('/').pop()?.replace('.test.ts', '');
+    for (const a of tr.assertionResults ?? []) {
+      const k = `${f} › ${a.title}`; status[k] = a.status;
+      if (a.status === 'failed') messages[k] = (a.failureMessages ?? []).join('\n').replace(/\s+/g, ' ').slice(0, 220);
+    }
+  }
+  return { status, messages };
+}
+
+const evaluate = (F, P, after) => ({
+  resolved: F.length > 0 && F.every((t) => after[t] === 'passed') && P.every((t) => after[t] === 'passed'),
+  f2p: `${F.filter((t) => after[t] === 'passed').length}/${F.length}`,
+  p2p: `${P.filter((t) => after[t] === 'passed').length}/${P.length}`,
+});
+
+// File selection (ADR-129): the contextBuilder ranks by PATH-term overlap only, so it misses
+// a file whose name differs from the symbol named in the bug report (ADR-128: poincareDistance
+// lives in phenotype.ts). We augment it with SYMBOL indexing — files that DEFINE a symbol named
+// in the problem statement are prioritized — then fill the rest from the path ranking. Keeps
+// buildContext pure (path-only surface); the symbol scan is orchestration-layer IO.
+export function selectFiles(problem, srcDir, files, buildContext, k = 6) {
+  const pathRanked = (buildContext(problem, files) ?? []).map((c) => c.path);
+  // Only treat camelCase / snake_case tokens as symbols — plain English words ("returns",
+  // "boundary") are all-lowercase and would spuriously match common identifiers.
+  const syms = [...new Set(problem.match(/[A-Za-z_][A-Za-z0-9_]{3,}/g) ?? [])].filter((s) => /[a-z][A-Z]/.test(s) || s.includes('_'));
+  // Language-agnostic definition forms: JS/TS (function/const/class/…) AND Python (def/class) —
+  // so the symbol index works on Python repos too (ADR-142 SWE-bench: Python uses `def`).
+  const defines = (c, s) => new RegExp(`(?:function|def|const|let|var|class|interface|type|enum)\\s+${s}\\b`).test(c) || new RegExp(`\\b${s}\\s*[:=]\\s*(?:\\(|function|async|\\{)`).test(c);
+  const symbolFiles = files.filter((f) => { const c = readFileSync(join(srcDir, f), 'utf8'); return syms.some((s) => defines(c, s)); });
+  const merged = [];
+  for (const f of [...symbolFiles, ...pathRanked]) if (!merged.includes(f)) merged.push(f);
+  return merged.slice(0, k);
+}
+
+// Default model: deepseek-chat is the measured SWE-fix optimum (ADR-135: 3/3 resolve at the
+// lowest cost; the prior gemini-2.5-flash default scored only 2/3). patchMode defaults to
+// search/replace (ADR-127). Callers may override both.
+export async function runSweBenchTask(task, { model = 'deepseek/deepseek-chat', key, patchMode = 'searchreplace' } = {}) {
+  key = (key || process.env.OPENROUTER_API_KEY || readFileSync('/tmp/.orkey', 'utf8')).trim();
+  patchMode = task.patchMode ?? patchMode;
+
+  // 1. Materialize the repo at the failing base state; git-init so we can diff/apply.
+  const work = mkdtempSync(join(tmpdir(), `swe-${task.instance_id}-`.replace(/[^a-z0-9-]/gi, '')));
+  task.materialize(work);
+  g(work, 'git init -q'); g(work, 'git add -A'); g(work, 'git commit -qm base');
+
+  const maxAttempts = Math.max(1, task.maxAttempts ?? 3);
+
+  // 2. Auto-derive FAIL_TO_PASS (failing now) / PASS_TO_PASS (passing now). (ADR-123)
+  const baseRun = runTests(work, task.test_suites);
+  const F2P = Object.keys(baseRun.status).filter((t) => baseRun.status[t] === 'failed');
+  const P2P = Object.keys(baseRun.status).filter((t) => baseRun.status[t] === 'passed');
+
+  // 3. The gemini's real contextBuilder selects among the repo's source files. (gated)
+  const realFiles = readdirSync(join(work, 'src')).filter((f) => f.endsWith('.ts'));
+  const hr = mkdtempSync(join(tmpdir(), 'swe-h-')); writeFileSync(join(hr, 'package.json'), '{"name":"h","version":"1.0.0"}');
+  const b = await generateBaselineHarness(await profileRepo(hr), mkdtempSync(join(tmpdir(), 'swe-hw-')));
+  const { buildContext } = await import(`${b.dir}/context_builder.ts`);
+  const selected = selectFiles(task.problem_statement, join(work, 'src'), realFiles, buildContext, task.selectK ?? 6);
+
+  // 4–6. Repair loop: each attempt emits a WHOLE corrected file (ADR-124), applies it, and
+  // re-scores; if unresolved, the still-failing tests + assertion messages are fed back so
+  // the next attempt can fix a different/remaining file. Lifts resolve rate on multi-fault
+  // instances a single shot misses.
+  let attemptsUsed = 0, chose = [], tokens = 0, cost = 0, verdict = evaluate(F2P, P2P, baseRun.status), last = baseRun;
+  for (let attempt = 1; attempt <= maxAttempts && !verdict.resolved; attempt++) {
+    attemptsUsed = attempt;
+    const seen = selected.map((f) => `// ===== ${f} =====\n${readFileSync(join(work, 'src', f), 'utf8')}`).join('\n\n');
+    const stillFailing = F2P.filter((t) => last.status[t] !== 'passed');
+    const regressed = P2P.filter((t) => last.status[t] !== 'passed'); // tests that passed at base but a prior attempt broke
+    const feedback = attempt === 1 ? '' : `\n--- attempt ${attempt - 1} left these FAILING (fix the remaining buggy file) ---\n${stillFailing.map((t) => `${t}: ${last.messages[t] ?? ''}`).join('\n')}${regressed.length ? `\n--- and a prior attempt REGRESSED these previously-passing tests; do NOT change their behaviour ---\n${regressed.map((t) => `${t}: ${last.messages[t] ?? ''}`).join('\n')}` : ''}\n`;
+    // SEARCH/REPLACE primitive (ADR-127, default): the model returns one or more exact
+    // old→new blocks. Surgical — only the matched region changes, so a large file is not
+    // rewritten (no collateral PASS_TO_PASS regressions, ADR-126) and there is no JSON or
+    // diff line-number corruption (ADR-124/126). Multiple blocks across files in one reply.
+    const prompt = patchMode === 'wholefile'
+      ? `${task.problem_statement}\nFix the buggy file. Respond EXACTLY:\nFILE: <one selected filename>\n<<<CONTENT\n<COMPLETE corrected file>\nCONTENT>>>\nNo fences/JSON/prose.\n--- selected files ---\n${seen}\n--- failing tests ---\n${stillFailing.join('\n')}\n${feedback}`
+      : `${task.problem_statement}\nFix the bug(s). For EACH change emit a block EXACTLY:\nFILE: <one selected filename>\n<<<SEARCH\n<exact lines copied verbatim from that file>\n=======\n<replacement lines>\n>>>REPLACE\nThe SEARCH text MUST match the file character-for-character. Emit multiple blocks (across files) if needed. Keep each SEARCH minimal. No fences/JSON/prose outside blocks.\n--- selected files ---\n${seen}\n--- failing tests ---\n${stillFailing.join('\n')}\n${feedback}`;
+    const res = await fetch('https://openrouter.ai/api/v1/chat/completions', { method: 'POST', headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ model, messages: [{ role: 'user', content: prompt }], max_tokens: 4096, temperature: 0.1 }) });
+    const j = await res.json();
+    tokens += j.usage?.total_tokens ?? 0; cost += j.usage?.cost ?? 0;
+    const rawc = j.choices?.[0]?.message?.content ?? '';
+    let applied = 0;
+    if (patchMode === 'wholefile') {
+      const pf = (rawc.match(/FILE:\s*([^\n]+)/i)?.[1] ?? '').trim().replace(/^.*\//, '') || null;
+      const pc = rawc.match(/<<<CONTENT\n([\s\S]*?)\nCONTENT>>>/)?.[1] ?? null;
+      if (pf && realFiles.includes(pf) && typeof pc === 'string' && pc.length > 50) { writeFileSync(join(work, 'src', pf), pc); if (!chose.includes(pf)) chose.push(pf); applied++; }
+    } else {
+      const re = /FILE:\s*([^\n]+)\n<<<SEARCH\n([\s\S]*?)\n=======\n([\s\S]*?)\n>>>REPLACE/g;
+      for (let mm; (mm = re.exec(rawc)); ) {
+        const f = mm[1].trim().replace(/^.*\//, ''), search = mm[2], replace = mm[3];
+        if (!realFiles.includes(f)) continue;
+        const fp = join(work, 'src', f); const cur = readFileSync(fp, 'utf8');
+        if (search.length && cur.includes(search)) { writeFileSync(fp, cur.replace(search, replace)); if (!chose.includes(f)) chose.push(f); applied++; }
+      }
+    }
+    if (process.env.SWE_DEBUG) console.error(`[attempt ${attempt}] finish=${j.choices?.[0]?.finish_reason} mode=${patchMode} blocksApplied=${applied} chose=${chose.join(',')}`);
+    last = runTests(work, task.test_suites);
+    verdict = evaluate(F2P, P2P, last.status);
+  }
+
+  const patchBytes = g(work, 'git diff').toString().length; // the appliable artifact (provenance)
+  return { instance_id: task.instance_id, ...verdict, FAIL_TO_PASS: F2P.length, PASS_TO_PASS: P2P.length, attemptsUsed, maxAttempts, chose, patchBytes, tokens, cost_usd: cost };
+}

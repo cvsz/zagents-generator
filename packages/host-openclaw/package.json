@@ -1,0 +1,52 @@
+{
+  "name": "@metaharness/host-openclaw",
+  "version": "0.1.2",
+  "description": "OpenClaw (personal AI assistant) host adapter for agent-gemini-generator (MCP via ~/.openclaw/openclaw.json + workspace skills)",
+  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "directory": "packages/host-openclaw"
+  },
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/**",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run --passWithNoTests",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "agent-gemini",
+    "openclaw",
+    "personal-ai-assistant",
+    "mcp",
+    "host-adapter",
+    "ruflo"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@metaharness/kernel": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

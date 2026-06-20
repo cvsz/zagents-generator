@@ -1,0 +1,53 @@
+{
+  "name": "@metaharness/vertical-trading",
+  "version": "0.1.0",
+  "description": "Trading gemini vertical pack — paper-mode-default, circuit breakers, fractional-Kelly position sizing, 5-agent pipeline (market-watcher / signal-gen / risk-checker / executor / postmortem)",
+  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "directory": "packages/vertical-trading"
+  },
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/**",
+    "templates/**",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run --passWithNoTests",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "agent-gemini",
+    "vertical-pack",
+    "trading",
+    "quant",
+    "backtesting",
+    "ruflo"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@metaharness/vertical-base": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

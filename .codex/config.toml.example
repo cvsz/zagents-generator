@@ -1,0 +1,16 @@
+# Example Codex configuration for the agent-gemini-generator.
+#
+# Drop this at ~/.codex/config.toml (user-global) or .codex/config.toml
+# (project, requires "trusted project" status per OpenAI codex#3441).
+#
+# Verified surface: https://developers.openai.com/codex/mcp
+
+[mcp_servers.agent-gemini-generator]
+command = "npx"
+args = ["-y", "create-agent-gemini@latest", "mcp-serve"]
+
+# Optional environment for the MCP server. Use Streamable HTTP form
+# instead if your gemini is hosted (see codex docs for bearer_token_env_var).
+
+[mcp_servers.agent-gemini-generator.env]
+RUFLO_KERNEL_LOG_LEVEL = "info"

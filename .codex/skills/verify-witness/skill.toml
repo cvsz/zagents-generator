@@ -1,0 +1,37 @@
+# Codex skill: verify a gemini's Ed25519 witness manifest.
+#
+# Wraps the `gemini verify` subcommand. Distinct from `validate-gemini`
+# (the iter-22 umbrella) because it focuses ONLY on signature checking —
+# useful inside CI / federation handshakes where you want a fast yes/no
+# on "did the publisher sign this exact file set?"
+
+[skill]
+name = "verify-witness"
+version = "0.1.0"
+description = "Verify the Ed25519 witness manifest of a scaffolded gemini. Fast yes/no signature check that proves the publisher signed this exact file set — separate from the full release-readiness umbrella in validate-gemini."
+author = "rUv <ruv@ruv.net>"
+homepage = "https://github.com/ruvnet/agent-gemini-generator"
+license = "MIT"
+
+[dispatch]
+type = "mcp_tool"
+server = "agent-gemini-generator"
+tool = "verify_witness"
+
+[command]
+name = "verify-witness"
+synopsis = "Verify Ed25519 witness manifest of a gemini directory"
+
+[[args]]
+name = "path"
+prompt = "Path to the gemini directory"
+default = "."
+
+[[args]]
+name = "strict"
+prompt = "Fail if no witness.json is present (vs. soft-skip)?"
+default = "true"
+choices = ["true", "false"]
+
+[catalog]
+tags = ["witness", "ed25519", "signature", "verification", "federation", "ci"]

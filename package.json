@@ -1,0 +1,38 @@
+{
+  "name": "agent-gemini-generator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Scaffold your own focused AI agent gemini — workspace root",
+  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ruvnet/agent-gemini-generator.git"
+  },
+  "license": "MIT",
+  "author": "rUv <ruv@ruv.net>",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "node scripts/build-ordered.mjs",
+    "test": "npm run -ws --if-present test",
+    "lint": "npm run -ws --if-present lint",
+    "build:wasm": "wasm-pack build crates/kernel-wasm --target bundler --out-dir ../../packages/kernel-js/pkg --release",
+    "build:napi": "cd crates/kernel-napi && napi build --platform --release --output-dir ../../packages/kernel-js/native",
+    "test:rust": "cargo test --workspace",
+    "fmt:rust": "cargo fmt --all",
+    "clippy": "cargo clippy --workspace --all-targets -- -D warnings",
+    "smoke": "node scripts/smoke.mjs",
+    "pretest": "npm run build"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^3.7.2",
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,94 @@
+# @metaharness/bench
+
+Reproducible memory-retrieval benchmark for the kernel's HNSW + decay pipeline.
+
+## Run
+
+```bash
+npm run build && npm run bench
+```
+
+Tweak corpus + query counts via env vars:
+
+```bash
+BENCH_ITEMS=5000 BENCH_QUERIES=1000 BENCH_OUT=./report.json npm run bench
+```
+
+Output is a deterministic JSON report. Reproducible across CI runners.
+
+## What it measures
+
+Six configurations are scored side-by-side:
+
+| Config | k | Decay |
+|---|---|---|
+| 1 | 1 | off |
+| 2 | 1 | on |
+| 3 | 3 | off |
+| 4 | 3 | on |
+| 5 | 10 | off |
+| 6 | 10 | on |
+
+Per config: `recall@k`, `MRR`, `p50_latency_ms`, `p95_latency_ms`, plus per-category breakdown across `single-hop`, `temporal`, `multi-hop`, `open-domain` evals.
+
+## Baselines we compare against (in the report header)
+
+| Source | What they reported |
+|---|---|
+| [Mem0](https://arxiv.org/abs/2504.19413) | +26% LLM-as-Judge over OpenAI memory baseline; 91% lower p95 latency; >90% token cost reduction |
+| [ReasoningBank](https://research.google/blog/reasoningbank-enabling-agents-to-learn-from-experience/) | +8.3pp on WebArena with Gemini-2.5-Flash; **k=1 retrieval is optimal — more memory hurts** |
+
+We don't run Mem0 or ReasoningBank in CI (their API keys + workloads aren't accessible from our test gemini). The bench reproduces the EXPERIMENT SHAPE — same category mix, same retrieval-quality metric — so you can sanity-check the kernel's decay-vs-no-decay and k=1-vs-k=N empirically.
+
+## What the ReasoningBank k=1 finding predicts
+
+If `k=1 recall >= k=10 recall - epsilon` on the temporal category, the ReasoningBank result reproduces in our shape. If not, the decay path is over-eager or the corpus is too dense.
+
+## DRACO — deep-research benchmark + the beyond-SOTA findings
+
+`src/draco/` is a second, independent benchmark: a cross-domain deep-research
+gate (science / finance / law / current-events / technical) that scores a cited
+dossier on grounding, coverage, balance, cleanliness, and faithfulness, with
+live OpenRouter model fusion. See ADR-037 for the design.
+
+**The honest result (ADR-038, ADR-039 — measured, not gamed):**
+
+- **Quality ceiling.** Within the observed benchmark variance, *no tested
+  gemini arm exceeded the frontier vanilla ceiling*. Across 4 frontier runs
+  every gemini/fusion/refine/select arm landed at or below vanilla (within its
+  own ±0.02 between-run noise). The mechanism:
+  `grounding = (live URLs)/(total URLs)` is a fraction, so transforms lose live
+  URLs, selection is capped by the best draw, and union can only dilute. The
+  benchmark *falsified* the gemini-beats-vanilla thesis with a mechanism.
+- **Cost win (the real "beyond SOTA").** A cheap model (haiku-4.5) produces a
+  HIGHER-quality dossier than a frontier model (opus-4) at **~10× lower cost**
+  (`+0.042` quality, `10.6×` more quality-per-dollar). The frontier *fusion*
+  gemini costs **≥250×** the cheap direct call and scores **worse**. For
+  DRACO-style factual dossiers: route to a cheap model and ask directly.
+
+```bash
+# Offline cost-efficiency report from committed run artifacts (no API spend):
+node dist/draco/draco-bin.js --cost-report
+
+# Re-run a live arm (needs OPENROUTER_API_KEY): --threeway | --augment | --selfcon [--composite]
+DRACO_CONCURRENCY=4 node --env-file=../../.env dist/draco/draco-bin.js --threeway --live
+```
+
+Run artifacts: `draco/runs/*.json`. Arms are tested + offline-mockable; CI runs
+the full suite so no result regresses. Findings gist + ADR-038/039 carry the
+full evidence.
+
+- **Phase 2 — routing (the productized win).** Models disagree per question, so
+  the per-question *oracle* beats the best fixed model by ~7–10%. A learned
+  router captures it: a model's self-rating is useless (85% of oracle), but
+  routing on a real feature works — `domain_router` and an `embedding_knn_router`
+  (semantic) both beat the best fixed model (92%). The 92%→100% gap is
+  **data-limited**, not signal-limited — measured by a learning curve that rises
+  monotonically with training size (85%→92%, still climbing at n=19) and guarded
+  by a regression test. This is shipped as [`@metaharness/router`](https://www.npmjs.com/package/@metaharness/router):
+  `route(query)` → the cheapest model predicted to clear your quality bar. See
+  ADR-040.
+
+## License
+
+MIT
