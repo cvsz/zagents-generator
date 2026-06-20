@@ -77,7 +77,7 @@ apps/web-ui/
 │  │  ├─ zip.ts             # JSZip + Blob download (deterministic)
 │  │  └─ __tests__/         # 48 unit tests
 │  ├─ generated/catalog.ts  # GENERATED — do not edit (npm run gen:templates)
-│  ├─ components/           # HarnessBuilder, ArtifactBuilder, RepoImporter, VerifyPanel, FileTree, ui
+│  ├─ components/           # ZBuilder, ArtifactBuilder, RepoImporter, VerifyPanel, FileTree, ui
 │  └─ App.tsx
 ├─ e2e/                     # Playwright desktop + mobile specs
 └─ scripts/                 # screenshot.mjs, bench.mjs

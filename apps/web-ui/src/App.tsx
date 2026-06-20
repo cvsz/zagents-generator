@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Boxes, Github, HelpCircle, Sparkles, Gauge, Route, ShieldCheck, Globe } from 'lucide-react';
-import { HarnessBuilder } from './components/HarnessBuilder';
+import { ZBuilder } from './components/ZBuilder';
 import { ArtifactBuilder } from './components/ArtifactBuilder';
 import { RepoImporter } from './components/RepoImporter';
 import { VerifyPanel } from './components/VerifyPanel';
@@ -19,7 +19,7 @@ export default function App() {
     i18n.changeLanguage(i18n.language === 'en' ? 'th' : 'en');
   };
   const [seed, setSeed] = useState<HarnessConfig | undefined>(undefined);
-  // Bump to force-remount HarnessBuilder when a repo plan seeds a new config.
+  // Bump to force-remount ZBuilder when a repo plan seeds a new config.
   const [seedKey, setSeedKey] = useState(0);
   // iter 106 — onboarding modal state (undefined → modal decides from localStorage)
   const [forceOnboarding, setForceOnboarding] = useState<boolean | undefined>(undefined);
@@ -123,7 +123,7 @@ export default function App() {
             </div>
           </div>
         )}
-        {mode === 'gemini' && <HarnessBuilder key={seedKey} seed={seed} />}
+        {mode === 'gemini' && <ZBuilder key={seedKey} seed={seed} />}
         {mode === 'artifact' && <ArtifactBuilder />}
         {mode === 'verify' && <VerifyPanel />}
         {mode === 'dashboard' && (
