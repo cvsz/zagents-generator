@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/research",
+  "name": "@zagents/research",
   "version": "0.1.1",
-  "description": "MetaHarness example — multi-agent research dossier scaffold for Claude Code with scout, web search, grading, synthesis (npx @metaharness/research my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/research",
+  "description": "ZAgents example — multi-agent research dossier scaffold for Claude Code with scout, web search, grading, synthesis (npx @zagents/research my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/research",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/research"
   },
   "license": "MIT",
@@ -21,9 +21,9 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "agent-gemini",
-    "agent-gemini-generator",
+    "zagents-generator",
     "research",
     "vertical",
     "claude-code",

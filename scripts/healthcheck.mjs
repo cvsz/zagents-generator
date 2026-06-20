@@ -32,7 +32,7 @@ const JSON_OUT = args.includes('--json');
 const PROBE_PAGES = args.includes('--probe-pages');
 const onlyCheck = args.find(a => a.startsWith('--check='))?.slice('--check='.length);
 
-const STUDIO_URL = 'https://ruvnet.github.io/agent-gemini-generator/';
+const STUDIO_URL = 'https://ruvnet.github.io/zagents-generator/';
 
 const CHECKS = {
   async version() {
@@ -41,33 +41,33 @@ const CHECKS = {
     const drifts = [];
     // packages/*
     const packages = await readdir(join(ROOT, 'packages'), { withFileTypes: true });
-    // iter 149: the published CLI (metaharness) + its library wrapper
-    // (@ruvnet/agent-gemini-generator) version INDEPENDENTLY of the
-    // @metaharness/* workspace packages — they ship to npm on their own semver
+    // iter 149: the published CLI (zagents) + its library wrapper
+    // (@ruvnet/zagents-generator) version INDEPENDENTLY of the
+    // @zagents/* workspace packages — they ship to npm on their own semver
     // cadence. Exclude them from the workspace-coherence check.
-    // @metaharness/router is likewise a standalone published library on its own
+    // @zagents/router is likewise a standalone published library on its own
     // semver (0.2.0 → 0.3.x as its API grows — ADR-043 native backend), not
     // lock-stepped to the monorepo version.
-    // @metaharness/kernel ships on its own semver (it carries the native/wasm
+    // @zagents/kernel ships on its own semver (it carries the native/wasm
     // build cadence — 0.1.0 js-only → 0.1.2 with the shipped wasm backend,
     // GH #20) and the host adapters version with it (bumped to 0.1.2 so their
-    // `@metaharness/kernel` dep can caret-resolve the wasm kernel — they were
+    // `@zagents/kernel` dep can caret-resolve the wasm kernel — they were
     // already published off the monorepo cadence at 0.1.1). Treat both as
-    // independently-versioned, like metaharness/router/lib.
+    // independently-versioned, like zagents/router/lib.
     const INDEPENDENT = new Set([
-      'metaharness',
-      '@ruvnet/agent-gemini-generator',
-      '@metaharness/router',
-      '@metaharness/kernel',
-      '@metaharness/host-claude-code',
-      '@metaharness/host-codex',
-      '@metaharness/host-copilot',
-      '@metaharness/host-github-actions',
-      '@metaharness/host-hermes',
-      '@metaharness/host-openclaw',
-      '@metaharness/host-opencode',
-      '@metaharness/host-pi-dev',
-      '@metaharness/host-rvm',
+      'zagents',
+      '@ruvnet/zagents-generator',
+      '@zagents/router',
+      '@zagents/kernel',
+      '@zagents/host-claude-code',
+      '@zagents/host-codex',
+      '@zagents/host-copilot',
+      '@zagents/host-github-actions',
+      '@zagents/host-hermes',
+      '@zagents/host-openclaw',
+      '@zagents/host-opencode',
+      '@zagents/host-pi-dev',
+      '@zagents/host-rvm',
     ]);
     for (const p of packages) {
       if (!p.isDirectory()) continue;
@@ -241,12 +241,12 @@ const CHECKS = {
         return { tag: 'FAIL', detail: `${STUDIO_URL} → HTTP ${idxRes.status}` };
       }
       const html = await idxRes.text();
-      // Brand check — the Studio was renamed Agent Gemini Generator → MetaHarness
-      // (iter-118). "MetaHarness" is in the <title>, og:title, and the rendered h1.
-      if (!html.includes('MetaHarness')) {
-        return { tag: 'FAIL', detail: 'index served but missing "MetaHarness" title/brand' };
+      // Brand check — the Studio was renamed ZAgents Generator → ZAgents
+      // (iter-118). "ZAgents" is in the <title>, og:title, and the rendered h1.
+      if (!html.includes('ZAgents')) {
+        return { tag: 'FAIL', detail: 'index served but missing "ZAgents" title/brand' };
       }
-      // Find a Vite bundle to probe — script src="/agent-gemini-generator/assets/index-<hash>.js"
+      // Find a Vite bundle to probe — script src="/zagents-generator/assets/index-<hash>.js"
       const m = html.match(/src="([^"]*\/assets\/index-[A-Za-z0-9_-]+\.js)"/);
       if (!m) {
         return { tag: 'WARN', detail: 'index HTML missing Vite bundle reference (deploy partial?)' };

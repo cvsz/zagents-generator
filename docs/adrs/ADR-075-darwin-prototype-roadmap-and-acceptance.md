@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-070 (Darwin Mode head), ADR-071 (mutation surfaces), ADR-072 (scoring), ADR-073 (archive), ADR-074 (memory + fabric)
 
 > Part of the Darwin Mode series (ADR-070…075). The preceding ADRs specify *what* Darwin Mode is and *how* its pieces work. This ADR specifies *the order we build it in* and *the bar that says it works* — so the series ships as measured increments, not a big-bang.
@@ -27,13 +27,13 @@ Open the remaining surfaces — planner, tool policy, memory policy, retry polic
 
 ### 30-day target (the credible, viral claim)
 
-> *MetaHarness evolved a repo-specific agent gemini that improved task success by at least 15% over the baseline, with full traceability and rollback.*
+> *ZAgents evolved a repo-specific agent gemini that improved task success by at least 15% over the baseline, with full traceability and rollback.*
 
 Credible, measurable, and demonstrable — not "recursive AI." Traceability = the lineage tree (ADR-073); rollback = witness-signed promoted nodes (ADR-011).
 
 ### Acceptance test — three repos
 
-Run on **ruVector**, **agent-gemini-generator** (this repo), and **ruQu**. For each:
+Run on **ruVector**, **zagents-generator** (this repo), and **ruQu**. For each:
 
 1. Generate **10** gemini variants.
 2. Run **20** repo-specific tasks.
@@ -50,7 +50,7 @@ Run on **ruVector**, **agent-gemini-generator** (this repo), and **ruQu**. For e
 npm install        # devDeps only: typescript + @types/node
 npm run build
 node dist/cli.js evolve ../ruvector --generations 3 --children 5
-# → .metaharness/{archive.json, runs/*, variants/*, reports/winner.json}
+# → .zagents/{archive.json, runs/*, variants/*, reports/winner.json}
 ```
 
 The published artifacts per acceptance repo: baseline score · winner score · mutation lineage · score delta · safety score · cost proxy · trace replay — plus a GitHub Action badge.

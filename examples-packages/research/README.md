@@ -1,4 +1,4 @@
-# MetaHarness: research vertical
+# ZAgents: research vertical
 
 > ⚠️ **Illustrative output.** Transcripts and validation/run output shown in this README are
 > representative examples, not captured from a specific run — actual output depends on your
@@ -10,7 +10,7 @@ A ready-made multi-agent research gemini for Claude Code. One command scaffolds 
 ## Quickstart
 
 ```bash
-npx @metaharness/research@latest my-bot
+npx @zagents/research@latest my-bot
 cd my-bot && npm install && npm run doctor
 ```
 
@@ -76,7 +76,7 @@ A: Cost and accuracy. Fan-out search and citation normalization are cheap haiku 
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

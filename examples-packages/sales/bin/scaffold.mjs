@@ -8,7 +8,7 @@ const extra = process.argv.slice(3);
 const args = [
   'npx',
   '--yes',
-  'metaharness@latest',
+  'zagents@latest',
   name,
   '--template',
   'vertical:sales',
@@ -27,6 +27,6 @@ try {
   console.log(`Next: cd ${name} && npm install && gemini doctor`);
   console.log(`Then: claude -p --plugin-dir ${name} "Run the sales pipeline on lead: <your lead>"`);
 } catch (err) {
-  console.error(`metaharness scaffold failed: ${err.message || err}`);
+  console.error(`zagents scaffold failed: ${err.message || err}`);
   process.exit(typeof err.status === 'number' ? err.status : 1);
 }

@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-16
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-044 (capability coverage), ADR-046 (real-install verification), ADR-047 (control plane), ADR-048 (ruvnet algo stack), ADR-049 (non-trivial targets)
 
 ---
@@ -14,12 +14,12 @@ with the ruvnet stack surfaced concrete, transferable lessons about what makes a
 *gemini* — independent of model or host — produce **trustworthy, compounding** output. The
 swarm proved 40/40 attempted goals, contributed 32, and opened real PRs (e.g. #1278). The
 patterns that made that work are not specific to Lean; they are gemini-level intelligence we
-should bake into metaharness so every generated gemini — Claude Code, Codex, OpenCode,
+should bake into zagents so every generated gemini — Claude Code, Codex, OpenCode,
 Copilot, GitHub Actions, Hermes, OpenClaw, pi-dev, RVM — inherits them.
 
 ## Decision
 
-Promote five patterns to first-class, host-agnostic metaharness capabilities. Each maps to a
+Promote five patterns to first-class, host-agnostic zagents capabilities. Each maps to a
 concrete artifact a generated gemini can ship.
 
 ### 1. Verification-gated output (the load-bearing one)

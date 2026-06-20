@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-004 (host integration model), ADR-022 (MCP primitive), ADR-011 (witness + provenance), ADR-006 (memory + learning), ADR-036 (host-opencode pattern), ADR-076 (benchmark), ADR-070 (Darwin Mode)
 
 ---
@@ -31,11 +31,11 @@
 
 - **Production primitives built in, not bolted on.** Durable execution (per-step checkpointing on the Workflow SDK — pause/crash-recover/resume with zero idle compute); sandboxed compute (agent-written code runs isolated — Docker/bash locally, Vercel Sandbox in prod); **human-in-the-loop approvals** (`needsApproval` pauses indefinitely, resumes from the checkpoint); connections that **broker auth and hide credentials/URLs from the model**; scored **evals** (TypeScript suites that send prompts, assert tool calls + outputs, run locally or against a deployment); **OpenTelemetry** traces (every model call + tool call a span); git-native, deploys as an ordinary Vercel project.
 
-### Why this matters for MetaHarness
+### Why this matters for ZAgents
 
-MetaHarness *generates and evolves* harnesses; it does not *run them in production*. Eve is the missing production-runtime end of that pipeline, and the alignment is unusually tight — many Eve primitives already exist as MetaHarness concepts under different names:
+ZAgents *generates and evolves* harnesses; it does not *run them in production*. Eve is the missing production-runtime end of that pipeline, and the alignment is unusually tight — many Eve primitives already exist as ZAgents concepts under different names:
 
-| Eve primitive | MetaHarness construct it maps to |
+| Eve primitive | ZAgents construct it maps to |
 |---|---|
 | agent-as-a-directory, convention-driven | the generator's convention-driven scaffold (ADR-003) — same philosophy |
 | `connections/` (MCP + OpenAPI), credential brokering, model can't see secrets | the **MCP default-deny primitive** (ADR-022) + `mcp-policy.json` |
@@ -45,11 +45,11 @@ MetaHarness *generates and evolves* harnesses; it does not *run them in producti
 | `channels/` (Slack/HTTP/… adapters) | a *runtime* sibling of **hosts** (ADR-004) — a different axis |
 | scored `evals` | the **benchmark layer** (ADR-076) + TDD contracts (ADR-010) |
 | OpenTelemetry traces | the trace/**witness** substrate (ADR-011) |
-| `needsApproval` human-in-the-loop | *new* — MetaHarness has default-deny but no approval-pause primitive |
+| `needsApproval` human-in-the-loop | *new* — ZAgents has default-deny but no approval-pause primitive |
 | durable execution / checkpointing | *new* — no durable workflow runtime today |
 | `schedules/` (cron) | the GitHub Actions host's non-interactive trigger (ADR-033) |
 
-So Eve is simultaneously (a) a new **host** target the generator can emit to, and (b) a source of three production primitives MetaHarness lacks, and (c) the runtime that **closes the Darwin Mode loop** — its evals and traces are exactly the evaluation signal evolution needs (ADR-076).
+So Eve is simultaneously (a) a new **host** target the generator can emit to, and (b) a source of three production primitives ZAgents lacks, and (c) the runtime that **closes the Darwin Mode loop** — its evals and traces are exactly the evaluation signal evolution needs (ADR-076).
 
 Eve is also a *new category* of host. Every existing host (claude-code, codex, copilot, opencode, hermes, openclaw, pi-dev, rvm, github-actions) is a coding-agent CLI/IDE or CI surface. Eve is the first **production-application-runtime** host — the analogue of "github-actions was the first non-interactive host" (ADR-033).
 
@@ -57,7 +57,7 @@ Eve is also a *new category* of host. Every existing host (claude-code, codex, c
 
 Adopt Eve along three lines.
 
-### 1. Add `@metaharness/host-eve` — the 10th host (an agent-directory emitter)
+### 1. Add `@zagents/host-eve` — the 10th host (an agent-directory emitter)
 
 Following the ADR-036 (opencode) pattern, but emitting a *directory tree* instead of one config file. Per `adapter.generateConfig(spec)` over the `HarnessSpec`:
 
@@ -76,7 +76,7 @@ Package shape mirrors host-opencode (`packages/host-eve/{package.json,tsconfig.j
 
 ### 2. Default-deny + approval composition (the safety posture wins)
 
-MetaHarness's default-deny MCP posture (ADR-022) is not weakened by Eve's convenience:
+ZAgents's default-deny MCP posture (ADR-022) is not weakened by Eve's convenience:
 
 - The adapter copies `mcp-policy.json` deny rules **verbatim** into each `connections/` file, so the gemini's posture wins via Eve's own enforcement (same rule as the opencode adapter, ADR-036).
 - Every tool the policy classes high-risk (writes, shell, network egress, money movement) is emitted with **`needsApproval: true`** — the human-in-the-loop gate becomes a *generated default*, not a thing teams remember to add.
@@ -90,7 +90,7 @@ This is the highest-value part. Darwin Mode (ADR-070…082) needs an evaluator a
 - **Eve OpenTelemetry traces → the scoring/replay substrate.** Each run's spans (model + tool calls) are the trace quality + cost + latency signal the scorer reads, and the durable checkpoints give a literal **replay** for the Repro gate (ADR-076) and witness provenance (ADR-011).
 - **Eve sandbox + `needsApproval` → the runtime analogue of the ADR-071 boundary.** Evolution proposes gemini changes offline behind the allowlist; Eve enforces the same posture at run time (isolated sandbox, approval pauses). The model proposes, the gemini decides, the algorithms verify — now in production.
 
-So the full pipeline becomes: **MetaHarness generates → Darwin Mode evolves (offline, gated) → Eve runs in production → Eve evals + traces feed the next evolution.** ruVector (ADR-074) stores the cross-run memory; RuFlo orchestrates.
+So the full pipeline becomes: **ZAgents generates → Darwin Mode evolves (offline, gated) → Eve runs in production → Eve evals + traces feed the next evolution.** ruVector (ADR-074) stores the cross-run memory; RuFlo orchestrates.
 
 ### What stays out of scope (for this ADR)
 
@@ -99,9 +99,9 @@ Implementing Eve's durable-execution runtime ourselves is **not** proposed — w
 ## Consequences
 
 ### What gets easier
-- A clean production-runtime story: the generator/evolver finally has a first-class deploy target with durability, approvals, channels, and tracing — without MetaHarness building any of it.
+- A clean production-runtime story: the generator/evolver finally has a first-class deploy target with durability, approvals, channels, and tracing — without ZAgents building any of it.
 - The Darwin Mode evaluation loop gains a **production** evaluator (Eve evals) and **replayable** traces, closing the gap between "benchmark in a sandbox" and "evaluated in production."
-- `needsApproval` gives MetaHarness a real human-in-the-loop primitive it lacked, generated by default for high-risk tools.
+- `needsApproval` gives ZAgents a real human-in-the-loop primitive it lacked, generated by default for high-risk tools.
 
 ### What gets harder
 - Eve is a *directory tree* emitter, not a one-file config — the adapter is larger than the opencode/copilot adapters (more files, a `tools/` codegen path with Zod). Bounded, but not ~100 LoC.
@@ -114,7 +114,7 @@ Implementing Eve's durable-execution runtime ourselves is **not** proposed — w
 
 ## Alternatives Considered
 
-1. **Adopt Eve's conventions as MetaHarness's *own* canonical layout (replace the generator's scaffold).** Rejected — MetaHarness is deliberately multi-host (ADR-004); making one vendor's directory shape canonical would couple the generator to Eve/Vercel. Eve is a *target*, not the spec.
+1. **Adopt Eve's conventions as ZAgents's *own* canonical layout (replace the generator's scaffold).** Rejected — ZAgents is deliberately multi-host (ADR-004); making one vendor's directory shape canonical would couple the generator to Eve/Vercel. Eve is a *target*, not the spec.
 2. **Build our own durable-execution + approvals runtime in the kernel.** Rejected — large, and it re-implements what Eve (and the Workflow SDK) already ship; the kernel-boundary ADR (ADR-002) says runtime infra that a host provides stays out of the kernel.
 3. **Treat Eve `channels` as new "hosts."** Rejected — channels are a *runtime interface* axis (Slack/HTTP for one running agent), orthogonal to hosts (which agentic platform runs the gemini). Conflating them breaks the ADR-004 model. Channels are emitted *within* the Eve host, not as separate hosts.
 4. **Skip the Darwin-loop integration; ship only the host adapter.** Rejected as under-selling — the evals+traces→evolution loop is the differentiated value; the host adapter alone is a commodity emitter.

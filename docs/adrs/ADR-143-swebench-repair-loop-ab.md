@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — Stage B2; honest A/B, mechanism confirmed, headline within noise at n=25
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-142 (open-loop pilot, 12%), ADR-126 (repair loop), ADR-127 (search/replace), ADR-138 (LLM-fitness noise)
 
 > ADR-142 set the open-loop floor (3/25 = 12%). This turns ADR-126's repair loop back on against the **same stratified 25** SWE-bench Lite instances — a controlled A/B: open-loop single-shot vs closed-loop (run the real tests in Docker, feed the traceback back, retry up to 3×).

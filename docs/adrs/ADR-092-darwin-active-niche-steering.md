@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-091 (hyperbolic behavioral phenotyping), ADR-088 (MAP-Elites), ADR-073 (archive selection)
 
 > ADR-091 gave each variant a coordinate in the Poincaré ball and bins for diversity. Diversity selection *maintains* spread; this ADR *drives* it — actively seeding the next generation from survivors nearest an under-explored region, preferring the high-complexity boundary. Evolution stops being passive and starts navigating the behavioural manifold.

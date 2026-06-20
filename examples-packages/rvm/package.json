@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/rvm",
+  "name": "@zagents/rvm",
   "version": "0.1.0",
-  "description": "MetaHarness example — minimal agent gemini pre-wired for the RVM deployment-target partition (npx @metaharness/rvm my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/rvm",
+  "description": "ZAgents example — minimal agent gemini pre-wired for the RVM deployment-target partition (npx @zagents/rvm my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/rvm",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/rvm"
   },
   "license": "MIT",
@@ -21,9 +21,9 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "agent-gemini",
-    "agent-gemini-generator",
+    "zagents-generator",
     "rvm",
     "host",
     "ai-agent",

@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/legal",
+  "name": "@zagents/legal",
   "version": "0.1.0",
-  "description": "MetaHarness example — contract redline, citation check, and risk rating drafts for Claude Code (npx @metaharness/legal my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/legal",
+  "description": "ZAgents example — contract redline, citation check, and risk rating drafts for Claude Code (npx @zagents/legal my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/legal",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/legal"
   },
   "license": "MIT",
@@ -21,9 +21,9 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "agent-gemini",
-    "agent-gemini-generator",
+    "zagents-generator",
     "legal",
     "vertical",
     "claude-code",

@@ -1,6 +1,6 @@
-# @metaharness/kernel
+# @zagents/kernel
 
-Cross-platform kernel for the [agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator) project.
+Cross-platform kernel for the [zagents-generator](https://github.com/ruvnet/zagents-generator) project.
 
 ## What it is
 
@@ -14,15 +14,15 @@ At load time, `loadKernel()` prefers the per-platform native package; falls back
 ## Install
 
 ```bash
-npm install @metaharness/kernel
+npm install @zagents/kernel
 ```
 
-The native packages (`@metaharness/kernel-darwin-arm64`, `-linux-x64-gnu`, etc.) are declared as `optionalDependencies` — npm installs only the one for your platform.
+The native packages (`@zagents/kernel-darwin-arm64`, `-linux-x64-gnu`, etc.) are declared as `optionalDependencies` — npm installs only the one for your platform.
 
 ## Usage
 
 ```js
-import { loadKernel } from '@metaharness/kernel';
+import { loadKernel } from '@zagents/kernel';
 
 const kernel = await loadKernel();
 const info = kernel.kernelInfo();
@@ -39,7 +39,7 @@ if (err) throw new Error(err);
 ### Memory subsystem (subpath export)
 
 ```js
-import { rankWithDecay } from '@metaharness/kernel/memory';
+import { rankWithDecay } from '@zagents/kernel/memory';
 
 const ranked = await rankWithDecay(hits, {
   useDecay: true,

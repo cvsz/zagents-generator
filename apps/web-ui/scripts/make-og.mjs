@@ -5,7 +5,7 @@
 // (Twitter/Slack/Discord/LinkedIn/Facebook) do NOT render SVG, so we rasterise a
 // branded HTML card with the Playwright chromium already used for e2e. Output:
 // public/og.png (Vite copies public/ to the dist root → served at
-// https://ruvnet.github.io/agent-gemini-generator/og.png).
+// https://ruvnet.github.io/zagents-generator/og.png).
 //
 // Run: node scripts/make-og.mjs   (regenerate whenever the card copy changes)
 
@@ -57,7 +57,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8"/>
       <div class="logo"><svg viewBox="0 0 32 32"><path d="M9 21l4-10 3 7 2-4 5 7z" fill="white"/></svg></div>
       <div class="eyebrow">Meta-gemini · the agent gemini supply chain</div>
     </div>
-    <h1 style="margin-top:38px">MetaHarness <span class="g">Studio</span></h1>
+    <h1 style="margin-top:38px">ZAgents <span class="g">Studio</span></h1>
     <div class="tag">Mint a custom AI agent gemini from any repo — governed, branded, multi-host, npm-publishable.</div>
     <div class="chips">
       <div class="chip"><b>score</b> any repo</div>
@@ -67,7 +67,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8"/>
     </div>
   </div>
   <div class="foot">
-    <div class="cmd">npx metaharness</div>
+    <div class="cmd">npx zagents</div>
     <div class="hosts">Claude Code · Codex · pi.dev · Hermes · OpenClaw · RVM</div>
   </div>
 </body></html>`;

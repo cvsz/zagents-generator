@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured — multi-seed)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-088 (MAP-Elites), ADR-091 (hyperbolic phenotype), ADR-094 (clade), ADR-089 (crossover), ADR-102/103/104 (live manifold + self-improvement + mutation fix)
 
 > The diversity/phenotype machinery (ADR-088/091/092/094) has been correct, tested, and — since ADR-102 — live. But one question decided whether it was *worth* it: does it actually solve problems greedy score-selection cannot? This experiment answers it with a clean, multi-seed contrast. It does.

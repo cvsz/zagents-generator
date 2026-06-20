@@ -3,7 +3,7 @@
 import { describe, it, expect } from 'vitest';
 import { serverToOpenClaw, configJson, skillMarkdown, installScript, adapter, HOST_NAME } from '../src/index.js';
 
-describe('@metaharness/host-openclaw — config generation', () => {
+describe('@zagents/host-openclaw — config generation', () => {
   // ADR-046 — verified against real openclaw 2026.6.8: entries carry `enabled`.
   describe('serverToOpenClaw', () => {
     it('converts stdio command form with enabled flag', () => {

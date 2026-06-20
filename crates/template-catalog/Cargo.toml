@@ -6,7 +6,7 @@ rust-version.workspace = true
 license.workspace = true
 repository.workspace = true
 authors.workspace = true
-description = "Canonical, embedded quick-start template catalog for agent-gemini-generator (parsed from templates/catalog.json)"
+description = "Canonical, embedded quick-start template catalog for zagents-generator (parsed from templates/catalog.json)"
 keywords = ["agent", "gemini", "scaffold", "templates", "catalog"]
 categories = ["config"]
 

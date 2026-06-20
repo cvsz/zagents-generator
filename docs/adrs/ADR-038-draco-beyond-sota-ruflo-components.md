@@ -2,7 +2,7 @@
 
 **Status**: Accepted
 **Date**: 2026-06-14
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Supersedes**: none
 **Related**: ADR-037 (DRACO benchmark), ADR-009 (intelligence pipeline), `vertical:research` template
 

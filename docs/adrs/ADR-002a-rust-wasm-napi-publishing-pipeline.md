@@ -2,16 +2,16 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-002 (Kernel boundary), ADR-006 (Memory + learning, the emergent-time consumption), ADR-007 (CI guards, the publish-time matrix), ADR-011 (Witness, the determinism rationale)
 
-> This ADR is part of the kernel decision, split from ADR-002 for depth. ADR-002 specifies WHAT lives in the kernel and WHY it ships as Rust → wasm + native. This ADR specifies HOW the Cargo workspace is laid out, HOW the publishing matrix is wired, and WHICH gates protect the lockstep version contract between `@metaharness/kernel` and the per-platform `@metaharness/kernel-<platform>` packages.
+> This ADR is part of the kernel decision, split from ADR-002 for depth. ADR-002 specifies WHAT lives in the kernel and WHY it ships as Rust → wasm + native. This ADR specifies HOW the Cargo workspace is laid out, HOW the publishing matrix is wired, and WHICH gates protect the lockstep version contract between `@zagents/kernel` and the per-platform `@zagents/kernel-<platform>` packages.
 >
 > Read this after ADR-002.
 
 ## Context
 
-ADR-002 commits the kernel to two distribution targets: a WebAssembly bundle for cross-platform reach (browser, Cloudflare Workers, Deno, Bun, Node, edge) and per-platform native NAPI-RS binaries for Node hosts that want to skip the wasm cost. The kernel is one Rust workspace; the npm surface is one umbrella package (`@metaharness/kernel`) plus five-to-six per-platform peer packages declared as `optionalDependencies`.
+ADR-002 commits the kernel to two distribution targets: a WebAssembly bundle for cross-platform reach (browser, Cloudflare Workers, Deno, Bun, Node, edge) and per-platform native NAPI-RS binaries for Node hosts that want to skip the wasm cost. The kernel is one Rust workspace; the npm surface is one umbrella package (`@zagents/kernel`) plus five-to-six per-platform peer packages declared as `optionalDependencies`.
 
 This ADR exists because the publishing pipeline is non-trivial and load-bearing:
 
@@ -26,7 +26,7 @@ This ADR exists because the publishing pipeline is non-trivial and load-bearing:
 ### Cargo workspace layout
 
 ```
-ruvnet/agent-gemini-generator/
+ruvnet/zagents-generator/
   crates/
     kernel/                  # Rust kernel — the substrate. Pure-rust crate. No JS bindings.
       Cargo.toml             # [lib] crate-type = ["rlib"]
@@ -47,7 +47,7 @@ ruvnet/agent-gemini-generator/
       Cargo.toml             # [lib] crate-type = ["cdylib"]; deps: kernel, napi, napi-derive
       src/lib.rs             # #[napi] exports for each subsystem
   npm/
-    kernel/                  # @metaharness/kernel — the umbrella npm package
+    kernel/                  # @zagents/kernel — the umbrella npm package
       package.json
       loader.js              # runtime triage: prefer native, fall back to wasm
       pkg/                   # populated by wasm-pack (gitignored, built in CI)
@@ -55,7 +55,7 @@ ruvnet/agent-gemini-generator/
         kernel.js
         kernel.d.ts
         ...                  # one .d.ts per subsystem
-    kernel-darwin-arm64/     # @metaharness/kernel-darwin-arm64 — populated by napi build
+    kernel-darwin-arm64/     # @zagents/kernel-darwin-arm64 — populated by napi build
       package.json
       kernel.darwin-arm64.node
     kernel-darwin-x64/
@@ -118,9 +118,9 @@ Sketch (full implementation in `npm/kernel/loader.js`):
 let nativeBinding;
 try {
   const platform = `${process.platform}-${process.arch}${process.platform === 'linux' ? '-gnu' : ''}`;
-  nativeBinding = require(`@metaharness/kernel-${platform}`);
+  nativeBinding = require(`@zagents/kernel-${platform}`);
   if (nativeBinding.__VERSION !== require('./package.json').version) {
-    throw new Error(`@metaharness/kernel version skew: umbrella ${require('./package.json').version}, native ${nativeBinding.__VERSION}`);
+    throw new Error(`@zagents/kernel version skew: umbrella ${require('./package.json').version}, native ${nativeBinding.__VERSION}`);
   }
 } catch (err) {
   // Fall back to wasm
@@ -220,7 +220,7 @@ The smoke contract for both targets runs from a freshly installed copy of the pu
 
 1. `mktemp -d`, `cd` into it.
 2. `npm init -y`.
-3. `npm install @metaharness/kernel@<version>` (resolved from the published artefact in the CI step above).
+3. `npm install @zagents/kernel@<version>` (resolved from the published artefact in the CI step above).
 4. The native peer for the current platform is auto-installed via `optionalDependencies` (or not, for the wasm-only smoke variant).
 5. A short Node script (`smoke.mjs`) requires the kernel, calls one method from each of the eight subsystems, and asserts the type signatures match the published `.d.ts`.
 6. Smoke variants:
@@ -256,7 +256,7 @@ Three checkpoints means three chances to catch the contract breaking. The runtim
 - Loads via `initSync()` in browser / bundler / Node.
 - The cdylib is excluded from the workspace so it does not break the CI shards.
 
-We adopt the same patterns for `@metaharness/kernel`. The native (NAPI-RS) half of the pipeline is new for ruflo at the kernel layer; it is established at the `@ruvector/router` layer already (per-platform `@ruvector/router-<triple>` packages declared as `optionalDependencies` with a wasm fallback). The NAPI-RS path is therefore not novel either; we are composing two known patterns.
+We adopt the same patterns for `@zagents/kernel`. The native (NAPI-RS) half of the pipeline is new for ruflo at the kernel layer; it is established at the `@ruvector/router` layer already (per-platform `@ruvector/router-<triple>` packages declared as `optionalDependencies` with a wasm fallback). The NAPI-RS path is therefore not novel either; we are composing two known patterns.
 
 ADR-006 documents how the kernel **consumes** `@ruvector/emergent-time@0.1.0` (memory-decay weighting). ADR-002a documents how the kernel itself uses the same publishing infrastructure.
 
@@ -278,15 +278,15 @@ ADR-006 documents how the kernel **consumes** `@ruvector/emergent-time@0.1.0` (m
 
 ### What does not change
 
-- The `@metaharness/kernel` umbrella package's public API surface is the contract (ADR-002 §Public API surface). Whether it is served from wasm or native is an implementation detail invisible to consumers.
+- The `@zagents/kernel` umbrella package's public API surface is the contract (ADR-002 §Public API surface). Whether it is served from wasm or native is an implementation detail invisible to consumers.
 - The subpath-export contract is unchanged. ADR-002's eight subpaths (`./mcp`, `./hooks`, `./memory`, `./routing`, `./marketplace`, `./witness`, `./init`, `./hosts`) work the same way regardless of target.
-- The gemini's `package.json` `peerDependencies.@metaharness/kernel` is unchanged. The gemini consumer does not know or care about wasm vs native.
+- The gemini's `package.json` `peerDependencies.@zagents/kernel` is unchanged. The gemini consumer does not know or care about wasm vs native.
 
 ## Alternatives Considered
 
 ### Alternative 1: Wasm-only (no native peers)
 
-Ship `@metaharness/kernel` as a wasm bundle, no native binding. Rejected because the cold-start cost of wasm (~30-200ms depending on bundle size and host) is felt every kernel boot. Native bindings, where available, are zero-cost startup. The native path is an optimisation we get cheaply because the Rust crate already exists.
+Ship `@zagents/kernel` as a wasm bundle, no native binding. Rejected because the cold-start cost of wasm (~30-200ms depending on bundle size and host) is felt every kernel boot. Native bindings, where available, are zero-cost startup. The native path is an optimisation we get cheaply because the Rust crate already exists.
 
 ### Alternative 2: Native-only (no wasm fallback)
 
@@ -294,7 +294,7 @@ Ship five-to-six per-platform native peers, no wasm. Rejected because Cloudflare
 
 ### Alternative 3: Two completely separate packages
 
-`@metaharness/kernel-wasm` and `@metaharness/kernel-native`, both published independently, gemini picks one. Rejected because the choice forces the gemini author to make a decision they do not have enough information to make at install time. The umbrella + runtime triage moves the decision to runtime, where the host's actual capabilities are known.
+`@zagents/kernel-wasm` and `@zagents/kernel-native`, both published independently, gemini picks one. Rejected because the choice forces the gemini author to make a decision they do not have enough information to make at install time. The umbrella + runtime triage moves the decision to runtime, where the host's actual capabilities are known.
 
 ### Alternative 4: Build the wasm bundle from JavaScript (no Rust)
 
@@ -306,7 +306,7 @@ Skip Rust entirely; write the kernel in JavaScript and use `wasmoon` / `assembly
 
 ### Alternative 6: Skip the lockstep contract; let versions drift
 
-Allow `@metaharness/kernel` and the native peers to ship at different versions. Rejected because partial publishes are the most common cause of "package installed but doesn't work" bugs at this scale (per the `node-canvas` post-mortems and the early `better-sqlite3` issues). The lockstep contract costs CI complexity; the alternative costs trust.
+Allow `@zagents/kernel` and the native peers to ship at different versions. Rejected because partial publishes are the most common cause of "package installed but doesn't work" bugs at this scale (per the `node-canvas` post-mortems and the early `better-sqlite3` issues). The lockstep contract costs CI complexity; the alternative costs trust.
 
 ## Test Contract
 
@@ -326,7 +326,7 @@ This ADR is satisfied when the following exist:
 
 ### Smoke contract
 
-7. **Clean-install smoke (wasm-only)** — `npm install @metaharness/kernel` in a tmpdir, force the native peer to be absent, the loader falls back to wasm, the eight subsystems' first methods work.
+7. **Clean-install smoke (wasm-only)** — `npm install @zagents/kernel` in a tmpdir, force the native peer to be absent, the loader falls back to wasm, the eight subsystems' first methods work.
 8. **Clean-install smoke (native)** — same, with the native peer present; loader mounts native; methods work; version check passes.
 9. **Each native triple's smoke** runs on its matching CI runner.
 

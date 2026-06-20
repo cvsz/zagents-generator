@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-072 (lightweight scorer), ADR-076 (parent-vs-child benchmark + statistical promotion), ADR-079 (risk budget), ADR-084 (failure-driven mutation), ADR-086 (efficiency-aware selection)
 
 > ADR-076 built a full graded benchmark layer — `evaluateChildAgainstParent` runs a child vs its parent over a hash-pinned suite in the real sandbox, scores with `scoreBenchmark`, and `decidePromotion` returns a statistically-grounded decision. But that layer was never connected to the loop: `evolve()` promoted on the single-run ADR-072 delta. This ADR connects them — opt-in.
@@ -20,7 +20,7 @@ Make the graded gate an **opt-in promotion authority** inside the evolution loop
 - Selection (ADR-073) is unchanged: it consumes `promoted`, which is now the statistically-validated flag. `archive.best()` still ranks by the lightweight `finalScore` (the graded layer governs *promotion*, i.e. who seeds the next generation, not the displayed leaderboard order).
 - The suite's hash is verified before any task runs (`verifySuite`), so a child cannot quietly rewrite the benchmark to look better (ADR-076 anti-tampering).
 
-CLI: `metaharness-darwin evolve <repo> --bench <suite.json> [--tie faster]`. `--bench` loads + hash-verifies the suite (throws on tamper); the existing `bench create` scaffolds one from a repo.
+CLI: `zagents-darwin evolve <repo> --bench <suite.json> [--tie faster]`. `--bench` loads + hash-verifies the suite (throws on tamper); the existing `bench create` scaffolds one from a repo.
 
 ## Why opt-in rather than the default
 

@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-071 (`CodeGenerator` contract), ADR-076 (parent-vs-child benchmark), ADR-077 (DGM — cites Polyglot 14.2%→30.7%), ADR-084 (failure-driven mutation), ADR-037–040 (DRACO measured-win discipline)
 
 > The DRACO frontier (research-writing) suggested cheap models rival frontier ones, but the Darwin mutator emits **code**, not prose. This ADR records an **execution-scored** code benchmark across six languages to answer the mutator-routing question directly — and the answer is sharper than "cheap is fine."

@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-001 (Goals), ADR-002 (Kernel boundary), ADR-003 (Generator architecture, the eject mode), ADR-006 (Memory + learning)
 
 ## Context
@@ -16,10 +16,10 @@ Today's ruflo users have invested in:
 - A `gemini.config.json`-equivalent — actually `claude-flow.config.json` today — with their tuned settings.
 - A history of `npm install ruflo`-based workflow that they have written documentation, CI workflows, and team conventions around.
 
-When `agent-gemini-generator` ships, every existing ruflo user has a choice:
+When `zagents-generator` ships, every existing ruflo user has a choice:
 
 1. **Stay on ruflo as-is.** The `ruflo` package continues to ship; existing workflows continue. (ADR-001 §Non-goal 1 commits us to this.)
-2. **Refactor ruflo to use the kernel.** Internal change: ruflo becomes one gemini consuming `@metaharness/kernel`, observable behaviour unchanged.
+2. **Refactor ruflo to use the kernel.** Internal change: ruflo becomes one gemini consuming `@zagents/kernel`, observable behaviour unchanged.
 3. **Migrate to a self-generated gemini.** Run `create-agent-gemini <my-thing>` against the user's existing project, end up with a new package they own.
 
 Path 1 is the no-op. Path 2 is the ruflo team's job (ADR-002 §Test Contract §6 is the gate). This ADR specifies path 3: how an existing ruflo user moves their memory, patterns, witnesses, custom skills, and CI investments into a generated gemini without re-training, without breaking their current setup, and with a reversible path back to ruflo if they change their mind.
@@ -60,7 +60,7 @@ What the tool does, in order:
 
    Proposed gemini:
      - Name: @acme/acme-research
-     - Kernel: @metaharness/kernel@<current>
+     - Kernel: @zagents/kernel@<current>
      - Hosts: claude-code (Codex/Hermes/pi.dev disabled by default; add with --hosts)
      - Branding mode: powered-by (default; --branding=independence to change)
 

@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — the "evolve it, optimize" capstone; unites all four pillars
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-130 (fitness function), ADR-132 (multi-package corpus), ADR-127 (search/replace), ADR-126 (repair loop)
 
 > The whole session built toward this: an actual evolutionary loop optimizing the gemini against a **real SWE objective on real external code**. It unites the four pillars — evolutionary **engine** + SWE **runner** + multi-package **corpus** + **fitness function**.

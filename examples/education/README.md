@@ -2,7 +2,7 @@
 
 > Scaffold + validate a tutoring-pod gemini in ~200ms, no network.
 >
-> _Updated in iter 128.2 — published CLI name is now `metaharness` (use `npx metaharness <name> ...` for user-facing scaffolds). Internal workspace imports below still reference the `packages/create-agent-gemini/` source path._
+> _Updated in iter 128.2 — published CLI name is now `zagents` (use `npx zagents <name> ...` for user-facing scaffolds). Internal workspace imports below still reference the `packages/create-agent-gemini/` source path._
 
 ## Run
 
@@ -60,5 +60,5 @@ The script is host-aware — pass `--host=hermes` (or any of the 6) to see how t
 ## When to run
 
 - After editing `vertical_education/` templates — quick visual confirmation
-- After bumping `@metaharness/kernel` — does the existing scaffold still pass validate?
+- After bumping `@zagents/kernel` — does the existing scaffold still pass validate?
 - In CI as a per-vertical smoke test alongside `gemini validate`

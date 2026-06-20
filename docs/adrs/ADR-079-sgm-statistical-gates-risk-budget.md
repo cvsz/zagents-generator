@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-072 (scorer/gate), ADR-076 (benchmark + bootstrap promotion), ADR-077 (DGM), ADR-081 (Darwin Plus synthesis)
 
 > Grounds the statistical safety layer in the **Statistical Gödel Machine** paper (arXiv:2510.10232) and maps it onto `src/bench/stats.ts`, `src/bench/promotion.ts`, and `src/bench/risk.ts`.

@@ -7,7 +7,7 @@ const extra = process.argv.slice(3);
 
 const args = [
   '--yes',
-  'metaharness@latest',
+  'zagents@latest',
   name,
   '--template', 'vertical:education',
   '--host', 'claude-code',

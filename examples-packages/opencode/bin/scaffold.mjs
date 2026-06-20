@@ -8,7 +8,7 @@ const extraArgs = process.argv.slice(3);
 const cmd = [
   'npx',
   '--yes',
-  'metaharness@latest',
+  'zagents@latest',
   JSON.stringify(name),
   '--template', 'minimal',
   '--host', 'opencode',
@@ -19,7 +19,7 @@ const cmd = [
 try {
   execSync(cmd, { stdio: 'inherit' });
 } catch (err) {
-  console.error('metaharness scaffold failed.');
+  console.error('zagents scaffold failed.');
   process.exit(typeof err?.status === 'number' ? err.status : 1);
 }
 

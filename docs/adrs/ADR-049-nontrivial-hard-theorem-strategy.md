@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-16
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-048 (formal-proof swarm / ruvnet algo stack), ADR-047 (Algorithmic Agent Gemini)
 **External**: `agenticsnz/unsorry` issue **#387** ("Enforce non-trivial theorems", closed), issue **#400** ("Next batch of theorems", open)
 

@@ -1,4 +1,4 @@
-# Build, test, and deploy the Agent Gemini Generator web UI to GitHub Pages.
+# Build, test, and deploy the ZAgents Generator web UI to GitHub Pages.
 # The UI is 100% client-side (no backend), so a static build is all Pages needs.
 name: pages
 
@@ -51,7 +51,7 @@ jobs:
       - name: E2E (desktop + mobile)
         run: npm run e2e
 
-      - name: Build (base = /agent-gemini-generator/)
+      - name: Build (base = /zagents-generator/)
         run: npm run build
 
       # SPA + Pages: 404 falls back to index.html so deep links work.

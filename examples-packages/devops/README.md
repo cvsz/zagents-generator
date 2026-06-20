@@ -1,4 +1,4 @@
-# MetaHarness: devops vertical
+# ZAgents: devops vertical
 
 > ⚠️ **Illustrative output.** Transcripts and validation/run output shown in this README are
 > representative examples, not captured from a specific run — actual output depends on your
@@ -12,7 +12,7 @@ This scaffold is for SREs, platform engineers, and on-call developers who want a
 ## Quickstart
 
 ```bash
-npx @metaharness/devops@latest my-bot
+npx @zagents/devops@latest my-bot
 cd my-bot && npm install && npm run doctor
 ```
 
@@ -84,7 +84,7 @@ A: Drop a markdown file into `runbooks/`. The `runbook-runner` agent discovers t
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

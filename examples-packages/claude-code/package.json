@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/claude-code",
+  "name": "@zagents/claude-code",
   "version": "0.1.1",
-  "description": "MetaHarness example — Claude Code workspace + plugin scaffold with CLAUDE.md, .claude/, and MCP wiring (npx @metaharness/claude-code my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/claude-code",
+  "description": "ZAgents example — Claude Code workspace + plugin scaffold with CLAUDE.md, .claude/, and MCP wiring (npx @zagents/claude-code my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/claude-code",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/claude-code"
   },
   "license": "MIT",
@@ -21,9 +21,9 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "agent-gemini",
-    "agent-gemini-generator",
+    "zagents-generator",
     "claude-code",
     "host",
     "ai-agent",

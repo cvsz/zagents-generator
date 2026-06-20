@@ -162,8 +162,8 @@ function buildSpdx(npm, cargo) {
     spdxVersion: 'SPDX-2.3',
     dataLicense: 'CC0-1.0',
     SPDXID: 'SPDXRef-DOCUMENT',
-    name: 'agent-gemini-generator-sbom',
-    documentNamespace: `https://github.com/ruvnet/agent-gemini-generator/sbom-${packageVerificationCode(allPkgs.length).slice(0, 16)}`,
+    name: 'zagents-generator-sbom',
+    documentNamespace: `https://github.com/ruvnet/zagents-generator/sbom-${packageVerificationCode(allPkgs.length).slice(0, 16)}`,
     creationInfo: {
       created: now,
       creators: ['Tool: scripts/sbom.mjs (iter 50)'],

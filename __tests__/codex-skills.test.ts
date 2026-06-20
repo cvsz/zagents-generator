@@ -110,7 +110,7 @@ describe('.codex/skills/*/skill.toml manifests', () => {
       // iter 142: two dispatch shapes are valid —
       //   mcp_tool → needs a [dispatch].server (wraps the MCP server)
       //   shell    → needs a [dispatch].command (runs a published npx wrapper,
-      //              e.g. example-gemini → `npx @metaharness/<pkg>`)
+      //              e.g. example-gemini → `npx @zagents/<pkg>`)
       expect(['mcp_tool', 'shell'], `${e}: [dispatch].type must be mcp_tool or shell`).toContain(skill.dispatchType);
       if (skill.dispatchType === 'mcp_tool') {
         expect(skill.dispatchServer, `${e}: mcp_tool dispatch missing [dispatch].server`).toBeTruthy();

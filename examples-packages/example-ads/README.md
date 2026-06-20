@@ -1,4 +1,4 @@
-# @metaharness/example-ads
+# @zagents/example-ads
 
 > Multi-agent scaffold for Google Ads + Meta Marketing API — campaign and spend analysis, read-only by default, mutations gated.
 
@@ -6,17 +6,17 @@
 
 > ⚠️ **Not for production advertising operations.** This scaffold is illustrative and educational. It is NOT certified for compliance with GDPR, CCPA, Google Ads API Terms of Service, Meta Platform Terms, or any other advertising regulation. All mutations are the sole responsibility of the operator. Always test with a sandbox / test account before connecting production credentials.
 
-[![npm version](https://img.shields.io/npm/v/%40metaharness%2Fexample-ads?label=%40metaharness%2Fexample-ads)](https://www.npmjs.com/package/@metaharness/example-ads)
-[![npm downloads](https://img.shields.io/npm/dm/%40metaharness%2Fexample-ads)](https://www.npmjs.com/package/@metaharness/example-ads)
+[![npm version](https://img.shields.io/npm/v/%40zagents%2Fexample-ads?label=%40zagents%2Fexample-ads)](https://www.npmjs.com/package/@zagents/example-ads)
+[![npm downloads](https://img.shields.io/npm/dm/%40zagents%2Fexample-ads)](https://www.npmjs.com/package/@zagents/example-ads)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org/)
-[![built with metaharness](https://img.shields.io/badge/built%20with-metaharness-blueviolet)](https://github.com/ruvnet/agent-gemini-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/ruvnet/zagents-generator)
 
 ---
 
 ## What it is
 
-`@metaharness/example-ads` is a one-command scaffold that wires a three-agent
+`@zagents/example-ads` is a one-command scaffold that wires a three-agent
 gemini to **Google Ads** (`google-ads-api`, community library by Opteo) and
 **Meta Marketing API** (`facebook-nodejs-business-sdk` v25, official Meta SDK).
 Out of the box it can only *read* — campaign lists, spend breakdowns, performance
@@ -56,7 +56,7 @@ still run through a `validate_only` dry-run before the live call.
 ## Quickstart
 
 ```bash
-npx @metaharness/example-ads@latest my-ads-bot
+npx @zagents/example-ads@latest my-ads-bot
 cd my-ads-bot
 npm install
 npm run doctor
@@ -68,9 +68,9 @@ SDKs are reachable, and that the MCP policy file is intact.
 To scaffold for a different host:
 
 ```bash
-npx @metaharness/example-ads@latest my-ads-bot --host opencode
+npx @zagents/example-ads@latest my-ads-bot --host opencode
 # or emit every host config at once:
-npx @metaharness/example-ads@latest my-ads-bot --host all
+npx @zagents/example-ads@latest my-ads-bot --host all
 ```
 
 ---
@@ -281,11 +281,11 @@ silent drops.
 - [facebook-nodejs-business-sdk on GitHub](https://github.com/facebook/facebook-nodejs-business-sdk)
 - [Meta Marketing API docs](https://developers.facebook.com/docs/marketing-apis/)
 - [Meta Marketing API Sandbox Ad Accounts](https://developers.facebook.com/ads/blog/post/v2/2016/10/19/sandbox-ad-accounts/)
-- [ADR-064 — this design record](https://github.com/ruvnet/agent-gemini-generator/tree/main/docs/adrs/ADR-064-example-ads.md)
-- [ADR-051 — examples program contract](https://github.com/ruvnet/agent-gemini-generator/tree/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ADR-064 — this design record](https://github.com/ruvnet/zagents-generator/tree/main/docs/adrs/ADR-064-example-ads.md)
+- [ADR-051 — examples program contract](https://github.com/ruvnet/zagents-generator/tree/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
 
 ---
 
 ## License
 
-MIT. Built on [metaharness](https://www.npmjs.com/package/metaharness).
+MIT. Built on [zagents](https://www.npmjs.com/package/zagents).

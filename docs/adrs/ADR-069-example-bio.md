@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -20,14 +20,14 @@ rate limits are relaxed from 3 req/s to 10 req/s simply by providing an API key,
 and Ensembl allows 55,000 requests per rolling hour (~15 req/s) per IP with no key
 required.
 
-A metaharness wired to these two APIs can autonomously:
+A zagents wired to these two APIs can autonomously:
 - Resolve a gene name or NCBI Gene ID to a curated record and canonical sequence
 - Retrieve PubMed abstracts, author lists, PMIDs, and DOIs for a research topic
 - Cross-reference gene identifiers between NCBI Gene, Ensembl, and RefSeq
 - Fetch genomic sequences (FASTA format) for a given gene or region via Ensembl
 - Look up functional annotations, homologues, and variant effects
 
-No equivalent "showcase" currently exists in the metaharness catalog. The
+No equivalent "showcase" currently exists in the zagents catalog. The
 bioinformatics vertical is also representative of the "read-only public API with
 rate-limit awareness" pattern: E-utilities and Ensembl REST expose no write
 operations and carry no patient data, so the safety posture is simpler than the

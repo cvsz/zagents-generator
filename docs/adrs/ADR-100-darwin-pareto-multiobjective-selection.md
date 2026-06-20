@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-072 (scalar gate ceiling), ADR-086 (efficiency tie-break), ADR-091 (phenotype), ADR-099 (audit — trace degeneracy). Realizes the horizon-tracker's **P2** (escape the scalar ceiling) and the user's "complexity-vs-cost per niche" idea.
 
 > The scorer is a scalar GATE that ceilings at 0.985 — it cannot rank the passing variants, and a single scalar forces a false choice between competing goods. Pareto dominance keeps the whole non-dominated front, so a small/cheap "mini" variant and a capable "grand" variant both survive as parents instead of collapsing to one winner.

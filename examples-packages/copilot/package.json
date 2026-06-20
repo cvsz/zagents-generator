@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/copilot",
+  "name": "@zagents/copilot",
   "version": "0.1.0",
-  "description": "MetaHarness example — VSCode/Copilot mcp.json scaffold for agentic workflows (npx @metaharness/copilot my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/copilot",
+  "description": "ZAgents example — VSCode/Copilot mcp.json scaffold for agentic workflows (npx @zagents/copilot my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/copilot",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/copilot"
   },
   "license": "MIT",
@@ -21,9 +21,9 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "agent-gemini",
-    "agent-gemini-generator",
+    "zagents-generator",
     "copilot",
     "host",
     "ai-agent",

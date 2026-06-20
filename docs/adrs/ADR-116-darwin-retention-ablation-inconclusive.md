@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured — partial/inconclusive, honestly)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-115 (archive retention is the mechanism), ADR-073 (retention), ADR-114
 
 > ADR-115 claimed whole-archive retention enables sequential two-surface accumulation, making crossover optional — and predicted that *without* retention, crossover becomes necessary. This ablation tests both halves. The first is partially supported; the second is not. Recorded honestly, including the inconclusiveness.

@@ -96,8 +96,8 @@ describe('scaffold wires host config (ADR-045 end-to-end)', () => {
     const manifest = JSON.parse(readFileSync(join(dir, '.gemini/manifest.json'), 'utf-8'));
     expect(manifest.hosts).toEqual(['claude-code', 'codex', 'opencode']);
     const deps = JSON.parse(readFileSync(join(dir, 'package.json'), 'utf-8')).dependencies;
-    expect(deps['@metaharness/host-codex']).toBeDefined();
-    expect(deps['@metaharness/host-opencode']).toBeDefined();
+    expect(deps['@zagents/host-codex']).toBeDefined();
+    expect(deps['@zagents/host-opencode']).toBeDefined();
   });
 
   // GH #11 — non-Claude host doesn't get Claude-Code-specific runtime files.

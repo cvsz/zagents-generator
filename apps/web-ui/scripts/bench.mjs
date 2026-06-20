@@ -51,7 +51,7 @@ function bench(name, fn, iters = 5000) {
   return per;
 }
 
-console.log('agent-gemini-generator — generator micro-bench\n');
+console.log('zagents-generator — generator micro-bench\n');
 const scaffold = bench('buildScaffold', () => buildScaffold(cfg));
 const analyze = bench('analyzeFiles', () => analyzeFiles(repoFiles));
 const recommend = bench('recommendPlan', () => recommendPlan(analyzeFiles(repoFiles)), 2000);

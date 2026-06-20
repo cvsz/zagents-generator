@@ -1,4 +1,4 @@
-# @metaharness/darwin
+# @zagents/darwin
 
 > **An LLM supercharger and cost optimizer.** Keep your model frozen — evolve the
 > gemini around it so a *cheap* model performs like an expensive one, for a fraction
@@ -47,7 +47,7 @@ npm run build      # tsc
 Then evolve a repo with the CLI (one verb, `evolve`):
 
 ```bash
-metaharness-darwin evolve <repo> [--generations N] [--children N] [--concurrency N] [--seed N] \
+zagents-darwin evolve <repo> [--generations N] [--children N] [--concurrency N] [--seed N] \
     [--bench <suite.json>] [--tie faster] \
     [--selection score|quality-diversity|behavioral-diversity|niche-steering|clade|pareto] \
     [--crossover] [--epistasis] [--risk-budget N] [--fdr Q] [--curriculum] [--sandbox real|mock|agent]
@@ -72,10 +72,10 @@ metaharness-darwin evolve <repo> [--generations N] [--children N] [--concurrency
 All flags are **opt-in and additive** over a frozen, reproducible core — every default-path run is byte-identical to the ADR-070…075 baseline.
 
 The `<repo>` argument defaults to the current directory. Everything is written
-under a self-describing `.metaharness/` work tree inside the repo:
+under a self-describing `.zagents/` work tree inside the repo:
 
 ```
-<repo>/.metaharness/
+<repo>/.zagents/
 ├── archive.json          # the population TREE: ArchiveRecord[] (variant + score + children)
 ├── lineage.json          # serialized graph { nodes, edges } for rendering
 ├── variants/             # one directory per variant (its mutation-surface files)
@@ -99,7 +99,7 @@ Winner: g2_v1
 Lineage: baseline → g1_v0 → g2_v1
 Delta over baseline: +0.054
 
-Artifacts: <repo>/.metaharness
+Artifacts: <repo>/.zagents
 ```
 
 ## The seven mutation surfaces
@@ -194,11 +194,11 @@ See [`SECURITY.md`](../../SECURITY.md) for the full threat model.
 ## Programmatic API
 
 ```ts
-import { evolve } from '@metaharness/darwin';
+import { evolve } from '@zagents/darwin';
 
 const result = await evolve({
   repoRoot: '/abs/path/to/repo',
-  workRoot: '/abs/path/to/repo/.metaharness',
+  workRoot: '/abs/path/to/repo/.zagents',
   generations: 3,
   childrenPerGeneration: 4,
   concurrency: 4,
@@ -307,7 +307,7 @@ layer are kernel code. The real-LLM-on-real-code frontier (once deferred) is now
 **measured**: a reproducible **7.7% [5.2–11.2%]** open-loop baseline on the full
 SWE-bench Lite (ADR-144), with localization (146), the repair loop (149), and a
 hybrid cheap→frontier escalation (148) as the active levers. Darwin Mode also ships
-**integrated into the `metaharness` scaffolder** — `npx metaharness <name>` produces
+**integrated into the `zagents` scaffolder** — `npx zagents <name>` produces
 a gemini with `npm run evolve` out of the box (ADR-147).
 
 ## License
@@ -319,4 +319,4 @@ MIT © rUv. See ADRs
 [073](../../docs/adrs/ADR-073-darwin-archive-and-selection.md) ·
 [074](../../docs/adrs/ADR-074-darwin-ruvector-memory-ruflo-fabric.md) ·
 [075](../../docs/adrs/ADR-075-darwin-prototype-roadmap-and-acceptance.md),
-and the [repository](https://github.com/ruvnet/agent-gemini-generator).
+and the [repository](https://github.com/ruvnet/zagents-generator).

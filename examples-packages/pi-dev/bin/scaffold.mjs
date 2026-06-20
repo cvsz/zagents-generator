@@ -8,7 +8,7 @@ const extraArgs = (rawName && rawName.startsWith('-') ? [rawName, ...rest] : res
   .map((a) => (a.includes(' ') ? JSON.stringify(a) : a))
   .join(' ');
 
-const cmd = `npx --yes metaharness@latest ${name} --template minimal --host pi-dev --force${
+const cmd = `npx --yes zagents@latest ${name} --template minimal --host pi-dev --force${
   extraArgs ? ' ' + extraArgs : ''
 }`;
 
@@ -19,6 +19,6 @@ try {
   console.log(`Next: cd ${name} && npm install`);
   console.log(`Then: gemini doctor`);
 } catch (err) {
-  console.error(`[@metaharness/pi-dev] metaharness failed: ${err.message}`);
+  console.error(`[@zagents/pi-dev] zagents failed: ${err.message}`);
   process.exit(typeof err.status === 'number' ? err.status : 1);
 }

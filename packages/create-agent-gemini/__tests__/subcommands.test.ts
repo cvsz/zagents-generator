@@ -30,7 +30,7 @@ async function makeHarness(opts: { withHash?: boolean; withWitness?: boolean } =
   }
   await writeFile(join(dir, 'package.json'), JSON.stringify({
     name: 'demo',
-    dependencies: { '@metaharness/kernel': '0.1.0' },
+    dependencies: { '@zagents/kernel': '0.1.0' },
   }));
   await writeFile(join(dir, '.claude', 'settings.json'), '{}');
   if (opts.withWitness) {

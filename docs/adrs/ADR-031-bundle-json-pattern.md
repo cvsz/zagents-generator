@@ -11,7 +11,7 @@ By iter 102 the project had **three subcommands** that emit a paste-friendly JSO
 
 | iter | Subcommand | Audience | What it captures |
 |---|---|---|---|
-| 90 | `gemini diag --bundle` | Maintainer triaging a support ticket | Diag report + sanitised manifest + `@metaharness/*` deps + env |
+| 90 | `gemini diag --bundle` | Maintainer triaging a support ticket | Diag report + sanitised manifest + `@zagents/*` deps + env |
 | 97 | `gemini export-config` | Security reviewer auditing a policy | MCP servers + Claude permissions + Codex config (sanitised) + manifest meta |
 | 102 | `gemini audit --bundle` | Vuln reviewer reading npm-audit output | Per-severity counts + offenders + level + failCount + exitCode |
 

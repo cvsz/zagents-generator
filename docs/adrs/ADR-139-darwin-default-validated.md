@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — averaged validation of the ADR-135 default change
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-135 (model frontier, n=1), ADR-138 (noise floor quantified), the default-model commit (2bd4cee)
 
 > ADR-135 chose deepseek-chat as the SWE-fix default from a *single* run, and that default was shipped (commit 2bd4cee). ADR-138 then showed single runs are noisy. The responsible follow-up — applying the noise-floor lesson to the decision itself — is to validate the change with averaged runs before relying on it. This does that.

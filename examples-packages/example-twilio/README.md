@@ -1,27 +1,27 @@
-# @metaharness/example-twilio
+# @zagents/example-twilio
 
-**MetaHarness scaffold for Twilio — SMS, voice, and WhatsApp agents with test-credential sandbox and Messaging Service scoping**
+**ZAgents scaffold for Twilio — SMS, voice, and WhatsApp agents with test-credential sandbox and Messaging Service scoping**
 
 > **Illustrative output.** This package scaffolds example agent gemini code for demonstration purposes. Generated code targets Twilio's test-credential sandbox by default. It is not certified for TCPA compliance, carrier compliance, or production communications without operator review. See [Safety](#safety) below.
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-twilio?style=flat-square)](https://www.npmjs.com/package/@metaharness/example-twilio)
-[![npm downloads](https://img.shields.io/npm/dw/@metaharness/example-twilio?style=flat-square)](https://www.npmjs.com/package/@metaharness/example-twilio)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-twilio?style=flat-square)](https://www.npmjs.com/package/@zagents/example-twilio)
+[![npm downloads](https://img.shields.io/npm/dw/@zagents/example-twilio?style=flat-square)](https://www.npmjs.com/package/@zagents/example-twilio)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](./LICENSE)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen?style=flat-square)](https://nodejs.org/)
-[![built with metaharness](https://img.shields.io/badge/built%20with-metaharness-7c3aed?style=flat-square)](https://github.com/ruvnet/agent-gemini-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-7c3aed?style=flat-square)](https://github.com/ruvnet/zagents-generator)
 
 ---
 
 ## Intro
 
-`@metaharness/example-twilio` is a one-command scaffold that generates a fully wired MetaHarness agent gemini targeting the [Twilio](https://www.twilio.com/) communications platform. Running `npx @metaharness/example-twilio@latest my-bot` produces a project directory containing:
+`@zagents/example-twilio` is a one-command scaffold that generates a fully wired ZAgents agent gemini targeting the [Twilio](https://www.twilio.com/) communications platform. Running `npx @zagents/example-twilio@latest my-bot` produces a project directory containing:
 
 - A three-agent pipeline (planner, executor, verifier) pre-wired to the `twilio` npm SDK
 - A `/sms` slash command that drives the full pipeline
 - A scoped MCP policy granting exactly the Twilio tools needed (default-deny, audited)
 - Tiered model routing — cheap model for extraction and verification, frontier model gated behind `--allow-live`
 - A verification gate that reads back the message or call `sid` before reporting success
-- Host adapter config for all nine MetaHarness hosts: `claude-code`, `codex`, `copilot`, `github-actions`, `hermes`, `openclaw`, `opencode`, `pi-dev`, `rvm`
+- Host adapter config for all nine ZAgents hosts: `claude-code`, `codex`, `copilot`, `github-actions`, `hermes`, `openclaw`, `opencode`, `pi-dev`, `rvm`
 
 **What it is NOT**: a production-ready messaging application, a TCPA-compliant marketing platform, or a certified carrier integration. It is a starting point — a scaffold you complete, review, and adapt for your use case.
 
@@ -46,7 +46,7 @@
 ## Quickstart
 
 ```bash
-npx @metaharness/example-twilio@latest my-bot
+npx @zagents/example-twilio@latest my-bot
 cd my-bot
 npm install
 npm run doctor
@@ -57,9 +57,9 @@ npm run doctor
 To scaffold for a specific host:
 
 ```bash
-npx @metaharness/example-twilio@latest my-bot --host codex
-npx @metaharness/example-twilio@latest my-bot --host github-actions
-npx @metaharness/example-twilio@latest my-bot --host all
+npx @zagents/example-twilio@latest my-bot --host codex
+npx @zagents/example-twilio@latest my-bot --host github-actions
+npx @zagents/example-twilio@latest my-bot --host all
 ```
 
 ---
@@ -214,7 +214,7 @@ Every invocation of a granted tool appends one JSON line to `.gemini/audit.jsonl
 
 ### Host wiring
 
-The scaffold delegates to the `metaharness` CLI and the relevant `@metaharness/host-<id>` adapter. Use `--host all` to emit configuration for every supported host simultaneously. Supported hosts: `claude-code`, `codex`, `copilot`, `github-actions`, `hermes`, `openclaw`, `opencode`, `pi-dev`, `rvm`.
+The scaffold delegates to the `zagents` CLI and the relevant `@zagents/host-<id>` adapter. Use `--host all` to emit configuration for every supported host simultaneously. Supported hosts: `claude-code`, `codex`, `copilot`, `github-actions`, `hermes`, `openclaw`, `opencode`, `pi-dev`, `rvm`.
 
 ---
 
@@ -227,5 +227,5 @@ The scaffold delegates to the `metaharness` CLI and the relevant `@metaharness/h
 - [Twilio WhatsApp Sandbox](https://www.twilio.com/docs/whatsapp/sandbox)
 - [Twilio Programmable Voice API](https://www.twilio.com/docs/voice/api)
 - [Send SMS with Messaging Service (Node.js)](https://www.twilio.com/docs/messaging/tutorials/send-messages-with-messaging-services)
-- [ADR-058: example-twilio design record](https://github.com/ruvnet/agent-gemini-generator/tree/main/docs/adrs/ADR-058-example-twilio.md)
-- [ADR-051: Third-party SDK showcase examples program](https://github.com/ruvnet/agent-gemini-generator/tree/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ADR-058: example-twilio design record](https://github.com/ruvnet/zagents-generator/tree/main/docs/adrs/ADR-058-example-twilio.md)
+- [ADR-051: Third-party SDK showcase examples program](https://github.com/ruvnet/zagents-generator/tree/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)

@@ -13,15 +13,15 @@
 //   - file-count per call
 
 import { performance } from 'node:perf_hooks';
-import adapterClaudeCode from '@metaharness/host-claude-code';
-import adapterCodex from '@metaharness/host-codex';
-import adapterPiDev from '@metaharness/host-pi-dev';
-import adapterHermes from '@metaharness/host-hermes';
-import adapterOpenclaw from '@metaharness/host-openclaw';
-import adapterRvm from '@metaharness/host-rvm';
-import adapterCopilot from '@metaharness/host-copilot';
-import adapterOpencode from '@metaharness/host-opencode';
-import adapterGithubActions from '@metaharness/host-github-actions';
+import adapterClaudeCode from '@zagents/host-claude-code';
+import adapterCodex from '@zagents/host-codex';
+import adapterPiDev from '@zagents/host-pi-dev';
+import adapterHermes from '@zagents/host-hermes';
+import adapterOpenclaw from '@zagents/host-openclaw';
+import adapterRvm from '@zagents/host-rvm';
+import adapterCopilot from '@zagents/host-copilot';
+import adapterOpencode from '@zagents/host-opencode';
+import adapterGithubActions from '@zagents/host-github-actions';
 
 interface HostAdapter {
   name: string;

@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/sdk",
+  "name": "@zagents/sdk",
   "version": "0.1.0",
-  "description": "Convenience helpers for gemini authors — defineHarness, defineAgent, defineSkill, defineTool. Light wrappers around @metaharness/kernel.",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "description": "Convenience helpers for gemini authors — defineHarness, defineAgent, defineSkill, defineTool. Light wrappers around @zagents/kernel.",
+  "homepage": "https://github.com/ruvnet/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "packages/sdk"
   },
   "license": "MIT",
@@ -38,7 +38,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@metaharness/kernel": "^0.1.2"
+    "@zagents/kernel": "^0.1.2"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",

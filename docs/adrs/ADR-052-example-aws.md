@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -110,7 +110,7 @@ AWS SDK v3 resolves credentials through the standard provider chain via `fromNod
 
 Region is resolved from `AWS_REGION` (preferred) or `AWS_DEFAULT_REGION`. Both are accepted by every v3 client.
 
-For cross-account or least-privilege workflows the `/aws-role` command wraps `AssumeRoleCommand` from `@aws-sdk/client-sts` and injects the returned temporary credentials into the downstream client via `fromTemporaryCredentials()`. The role ARN is supplied via `AWS_ROLE_ARN`; the session name defaults to `metaharness-session`.
+For cross-account or least-privilege workflows the `/aws-role` command wraps `AssumeRoleCommand` from `@aws-sdk/client-sts` and injects the returned temporary credentials into the downstream client via `fromTemporaryCredentials()`. The role ARN is supplied via `AWS_ROLE_ARN`; the session name defaults to `zagents-session`.
 
 ### Safety gates
 

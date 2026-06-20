@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-16
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-044 (host capability + live verify), ADR-045 (CLI host wiring), ADR-046 (real-install verification), ADR-047 (Algorithmic Agent Gemini control plane), ADR-011 (witness/provenance), ADR-040/043 (router)
 **External**: [`agenticsnz/unsorry`](https://github.com/agenticsnz/unsorry) · [`agenticsorg/lean-agentic`](https://github.com/agenticsorg/lean-agentic) · [`ruvnet/sublinear-time-solver`](https://github.com/ruvnet/sublinear-time-solver) · [`ruvnet/ruvector`](https://github.com/ruvnet/RuVector)
 
@@ -41,11 +41,11 @@ proving ground; the algorithms are the product.
 
 ## Decision
 
-Build a **metaharness `unsorry` participation gemini** that orchestrates three ruvnet
+Build a **zagents `unsorry` participation gemini** that orchestrates three ruvnet
 libraries into the AISP loop, and extract the load-bearing algorithms as a reusable stack.
 
 ```
-        ┌──────────────────────── metaharness unsorry gemini ────────────────────────┐
+        ┌──────────────────────── zagents unsorry gemini ────────────────────────┐
         │  AISP loop:  pull → SELECT → CLAIM → PROVE → VERIFY(lake build) → CHECK-IN    │
         │                      │           │        │           │                       │
         │                      ▼           ▼        ▼           ▼                        │
@@ -80,7 +80,7 @@ libraries into the AISP loop, and extract the load-bearing algorithms as a reusa
    layer — it does **not** replace `unsorry`'s `lake build` kernel gate; the submitted
    artifact is always a real Lean 4 `.lean` re-checked by the Lean kernel.
 
-4. **metaharness — the gemini.** Wires the above into the chosen host(s) (Claude Code /
+4. **zagents — the gemini.** Wires the above into the chosen host(s) (Claude Code /
    Codex drive; Gemini/OpenAI local-mode) with the AISP claim protocol, a `lake build`
    verify-before-PR gate, and the `decompose-on-failure` fallback.
 
@@ -94,12 +94,12 @@ already wants to live in ruvnet:
 | 1 | **Best-first goal selection** — rank work by graph-diffusion "closeness to done" | sublinear-time-solver (forward-push / random-walk) | ruflo router (ADR-040/043), ruv-drone task **allocation**, swarm scheduling |
 | 2 | **Reuse / compounding** — retrieve nearest prior result to seed the next | ruvector (HNSW + SONA self-learning) | ruflo memory, rulake cache, RAG seeding |
 | 3 | **Proof/result memory + attestation** — store `(problem→strategy→solution)`, sign it | lean-agentic (AgentDB + Ed25519) | ruflo witness (ADR-011), reasoningbank |
-| 4 | **Decompose-on-failure** — split an unsolved goal into claimable sub-goals | metaharness control plane (ADR-047) + GOAP | ruflo goal-planner/SPARC, ruv-drone planning |
+| 4 | **Decompose-on-failure** — split an unsolved goal into claimable sub-goals | zagents control plane (ADR-047) + GOAP | ruflo goal-planner/SPARC, ruv-drone planning |
 | 5 | **Claim-with-TTL, first-push-wins** — lock-free distributed work claiming | git-as-queue (AISP) | ruflo claims board, hive-mind coordination |
-| 6 | **Verification-gated merge** — an exact oracle re-checks every contribution | Lean kernel here; generalises to any cheap exact verifier | metaharness verify gates, ruflo witness, ruv-drone failsafe |
+| 6 | **Verification-gated merge** — an exact oracle re-checks every contribution | Lean kernel here; generalises to any cheap exact verifier | zagents verify gates, ruflo witness, ruv-drone failsafe |
 
 > The general principle `unsorry` proves out — *trust is free because an exact verifier
-> re-checks everything* — is the same one behind metaharness's witness/provenance and
+> re-checks everything* — is the same one behind zagents's witness/provenance and
 > ruflo's verification gates. Algorithm #6 is the thesis; #1–#5 make it scale.
 
 ## Honest assessment & non-goals
@@ -122,7 +122,7 @@ already wants to live in ruvnet:
 
 1. ☑ Reconnaissance — queue state, AISP protocol, difficulty distribution, d1 statements read.
 2. ◧ Toolchain — Lean 4.30.0 installed; mathlib cache fetching (the `lake build` kernel gate).
-3. ☐ Gemini scaffold — `unsorry` metaharness gemini (hosts + AISP loop + verify gate).
+3. ☐ Gemini scaffold — `unsorry` zagents gemini (hosts + AISP loop + verify gate).
 4. ☐ Algorithm stack — modules #1–#6 above, with the ruvnet-project mappings, as a library.
 5. ☐ Verified contributions — claim → prove → `lake build` the d1→d2 open goals; human-gated PRs.
 

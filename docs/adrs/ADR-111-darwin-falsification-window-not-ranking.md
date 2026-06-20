@@ -2,7 +2,7 @@
 
 **Status**: Accepted (falsification — corrects ADR-109/110 overclaims)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-109 (surface gates real LLM), ADR-110 (capstone), ADR-085 (where ranking *did* matter)
 
 > An adversarial review flagged that ADR-109/110 may show only a context-WINDOW-SIZE effect, not contextBuilder RANKING quality. I ran the proposed null-model falsification. The review was right. This ADR records the result and corrects the earlier framing — testing and falsifying our own claims is the point.

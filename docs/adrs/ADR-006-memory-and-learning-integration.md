@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-002 (Kernel boundary §3 Memory), ADR-014 (Self-evolution + federation)
 
 ## Context
@@ -28,7 +28,7 @@ This ADR pins down: which memory primitives ship in the kernel; how a generated 
 
 ### The memory stack in the kernel
 
-`@metaharness/kernel/memory` ships seven layers. Each is independently configurable; together they form the default unified memory.
+`@zagents/kernel/memory` ships seven layers. Each is independently configurable; together they form the default unified memory.
 
 ```
             ┌──────────────────────────────────────────┐
@@ -115,7 +115,7 @@ A gemini configures decay per memory namespace in `gemini.config.json`:
 }
 ```
 
-`halfLifeHours: null` means no decay; the memory persists at full weight forever. Domain-specific defaults are shipped with vertical packs (ADR-013): the `@metaharness/vertical-trading` pack ships short half-lives by default; `@metaharness/vertical-legal` ships long ones.
+`halfLifeHours: null` means no decay; the memory persists at full weight forever. Domain-specific defaults are shipped with vertical packs (ADR-013): the `@zagents/vertical-trading` pack ships short half-lives by default; `@zagents/vertical-legal` ships long ones.
 
 The emergent-time decay model differs from a naive exponential because the `reinforceMultiplier` lets frequently-accessed memories extend their half-life adaptively. A pattern retrieved 100 times across 30 days has, in effect, an emergent half-life much longer than 30 days; one stored once and never read decays at the configured rate. This matches research on emergent / spaced-repetition memory models more than a fixed-window cache eviction.
 
@@ -175,7 +175,7 @@ CONSOLIDATE   Update the long-term store without destroying prior learning.
 The pluggable nodes (JUDGE, DISTILL) are the path to vertical-specific intelligence. A trading gemini's JUDGE asks "did this strategy beat the benchmark this week?" A legal gemini's JUDGE asks "did this answer hold up under attorney review?" The kernel ships interfaces; the gemini ships implementations.
 
 ```ts
-// @metaharness/kernel/memory/intelligence.ts (simplified)
+// @zagents/kernel/memory/intelligence.ts (simplified)
 export interface JudgeProvider {
   evaluate(trajectory: Trajectory): Promise<Verdict>;
 }
@@ -185,7 +185,7 @@ export interface DistillProvider {
 }
 
 // Gemini wires in custom providers:
-import { configureIntelligence } from '@metaharness/kernel/memory';
+import { configureIntelligence } from '@zagents/kernel/memory';
 import { TradingJudge, TradingDistiller } from '@acme/trading-intelligence';
 
 configureIntelligence({

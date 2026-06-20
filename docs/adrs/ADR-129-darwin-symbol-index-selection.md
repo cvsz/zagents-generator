@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — completes the file-selection finding
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-128 (camelCase tokenization — the tractable half), ADR-127 (selection finding), ADR-125 (runner)
 
 > ADR-128 fixed selection when a symbol's stem matches its filename (`paretoFront`→`pareto.ts`) but showed path tokenization cannot find a symbol whose name differs from the file (`poincareDistance` ∈ `phenotype.ts`). This adds symbol indexing and closes that gap.

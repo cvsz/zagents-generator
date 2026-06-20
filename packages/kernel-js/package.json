@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/kernel",
+  "name": "@zagents/kernel",
   "version": "0.1.2",
-  "description": "Cross-platform kernel for the agent-gemini-generator — wasm primary, NAPI-RS native fallback",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "description": "Cross-platform kernel for the zagents-generator — wasm primary, NAPI-RS native fallback",
+  "homepage": "https://github.com/ruvnet/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "packages/kernel-js"
   },
   "license": "MIT",
@@ -65,11 +65,11 @@
     }
   },
   "optionalDependencies": {
-    "@metaharness/kernel-darwin-arm64": "0.1.0",
-    "@metaharness/kernel-darwin-x64": "0.1.0",
-    "@metaharness/kernel-linux-x64-gnu": "0.1.0",
-    "@metaharness/kernel-linux-arm64-gnu": "0.1.0",
-    "@metaharness/kernel-win32-x64-msvc": "0.1.0"
+    "@zagents/kernel-darwin-arm64": "^0.1.0",
+    "@zagents/kernel-darwin-x64": "^0.1.0",
+    "@zagents/kernel-linux-x64-gnu": "^0.1.0",
+    "@zagents/kernel-linux-arm64-gnu": "^0.1.0",
+    "@zagents/kernel-win32-x64-msvc": "^0.1.0"
   },
   "engines": {
     "node": ">=20.0.0"

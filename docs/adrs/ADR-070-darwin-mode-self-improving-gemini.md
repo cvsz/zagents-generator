@@ -2,8 +2,8 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
-**Related**: ADR-014 (self-evolution + federation), ADR-041 (MetaHarness as program synthesis + search), ADR-047 (the algorithmic control plane), ADR-050 (gemini intelligence), ADR-040/043 (routing), ADR-011 (witness + provenance)
+**Project**: `ruvnet/zagents-generator`
+**Related**: ADR-014 (self-evolution + federation), ADR-041 (ZAgents as program synthesis + search), ADR-047 (the algorithmic control plane), ADR-050 (gemini intelligence), ADR-040/043 (routing), ADR-011 (witness + provenance)
 
 > This is the head of a six-ADR series (ADR-070…075) that specifies **Darwin Mode**: a system that generates child agent harnesses, runs them against repo tasks in a sandbox, scores them, archives the lineage, and promotes only measured, safe improvements. It is filed in this repo as ADR-070 per the INDEX "append, do not renumber" convention; it corresponds to the externally-drafted *ADR 312: Darwin Mode* by rUv (2026-06-17).
 >
@@ -28,13 +28,13 @@ There are three levels of self-improvement, and only one is the right wedge for 
 | **Gemini self-improvement** | **tools, memory, planner, verifier, context, routing** | **medium** | **very high** |
 | Model self-improvement | weights, data, architecture | high | low for most teams |
 
-**Level 2 is the sweet spot — powerful enough to matter, bounded enough to ship.** It also maps cleanly onto what this repo already is: MetaHarness *generates* harnesses (ADR-041 reframed that as program synthesis under search), RuFlo *orchestrates* runs, and ruVector is the long-term memory substrate. Darwin Mode is the loop that ties them together.
+**Level 2 is the sweet spot — powerful enough to matter, bounded enough to ship.** It also maps cleanly onto what this repo already is: ZAgents *generates* harnesses (ADR-041 reframed that as program synthesis under search), RuFlo *orchestrates* runs, and ruVector is the long-term memory substrate. Darwin Mode is the loop that ties them together.
 
 This connects directly to two ADRs already in the series. ADR-014 specified self-evolution as a *bandit loop that tunes a running gemini's own configuration knobs* (routing thresholds, decay rates). Darwin Mode is the **generation-time, population-based** sibling: instead of nudging one live gemini's scalars, it *forks the gemini's source*, evaluates a population of structural variants offline, and keeps an archive. ADR-041 already adopted "search over gemini designs, score, mutate topology, emit the best artifact + scorecard" as the thesis; Darwin Mode is the executable realisation of the *evolutionary* search operator in that loop.
 
 ## Decision
 
-Build **MetaHarness Darwin Mode**: a TypeScript system (Node built-ins only for the prototype, no runtime deps) that can
+Build **ZAgents Darwin Mode**: a TypeScript system (Node built-ins only for the prototype, no runtime deps) that can
 
 1. **Profile** a repo (package manager, test command, source/risk files) into a `RepoProfile`.
 2. **Generate** a baseline agent gemini from that profile.
@@ -65,13 +65,13 @@ repo
 One command, repo-in / evolution-out:
 
 ```bash
-npx metaharness evolve ./my_repo --generations 3 --children 5
+npx zagents evolve ./my_repo --generations 3 --children 5
 ```
 
 Writes a self-describing work tree (gitignorable):
 
 ```
-.metaharness/
+.zagents/
   archive.json          # the population tree + every scorecard
   lineage.json          # parent→child edges for the graph
   runs/<variantId>.json # traces + scorecard per variant
@@ -83,7 +83,7 @@ The eight visible outputs that make the demo land: baseline gemini · N mutated 
 
 ### The prototype skeleton (committed under `examples/darwin-mode/`, not the kernel)
 
-The reference implementation is intentionally dependency-free and lives as an **example**, not in `@metaharness/kernel`. It is the seed the later increments (LLM-backed mutator, ruVector memory, RuFlo orchestration) extend. Module layout:
+The reference implementation is intentionally dependency-free and lives as an **example**, not in `@zagents/kernel`. It is the seed the later increments (LLM-backed mutator, ruVector memory, RuFlo orchestration) extend. Module layout:
 
 ```
 src/
@@ -103,7 +103,7 @@ Do **not** market this as uncontrolled recursive self-improvement. Market it as 
 
 ### What gets easier
 
-- MetaHarness becomes a **measurable agent-evolution engine**, not a template emitter. The differentiator is the scorecard + lineage, consistent with ADR-041.
+- ZAgents becomes a **measurable agent-evolution engine**, not a template emitter. The differentiator is the scorecard + lineage, consistent with ADR-041.
 - The viral demo is visceral and true: *"I gave it my repo, it built agents, they competed, the best one evolved — here's the family tree, the score, and the patch."*
 - ruVector gains a durable, valuable role as **evolutionary memory** (ADR-074); RuFlo gains a role as the **population orchestrator** (ADR-074).
 
@@ -129,7 +129,7 @@ Do **not** market this as uncontrolled recursive self-improvement. Market it as 
 
 This ADR is satisfied when:
 
-1. `npx metaharness evolve <repo>` produces a populated `.metaharness/` tree (archive, runs, variants, winner report) on at least one of the three acceptance repos.
+1. `npx zagents evolve <repo>` produces a populated `.zagents/` tree (archive, runs, variants, winner report) on at least one of the three acceptance repos.
 2. The baseline gemini is generated purely from `RepoProfile` signals (no hand-authored per-repo content).
 3. At least one child clears the promotion gate with **zero blocked safety actions**, and the run is reproducible from a clean checkout (ADR-072/075 own the numeric bar).
 4. The lineage of the winner is renderable as a tree from `archive.json` alone (ADR-073).

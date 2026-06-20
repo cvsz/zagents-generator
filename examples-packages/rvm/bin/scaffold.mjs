@@ -8,7 +8,7 @@ const extraArgs = process.argv.slice(3);
 const cmd = [
   'npx',
   '--yes',
-  'metaharness@latest',
+  'zagents@latest',
   name,
   '--template',
   'minimal',

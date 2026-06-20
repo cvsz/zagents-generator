@@ -1,6 +1,6 @@
-# @metaharness/host-codex
+# @zagents/host-codex
 
-[OpenAI Codex CLI](https://developers.openai.com/codex) host adapter for the [agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator) project.
+[OpenAI Codex CLI](https://developers.openai.com/codex) host adapter for the [zagents-generator](https://github.com/ruvnet/zagents-generator) project.
 
 Generates the host-specific config a Codex-targeted gemini needs:
 
@@ -10,7 +10,7 @@ Generates the host-specific config a Codex-targeted gemini needs:
 ## Usage
 
 ```js
-import adapter from '@metaharness/host-codex';
+import adapter from '@zagents/host-codex';
 
 const config = adapter.generateConfig({
   name: 'my-bot',

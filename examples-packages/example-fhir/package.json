@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/example-fhir",
+  "name": "@zagents/example-fhir",
   "version": "0.2.0",
-  "description": "MetaHarness example \u2014 FHIR R4 agent gemini pre-wired to fhir-kit-client (SMART on FHIR); reads Patient/Observation/Device from a public sandbox EHR (npx @metaharness/example-fhir my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/example-fhir",
+  "description": "ZAgents example \u2014 FHIR R4 agent gemini pre-wired to fhir-kit-client (SMART on FHIR); reads Patient/Observation/Device from a public sandbox EHR (npx @zagents/example-fhir my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/example-fhir",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/example-fhir"
   },
   "license": "MIT",
@@ -22,7 +22,7 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "fhir",
     "fhir-r4",
     "smart-on-fhir",

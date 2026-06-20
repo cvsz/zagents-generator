@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 //
-// @metaharness/kernel runtime resolver. Per ADR-002a, the kernel ships as Rust
+// @zagents/kernel runtime resolver. Per ADR-002a, the kernel ships as Rust
 // source compiled to wasm + per-platform NAPI-RS for speed. BUT neither of
 // those is guaranteed to be present in a plain `npm install` (the wasm pkg/
 // is built by a separate CI job; the NAPI platform packages are optional).
@@ -36,11 +36,11 @@ const _backendErrors: { native?: string; wasm?: string } = {};
 async function loadNative(): Promise<KernelBackend | null> {
   const plat = `${process.platform}-${process.arch}`;
   const map: Record<string, string> = {
-    'darwin-arm64': '@metaharness/kernel-darwin-arm64',
-    'darwin-x64': '@metaharness/kernel-darwin-x64',
-    'linux-x64': '@metaharness/kernel-linux-x64-gnu',
-    'linux-arm64': '@metaharness/kernel-linux-arm64-gnu',
-    'win32-x64': '@metaharness/kernel-win32-x64-msvc',
+    'darwin-arm64': '@zagents/kernel-darwin-arm64',
+    'darwin-x64': '@zagents/kernel-darwin-x64',
+    'linux-x64': '@zagents/kernel-linux-x64-gnu',
+    'linux-arm64': '@zagents/kernel-linux-arm64-gnu',
+    'win32-x64': '@zagents/kernel-win32-x64-msvc',
   };
   const pkg = map[plat];
   if (!pkg) {
@@ -80,7 +80,7 @@ async function loadWasm(): Promise<KernelBackend | null> {
       backend: 'wasm',
     };
   } catch (e) {
-    _backendErrors.wasm = `wasm artifact (pkg/ruflo_kernel_wasm.js) not present in @metaharness/kernel (${(e as Error).message})`;
+    _backendErrors.wasm = `wasm artifact (pkg/ruflo_kernel_wasm.js) not present in @zagents/kernel (${(e as Error).message})`;
     return null;
   }
 }

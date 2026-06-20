@@ -1,7 +1,7 @@
-# @metaharness/router
+# @zagents/router
 
 **Route each query to the cheapest model that's good enough.** The productized
-form of the DRACO Phase-2 finding (`ruvnet/agent-gemini-generator`, ADR-040):
+form of the DRACO Phase-2 finding (`ruvnet/zagents-generator`, ADR-040):
 on cross-domain research, structure/fusion does *not* beat a strong model on
 quality — but routing each query to the *right, cheapest* model is a measured
 Pareto win. A learned embedding router beat the best fixed model on DRACO, and
@@ -13,13 +13,13 @@ router only needs the vectors.
 ## Install
 
 ```bash
-npm install @metaharness/router
+npm install @zagents/router
 ```
 
 ## Use
 
 ```ts
-import { Router } from '@metaharness/router';
+import { Router } from '@zagents/router';
 
 const router = new Router({
   qualityBar: 0.8, // cost-optimal: cheapest candidate predicted to clear 0.8
@@ -62,7 +62,7 @@ For a *learned*, regularised router (vs. plain k-NN), train one from the same
 dataset — no model files, no native deps, pure TS (ADR-043):
 
 ```ts
-import { trainRouter, TrainedRouter } from '@metaharness/router';
+import { trainRouter, TrainedRouter } from '@zagents/router';
 
 const { router, lambda, looQuality } = trainRouter(rows, prices, { qualityBar: 0.8 });
 // rows: [{ embedding, scores: { modelId: quality } }]  · λ fit by leave-one-out CV
@@ -85,7 +85,7 @@ the **same `{ embedding, scores }` dataset** drives a real FastGRNN (Rust/NAPI,
 gradients + Adam, persisted to `.safetensors`) — programmatically:
 
 ```ts
-import { trainNativeRouter, NativeRouter, isNativeRouterAvailable } from '@metaharness/router';
+import { trainNativeRouter, NativeRouter, isNativeRouterAvailable } from '@zagents/router';
 // needs `npm i @ruvector/tiny-dancer` (optional peer); falls back to pure-TS otherwise
 const res = await trainNativeRouter(rows, prices, { outputPath: './router.safetensors' });
 const router = await NativeRouter.load({ modelPath: res.modelPath });

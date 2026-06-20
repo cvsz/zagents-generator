@@ -1,26 +1,26 @@
-# @metaharness/example-datadog
+# @zagents/example-datadog
 
-**Incident triage from metrics, logs, and monitors — powered by the Datadog API and MetaHarness.**
+**Incident triage from metrics, logs, and monitors — powered by the Datadog API and ZAgents.**
 
 > ⚠️ **Illustrative output.** This scaffold generates an AI-assisted triage bot for demonstration purposes. All findings are AI-generated and must be reviewed by a human before acting on them. This is not a production incident-management system.
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-datadog?label=%40metaharness%2Fexample-datadog&color=purple)](https://www.npmjs.com/package/@metaharness/example-datadog)
-[![npm downloads](https://img.shields.io/npm/dm/@metaharness/example-datadog)](https://www.npmjs.com/package/@metaharness/example-datadog)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-datadog?label=%40zagents%2Fexample-datadog&color=purple)](https://www.npmjs.com/package/@zagents/example-datadog)
+[![npm downloads](https://img.shields.io/npm/dm/@zagents/example-datadog)](https://www.npmjs.com/package/@zagents/example-datadog)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org/)
-[![Built with MetaHarness](https://img.shields.io/badge/built--with-MetaHarness-blue)](https://github.com/ruvnet/agent-gemini-generator)
+[![Built with ZAgents](https://img.shields.io/badge/built--with-ZAgents-blue)](https://github.com/ruvnet/zagents-generator)
 
 ---
 
 ## What this is
 
-`@metaharness/example-datadog` scaffolds a ready-to-run AI agent bot that performs **read-only incident triage** against your Datadog organisation. It demonstrates how to wire the official `@datadog/datadog-api-client` SDK into a MetaHarness multi-agent workflow with tiered model routing, an MCP default-deny policy, and a verification gate that re-queries before finalising any finding.
+`@zagents/example-datadog` scaffolds a ready-to-run AI agent bot that performs **read-only incident triage** against your Datadog organisation. It demonstrates how to wire the official `@datadog/datadog-api-client` SDK into a ZAgents multi-agent workflow with tiered model routing, an MCP default-deny policy, and a verification gate that re-queries before finalising any finding.
 
 ### This package IS:
-- A MetaHarness SDK showcase for the Datadog API
+- A ZAgents SDK showcase for the Datadog API
 - A working npx-runnable scaffold you can use as a starting point
 - Read-only by default — no monitor mutations, no incident creation
-- Compatible with all nine MetaHarness hosts via `--host`
+- Compatible with all nine ZAgents hosts via `--host`
 
 ### This package IS NOT:
 - A production incident-management platform
@@ -46,7 +46,7 @@
 
 ```bash
 # Scaffold a new project (claude-code host, read-only default)
-npx @metaharness/example-datadog@latest my-dd-bot
+npx @zagents/example-datadog@latest my-dd-bot
 
 # Move into the project and install dependencies
 cd my-dd-bot && npm install
@@ -59,7 +59,7 @@ Then open `.env` (copied from `.env.example`), fill in your keys, and start tria
 
 ```bash
 # Run the /dd-triage slash command
-npx metaharness run /dd-triage "High error rate on payments-service in production for the last 30 minutes"
+npx zagents run /dd-triage "High error rate on payments-service in production for the last 30 minutes"
 ```
 
 ---
@@ -79,8 +79,8 @@ The `@datadog/datadog-api-client` SDK picks up all three values automatically fr
 ### Scaffold on a different host
 
 ```bash
-npx @metaharness/example-datadog@latest my-dd-bot --host github-actions   # one host
-npx @metaharness/example-datadog@latest my-dd-bot --host all              # all nine hosts
+npx @zagents/example-datadog@latest my-dd-bot --host github-actions   # one host
+npx @zagents/example-datadog@latest my-dd-bot --host all              # all nine hosts
 ```
 
 ---
@@ -181,5 +181,5 @@ All other Datadog MCP tools: **denied** (default-deny per ADR-022).
 - [Datadog TypeScript client — GitHub](https://github.com/DataDog/datadog-api-client-typescript)
 - [Datadog TypeScript client — npm](https://www.npmjs.com/package/@datadog/datadog-api-client)
 - [Datadog Authentication docs](https://docs.datadoghq.com/api/latest/authentication/)
-- [ADR-059: example-datadog](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-059-example-datadog.md)
-- [MetaHarness — agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator)
+- [ADR-059: example-datadog](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-059-example-datadog.md)
+- [ZAgents — zagents-generator](https://github.com/ruvnet/zagents-generator)

@@ -2,7 +2,7 @@
 
 **Status**: Accepted
 **Date**: 2026-06-15
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-037 (DRACO benchmark), ADR-038 (quality ceiling finding)
 
 ---

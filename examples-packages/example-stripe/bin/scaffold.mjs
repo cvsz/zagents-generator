@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// @metaharness/example-stripe — one-command scaffold + bespoke agent bundle.
-// Delegates host wiring to the metaharness CLI, then drops this example's
+// @zagents/example-stripe — one-command scaffold + bespoke agent bundle.
+// Delegates host wiring to the zagents CLI, then drops this example's
 // bespoke showcase files (agents/, .gemini/mcp-policy.json, commands/, .env.example)
 // into the project. Read-only / sandbox by default; mutations need --allow-mutations.
 import { execSync } from 'node:child_process';
@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import process from 'node:process';
 
-const PKG = '@metaharness/example-stripe';
+const PKG = '@zagents/example-stripe';
 const SDK = "stripe";
 const ENV_VARS = ["STRIPE_API_KEY (use sk_test_\u2026 for test mode)"];
 const COMMAND = "/stripe-billing";
@@ -49,7 +49,7 @@ let totalBundle = 0;
 for (const h of hosts) {
   const projectDir = host === 'all' ? join(name, h) : name;
   const cmd = [
-    'npx --yes metaharness@latest',
+    'npx --yes zagents@latest',
     JSON.stringify(name),
     '--template minimal',
     `--host ${h}`,
@@ -61,7 +61,7 @@ for (const h of hosts) {
   try {
     execSync(cmd, { stdio: 'inherit' });
   } catch (err) {
-    console.error(`\n[${PKG}] metaharness failed to scaffold "${name}" for host "${h}".`);
+    console.error(`\n[${PKG}] zagents failed to scaffold "${name}" for host "${h}".`);
     process.exit(typeof err?.status === 'number' ? err.status : 1);
   }
   totalBundle += writeBundle(projectDir);

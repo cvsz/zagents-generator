@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-070 (Darwin Mode head), ADR-073 (archive + selection), ADR-006 (memory + learning), ADR-041 (ruvector substrate), ADR-047 (control plane), ADR-050 (gemini intelligence)
 
 > Part of the Darwin Mode series (ADR-070…075). The archive (ADR-073) is *local* memory of one repo's run. This ADR specifies the two substrates that make Darwin Mode more than local hill-climbing: **ruVector** as cross-repo evolutionary memory, and **RuFlo** as the population orchestrator.
@@ -65,7 +65,7 @@ RuFlo orchestrates the population as a set of specialised agents, one per stage 
 | archive curator | maintain the tree + lineage | `archive.ts` (ADR-073) |
 | promotion judge | apply the promotion gate | scorer verdict (ADR-072) |
 
-RuFlo runs variants concurrently within the per-generation cost budget (ADR-072 circuit-breaker), under the ADR-047 control-plane invariant (`no action runs unless confidence ≥ threshold ∧ risk ≤ budget ∧ cost ≤ budget ∧ verification == pass`). Division of labour: **MetaHarness generates and mutates the gemini · RuFlo orchestrates the runs · ruVector stores the memory.**
+RuFlo runs variants concurrently within the per-generation cost budget (ADR-072 circuit-breaker), under the ADR-047 control-plane invariant (`no action runs unless confidence ≥ threshold ∧ risk ≤ budget ∧ cost ≤ budget ∧ verification == pass`). Division of labour: **ZAgents generates and mutates the gemini · RuFlo orchestrates the runs · ruVector stores the memory.**
 
 ## Consequences
 

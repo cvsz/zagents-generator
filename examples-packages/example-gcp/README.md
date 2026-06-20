@@ -1,20 +1,20 @@
-# @metaharness/example-gcp
+# @zagents/example-gcp
 
-**A one-command MetaHarness scaffold wired to Google Cloud Storage, BigQuery, and Vertex AI (Gemini) — read-only and safe by default.**
+**A one-command ZAgents scaffold wired to Google Cloud Storage, BigQuery, and Vertex AI (Gemini) — read-only and safe by default.**
 
 > **Illustrative output disclaimer.** This package scaffolds an example agent gemini for demonstration and learning purposes. All code, queries, and AI-generated outputs are illustrative. No compliance, certification, or production readiness is implied or guaranteed. Do not use the scaffolded gemini for regulated workloads (PHI, PCI, export-controlled data) without a full independent security review.
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-gcp?label=%40metaharness%2Fexample-gcp&color=blue)](https://www.npmjs.com/package/@metaharness/example-gcp)
-[![npm downloads](https://img.shields.io/npm/dm/@metaharness/example-gcp)](https://www.npmjs.com/package/@metaharness/example-gcp)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-gcp?label=%40zagents%2Fexample-gcp&color=blue)](https://www.npmjs.com/package/@zagents/example-gcp)
+[![npm downloads](https://img.shields.io/npm/dm/@zagents/example-gcp)](https://www.npmjs.com/package/@zagents/example-gcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org)
-[![built with metaharness](https://img.shields.io/badge/built%20with-metaharness-8A2BE2)](https://github.com/ruvnet/agent-gemini-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-8A2BE2)](https://github.com/ruvnet/zagents-generator)
 
 ---
 
 ## What this is (and is not)
 
-This package scaffolds a **MetaHarness agent gemini** pre-wired to three Google Cloud Platform services:
+This package scaffolds a **ZAgents agent gemini** pre-wired to three Google Cloud Platform services:
 
 - **Cloud Storage** (`@google-cloud/storage` v7.x) — list buckets, list objects, read object metadata.
 - **BigQuery** (`@google-cloud/bigquery` v8.x) — validate and estimate SQL queries in dry-run mode; run live queries only when you explicitly opt in.
@@ -26,7 +26,7 @@ It is **not** a production GCP deployment tool. It is not a Terraform/IaC genera
 
 ## Features
 
-| MetaHarness capability | How it is demonstrated on GCP |
+| ZAgents capability | How it is demonstrated on GCP |
 |---|---|
 | **Tiered model routing** | Cheap tier (Flash Lite) drives SDK calls and verifier checks; frontier tier (Flash / Sonnet) handles query planning and final answer composition |
 | **MCP default-deny** | `.gemini/mcp-policy.json` grants exactly 7 scoped GCP tools; all others are denied; every invocation is audit-logged |
@@ -41,7 +41,7 @@ It is **not** a production GCP deployment tool. It is not a Terraform/IaC genera
 ## Quickstart
 
 ```bash
-npx @metaharness/example-gcp@latest my-gcp-bot
+npx @zagents/example-gcp@latest my-gcp-bot
 cd my-gcp-bot
 npm install
 npm run doctor
@@ -52,13 +52,13 @@ The `doctor` command checks that your GCP credentials are resolvable, that the `
 To scaffold for a specific host:
 
 ```bash
-npx @metaharness/example-gcp@latest my-gcp-bot --host github-actions
+npx @zagents/example-gcp@latest my-gcp-bot --host github-actions
 ```
 
 To scaffold for all supported hosts at once:
 
 ```bash
-npx @metaharness/example-gcp@latest my-gcp-bot --host all
+npx @zagents/example-gcp@latest my-gcp-bot --host all
 ```
 
 ---
@@ -108,7 +108,7 @@ By default every BigQuery query runs with `dryRun: true`. To enable live query e
 
 ```bash
 # at scaffold time
-npx @metaharness/example-gcp@latest my-gcp-bot --allow-mutations
+npx @zagents/example-gcp@latest my-gcp-bot --allow-mutations
 
 # or at runtime inside the gemini
 /gcp-query --live "SELECT COUNT(*) FROM my_dataset.my_table"
@@ -200,7 +200,7 @@ Operator prompt
 | Cheap | Flash Lite / haiku-class | `gcp-executor`, `gcp-verifier` | SDK calls, JSON formatting, numeric comparison — no deep reasoning needed |
 | Frontier | Flash / Sonnet-class | `gcp-planner` (query planning, final answer) | Semantic understanding of natural-language intent and BigQuery schema |
 
-Routing is configured in the scaffolded `.gemini/router.json` and delegates to the MetaHarness routing primitive (ADR-026).
+Routing is configured in the scaffolded `.gemini/router.json` and delegates to the ZAgents routing primitive (ADR-026).
 
 ### MCP policy — granted tools
 
@@ -240,6 +240,6 @@ const ai = new GoogleGenAI();                     // ADC + GOOGLE_GENAI_USE_VERT
 - [Application Default Credentials guide](https://cloud.google.com/docs/authentication/application-default-credentials)
 - [BigQuery dry-run sample](https://cloud.google.com/bigquery/docs/samples/bigquery-query-dry-run)
 - [BigQuery Sandbox (free tier)](https://cloud.google.com/bigquery/docs/sandbox)
-- [ADR-053: example-gcp design record](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-053-example-gcp.md)
-- [ADR-051: examples program](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
-- [MetaHarness generator](https://github.com/ruvnet/agent-gemini-generator)
+- [ADR-053: example-gcp design record](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-053-example-gcp.md)
+- [ADR-051: examples program](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ZAgents generator](https://github.com/ruvnet/zagents-generator)

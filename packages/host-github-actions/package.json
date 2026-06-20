@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/host-github-actions",
+  "name": "@zagents/host-github-actions",
   "version": "0.1.2",
-  "description": "GitHub Actions host adapter for agent-gemini-generator. Emits .github/workflows/<name>.yml + a composite action.yml for non-interactive CI/CD agent harnesses (ADR-033).",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "description": "GitHub Actions host adapter for zagents-generator. Emits .github/workflows/<name>.yml + a composite action.yml for non-interactive CI/CD agent harnesses (ADR-033).",
+  "homepage": "https://github.com/ruvnet/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "packages/host-github-actions"
   },
   "license": "MIT",
@@ -43,7 +43,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@metaharness/kernel": "^0.1.0"
+    "@zagents/kernel": "^0.1.2"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",

@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -153,7 +153,7 @@ the agent receives a clear error if it attempts the tool without the flag.
 
 - Demonstrates that a generated gemini can safely interact with a live
   blockchain without ever risking real funds, making it concrete for web3
-  developers evaluating metaharness.
+  developers evaluating zagents.
 - The `PublicClient`-first model and explicit `simulateContract` gate are
   pedagogically correct: they mirror the best-practice workflow any web3
   developer should follow.

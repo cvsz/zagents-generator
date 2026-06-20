@@ -77,7 +77,7 @@ describe('CodeQL #4 — second-order command injection (from-repo URL allowlist)
   const ALLOWED = /^(https?:\/\/|git:\/\/|ssh:\/\/|git@)/;
 
   it('accepts legitimate repo URLs', () => {
-    expect(ALLOWED.test('https://github.com/ruvnet/agent-gemini-generator')).toBe(true);
+    expect(ALLOWED.test('https://github.com/ruvnet/zagents-generator')).toBe(true);
     expect(ALLOWED.test('http://example.com/repo.git')).toBe(true);
     expect(ALLOWED.test('git://example.com/repo.git')).toBe(true);
     expect(ALLOWED.test('ssh://git@github.com/ruvnet/x.git')).toBe(true);

@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-14
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-004 (host integration model), ADR-022 (MCP primitive), ADR-030 (Discovery Loop), ADR-032 (host-copilot)
 **Supersedes / Superseded-by**: none
 
@@ -40,7 +40,7 @@ OpenCode is the strongest near-term host candidate for three reasons:
 
 ## Decision
 
-**Add `@metaharness/host-opencode` as the 8th host adapter, following the ADR-032 (Copilot) pattern: an additive config-emitter package that mirrors the existing six adapters in shape, size, and test surface.**
+**Add `@zagents/host-opencode` as the 8th host adapter, following the ADR-032 (Copilot) pattern: an additive config-emitter package that mirrors the existing six adapters in shape, size, and test surface.**
 
 Status: **Proposed**. Implementation deferred to a future iteration; this ADR documents the contract.
 
@@ -48,7 +48,7 @@ Status: **Proposed**. Implementation deferred to a future iteration; this ADR do
 
 ```
 packages/host-opencode/
-├── package.json          # name: @metaharness/host-opencode, version: 0.1.0
+├── package.json          # name: @zagents/host-opencode, version: 0.1.0
 ├── tsconfig.json         # mirrors host-codex
 ├── LICENSE
 ├── README.md             # what it does, schema sample, install runbook reference
@@ -180,4 +180,4 @@ OpenCode is moving fast (the project shipped its 1.0 in 2026 Q1 per its release 
 - [ADR-030 — Discovery Loop propagation](./ADR-030-discovery-loop.md)
 - [ADR-032 — Host: GitHub Copilot](./ADR-032-host-copilot.md) — template this ADR follows verbatim
 - [ADR-033 — Host: GitHub Actions](./ADR-033-host-github-actions.md)
-- [ADR-035 — Product naming (MetaHarness)](./ADR-035-product-naming.md) — Status: Accepted
+- [ADR-035 — Product naming (ZAgents)](./ADR-035-product-naming.md) — Status: Accepted

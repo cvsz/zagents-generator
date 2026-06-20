@@ -1,8 +1,8 @@
-# ADR-051: Third-party SDK showcase examples (`npx @metaharness/example-*`)
+# ADR-051: Third-party SDK showcase examples (`npx @zagents/example-*`)
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-001 (Goals/Non-Goals), ADR-015 (Naming + branding), ADR-022 (MCP default-deny gate), ADR-044/045/046 (host coverage + real-install verification), ADR-050 (gemini intelligence — verification-gated output)
 **Series**: ADR-052…ADR-069 (one per platform — see catalog below)
 
@@ -10,7 +10,7 @@
 
 ## Context
 
-`metaharness` scaffolds an agent gemini from any repo, and the existing
+`zagents` scaffolds an agent gemini from any repo, and the existing
 `examples-packages/*` show **host** integrations (Claude Code, Codex, …) and
 **vertical** pods (research, trading, …). What they do *not* show is the other
 half of the value proposition: an agent gemini is only useful when it can
@@ -20,26 +20,26 @@ and the long tail of trending/exotic platforms.
 Prospective users ask a concrete question: *"If I generate a gemini, can it
 actually drive Stripe / AWS / a FHIR server / Hugging Face, safely, across the
 host I already use?"* Today the answer is "yes, but you wire it yourself." That
-is exactly the weekend of work `metaharness` exists to delete.
+is exactly the weekend of work `zagents` exists to delete.
 
 This ADR defines a **series of example packages** — one per third-party
-platform — each runnable as `npx @metaharness/example-<slug> <name>`, that
+platform — each runnable as `npx @zagents/example-<slug> <name>`, that
 scaffolds a gemini pre-wired to that platform's SDK, on **all supported hosts**,
-showcasing both metaharness capabilities (tiered routing, MCP default-deny,
+showcasing both zagents capabilities (tiered routing, MCP default-deny,
 skills/commands, verification gates, swarm coordination) and the third party's
 capabilities. Each example is documented by its own ADR (the "why this design"
 record) and ships a README a newcomer can follow.
 
 ## Decision
 
-Ship a curated catalog of `@metaharness/example-<slug>` packages, each governed
+Ship a curated catalog of `@zagents/example-<slug>` packages, each governed
 by a per-platform ADR, all conforming to the shared contract below.
 
 ### 1. Naming & invocation
 
-- npm package: **`@metaharness/example-<slug>`** (scoped, public).
+- npm package: **`@zagents/example-<slug>`** (scoped, public).
 - Directory: `examples-packages/example-<slug>/`.
-- Invocation: `npx @metaharness/example-<slug>@latest <project-name>`.
+- Invocation: `npx @zagents/example-<slug>@latest <project-name>`.
 - `bin` MUST be `"bin/scaffold.mjs"` **with no `./` prefix** (npm strips a
   `./`-prefixed bin on publish — see GH #13; the showcase packages must not
   reproduce that bug).
@@ -49,12 +49,12 @@ by a per-platform ADR, all conforming to the shared contract below.
 A `--host <id>` flag (default `claude-code`) selects the host adapter; `--host all`
 emits every host's config. Supported hosts (ADR-044/045/046): `claude-code`,
 `codex`, `copilot`, `github-actions`, `hermes`, `openclaw`, `opencode`,
-`pi-dev`, `rvm`. The scaffold delegates to the `metaharness` CLI + the relevant
-`@metaharness/host-<id>` adapter so host wiring stays single-sourced.
+`pi-dev`, `rvm`. The scaffold delegates to the `zagents` CLI + the relevant
+`@zagents/host-<id>` adapter so host wiring stays single-sourced.
 
 ### 3. Capability showcase matrix (what each example must demonstrate)
 
-| metaharness capability | How the example shows it |
+| zagents capability | How the example shows it |
 |---|---|
 | **Tiered model routing** (ADR-026) | cheap tier for fan-out/extraction, frontier tier for reasoning/decisions |
 | **MCP default-deny** (ADR-022) | a scoped `.gemini/mcp-policy.json` granting only the platform's needed tools + audit log |
@@ -80,7 +80,7 @@ emits every host's config. Supported hosts (ADR-044/045/046): `claude-code`,
 
 Markdown with, in order: title + one-line tagline; an **illustrative-output**
 disclaimer; **badges** (npm version, npm downloads, license, node engine, "built
-with metaharness"); **Intro** (what it is / is not); **Features** (the capability
+with zagents"); **Intro** (what it is / is not); **Features** (the capability
 matrix above, concretely); **Quickstart** (`npx … && cd … && npm install && npm
 run doctor`); **Configuration** (env vars / auth); **Usage** (the slash commands
 + a representative prompt); **Safety**; **How it works** (agents + routing +
@@ -125,10 +125,10 @@ space, quantum, bio). Additional platforms append as ADR-070+.
 - **Positive**: turns "can a generated gemini really *do* things?" into 18
   one-command proofs across every host; each is a copy-paste starting point;
   the catalog doubles as living integration tests for the host adapters and the
-  capability primitives; showcases third-party + metaharness value together.
+  capability primitives; showcases third-party + zagents value together.
 - **Cost/risk**: 18 packages to maintain + keep SDK-current; mitigated by the
   shared scaffold contract (host wiring is single-sourced through the
-  `metaharness` CLI) and by dry-run/sandbox defaults that keep examples safe to
+  `zagents` CLI) and by dry-run/sandbox defaults that keep examples safe to
   run. Regulated-domain examples (health, ads, payments) carry explicit
   not-for-production disclaimers.
 - **Provenance**: per-platform designs are researched against each SDK's current

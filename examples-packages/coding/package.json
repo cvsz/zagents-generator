@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/coding",
+  "name": "@zagents/coding",
   "version": "0.1.0",
-  "description": "MetaHarness example — engineering pod scaffold (architect, implementer, reviewer, test-writer) for Claude Code (npx @metaharness/coding my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/coding",
+  "description": "ZAgents example — engineering pod scaffold (architect, implementer, reviewer, test-writer) for Claude Code (npx @zagents/coding my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/coding",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/coding"
   },
   "license": "MIT",
@@ -21,9 +21,9 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "agent-gemini",
-    "agent-gemini-generator",
+    "zagents-generator",
     "coding",
     "vertical",
     "claude-code",

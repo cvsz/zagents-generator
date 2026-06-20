@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — first autonomous step into the ADR-098 "external" gate
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-125–130 (the SWE runner), ADR-098 (external-benchmark frontier), ADR-120/121 (own-package code)
 
 > ADR-120–130 validated the SWE runner on `darwin-mode` — the package it was built in. The open question for ADR-098 was whether it works on code it was *not* built around. This runs it on a **different package** in the monorepo (`kernel-js`) with its own conventions, files, and vitest suite — the first concrete, autonomous step toward external generalization.

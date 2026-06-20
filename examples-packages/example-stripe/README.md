@@ -1,22 +1,22 @@
-# @metaharness/example-stripe
+# @zagents/example-stripe
 
 > Agent gemini scaffold pre-wired to the Stripe billing API — subscriptions, refunds, and webhook handling in TEST MODE by default.
 
 > **Illustrative output**: This package scaffolds example agent gemini code for educational and prototyping purposes. The generated gemini exercises the Stripe test environment only by default. It is **not** a production-ready payment integration, is **not** PCI-DSS certified, and **must not** be used to process real payments without a full security and compliance review.
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-stripe?label=npm&color=6772e5)](https://www.npmjs.com/package/@metaharness/example-stripe)
-[![npm downloads](https://img.shields.io/npm/dm/@metaharness/example-stripe?color=6772e5)](https://www.npmjs.com/package/@metaharness/example-stripe)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-stripe?label=npm&color=6772e5)](https://www.npmjs.com/package/@zagents/example-stripe)
+[![npm downloads](https://img.shields.io/npm/dm/@zagents/example-stripe?color=6772e5)](https://www.npmjs.com/package/@zagents/example-stripe)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org)
-[![Built with MetaHarness](https://img.shields.io/badge/built%20with-metaharness-8b5cf6)](https://github.com/ruvnet/agent-gemini-generator)
+[![Built with ZAgents](https://img.shields.io/badge/built%20with-zagents-8b5cf6)](https://github.com/ruvnet/zagents-generator)
 
 ---
 
 ## What it is
 
-`@metaharness/example-stripe` is a MetaHarness scaffold package that generates a complete AI agent gemini pre-wired to the [Stripe Node.js SDK](https://github.com/stripe/stripe-node) (`stripe` v22.x). Running it with `npx` produces a ready-to-run project directory containing three specialized agents, a `/stripe-billing` slash command, a scoped MCP policy, and all the plumbing to drive Stripe billing operations from natural-language prompts.
+`@zagents/example-stripe` is a ZAgents scaffold package that generates a complete AI agent gemini pre-wired to the [Stripe Node.js SDK](https://github.com/stripe/stripe-node) (`stripe` v22.x). Running it with `npx` produces a ready-to-run project directory containing three specialized agents, a `/stripe-billing` slash command, a scoped MCP policy, and all the plumbing to drive Stripe billing operations from natural-language prompts.
 
-**What it is NOT**: a PCI-DSS compliant payment integration, a certified financial application, or a replacement for a proper Stripe implementation review. It is an educational scaffold that shows how metaharness patterns (tiered model routing, MCP default-deny, verification-gated output) combine with a real third-party SDK.
+**What it is NOT**: a PCI-DSS compliant payment integration, a certified financial application, or a replacement for a proper Stripe implementation review. It is an educational scaffold that shows how zagents patterns (tiered model routing, MCP default-deny, verification-gated output) combine with a real third-party SDK.
 
 ---
 
@@ -38,7 +38,7 @@
 ## Quickstart
 
 ```bash
-npx @metaharness/example-stripe@latest my-stripe-bot
+npx @zagents/example-stripe@latest my-stripe-bot
 cd my-stripe-bot
 npm install
 npm run doctor
@@ -49,13 +49,13 @@ npm run doctor
 To scaffold for a specific host:
 
 ```bash
-npx @metaharness/example-stripe@latest my-stripe-bot --host github-actions
+npx @zagents/example-stripe@latest my-stripe-bot --host github-actions
 ```
 
 To scaffold for every host at once:
 
 ```bash
-npx @metaharness/example-stripe@latest my-stripe-bot --host all
+npx @zagents/example-stripe@latest my-stripe-bot --host all
 ```
 
 ---
@@ -98,7 +98,7 @@ The CLI prints a webhook signing secret (`whsec_...`) — set that as `STRIPE_WE
 To scaffold a gemini that references live keys, pass `--live` to the scaffolder:
 
 ```bash
-npx @metaharness/example-stripe@latest my-stripe-bot --live
+npx @zagents/example-stripe@latest my-stripe-bot --live
 ```
 
 This emits a warning, documents the compliance implications in the generated README, and requires `STRIPE_SECRET_KEY` to start with `sk_live_`. **Do not use live mode without a proper security and compliance review.**
@@ -225,5 +225,5 @@ Every tool call is written to `.gemini/mcp-audit.jsonl` with timestamp, agent id
 - [Stripe webhook signature verification](https://docs.stripe.com/webhooks)
 - [Stripe sandboxes](https://docs.stripe.com/sandboxes)
 - [Stripe agent billing workflows](https://docs.stripe.com/agents-billing-workflows)
-- [ADR-055: example-stripe design rationale](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-055-example-stripe.md)
-- [ADR-051: Third-party SDK showcase examples program](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ADR-055: example-stripe design rationale](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-055-example-stripe.md)
+- [ADR-051: Third-party SDK showcase examples program](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)

@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 //
 // Native-router interop guard (ADR-043). Regression test for the CJS-default
-// interop bug that shipped in @metaharness/router 0.3.0: @ruvector/tiny-dancer is
+// interop bug that shipped in @zagents/router 0.3.0: @ruvector/tiny-dancer is
 // CommonJS, so under plain Node ESM its named exports land on the dynamic-import
 // `.default`, not the namespace — and isNativeRouterAvailable() wrongly returned
 // false. Vitest's module interop MASKS this (its namespace is populated), so the

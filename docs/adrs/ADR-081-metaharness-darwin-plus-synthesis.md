@@ -1,11 +1,11 @@
-# ADR-081: MetaHarness Darwin Plus — the SOTA synthesis (DGM + HGM + SGM + Hyperagent-lite)
+# ADR-081: ZAgents Darwin Plus — the SOTA synthesis (DGM + HGM + SGM + Hyperagent-lite)
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-070…076 (Darwin Mode + benchmark), ADR-077 (DGM), ADR-078 (HGM), ADR-079 (SGM), ADR-080 (Hyperagents)
 
-> The umbrella ADR. It composes the four grounding ADRs into one architecture — **MetaHarness Darwin Plus** — and pins the SOTA promotion rule, the CLI surface, the report card, and the acceptance test.
+> The umbrella ADR. It composes the four grounding ADRs into one architecture — **ZAgents Darwin Plus** — and pins the SOTA promotion rule, the CLI surface, the report card, and the acceptance test.
 
 ## Context
 
@@ -38,7 +38,7 @@ SOTA vs hype:
 
 ## Decision
 
-Build **MetaHarness Darwin Plus** = DGM archive evolution + HGM clade selection + SGM statistical gates + Hyperagent-lite (bounded meta-evolution). Each piece is shipped or roadmapped in a grounding ADR and a concrete module:
+Build **ZAgents Darwin Plus** = DGM archive evolution + HGM clade selection + SGM statistical gates + Hyperagent-lite (bounded meta-evolution). Each piece is shipped or roadmapped in a grounding ADR and a concrete module:
 
 | Layer | ADR | Module |
 |---|---|---|
@@ -82,7 +82,7 @@ repo → baseline gemini → mutation generator → child gemini → sandbox eva
 ### CLI surface (target)
 
 ```
-npx metaharness evolve ./repo \
+npx zagents evolve ./repo \
   --generations 5 --children 8 \
   --bench ruvbench.json \
   --selection clade \      # HGM clade scoring (ADR-078)
@@ -90,7 +90,7 @@ npx metaharness evolve ./repo \
   --replay                 # clean-checkout reproduction of the winner
 ```
 
-**Shipped in this increment:** the benchmark framework (`bench/`) — verified-solve scoring, five gates, seeded bootstrap, statistical + risk-budget promotion, clade selection, immutable hash-pinned suites, the parent-vs-child runner, and `metaharness-darwin bench create|verify`. **Next increment:** wiring `--selection`/`--gate`/`--replay`/`--bench` as `evolve` flags that swap the ADR-072 ScoreCard path for the `bench` evaluation path in the archive (a score-type unification), and the report/replay CLI verbs.
+**Shipped in this increment:** the benchmark framework (`bench/`) — verified-solve scoring, five gates, seeded bootstrap, statistical + risk-budget promotion, clade selection, immutable hash-pinned suites, the parent-vs-child runner, and `zagents-darwin bench create|verify`. **Next increment:** wiring `--selection`/`--gate`/`--replay`/`--bench` as `evolve` flags that swap the ADR-072 ScoreCard path for the `bench` evaluation path in the archive (a score-type unification), and the report/replay CLI verbs.
 
 ### Report card (the deliverable)
 
@@ -105,7 +105,7 @@ Replay: passed   Lineage depth: 5   Best mutation family: context_builder + revi
 ### What gets easier
 - One coherent, cited architecture — every claim maps to a paper (ADR-077/078/079/080) and a module.
 - The wedge is sharp and honest: **"self-improving agents are not recursive model training — they are replayable gemini evolution."**
-- Maps onto the rUv stack: RuFlo = orchestration, ruVector = evolutionary memory, MetaHarness = generator + mutation engine, RUV Bench = verification (ADR-074).
+- Maps onto the rUv stack: RuFlo = orchestration, ruVector = evolutionary memory, ZAgents = generator + mutation engine, RUV Bench = verification (ADR-074).
 
 ### What gets harder
 - Running the full SOTA loop is costly (public+hidden+regression × variants × generations × seeds, under a risk budget). The cost gate + breaker bound it; Levels 0/1 keep it cheap (ADR-076).
@@ -120,7 +120,7 @@ Replay: passed   Lineage depth: 5   Best mutation family: context_builder + revi
 3. **Go straight to full Hyperagents.** Rejected — unsafe/unmeasurable without the lower tiers (ADR-080); Hyperagent-lite is the bounded slice.
 
 ## Test Contract (acceptance)
-Across **100 repo-native tasks** (ruVector, this repo, ruQu), MetaHarness Darwin Plus must:
+Across **100 repo-native tasks** (ruVector, this repo, ruQu), ZAgents Darwin Plus must:
 1. beat baseline by **≥ 10% on hidden tests**;
 2. maintain **zero safety violations**;
 3. **reduce or cap** cost-per-solve (≤ 1.20× parent);

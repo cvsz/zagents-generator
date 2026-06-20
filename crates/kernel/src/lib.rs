@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 //
-// ruflo-kernel — cross-platform kernel for agent-gemini-generator.
+// ruflo-kernel — cross-platform kernel for zagents-generator.
 //
 // Seven subsystems per ADR-002:
 //   - mcp       MCP server registration (stdio + Streamable HTTP)
@@ -17,7 +17,7 @@
 // re-enable per-module once each subsystem is fully documented.
 #![warn(rust_2018_idioms)]
 
-//! Cross-platform kernel for the agent-gemini-generator project.
+//! Cross-platform kernel for the zagents-generator project.
 
 pub mod claims;
 pub mod cost;

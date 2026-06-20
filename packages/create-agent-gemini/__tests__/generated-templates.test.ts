@@ -105,7 +105,7 @@ describe('generated templates scaffold cleanly', () => {
       // package.json is valid JSON carrying the gemini name + kernel dep.
       const pkg = JSON.parse(await readFile(join(target, 'package.json'), 'utf-8'));
       expect(pkg.name).toBe(name);
-      expect(pkg.dependencies['@metaharness/kernel']).toBeDefined();
+      expect(pkg.dependencies['@zagents/kernel']).toBeDefined();
 
       // Regression for issue #13: npm strips a "bin" target with a leading "./"
       // on publish, leaving the package with no CLI. Bin paths must be relative

@@ -20,7 +20,7 @@ interface OnboardingModalProps {
 const STEPS = [
   {
     icon: Boxes,
-    title: 'Welcome to MetaHarness Studio',
+    title: 'Welcome to ZAgents Studio',
     blurb:
       'Scaffold a focused, branded AI agent gemini in your browser. 100% client-side — nothing leaves this page. Output is byte-compatible with the `npx create-agent-gemini` CLI.',
     bullets: [

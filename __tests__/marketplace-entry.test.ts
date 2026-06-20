@@ -20,7 +20,7 @@ describe('marketplace-entry generator', () => {
     const entry = buildMetaEntry(plugin, rootPkg, { now: '2026-06-13T20:00:00.000Z' });
     const v = validateEntry(entry);
     expect(v.ok, `validation: ${v.problems.join('; ')}`).toBe(true);
-    expect(entry.id).toBe('agent-gemini-generator');
+    expect(entry.id).toBe('zagents-generator');
     expect(entry.version).toMatch(/^\d+\.\d+\.\d+/);
     expect(entry.skills.length).toBeGreaterThanOrEqual(4);
     expect(entry.commands.length).toBeGreaterThanOrEqual(4);

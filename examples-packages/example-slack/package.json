@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/example-slack",
+  "name": "@zagents/example-slack",
   "version": "0.2.0",
-  "description": "MetaHarness Slack SDK showcase \u2014 channel triage, scoped-token notify, and a /triage slash-command bot wired to @slack/web-api + @slack/bolt (npx @metaharness/example-slack my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/example-slack",
+  "description": "ZAgents Slack SDK showcase \u2014 channel triage, scoped-token notify, and a /triage slash-command bot wired to @slack/web-api + @slack/bolt (npx @zagents/example-slack my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/example-slack",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/example-slack"
   },
   "license": "MIT",
@@ -22,7 +22,7 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "slack",
     "slack-bot",
     "slack-api",

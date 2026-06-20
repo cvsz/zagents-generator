@@ -1,11 +1,11 @@
-# MetaHarness: sales vertical
+# ZAgents: sales vertical
 
 A ready-made multi-agent sales pipeline pod scaffolded onto Claude Code. Spawns three specialized agents — a **qualifier** (lead scoring), an **opener** (first-touch outreach), and a **closer** (negotiation and follow-through) — wired together with shared memory, MCP tooling, and tier-routed model selection. This scaffold gives you a working gemini directory you can run, validate, and extend. It does NOT ship a CRM, send live email, or include any contact data — bring your own pipeline source and outbound transport.
 
 ## Quickstart
 
 ```bash
-npx @metaharness/sales@latest my-bot
+npx @zagents/sales@latest my-bot
 cd my-bot && npm install && gemini doctor
 ```
 
@@ -67,7 +67,7 @@ Edit `gemini.config.json` → `routing.tiers`. Each agent name maps to `haiku`, 
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

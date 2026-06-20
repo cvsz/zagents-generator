@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -15,7 +15,7 @@ The Stripe Node.js SDK (`stripe`, currently v22.x on npm) is the canonical serve
 
 Stripe falls into the "regulated payments" category: its APIs can charge cards, move money, and trigger financial obligations. This makes safety posture non-negotiable. The example must default to test mode, gate every mutating operation behind an explicit flag, and carry a prominent not-for-production disclaimer.
 
-Stripe also offers an official MCP server at `https://mcp.stripe.com` and an agent toolkit for agentic billing workflows, making it directly relevant to the metaharness MCP default-deny and tool-grant model.
+Stripe also offers an official MCP server at `https://mcp.stripe.com` and an agent toolkit for agentic billing workflows, making it directly relevant to the zagents MCP default-deny and tool-grant model.
 
 ## Decision
 
@@ -140,7 +140,7 @@ const refund = await stripe.refunds.create(
 ```
 
 4. **Webhook signature verification**: the webhook handler calls `stripe.webhooks.constructEvent` with the raw body and the `stripe-signature` header before any event processing. Events that fail verification are rejected with a 400 and logged.
-5. **No live-mode scaffolding by default**: the `--live` flag must be explicitly passed to `npx @metaharness/example-stripe` for the scaffold to generate live-key references. The README documents this and carries the not-for-production disclaimer below.
+5. **No live-mode scaffolding by default**: the `--live` flag must be explicitly passed to `npx @zagents/example-stripe` for the scaffold to generate live-key references. The README documents this and carries the not-for-production disclaimer below.
 
 ### Not-for-production disclaimer
 
@@ -151,7 +151,7 @@ const refund = await stripe.refunds.create(
 ### Positive
 
 - Gives developers a one-command starting point for agent-driven Stripe billing that is safe by default.
-- Demonstrates all five metaharness capability pillars (tiered routing, MCP default-deny, slash command, multi-agent, verification gate) on a platform that nearly every SaaS developer encounters.
+- Demonstrates all five zagents capability pillars (tiered routing, MCP default-deny, slash command, multi-agent, verification gate) on a platform that nearly every SaaS developer encounters.
 - Idempotency key wiring and webhook signature verification are production-grade patterns that survive past the example.
 - Test mode is native to Stripe's API design; no mocking or stubbing is required — real API calls against a real Stripe test environment exercise the full code path.
 

@@ -8,7 +8,7 @@ const extraArgs = process.argv.slice(3);
 const cmd = [
   'npx',
   '--yes',
-  'metaharness@latest',
+  'zagents@latest',
   JSON.stringify(name),
   '--template',
   'vertical:coding',
@@ -21,7 +21,7 @@ const cmd = [
 try {
   execSync(cmd, { stdio: 'inherit' });
 } catch (err) {
-  console.error('\nmetaharness failed to scaffold the coding vertical.');
+  console.error('\nzagents failed to scaffold the coding vertical.');
   console.error(err && err.message ? err.message : err);
   process.exit(typeof err?.status === 'number' ? err.status : 1);
 }

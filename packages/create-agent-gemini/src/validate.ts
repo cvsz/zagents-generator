@@ -174,7 +174,7 @@ async function runDiag(dir: string): Promise<CheckResult> {
   if (!r.localKernelVersion) {
     return {
       name: 'diag', code: 0, tag: 'SKIP',
-      detail: `@metaharness/kernel not installed locally (manifest pins ${r.manifestKernelVersion})`,
+      detail: `@zagents/kernel not installed locally (manifest pins ${r.manifestKernelVersion})`,
     };
   }
   if (r.verdict === 'match' || r.verdict === 'patch-diff') {
@@ -251,7 +251,7 @@ export async function validate(args: string[]): Promise<SubcommandResult> {
   lines.push(`Next: capture the full diagnostic state for a support ticket:`);
   lines.push(`  gemini diag ${dir} --bundle > bundle.json`);
   lines.push(`(then attach bundle.json to a GitHub issue at`);
-  lines.push(` https://github.com/ruvnet/agent-gemini-generator/issues — the`);
+  lines.push(` https://github.com/ruvnet/zagents-generator/issues — the`);
   lines.push(` bundle is sanitised; secret_/token_/key_/password_ fields are redacted)`);
   return { code: 1, lines };
 }

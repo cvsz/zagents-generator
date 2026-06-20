@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -11,13 +11,13 @@
 
 Quantum computing is transitioning from a research curiosity to a cloud-accessible primitive. IBM Quantum Platform (formerly IBM Quantum Experience) is the most widely adopted entry point: it provides a REST API and a Python SDK (`qiskit-ibm-runtime`) that agents can call to build circuits, run simulations on noise-modelled fake backends, and — once verified — submit jobs to real QPUs.
 
-Two capabilities make this an especially relevant MetaHarness showcase target:
+Two capabilities make this an especially relevant ZAgents showcase target:
 
 1. **Verifiable local simulation before hardware spend.** IBM Qiskit Runtime's `fake_provider` module (e.g. `FakeManilaV2`, `FakeBrisbane`) and the `channel="local"` mode on `QiskitRuntimeService` enable full circuit execution against a hardware-noise snapshot without any credentials or QPU minutes. This maps directly onto ADR-050's verification-gate requirement: the gemini must not submit to hardware until a local simulation gate passes.
 
 2. **A mature REST API.** IBM Quantum Platform exposes a REST API at `https://quantum.cloud.ibm.com/api/v1/` (authenticated with an IAM bearer token derived from an IBM Cloud API key and a Cloud Resource Name). This is callable from any runtime — including Node.js — without the Python SDK, which makes it viable as the gemini's wire protocol.
 
-The MetaHarness ecosystem also includes the `ruqu-mcp` MCP server (ADR-008), which provides `ruqu_simulate`, `ruqu_verify`, and `ruqu_replay` tools. These tools are metaharness-native circuit tools that complement the IBM API: `ruqu_simulate` runs a local statevector simulation (n_qubits ≤ 16), `ruqu_verify` validates circuit structure and audit codes, and `ruqu_replay` re-executes a stored circuit for deterministic comparison. Pairing `ruqu` with the IBM REST API provides a coherent two-stage pipeline: verify locally with `ruqu`, then optionally submit to IBM hardware.
+The ZAgents ecosystem also includes the `ruqu-mcp` MCP server (ADR-008), which provides `ruqu_simulate`, `ruqu_verify`, and `ruqu_replay` tools. These tools are zagents-native circuit tools that complement the IBM API: `ruqu_simulate` runs a local statevector simulation (n_qubits ≤ 16), `ruqu_verify` validates circuit structure and audit codes, and `ruqu_replay` re-executes a stored circuit for deterministic comparison. Pairing `ruqu` with the IBM REST API provides a coherent two-stage pipeline: verify locally with `ruqu`, then optionally submit to IBM hardware.
 
 There is no official npm/JavaScript Qiskit SDK. The archived `qiskit-sdk-js` repository is unmaintained and does not support Qiskit Runtime. The gemini therefore uses Node.js `fetch` (built-in, Node >=18) to call the IBM Quantum REST API directly, and spawns a Python subprocess for circuit construction tasks that require `qiskit` circuit builders — or alternatively generates OpenQASM 3 strings directly (a text format easily constructed in JavaScript).
 
@@ -27,7 +27,7 @@ There is no official npm/JavaScript Qiskit SDK. The archived `qiskit-sdk-js` rep
 
 - **Primary SDK (Python, via subprocess or pre-generated QASM)**: `qiskit-ibm-runtime` v0.47.0+ (PyPI, Apache-2.0). Provides `QiskitRuntimeService`, `SamplerV2`, `EstimatorV2`, and `qiskit_ibm_runtime.fake_provider` backends for local simulation.
 - **Wire protocol (Node.js scaffold)**: IBM Quantum Platform REST API at `https://quantum.cloud.ibm.com/api/v1/`. Authentication via IAM bearer token (exchanged from an API key at `https://iam.cloud.ibm.com/identity/token`). Required headers: `Authorization: Bearer <TOKEN>`, `Service-CRN: <CRN>`, `IBM-API-Version: <YYYY-MM-DD>`.
-- **MetaHarness-native quantum layer**: `ruqu-mcp` MCP server tools — `ruqu_simulate`, `ruqu_verify`, `ruqu_replay` — for local simulation and audit within the gemini.
+- **ZAgents-native quantum layer**: `ruqu-mcp` MCP server tools — `ruqu_simulate`, `ruqu_verify`, `ruqu_replay` — for local simulation and audit within the gemini.
 
 ### Headline capability showcased
 

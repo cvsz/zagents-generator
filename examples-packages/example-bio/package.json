@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/example-bio",
+  "name": "@zagents/example-bio",
   "version": "0.2.0",
-  "description": "MetaHarness example \u2014 bioinformatics gemini with gene lookup, PubMed literature retrieval, and genomic sequence fetch via NCBI E-utilities and Ensembl REST (npx @metaharness/example-bio my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/example-bio",
+  "description": "ZAgents example \u2014 bioinformatics gemini with gene lookup, PubMed literature retrieval, and genomic sequence fetch via NCBI E-utilities and Ensembl REST (npx @zagents/example-bio my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/example-bio",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/example-bio"
   },
   "license": "MIT",
@@ -22,7 +22,7 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "example-bio",
     "bioinformatics",
     "ncbi",

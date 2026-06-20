@@ -1,13 +1,13 @@
 # Multi-host example
 
-> Updated in iter 128.2 to use the published CLI name `metaharness` (https://www.npmjs.com/package/metaharness).
+> Updated in iter 128.2 to use the published CLI name `zagents` (https://www.npmjs.com/package/zagents).
 
 Shows a single gemini targeting both Claude Code AND Codex with the same kernel + content.
 
 ## What you'll see
 
 ```bash
-npx metaharness ops-demo \
+npx zagents ops-demo \
   --template vertical:devops \
   --host claude-code \
   --host codex
@@ -56,7 +56,7 @@ If you want this multi-host gemini to share learned weights across hosts (per-ho
 
 ```js
 // In your gemini's init.ts:
-import { SelfEvolvingRouter } from '@metaharness/kernel/self-evolution';
+import { SelfEvolvingRouter } from '@zagents/kernel/self-evolution';
 
 const router = new SelfEvolvingRouter({
   enabled: process.env.OPS_DEMO_LEARN === 'true',

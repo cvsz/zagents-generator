@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-002 (Kernel boundary), ADR-003 (Generator architecture), ADR-015 (Naming + branding)
 
 ## Context
@@ -13,13 +13,13 @@ Ruflo has reached the point where users want their own thing. Three signals are 
 2. **Host fragmentation.** Claude Code is no longer the only agentic CLI. OpenAI Codex CLI now has MCP support. Nous Research's Hermes-agent framework has its own thinking-block scrubbing convention (see `scrubReasoningBlocks` in `v3/@claude-flow/cli/src/mcp-tools/hooks-tools.ts`, comment `#14`, and the `hermes-agent think_scrubber pattern` reference at the call site). pi.dev is emerging as a developer-platform offering. A user who wants their gemini to "work in Claude Code AND Codex" today has to write the second integration by hand.
 3. **Marketplace participation.** The IPFS plugin registry (`QmXbfEAaR7D2Ujm4GAkbwcGZQMHqAMpwDoje4583uNP834`, see ruflo `CLAUDE.md` "Plugin Registry Operations") needs more publishers, not just consumers. The path "publish your own scoped plugin" is currently a ruflo-insider workflow. The marketplace is one of the load-bearing assets ruflo has built; it should be a competitive moat against vibe-coded forks, not a private trail.
 
-The proposal is `agent-gemini-generator`: a CLI tool that scaffolds a brand-new, self-contained, npm-publishable agent gemini for the user. Like `create-vite` for web apps, like `cookiecutter` for Python projects, like `create-next-app` for Next.js — but for vertical agent systems.
+The proposal is `zagents-generator`: a CLI tool that scaffolds a brand-new, self-contained, npm-publishable agent gemini for the user. Like `create-vite` for web apps, like `cookiecutter` for Python projects, like `create-next-app` for Next.js — but for vertical agent systems.
 
 The scope question this ADR answers: **what are we building, and what are we explicitly not building?**
 
 ## Decision
 
-### What `agent-gemini-generator` IS
+### What `zagents-generator` IS
 
 It is two artefacts, shipped as one project:
 
@@ -36,7 +36,7 @@ A generated gemini must support, in increasing order of exoticism:
 |---|---|---|
 | **Trivial** | "I need a 3-agent customer-support gemini branded `@acme/acme-support` that runs in Claude Code." | ADR-003, ADR-004 |
 | **Standard** | "I need a 6-agent legal-contracts gemini branded `@lexcorp/contract-bench` that runs in Claude Code AND Codex, with its own MCP server and a small skill pack." | ADR-003, ADR-004, ADR-006 |
-| **Curated** | "I am bundling a vertical pack — `@metaharness/vertical-trading` — that I maintain alongside ruflo and want to ship as a marketplace plugin." | ADR-013 |
+| **Curated** | "I am bundling a vertical pack — `@zagents/vertical-trading` — that I maintain alongside ruflo and want to ship as a marketplace plugin." | ADR-013 |
 | **Multi-host** | "Same gemini, three hosts (Claude Code, Codex, pi.dev), shared memory, single brand." | ADR-004 |
 | **Federated** | "Two instances of my legal gemini coordinate over the federation transport; one is on-prem, one is cloud." | ADR-014 |
 | **Self-evolving** | "My gemini uses the intelligence loop to optimise its own model routing over time. Successful trajectories get rewarded; failed ones get penalised." | ADR-014 |
@@ -52,14 +52,14 @@ The project is successful if all of these hold:
 2. **Generated harnesses pass the kernel contract.** Every generated gemini, regardless of choices, passes a fixed contract test suite that proves it correctly wires MCP, hooks, memory, routing. See ADR-010 §Contract tests.
 3. **A generated gemini can be published to npm** with `npm publish` and `npm provenance` attestation. No additional manual steps. See ADR-007 §Pre-publish gates, ADR-011 §Witness manifest.
 4. **The four hosts are addressable.** A user can pick Claude Code, Codex, pi.dev, or Hermes (or any subset) at generation time, and the resulting gemini has working integration for each host they picked. "Working" means the host's MCP / hook / tool surface is wired correctly and a host-specific contract test passes. See ADR-004.
-5. **The kernel can be upgraded** in a generated gemini without re-running the generator. `npm update @metaharness/kernel` works for peer-dep mode harnesses; an `eject` mode exists for harnesses that vendored the kernel. See ADR-012.
+5. **The kernel can be upgraded** in a generated gemini without re-running the generator. `npm update @zagents/kernel` works for peer-dep mode harnesses; an `eject` mode exists for harnesses that vendored the kernel. See ADR-012.
 6. **Drift is detectable.** A generated gemini whose kernel has diverged from its template can detect the drift, classify it (safe / breaking), and either auto-apply the patch or surface a clear migration. See ADR-008.
 7. **Anti-slop signals are real.** The marketplace surfaces quality signals (download counts, smoke-test status, witness verification, publisher reputation) and refuses to surface harnesses that fail their smoke contract. See ADR-009.
 8. **An existing ruflo user can migrate** their memory, learned patterns, and skill choices into a generated gemini in one command, without re-training. See ADR-016.
 
 If a release does not satisfy all eight, it is incomplete; this is what "complete" means for v1.0.
 
-### What `agent-gemini-generator` IS NOT
+### What `zagents-generator` IS NOT
 
 Equally important. These are explicit non-goals, deferred to later phases or out of scope entirely.
 
@@ -99,14 +99,14 @@ To pin this concretely: today the `ruflo` package on npm ships kernel + content 
 
 ```
             ┌────────────────────────┐
-            │   @metaharness/kernel      │  ← extracted from ruflo (ADR-002)
+            │   @zagents/kernel      │  ← extracted from ruflo (ADR-002)
             │   primitives only      │
             └────────────────────────┘
                        ▲
        ┌───────────────┼───────────────────────────────────┐
        │               │                                   │
 ┌──────┴──────┐ ┌──────┴──────────────────┐ ┌──────────────┴──────────────┐
-│   ruflo     │ │  generated gemini #1    │ │  @metaharness/vertical-trading │
+│   ruflo     │ │  generated gemini #1    │ │  @zagents/vertical-trading │
 │  (opinion-  │ │  (e.g. @acme/support)    │ │  (curated vertical pack)    │
 │   ated)     │ │                          │ │                             │
 └─────────────┘ └─────────────────────────┘ └─────────────────────────────┘
@@ -132,7 +132,7 @@ Concretely: if a user picks `--federation` in the composer, the generated gemini
 
 ### What gets harder
 
-- **Kernel changes ripple.** Every change to `@metaharness/kernel` potentially breaks every generated gemini. ADR-008 (drift detection) and ADR-012 (eject + upgrade) are mandatory mitigations, not nice-to-haves.
+- **Kernel changes ripple.** Every change to `@zagents/kernel` potentially breaks every generated gemini. ADR-008 (drift detection) and ADR-012 (eject + upgrade) are mandatory mitigations, not nice-to-haves.
 - **Two test surfaces.** We must now run the generator's own test suite AND a smoke test of generator output. ADR-010 specifies how this is structured.
 - **Branding rules become a real concern.** A generated gemini can choose "powered by ruflo" or "independence" mode. ADR-015 pins down what each implies (trademark, attribution, marketplace tagging).
 
@@ -163,7 +163,7 @@ Yeoman is the canonical Node generator framework. Plop is a smaller, more recent
 
 This ADR is satisfied when the following exist:
 
-1. **A success-criteria test suite** — eight machine-checkable assertions corresponding to the eight success criteria in §Decision. Each runs in CI on every change to `agent-gemini-generator`. The suite is the canonical answer to "is v1.0 done?".
+1. **A success-criteria test suite** — eight machine-checkable assertions corresponding to the eight success criteria in §Decision. Each runs in CI on every change to `zagents-generator`. The suite is the canonical answer to "is v1.0 done?".
 2. **A non-goals enforcement check** — a CI guard that fails the build if (a) a Python file lands in the kernel, (b) a hosted-UI dependency lands in the generator, (c) a "certification body" type or label lands in the marketplace publish flow. This is a one-time `grep` plus a smoke check; cheap to keep.
 3. **One trivial gemini, one exotic gemini** as golden-path tests. The trivial gemini is "3 agents, Claude Code only, no plugins." The exotic gemini is "federation + multi-host (Claude Code + Codex) + custom DISTILL." Both must build, pass their smoke tests, and `npm pack` cleanly. These are the "from practical to exotic" canary.
 

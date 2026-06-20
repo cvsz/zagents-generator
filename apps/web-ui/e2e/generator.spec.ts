@@ -11,15 +11,15 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-test.describe('MetaHarness Studio UI', () => {
+test.describe('ZAgents Studio UI', () => {
   test('loads with no console errors and renders the hero', async ({ page }) => {
     const errors: string[] = [];
     page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
     page.on('pageerror', (e) => errors.push(e.message));
 
     await page.goto('/');
-    // iter 118 — heading renamed Agent Gemini Studio → MetaHarness Studio.
-    await expect(page.getByRole('heading', { name: /MetaHarness Studio/i })).toBeVisible();
+    // iter 118 — heading renamed Agent Gemini Studio → ZAgents Studio.
+    await expect(page.getByRole('heading', { name: /ZAgents Studio/i })).toBeVisible();
     await expect(page.getByText(/Turn any GitHub repo/i)).toBeVisible();
     expect(errors, errors.join('\n')).toEqual([]);
   });

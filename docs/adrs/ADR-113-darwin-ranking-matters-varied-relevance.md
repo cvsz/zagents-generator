@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — completes the ADR-111 falsification into the full picture
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-111 (ranking irrelevant for flat-overlap distractors), ADR-109 (surface gates real LLM), ADR-085 (ranking matters under execution scoring)
 
 > ADR-111 honestly showed the contextBuilder's *ranking* contributed nothing — but only because its distractors shared the buggy file's terms (flat overlap → ranking degenerates to input order). That left an open question the review implied: does ranking matter when file relevance actually *varies*? It does. This closes the loop.

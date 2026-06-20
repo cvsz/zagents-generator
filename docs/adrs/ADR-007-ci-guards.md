@@ -2,14 +2,14 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-002 (Kernel boundary), ADR-003 (Generator architecture), ADR-008 (Drift detection), ADR-009 (Anti-slop), ADR-010 (TDD test contracts), ADR-011 (Witness)
 
 ## Context
 
 Two repos publish things to the world:
 
-1. **`ruvnet/agent-gemini-generator`** — publishes the kernel (`@metaharness/kernel`), the generator (`@metaharness/create-agent-gemini` and its marketplace plugin), the host adapters (`@metaharness/host-*`), the catalogue (`@metaharness/catalogue`), the test gemini, and the vertical packs (`@metaharness/vertical-*`).
+1. **`ruvnet/zagents-generator`** — publishes the kernel (`@zagents/kernel`), the generator (`@zagents/create-agent-gemini` and its marketplace plugin), the host adapters (`@zagents/host-*`), the catalogue (`@zagents/catalogue`), the test gemini, and the vertical packs (`@zagents/vertical-*`).
 2. **Each generated gemini** — publishes its own npm package and, optionally, its own plugins to the marketplace.
 
 Both need CI guards. They are different guards because the failure modes are different. The generator's risks are: a kernel breaking change ships before adapters are ready; a malformed template lands; a marketplace publish flow leaks credentials. A generated gemini's risks are: it publishes without provenance; it ships a plugin that fails its smoke test; its kernel-engines range drifted from what it actually runs against; it forgot to regenerate the witness manifest.
@@ -20,14 +20,14 @@ This ADR pins down both gate sets. The gates are concrete enough that a CI engin
 
 ### Two gate suites
 
-- **Generator-side gates** (run on `ruvnet/agent-gemini-generator` PRs and releases) — Section A below.
+- **Generator-side gates** (run on `ruvnet/zagents-generator` PRs and releases) — Section A below.
 - **Gemini-side gates** (scaffolded into every generated gemini's `.github/workflows/`) — Section B below.
 
 Each gate has: a name, a trigger, what it asserts, the failure mode, and the recovery action.
 
 ## Section A — Generator-side CI gates
 
-These run in `.github/workflows/` of the `ruvnet/agent-gemini-generator` repo.
+These run in `.github/workflows/` of the `ruvnet/zagents-generator` repo.
 
 ### A1. `build-and-lint` — every PR
 
@@ -48,7 +48,7 @@ This is the ADR-002 §Test Contract §3 gate, made executable.
 ### A3. `kernel-import-boundary` — every PR
 
 - **Triggers on**: PRs touching `packages/kernel/`.
-- **Asserts**: the kernel's source does not `import` from outside `@metaharness/kernel/*` or its direct dependencies. Enforced by ESLint rule `import/no-restricted-paths`. No file under `packages/kernel/src/` may resolve a path to `ruflo`, `@claude-flow/*`, or any gemini package.
+- **Asserts**: the kernel's source does not `import` from outside `@zagents/kernel/*` or its direct dependencies. Enforced by ESLint rule `import/no-restricted-paths`. No file under `packages/kernel/src/` may resolve a path to `ruflo`, `@claude-flow/*`, or any gemini package.
 - **Failure mode**: PR blocked.
 - **Recovery**: factor the import out of the kernel.
 
@@ -90,7 +90,7 @@ This is the ADR-002 §Test Contract §3 gate, made executable.
 ### A9. `kernel-version-drift-check` — main only
 
 - **Triggers on**: pushes to `main` and pre-release.
-- **Asserts**: every host adapter's `peerDependencies.@metaharness/kernel` includes the current kernel version. The catalogue's `engines.kernel` includes the current kernel version. The test gemini's `dependencies.@metaharness/kernel` is the exact current kernel version.
+- **Asserts**: every host adapter's `peerDependencies.@zagents/kernel` includes the current kernel version. The catalogue's `engines.kernel` includes the current kernel version. The test gemini's `dependencies.@zagents/kernel` is the exact current kernel version.
 - **Failure mode**: pre-release blocked.
 - **Recovery**: bump the offending package's peer range; commit.
 
@@ -104,7 +104,7 @@ This is the ADR-002 §Test Contract §3 gate, made executable.
 ### A11. `release-gate` — release tags only
 
 - **Triggers on**: pushes of tags `v*`.
-- **Asserts**: ALL of A1-A10 must have passed on the tagged commit's PR; the version-bump commit message follows the format `chore(release): bump @metaharness/* to X.Y.Z`; CHANGELOG has an entry for the version; no `.env*` files committed; no unresolved `TODO(security)` markers in shipped code.
+- **Asserts**: ALL of A1-A10 must have passed on the tagged commit's PR; the version-bump commit message follows the format `chore(release): bump @zagents/* to X.Y.Z`; CHANGELOG has an entry for the version; no `.env*` files committed; no unresolved `TODO(security)` markers in shipped code.
 - **Failure mode**: release blocked, tag deleted, the human is paged.
 - **Recovery**: fix the missing piece, re-tag.
 
@@ -118,7 +118,7 @@ This is the ADR-002 §Test Contract §3 gate, made executable.
 ### A13. `dep-audit` — every PR
 
 - **Triggers on**: every PR.
-- **Asserts**: `npm audit --audit-level=high` returns zero high+critical advisories. **Renovate** (https://docs.renovatebot.com/) — the recommended dependency-drift bot for this generator's scale — has not raised an unaddressed advisory older than 14 days. Renovate is chosen over Dependabot (`.github/dependabot.yml`) for the generator and `@metaharness/*` packages because: (a) preset inheritance lets one config drive every repo we publish from; (b) grouped updates reduce CI churn (one PR for related kernel-version bumps rather than N); (c) configurable scheduling lets us batch updates outside business hours. Generated harnesses are scaffolded with a Renovate preset by default; gemini authors can switch to Dependabot if they prefer the GitHub-native simpler model.
+- **Asserts**: `npm audit --audit-level=high` returns zero high+critical advisories. **Renovate** (https://docs.renovatebot.com/) — the recommended dependency-drift bot for this generator's scale — has not raised an unaddressed advisory older than 14 days. Renovate is chosen over Dependabot (`.github/dependabot.yml`) for the generator and `@zagents/*` packages because: (a) preset inheritance lets one config drive every repo we publish from; (b) grouped updates reduce CI churn (one PR for related kernel-version bumps rather than N); (c) configurable scheduling lets us batch updates outside business hours. Generated harnesses are scaffolded with a Renovate preset by default; gemini authors can switch to Dependabot if they prefer the GitHub-native simpler model.
 - **Failure mode**: PR blocked.
 - **Recovery**: bump the dep, mitigate, or document a CVE override (`.audit-overrides.json` with reasoning).
 
@@ -167,7 +167,7 @@ This mirrors ruflo's existing witness CI gate (ADR-103 §3).
 ### A16. `kernel-template-coherence` — main only
 
 - **Triggers on**: pushes to `main` and pre-release.
-- **Asserts**: the bundled templates in `packages/create-agent-gemini/templates/` are coherent with the current `@metaharness/kernel` version. Specifically: every `import` in the templates resolves to an exported symbol in the kernel at the version pinned in `_base/package.json.hbs`.
+- **Asserts**: the bundled templates in `packages/create-agent-gemini/templates/` are coherent with the current `@zagents/kernel` version. Specifically: every `import` in the templates resolves to an exported symbol in the kernel at the version pinned in `_base/package.json.hbs`.
 - **Failure mode**: pre-release blocked.
 - **Recovery**: fix the template OR fix the kernel export.
 

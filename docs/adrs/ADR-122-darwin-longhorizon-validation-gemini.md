@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — implements ADR-098 step 1, the "de-risk before the real benchmark" milestone
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-098 (external-benchmark strategy — step 1 = validation gemini), ADR-111 (window-vs-ranking honesty), ADR-113 (ranking is causal)
 
 > ADR-098 step 1 (the recommended starting point, before any external dataset/budget): "Build a synthetic ~50-file repository stress-test that exercises context management over 50+ sequential steps — the regime where agents *lose the thread*. Verify Darwin's loop holds state before exposing it to a real benchmark." This ships it.

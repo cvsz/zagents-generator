@@ -1,4 +1,4 @@
-# MetaHarness × pi.dev AGENTS.md gemini
+# ZAgents × pi.dev AGENTS.md gemini
 
 > ⚠️ **Illustrative output.** Transcripts and validation/run output shown in this README are
 > representative examples, not captured from a specific run — actual output depends on your
@@ -10,7 +10,7 @@ A one-shot scaffold that drops a pi.dev-ready agent gemini into a new folder. It
 ## Quickstart
 
 ```bash
-npx @metaharness/pi-dev@latest my-bot
+npx @zagents/pi-dev@latest my-bot
 cd my-bot
 npm install
 gemini doctor
@@ -22,7 +22,7 @@ gemini doctor
 
 - `AGENTS.md` — the canonical contract pi.dev agents read on boot (rules, tools, file boundaries).
 - `.pi/config.json` — host-specific config for pi.dev (model defaults, sandbox policy, working dir).
-- `gemini.config.json` — metaharness-level config so `gemini doctor` / `gemini validate` know your layout.
+- `gemini.config.json` — zagents-level config so `gemini doctor` / `gemini validate` know your layout.
 - `mcp.json` — empty but valid MCP server registry; add servers as you need them.
 - `agents/` — one starter agent stub (`agents/main.md`) you can rename or duplicate.
 - `scripts/` — `doctor.mjs` and `validate.mjs` shims that defer to the `gemini` CLI.
@@ -73,7 +73,7 @@ A: So `gemini doctor` has a real file to validate against. Add MCP servers with 
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

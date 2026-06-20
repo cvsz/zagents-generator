@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/host-hermes",
+  "name": "@zagents/host-hermes",
   "version": "0.1.2",
-  "description": "Hermes Agent (NousResearch) host adapter for agent-gemini-generator (MCP + <think>/<tool_call> scrubbing)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "description": "Hermes Agent (NousResearch) host adapter for zagents-generator (MCP + <think>/<tool_call> scrubbing)",
+  "homepage": "https://github.com/ruvnet/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "packages/host-hermes"
   },
   "license": "MIT",
@@ -39,7 +39,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@metaharness/kernel": "^0.1.0"
+    "@zagents/kernel": "^0.1.2"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",

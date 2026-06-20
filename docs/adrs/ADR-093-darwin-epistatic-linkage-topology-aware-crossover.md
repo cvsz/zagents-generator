@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-089 (crossover), ADR-088/091/092 (niches + steering), ADR-071 (surfaces), RuVector GNN (`ruvnet/ruvector`)
 
 > Crossover (ADR-089) swaps a RANDOM subset of surfaces. But surfaces are epistatic — a `planner` change may only pay off when matched by a complementary `retryPolicy` change. Splitting a co-adapted pair destroys both. This ADR learns which surfaces co-adapt and keeps them together during recombination: topology-aware crossover.

@@ -104,7 +104,7 @@ function summary(report) {
 }
 
 async function main() {
-  process.stderr.write('agent-gemini-generator — host tour\n');
+  process.stderr.write('zagents-generator — host tour\n');
   process.stderr.write(`scaffolding ${HOSTS.length} hosts (template=minimal)\n`);
 
   const t0 = Date.now();

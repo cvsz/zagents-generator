@@ -1,17 +1,17 @@
-# @metaharness/vertical-base
+# @zagents/vertical-base
 
-Shared contract for [`@metaharness/vertical-*`](https://github.com/ruvnet/agent-gemini-generator) packs — the type-only / runtime-helper module that every standalone vertical pack consumes so the generator can load them uniformly.
+Shared contract for [`@zagents/vertical-*`](https://github.com/ruvnet/zagents-generator) packs — the type-only / runtime-helper module that every standalone vertical pack consumes so the generator can load them uniformly.
 
 ## What it is
 
-Per [ADR-013](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-013-vertical-packs-publishing.md), vertical packs (trading, legal, research, …) are **published as standalone npm packages** so each can be owned by a domain expert without touching `create-agent-gemini`. This module is the contract those packs implement.
+Per [ADR-013](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-013-vertical-packs-publishing.md), vertical packs (trading, legal, research, …) are **published as standalone npm packages** so each can be owned by a domain expert without touching `create-agent-gemini`. This module is the contract those packs implement.
 
 ```
-@metaharness/vertical-base               <- shared contract (this package)
+@zagents/vertical-base               <- shared contract (this package)
   ↑
-  ├── @metaharness/vertical-trading      <- standalone pack, ships independently
-  ├── @metaharness/vertical-legal        <- standalone pack
-  ├── @metaharness/vertical-research     <- standalone pack
+  ├── @zagents/vertical-trading      <- standalone pack, ships independently
+  ├── @zagents/vertical-legal        <- standalone pack
+  ├── @zagents/vertical-research     <- standalone pack
   └── ...                          <- third-party packs implement the same interface
 ```
 
@@ -29,7 +29,7 @@ Per [ADR-013](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/ad
 
 ```ts
 // my-pack/src/index.ts
-import type { VerticalPack } from '@metaharness/vertical-base';
+import type { VerticalPack } from '@zagents/vertical-base';
 
 const pack: VerticalPack = {
   id: 'my-vertical',
@@ -62,12 +62,12 @@ npx create-agent-gemini my-bot --vertical @your-scope/vertical-my-vertical
 - **Independent ownership** — domain experts publish without PRing the generator
 - **Independent cadence** — a vertical can bump without touching the kernel
 - **Cleaner attack surface** — the generator never executes pack code at scaffold time; it only reads manifests
-- **Lock-step versioning** — packs declare `peerDependencies` on `@metaharness/vertical-base` so breaking-shape changes are visible at install time
+- **Lock-step versioning** — packs declare `peerDependencies` on `@zagents/vertical-base` so breaking-shape changes are visible at install time
 
 ## See also
 
-- [ADR-013 — Vertical packs publishing](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-013-vertical-packs-publishing.md)
-- [`@metaharness/vertical-trading`](https://www.npmjs.com/package/@metaharness/vertical-trading) — reference implementation
+- [ADR-013 — Vertical packs publishing](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-013-vertical-packs-publishing.md)
+- [`@zagents/vertical-trading`](https://www.npmjs.com/package/@zagents/vertical-trading) — reference implementation
 - [`create-agent-gemini`](https://www.npmjs.com/package/create-agent-gemini) — consumer
 
 ## License

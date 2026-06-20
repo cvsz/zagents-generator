@@ -1,20 +1,20 @@
-# MetaHarness x Pinecone — RAG memory agent
+# ZAgents x Pinecone — RAG memory agent
 
-Scaffold a production-pattern RAG memory gemini pre-wired to Pinecone's serverless vector database — across every MetaHarness host — with one command.
+Scaffold a production-pattern RAG memory gemini pre-wired to Pinecone's serverless vector database — across every ZAgents host — with one command.
 
 > **Illustrative output.** The scaffolded gemini, all code samples in this README, and any agent responses shown are illustrative. They demonstrate integration patterns, not verified production behaviour. Pinecone API responses depend on your live data and index state.
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-pinecone?label=%40metaharness%2Fexample-pinecone)](https://www.npmjs.com/package/@metaharness/example-pinecone)
-[![npm downloads](https://img.shields.io/npm/dm/@metaharness/example-pinecone)](https://www.npmjs.com/package/@metaharness/example-pinecone)
-[![license](https://img.shields.io/npm/l/@metaharness/example-pinecone)](https://github.com/ruvnet/agent-gemini-generator/blob/main/LICENSE)
-[![node](https://img.shields.io/node/v/@metaharness/example-pinecone)](https://nodejs.org)
-[![built with metaharness](https://img.shields.io/badge/built%20with-metaharness-6366f1)](https://www.npmjs.com/package/metaharness)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-pinecone?label=%40zagents%2Fexample-pinecone)](https://www.npmjs.com/package/@zagents/example-pinecone)
+[![npm downloads](https://img.shields.io/npm/dm/@zagents/example-pinecone)](https://www.npmjs.com/package/@zagents/example-pinecone)
+[![license](https://img.shields.io/npm/l/@zagents/example-pinecone)](https://github.com/ruvnet/zagents-generator/blob/main/LICENSE)
+[![node](https://img.shields.io/node/v/@zagents/example-pinecone)](https://nodejs.org)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-6366f1)](https://www.npmjs.com/package/zagents)
 
 ---
 
 ## Introduction
 
-This package scaffolds a MetaHarness agent gemini that uses **Pinecone** as a persistent vector memory namespace. The gemini can upsert text documents into a serverless Pinecone index (via Pinecone's integrated inference — no separate embedding model required), retrieve semantically similar chunks by natural-language query, rerank results, and verify that the memory namespace contains what the agent wrote.
+This package scaffolds a ZAgents agent gemini that uses **Pinecone** as a persistent vector memory namespace. The gemini can upsert text documents into a serverless Pinecone index (via Pinecone's integrated inference — no separate embedding model required), retrieve semantically similar chunks by natural-language query, rerank results, and verify that the memory namespace contains what the agent wrote.
 
 **What this is:** a runnable, one-command starting point for building RAG-enabled agents that store and retrieve knowledge from Pinecone, with tiered model routing, MCP default-deny policy, and a verification gate.
 
@@ -24,7 +24,7 @@ This package scaffolds a MetaHarness agent gemini that uses **Pinecone** as a pe
 
 ## Features
 
-| MetaHarness capability | How this example implements it |
+| ZAgents capability | How this example implements it |
 |---|---|
 | **Tiered model routing** (ADR-026) | Haiku-class model for intent parsing, record chunking, and read-back comparison; frontier model for multi-document planning and error recovery |
 | **MCP default-deny** (ADR-022) | `.gemini/mcp-policy.json` grants exactly 9 Pinecone MCP tools; all other tools denied; writes require `PINECONE_ALLOW_WRITE=true` and explicit approval |
@@ -45,7 +45,7 @@ Pinecone-specific capabilities showcased:
 ## Quickstart
 
 ```bash
-npx @metaharness/example-pinecone@latest my-bot
+npx @zagents/example-pinecone@latest my-bot
 cd my-bot && npm install && npm run doctor
 ```
 
@@ -54,13 +54,13 @@ cd my-bot && npm install && npm run doctor
 To scaffold for a specific host:
 
 ```bash
-npx @metaharness/example-pinecone@latest my-bot --host codex
+npx @zagents/example-pinecone@latest my-bot --host codex
 ```
 
 To scaffold for all hosts at once:
 
 ```bash
-npx @metaharness/example-pinecone@latest my-bot --host all
+npx @zagents/example-pinecone@latest my-bot --host all
 ```
 
 ---
@@ -210,5 +210,5 @@ All other MCP tools are denied. Shell, file-write, and arbitrary-network tools a
 - [Pinecone MCP server (`pinecone-io/pinecone-mcp`)](https://github.com/pinecone-io/pinecone-mcp)
 - [Pinecone integrated inference guide](https://github.com/pinecone-io/pinecone-ts-client/blob/main/guides/inference/integrated-inference.md)
 - [Pinecone authentication](https://docs.pinecone.io/reference/api/authentication)
-- [ADR-062 (this example's design record)](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-062-example-pinecone.md)
-- [ADR-051 (examples program)](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ADR-062 (this example's design record)](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-062-example-pinecone.md)
+- [ADR-051 (examples program)](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)

@@ -2,7 +2,7 @@
 
 **Status**: Proposed (roadmap; the resolve-rate ceiling of the current paradigm is mapped)
 **Date**: 2026-06-19
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-149/151/152 (the 7.7→40.3% ladder), ADR-148 (tiering), issue #39
 
 ## Why now

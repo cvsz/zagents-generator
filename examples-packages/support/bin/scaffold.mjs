@@ -11,7 +11,7 @@ const extra = (args[0] && !args[0].startsWith('-') ? args.slice(1) : args)
 const cmd = [
   'npx',
   '--yes',
-  'metaharness@latest',
+  'zagents@latest',
   name,
   '--template',
   'vertical:support',
@@ -26,7 +26,7 @@ const cmd = [
 try {
   execSync(cmd, { stdio: 'inherit' });
 } catch (err) {
-  console.error(`\nmetaharness failed: ${err.message || err}`);
+  console.error(`\nzagents failed: ${err.message || err}`);
   process.exit(typeof err.status === 'number' ? err.status : 1);
 }
 

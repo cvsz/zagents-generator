@@ -1,4 +1,4 @@
-# MetaHarness × RVM deployment-target partition
+# ZAgents × RVM deployment-target partition
 
 > ⚠️ **Illustrative output.** Transcripts and validation/run output shown in this README are
 > representative examples, not captured from a specific run — actual output depends on your
@@ -10,7 +10,7 @@ A minimal, opinionated agent-gemini scaffold pre-configured for the RVM deployme
 ## Quickstart
 
 ```bash
-npx @metaharness/rvm@latest my-bot
+npx @zagents/rvm@latest my-bot
 cd my-bot && npm install && gemini doctor
 ```
 
@@ -57,7 +57,7 @@ $ claude -p --plugin-dir my-bot "list the agents wired into this gemini"
 To re-scaffold over an existing directory (destructive — pass `--force` only if you mean it):
 
 ```bash
-npx --yes metaharness@latest my-bot --template minimal --host rvm --force
+npx --yes zagents@latest my-bot --template minimal --host rvm --force
 ```
 
 ## FAQ
@@ -73,7 +73,7 @@ A: Edit `settings.json` and change the `host` field, then run `gemini doctor`. I
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

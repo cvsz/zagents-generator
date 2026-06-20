@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/vertical-trading",
+  "name": "@zagents/vertical-trading",
   "version": "0.1.0",
   "description": "Trading gemini vertical pack — paper-mode-default, circuit breakers, fractional-Kelly position sizing, 5-agent pipeline (market-watcher / signal-gen / risk-checker / executor / postmortem)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "homepage": "https://github.com/ruvnet/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "packages/vertical-trading"
   },
   "license": "MIT",
@@ -40,7 +40,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@metaharness/vertical-base": "^0.1.0"
+    "@zagents/vertical-base": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",

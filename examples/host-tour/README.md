@@ -1,7 +1,7 @@
 # host-tour — scaffold + validate for every supported host
 
-> Brought up to date in iter 128.2 — published CLI is now `metaharness`
-> (`npx metaharness <name> ...`); workspace-internal imports below still
+> Brought up to date in iter 128.2 — published CLI is now `zagents`
+> (`npx zagents <name> ...`); workspace-internal imports below still
 > reference the `packages/create-agent-gemini/` source path by design.
 
 > One script, six hosts, one runnable demo of the multi-host parity story.
@@ -47,12 +47,12 @@ If any host returns FAIL, you've found a regression that escapes the per-host e2
 
 | Host | Adapter package |
 |---|---|
-| Claude Code | [`@metaharness/host-claude-code`](../../packages/host-claude-code/) |
-| OpenAI Codex | [`@metaharness/host-codex`](../../packages/host-codex/) |
-| pi.dev | [`@metaharness/host-pi-dev`](../../packages/host-pi-dev/) |
-| Hermes Agent | [`@metaharness/host-hermes`](../../packages/host-hermes/) |
-| OpenClaw | [`@metaharness/host-openclaw`](../../packages/host-openclaw/) |
-| RVM | [`@metaharness/host-rvm`](../../packages/host-rvm/) |
+| Claude Code | [`@zagents/host-claude-code`](../../packages/host-claude-code/) |
+| OpenAI Codex | [`@zagents/host-codex`](../../packages/host-codex/) |
+| pi.dev | [`@zagents/host-pi-dev`](../../packages/host-pi-dev/) |
+| Hermes Agent | [`@zagents/host-hermes`](../../packages/host-hermes/) |
+| OpenClaw | [`@zagents/host-openclaw`](../../packages/host-openclaw/) |
+| RVM | [`@zagents/host-rvm`](../../packages/host-rvm/) |
 
 The `minimal` template emits a host-agnostic file shape (`CLAUDE.md` etc.) with the chosen host tagged in `manifest.hosts`. For host-specific runtime config (e.g. `.codex/config.toml`, `.openclaw/policy.yml`, `rvm-partition.toml`), the adapter packages emit those at runtime via `adapter.generateConfig(spec)` — see [`packages/bench/src/host-bench.ts`](../../packages/bench/src/host-bench.ts) for the cross-adapter benchmark that exercises `generateConfig()` directly.
 

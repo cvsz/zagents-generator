@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/example-huggingface",
+  "name": "@zagents/example-huggingface",
   "version": "0.2.0",
-  "description": "MetaHarness example \u2014 Hugging Face SDK showcase: model/dataset discovery, serverless inference, and Space exploration (npx @metaharness/example-huggingface my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/example-huggingface",
+  "description": "ZAgents example \u2014 Hugging Face SDK showcase: model/dataset discovery, serverless inference, and Space exploration (npx @zagents/example-huggingface my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/example-huggingface",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/example-huggingface"
   },
   "license": "MIT",
@@ -22,7 +22,7 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "huggingface",
     "hugging-face",
     "inference",

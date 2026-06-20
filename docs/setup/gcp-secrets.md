@@ -39,14 +39,14 @@ gcloud iam workload-identity-pools providers create-oidc "github-provider" \
   --display-name="GitHub OIDC" \
   --issuer-uri="https://token.actions.githubusercontent.com" \
   --attribute-mapping="google.subject=assertion.sub,attribute.repository=assertion.repository,attribute.ref=assertion.ref" \
-  --attribute-condition="assertion.repository == 'ruvnet/agent-gemini-generator'"
+  --attribute-condition="assertion.repository == 'ruvnet/zagents-generator'"
 ```
 
 ### 3. Create a publish-time service account
 
 ```bash
 gcloud iam service-accounts create "agent-gemini-publisher" \
-  --display-name="agent-gemini-generator npm publisher"
+  --display-name="zagents-generator npm publisher"
 
 PUBLISHER_SA="agent-gemini-publisher@${PROJECT_ID}.iam.gserviceaccount.com"
 ```
@@ -56,7 +56,7 @@ PUBLISHER_SA="agent-gemini-publisher@${PROJECT_ID}.iam.gserviceaccount.com"
 ```bash
 gcloud iam service-accounts add-iam-policy-binding "$PUBLISHER_SA" \
   --role="roles/iam.workloadIdentityUser" \
-  --member="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/github-pool/attribute.repository/ruvnet/agent-gemini-generator"
+  --member="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/github-pool/attribute.repository/ruvnet/zagents-generator"
 ```
 
 ### 5. Create the NPM_TOKEN secret
@@ -152,19 +152,19 @@ resource "google_iam_workload_identity_pool_provider" "github" {
     "attribute.repository"  = "assertion.repository"
     "attribute.ref"         = "assertion.ref"
   }
-  attribute_condition = "assertion.repository == 'ruvnet/agent-gemini-generator'"
+  attribute_condition = "assertion.repository == 'ruvnet/zagents-generator'"
   oidc { issuer_uri = "https://token.actions.githubusercontent.com" }
 }
 
 resource "google_service_account" "publisher" {
   account_id   = "agent-gemini-publisher"
-  display_name = "agent-gemini-generator npm publisher"
+  display_name = "zagents-generator npm publisher"
 }
 
 resource "google_service_account_iam_member" "publisher_wif" {
   service_account_id = google_service_account.publisher.name
   role               = "roles/iam.workloadIdentityUser"
-  member             = "principalSet://iam.googleapis.com/projects/${data.google_project.this.number}/locations/global/workloadIdentityPools/${google_iam_workload_identity_pool.github.workload_identity_pool_id}/attribute.repository/ruvnet/agent-gemini-generator"
+  member             = "principalSet://iam.googleapis.com/projects/${data.google_project.this.number}/locations/global/workloadIdentityPools/${google_iam_workload_identity_pool.github.workload_identity_pool_id}/attribute.repository/ruvnet/zagents-generator"
 }
 
 resource "google_secret_manager_secret" "npm_token" {

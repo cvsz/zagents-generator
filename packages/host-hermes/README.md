@@ -1,6 +1,6 @@
-# @metaharness/host-hermes
+# @zagents/host-hermes
 
-[Hermes Agent (NousResearch)](https://hermes-agent.nousresearch.com/docs/) host adapter for the [agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator) project.
+[Hermes Agent (NousResearch)](https://hermes-agent.nousresearch.com/docs/) host adapter for the [zagents-generator](https://github.com/ruvnet/zagents-generator) project.
 
 Generates the host-specific files a Hermes-targeted gemini needs:
 
@@ -31,7 +31,7 @@ This adapter targets the **current** runtime.
 ## Usage
 
 ```js
-import adapter, { scrubHermesBlocks } from '@metaharness/host-hermes';
+import adapter, { scrubHermesBlocks } from '@zagents/host-hermes';
 
 const config = adapter.generateConfig({
   name: 'my-bot',

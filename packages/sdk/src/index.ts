@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 //
-// @metaharness/sdk — convenience helpers for gemini authors.
+// @zagents/sdk — convenience helpers for gemini authors.
 //
-// You CAN build a gemini against @metaharness/kernel directly. This SDK gives
+// You CAN build a gemini against @zagents/kernel directly. This SDK gives
 // you typed, validated, named definitions so your IDE catches typos before
 // they reach the kernel + you don't have to remember the field names.
 //

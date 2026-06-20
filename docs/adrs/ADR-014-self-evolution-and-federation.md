@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-006 (Memory + learning), ADR-002 (Kernel boundary), ADR-011 (Witness)
 
 > This ADR covers two of the user prompt's exotic-tier compositions: a gemini that uses its learning loop to optimise its own routing over time, and a gemini that runs as multiple federated instances. Both lean heavily on kernel mechanisms already specified in earlier ADRs; this ADR pins what changes at the gemini level when those features are turned on, and where the trade-offs live.
@@ -63,7 +63,7 @@ For each target:
 
 This is a basic multi-armed-bandit loop, the same Thompson-sampling Beta-Bernoulli structure ADR-026 uses for model routing, applied at one level of indirection.
 
-The kernel exports `@metaharness/kernel/self-evolution` which provides the loop runner. The gemini's `gemini.config.json` `selfEvolution.targets` selects which loops to run.
+The kernel exports `@zagents/kernel/self-evolution` which provides the loop runner. The gemini's `gemini.config.json` `selfEvolution.targets` selects which loops to run.
 
 #### Cost/quality trade-offs
 
@@ -100,7 +100,7 @@ Self-evolution is opt-in for a reason. It is wrong when:
 
 `--features federation` at generation time enables it. Adds the federation overlay to the template (per ADR-003 §template overlays). The gemini inherits:
 
-- `@metaharness/host-federation` (the transport adapter from ruflo's v3 ADR-104 / ADR-108 — the QUIC + WG mesh code).
+- `@zagents/host-federation` (the transport adapter from ruflo's v3 ADR-104 / ADR-108 — the QUIC + WG mesh code).
 - `gemini.config.json` `federation.*` schema for declaring peers and trust relationships.
 - A federated memory layer (per ADR-006 §federated-memory feature) that shares specific namespaces across peers.
 
@@ -165,7 +165,7 @@ A federation member can opt out of cross-peer aggregation: `selfEvolution.federa
 
 How do two members establish that the public keys are real? Out-of-band. The kernel does not specify a trust establishment protocol; the human operators exchange keys directly (a vault, an in-person meeting, a signed email). This is intentional: federation is a high-trust feature; the kernel does not invent a trust hierarchy where there is none.
 
-For organisations that want a key management system, the kernel exports `@metaharness/kernel/federation/key-store` with hooks to integrate Vault / GCP KMS / AWS KMS. None are required.
+For organisations that want a key management system, the kernel exports `@zagents/kernel/federation/key-store` with hooks to integrate Vault / GCP KMS / AWS KMS. None are required.
 
 #### Network failure modes
 
@@ -188,8 +188,8 @@ npx create-agent-gemini acme-legal-onprem \
   --scope @acme \
   --hosts claude-code,codex \
   --features federation,self-evolution,witness=strict \
-  --packs @metaharness/vertical-legal \
-  --catalogue @metaharness/catalogue \
+  --packs @zagents/vertical-legal \
+  --catalogue @zagents/catalogue \
   --no-interactive
 ```
 

@@ -1,13 +1,13 @@
-# metaharness
+# zagents
 
 Scaffold your own focused AI agent gemini — like [ruflo](https://github.com/ruvnet/ruflo), uniquely yours.
 
-> Published as **`metaharness`** (the `metaharness` and `gemini` CLIs). Earlier versions were published as `create-agent-gemini`.
+> Published as **`zagents`** (the `zagents` and `gemini` CLIs). Earlier versions were published as `create-agent-gemini`.
 
 ## Quick start
 
 ```bash
-npx metaharness my-bot
+npx zagents my-bot
 ```
 
 You'll be prompted for template, host, description. Out comes a complete npm package ready to `npm publish`.
@@ -15,7 +15,7 @@ You'll be prompted for template, host, description. Out comes a complete npm pac
 ## Non-interactive
 
 ```bash
-npx metaharness my-legal-bot \
+npx zagents my-legal-bot \
   --template vertical:legal \
   --host claude-code \
   --description "Contract redline + risk rating"
@@ -61,14 +61,14 @@ gemini help
 If you've been using ruflo and want your own focused gemini from it:
 
 ```bash
-npx metaharness --from-existing ./
+npx zagents --from-existing ./
 ```
 
 Lifts agents/skills/commands, rewrites every `ruflo` / `claude-flow` reference, preserves attribution blocks marked with `<!-- ruflo-attribution-block -->`.
 
 ## Full walkthrough
 
-See [USAGE.md](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/USAGE.md).
+See [USAGE.md](https://github.com/ruvnet/zagents-generator/blob/main/docs/USAGE.md).
 
 ## License
 

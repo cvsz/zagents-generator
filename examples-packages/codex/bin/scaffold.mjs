@@ -8,12 +8,12 @@ const extraArgs = (rawName && rawName.startsWith('-') ? [rawName, ...rest] : res
   .map((arg) => (/\s/.test(arg) ? JSON.stringify(arg) : arg))
   .join(' ');
 
-const cmd = `npx --yes metaharness@latest ${name} --template minimal --host codex --force${extraArgs ? ' ' + extraArgs : ''}`;
+const cmd = `npx --yes zagents@latest ${name} --template minimal --host codex --force${extraArgs ? ' ' + extraArgs : ''}`;
 
 try {
   execSync(cmd, { stdio: 'inherit' });
 } catch (err) {
-  console.error(`\nmetaharness failed: ${err.message}`);
+  console.error(`\nzagents failed: ${err.message}`);
   process.exit(typeof err.status === 'number' ? err.status : 1);
 }
 

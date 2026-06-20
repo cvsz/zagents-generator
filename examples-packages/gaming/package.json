@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/gaming",
+  "name": "@zagents/gaming",
   "version": "0.1.0",
-  "description": "MetaHarness example — ready-made game-design pod (concept, mechanics, balance, playtest) for Claude Code (npx @metaharness/gaming my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/gaming",
+  "description": "ZAgents example — ready-made game-design pod (concept, mechanics, balance, playtest) for Claude Code (npx @zagents/gaming my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/gaming",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/gaming"
   },
   "license": "MIT",
@@ -21,9 +21,9 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "agent-gemini",
-    "agent-gemini-generator",
+    "zagents-generator",
     "gaming",
     "vertical",
     "claude-code",

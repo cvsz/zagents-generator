@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/trading",
+  "name": "@zagents/trading",
   "version": "0.1.0",
-  "description": "MetaHarness example — quant trading gemini with non-bypassable risk gate, paper-by-default (npx @metaharness/trading my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/trading",
+  "description": "ZAgents example — quant trading gemini with non-bypassable risk gate, paper-by-default (npx @zagents/trading my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/trading",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/trading"
   },
   "license": "MIT",
@@ -21,9 +21,9 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "agent-gemini",
-    "agent-gemini-generator",
+    "zagents-generator",
     "trading",
     "vertical",
     "claude-code",

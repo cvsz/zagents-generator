@@ -1,4 +1,4 @@
-# @metaharness/example-fhir
+# @zagents/example-fhir
 
 > One-command FHIR R4 agent gemini — reads Patient / Observation / Device from a public sandbox EHR, drives multi-agent clinical queries, and verifies every result before reporting done.
 
@@ -6,17 +6,17 @@
 
 > **NOT A MEDICAL DEVICE. NOT FOR CLINICAL USE. NOT HIPAA-COMPLIANT.** This scaffold is for educational and integration-prototyping purposes only. See the [Safety](#safety) section for the full disclaimer.
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-fhir?label=%40metaharness%2Fexample-fhir)](https://www.npmjs.com/package/@metaharness/example-fhir)
-[![npm downloads](https://img.shields.io/npm/dm/@metaharness/example-fhir)](https://www.npmjs.com/package/@metaharness/example-fhir)
-[![license](https://img.shields.io/npm/l/@metaharness/example-fhir)](LICENSE)
-[![node](https://img.shields.io/node/v/@metaharness/example-fhir)](package.json)
-[![built with metaharness](https://img.shields.io/badge/built%20with-metaharness-6366f1)](https://www.npmjs.com/package/metaharness)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-fhir?label=%40zagents%2Fexample-fhir)](https://www.npmjs.com/package/@zagents/example-fhir)
+[![npm downloads](https://img.shields.io/npm/dm/@zagents/example-fhir)](https://www.npmjs.com/package/@zagents/example-fhir)
+[![license](https://img.shields.io/npm/l/@zagents/example-fhir)](LICENSE)
+[![node](https://img.shields.io/node/v/@zagents/example-fhir)](package.json)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-6366f1)](https://www.npmjs.com/package/zagents)
 
 ---
 
 ## Introduction
 
-`@metaharness/example-fhir` scaffolds a ready-to-run agent gemini pre-wired to the [fhir-kit-client](https://github.com/Vermonster/fhir-kit-client) SDK (SMART on FHIR R4, ESM, Node 18+). It demonstrates how the metaharness capability primitives — tiered model routing, MCP default-deny, slash commands, multi-agent coordination, and verification-gated output — apply to health and medical-device data workflows.
+`@zagents/example-fhir` scaffolds a ready-to-run agent gemini pre-wired to the [fhir-kit-client](https://github.com/Vermonster/fhir-kit-client) SDK (SMART on FHIR R4, ESM, Node 18+). It demonstrates how the zagents capability primitives — tiered model routing, MCP default-deny, slash commands, multi-agent coordination, and verification-gated output — apply to health and medical-device data workflows.
 
 **What it IS:**
 - A scaffold for prototyping FHIR R4 agent workflows on public sandboxes
@@ -32,7 +32,7 @@
 
 ## Features
 
-| metaharness capability | How this example demonstrates it |
+| zagents capability | How this example demonstrates it |
 |---|---|
 | **Tiered model routing** | `fhir-planner` and `fhir-verifier` use Tier 2 (cheap model) for query decomposition, pagination, and read-back checks; `fhir-executor` escalates to Tier 3 (Sonnet/Opus) for cross-resource clinical narrative synthesis |
 | **MCP default-deny** | `.gemini/mcp-policy.json` grants only `fhir.read`, `fhir.search`, `fhir.nextPage`, `fhir.operation`, `fhir.smartAuthMetadata`, `fhir.capabilityStatement`; all write tools (`create`, `update`, `patch`, `delete`, `batch`, `transaction`) are explicitly denied unless `FHIR_ALLOW_WRITE=true` |
@@ -56,7 +56,7 @@
 ## Quickstart
 
 ```bash
-npx @metaharness/example-fhir@latest my-fhir-bot
+npx @zagents/example-fhir@latest my-fhir-bot
 cd my-fhir-bot && npm install && npm run doctor
 ```
 
@@ -66,10 +66,10 @@ cd my-fhir-bot && npm install && npm run doctor
 
 ```bash
 # Scaffold for GitHub Actions (CI/CD pipeline)
-npx @metaharness/example-fhir@latest my-fhir-bot --host github-actions
+npx @zagents/example-fhir@latest my-fhir-bot --host github-actions
 
 # Scaffold for all supported hosts at once
-npx @metaharness/example-fhir@latest my-fhir-bot --host all
+npx @zagents/example-fhir@latest my-fhir-bot --host all
 ```
 
 Supported hosts: `claude-code` (default), `codex`, `copilot`, `github-actions`, `hermes`, `openclaw`, `opencode`, `pi-dev`, `rvm`.
@@ -118,7 +118,7 @@ By default, all FHIR write operations are blocked by the MCP policy. To unlock t
 ```bash
 export FHIR_ALLOW_WRITE=true
 # AND pass --allow-write at scaffold time or re-run with:
-npx @metaharness/example-fhir@latest my-fhir-bot --allow-write
+npx @zagents/example-fhir@latest my-fhir-bot --allow-write
 ```
 
 Even with `FHIR_ALLOW_WRITE=true`, the MCP policy's `requireApprovalForDangerous: true` will surface an explicit approval prompt for each write operation.
@@ -253,5 +253,5 @@ All write-side tools are denied by default. All tool calls are appended to `.gem
 - [SMART Health IT open R4 endpoint](https://r4.smarthealthit.org)
 - [SMART Backend Services spec (HL7)](https://hl7.org/fhir/smart-app-launch/backend-services.html)
 - [HL7 FHIR public test servers](https://confluence.hl7.org/display/FHIR/Public+Test+Servers)
-- [ADR-063: example-fhir design record](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-063-example-fhir.md)
-- [ADR-051: examples program](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ADR-063: example-fhir design record](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-063-example-fhir.md)
+- [ADR-051: examples program](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)

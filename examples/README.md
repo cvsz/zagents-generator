@@ -1,6 +1,6 @@
 # Examples
 
-Real, runnable patterns showing how to use `agent-gemini-generator`.
+Real, runnable patterns showing how to use `zagents-generator`.
 
 | Example | What it shows | Runnable? |
 |---|---|---|

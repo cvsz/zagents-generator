@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — ADR-098-step-3-flavored result at monorepo scale
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-131 (one external package), ADR-130 (fitness function), ADR-098 (external-benchmark frontier)
 
 > ADR-131 showed the runner resolves a bug in one external package. This scales to a real **cross-package resolve-rate**: one known bug in each of four monorepo packages — different codebases, conventions, and vitest suites — all scored by the *same* runner under the real resolved-criterion. The honest middle ground between one external package and the full external SWE-bench corpus.

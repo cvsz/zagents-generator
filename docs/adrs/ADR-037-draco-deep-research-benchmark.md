@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-14
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Supersedes**: none
 **Related**: ADR-009 (intelligence pipeline), `vertical:research` template (iter 69), ADR-004 (host integration)
 

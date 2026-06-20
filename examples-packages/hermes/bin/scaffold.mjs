@@ -9,7 +9,7 @@ const passthrough = (rawName && rawName.startsWith('-') ? [rawName, ...extra] : 
   .join(' ');
 
 const cmd = [
-  'npx --yes metaharness@latest',
+  'npx --yes zagents@latest',
   JSON.stringify(name),
   '--template minimal',
   '--host hermes',
@@ -22,7 +22,7 @@ const cmd = [
 try {
   execSync(cmd, { stdio: 'inherit' });
 } catch (err) {
-  console.error('\n[hermes] metaharness scaffold failed.');
+  console.error('\n[hermes] zagents scaffold failed.');
   process.exit(typeof err.status === 'number' ? err.status : 1);
 }
 

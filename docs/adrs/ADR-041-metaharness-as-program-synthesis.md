@@ -1,21 +1,21 @@
-# ADR-041: MetaHarness as program synthesis + search (not a template generator)
+# ADR-041: ZAgents as program synthesis + search (not a template generator)
 
 **Status**: Proposed
 **Date**: 2026-06-15
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-037–040 (DRACO + cost-optimal routing), ADR-034 (OIA)
 
 ---
 
 ## Context
 
-MetaHarness today emits a *template* scaffold from a fixed catalog. The stronger
+ZAgents today emits a *template* scaffold from a fixed catalog. The stronger
 thesis (and the one the DRACO work has been quietly proving) is that gemini
 generation is **program synthesis under search**: don't "write a scaffold" —
 *search* over gemini designs, *simulate* tasks, *score* reliability/cost/latency/
 safety, *mutate* topology, and emit the best executable artifact + a scorecard.
 
-> Most frameworks say "here is how to build agents." MetaHarness should say:
+> Most frameworks say "here is how to build agents." ZAgents should say:
 > "give me a repo — I will infer the work, generate the gemini, test it, score
 > it, and improve it." The killer feature is the **scorecard**, not generation.
 
@@ -79,7 +79,7 @@ low" policy `router_v2` (ADR-040) implements by hand. The plan:
 
 ## Acceptance test (the bar — "anything less is a template generator")
 
-Given **10 unknown GitHub repos**, MetaHarness should generate runnable harnesses where:
+Given **10 unknown GitHub repos**, ZAgents should generate runnable harnesses where:
 
 ```
 ≥ 8/10 install successfully
@@ -94,7 +94,7 @@ measured-win discipline.
 
 ### First increment — the scorecard: SHIPPED
 
-`metaharness score <repo> [--json]` (`src/repo-scorecard.ts`) is live. It reuses
+`zagents score <repo> [--json]` (`src/repo-scorecard.ts`) is live. It reuses
 the no-exec repo analyzer (`inventory` → `analyzeFiles` → `recommendPlan`) and
 emits the 6-line card — every dimension derived from real repo signals, not
 invented:
@@ -111,15 +111,15 @@ Scorecard — <repo>  (best-fit archetype: …)
 ```
 
 No-exec (only reads high-signal files), deterministic, `--json` for CI. +9 tests.
-Wired into `metaharness score` and the CLI help.
+Wired into `zagents score` and the CLI help.
 
 ### Shipped synthesis stages (building on the scorecard spine)
 
 | stage | command | status |
 |-------|---------|--------|
-| scoring (the scorecard) | `score <repo>` | ✅ `metaharness@0.1.9` |
-| candidate generation (beam) | `score <repo> --top N` — ranked gemini designs | ✅ `metaharness@0.1.10` |
-| validation (constraints) | `score <repo> --constraints` — hard/soft gate, non-zero exit on hard fail | ✅ `metaharness@0.1.11` |
+| scoring (the scorecard) | `score <repo>` | ✅ `zagents@0.1.9` |
+| candidate generation (beam) | `score <repo> --top N` — ranked gemini designs | ✅ `zagents@0.1.10` |
+| validation (constraints) | `score <repo> --constraints` — hard/soft gate, non-zero exit on hard fail | ✅ `zagents@0.1.11` |
 
 The remaining stages — **MCTS/UCT topology search** (over add-skill/tool/memory/
 verifier/MCP actions with the explicit reward above) and **Graph-of-Thoughts**

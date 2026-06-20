@@ -1,20 +1,20 @@
-# @metaharness/example-azure
+# @zagents/example-azure
 
-**MetaHarness scaffold for Microsoft Azure — resource management, Blob storage, and Azure OpenAI via DefaultAzureCredential**
+**ZAgents scaffold for Microsoft Azure — resource management, Blob storage, and Azure OpenAI via DefaultAzureCredential**
 
 > **Illustrative output.** Code samples and example transcripts shown in this README are representative — actual output depends on your Azure subscription, resource configuration, deployed models, and environment. Run the commands to see real results.
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-azure?label=npm)](https://www.npmjs.com/package/@metaharness/example-azure)
-[![npm downloads](https://img.shields.io/npm/dm/@metaharness/example-azure)](https://www.npmjs.com/package/@metaharness/example-azure)
-[![license](https://img.shields.io/npm/l/@metaharness/example-azure)](LICENSE)
-[![node](https://img.shields.io/node/v/@metaharness/example-azure)](https://nodejs.org)
-[![built with metaharness](https://img.shields.io/badge/built%20with-metaharness-6c6ef2)](https://github.com/ruvnet/agent-gemini-generator)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-azure?label=npm)](https://www.npmjs.com/package/@zagents/example-azure)
+[![npm downloads](https://img.shields.io/npm/dm/@zagents/example-azure)](https://www.npmjs.com/package/@zagents/example-azure)
+[![license](https://img.shields.io/npm/l/@zagents/example-azure)](LICENSE)
+[![node](https://img.shields.io/node/v/@zagents/example-azure)](https://nodejs.org)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-6c6ef2)](https://github.com/ruvnet/zagents-generator)
 
 ---
 
 ## Intro
 
-`@metaharness/example-azure` scaffolds a ready-to-run multi-agent gemini pre-wired to the Microsoft Azure JavaScript SDK. One command gives you a project directory containing specialized agents, a scoped MCP policy, a `/azure` slash command, and safe defaults that prevent accidental mutations to your Azure environment.
+`@zagents/example-azure` scaffolds a ready-to-run multi-agent gemini pre-wired to the Microsoft Azure JavaScript SDK. One command gives you a project directory containing specialized agents, a scoped MCP policy, a `/azure` slash command, and safe defaults that prevent accidental mutations to your Azure environment.
 
 **What it is**: a development scaffold and learning tool. It demonstrates how to structure an agent gemini that drives Azure resource management (`@azure/arm-resources`), Blob storage (`@azure/storage-blob`), and Azure OpenAI chat completions (`openai` + `@azure/openai`) using `DefaultAzureCredential` from `@azure/identity`.
 
@@ -24,7 +24,7 @@
 
 ## Features
 
-| MetaHarness capability | How this example shows it |
+| ZAgents capability | How this example shows it |
 |---|---|
 | **Tiered model routing** | Haiku for fan-out planning and verification re-checks; Sonnet for executor reasoning; Opus only for mutation approval |
 | **MCP default-deny** | `.gemini/mcp-policy.json` grants only 6 read tools + 2 write tools (write tools require `allow_mutations` flag); all calls logged to `.gemini/mcp-audit.jsonl` |
@@ -46,7 +46,7 @@
 ## Quickstart
 
 ```bash
-npx @metaharness/example-azure@latest my-bot
+npx @zagents/example-azure@latest my-bot
 cd my-bot && npm install && npm run doctor
 ```
 
@@ -56,16 +56,16 @@ cd my-bot && npm install && npm run doctor
 
 ```bash
 # Default: Claude Code
-npx @metaharness/example-azure@latest my-bot
+npx @zagents/example-azure@latest my-bot
 
 # GitHub Actions workflow
-npx @metaharness/example-azure@latest my-bot --host github-actions
+npx @zagents/example-azure@latest my-bot --host github-actions
 
 # All hosts at once
-npx @metaharness/example-azure@latest my-bot --host all
+npx @zagents/example-azure@latest my-bot --host all
 ```
 
-Supported hosts: `claude-code`, `codex`, `copilot`, `github-actions`, `hermes`, `openclaw`, `opencode`, `pi-dev`, `rvm`. Host wiring delegates to `@metaharness/host-<id>`.
+Supported hosts: `claude-code`, `codex`, `copilot`, `github-actions`, `hermes`, `openclaw`, `opencode`, `pi-dev`, `rvm`. Host wiring delegates to `@zagents/host-<id>`.
 
 ---
 
@@ -153,7 +153,7 @@ The command routes: planner (Haiku, decomposes goal) → executor (Sonnet, drive
 The gemini defaults to read-only. To allow writes, set the flag at scaffold time:
 
 ```bash
-npx @metaharness/example-azure@latest my-bot --allow-mutations
+npx @zagents/example-azure@latest my-bot --allow-mutations
 ```
 
 Or set `HARNESS_ALLOW_MUTATIONS=true` in `.env` after scaffolding. With mutations enabled, the executor will:
@@ -239,5 +239,5 @@ All other tools: denied. All calls audited to `.gemini/mcp-audit.jsonl`.
 - `openai` npm (AzureOpenAI client): https://www.npmjs.com/package/openai
 - Azurite local emulator: https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite
 - DefaultAzureCredential overview: https://aka.ms/azsdk/js/identity/credential-chains
-- ADR-054 (this design): https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-054-example-azure.md
-- ADR-051 (examples program): https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md
+- ADR-054 (this design): https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-054-example-azure.md
+- ADR-051 (examples program): https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md

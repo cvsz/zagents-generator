@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/opencode",
+  "name": "@zagents/opencode",
   "version": "0.1.0",
-  "description": "MetaHarness example — minimal OpenCode .opencode/ config scaffold for agent harnesses (npx @metaharness/opencode my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/opencode",
+  "description": "ZAgents example — minimal OpenCode .opencode/ config scaffold for agent harnesses (npx @zagents/opencode my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/opencode",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/opencode"
   },
   "license": "MIT",
@@ -21,9 +21,9 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "agent-gemini",
-    "agent-gemini-generator",
+    "zagents-generator",
     "opencode",
     "host",
     "ai-agent",

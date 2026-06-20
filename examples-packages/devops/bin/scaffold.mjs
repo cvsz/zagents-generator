@@ -8,7 +8,7 @@ const extra = process.argv.slice(3);
 const cmd = [
   'npx',
   '--yes',
-  'metaharness@latest',
+  'zagents@latest',
   JSON.stringify(name),
   '--template',
   'vertical:devops',
@@ -25,6 +25,6 @@ try {
   console.log(`Then: npm run doctor`);
   console.log(`Run:  claude -p --plugin-dir ${name} "page: <your incident here>"`);
 } catch (err) {
-  console.error('[@metaharness/devops] scaffold failed:', err?.message || err);
+  console.error('[@zagents/devops] scaffold failed:', err?.message || err);
   process.exit(typeof err?.status === 'number' ? err.status : 1);
 }

@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/support",
+  "name": "@zagents/support",
   "version": "0.1.0",
-  "description": "MetaHarness example — customer-support multi-agent template (triager, KB-searcher, responder, escalator) for Claude Code. npx @metaharness/support my-bot",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/support",
+  "description": "ZAgents example — customer-support multi-agent template (triager, KB-searcher, responder, escalator) for Claude Code. npx @zagents/support my-bot",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/support",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/support"
   },
   "license": "MIT",
@@ -21,9 +21,9 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "agent-gemini",
-    "agent-gemini-generator",
+    "zagents-generator",
     "support",
     "vertical",
     "claude-code",

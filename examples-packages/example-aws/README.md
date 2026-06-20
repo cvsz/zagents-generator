@@ -1,20 +1,20 @@
-# @metaharness/example-aws
+# @zagents/example-aws
 
 **AWS infra agent, scaffolded in one command — S3, EC2, Lambda, DynamoDB, STS.**
 
-> **Illustrative output only.** The gemini scaffolded by this package demonstrates how a metaharness agent can interact with AWS services. It is not a production-ready infrastructure tool, not audited for security compliance, and not a substitute for proper IAM design, CloudTrail enablement, or AWS Well-Architected review. All mutation operations (instance launch, S3 write, Lambda invoke, DynamoDB write) are disabled by default and require an explicit opt-in flag.
+> **Illustrative output only.** The gemini scaffolded by this package demonstrates how a zagents agent can interact with AWS services. It is not a production-ready infrastructure tool, not audited for security compliance, and not a substitute for proper IAM design, CloudTrail enablement, or AWS Well-Architected review. All mutation operations (instance launch, S3 write, Lambda invoke, DynamoDB write) are disabled by default and require an explicit opt-in flag.
 
-[![npm version](https://img.shields.io/npm/v/%40metaharness%2Fexample-aws?style=flat-square)](https://www.npmjs.com/package/@metaharness/example-aws)
-[![npm downloads](https://img.shields.io/npm/dm/%40metaharness%2Fexample-aws?style=flat-square)](https://www.npmjs.com/package/@metaharness/example-aws)
-[![license](https://img.shields.io/npm/l/%40metaharness%2Fexample-aws?style=flat-square)](LICENSE)
-[![node](https://img.shields.io/node/v/%40metaharness%2Fexample-aws?style=flat-square)](https://nodejs.org)
-[![built with metaharness](https://img.shields.io/badge/built%20with-metaharness-6366f1?style=flat-square)](https://github.com/ruvnet/agent-gemini-generator)
+[![npm version](https://img.shields.io/npm/v/%40zagents%2Fexample-aws?style=flat-square)](https://www.npmjs.com/package/@zagents/example-aws)
+[![npm downloads](https://img.shields.io/npm/dm/%40zagents%2Fexample-aws?style=flat-square)](https://www.npmjs.com/package/@zagents/example-aws)
+[![license](https://img.shields.io/npm/l/%40zagents%2Fexample-aws?style=flat-square)](LICENSE)
+[![node](https://img.shields.io/node/v/%40zagents%2Fexample-aws?style=flat-square)](https://nodejs.org)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-6366f1?style=flat-square)](https://github.com/ruvnet/zagents-generator)
 
 ---
 
 ## What this is
 
-`@metaharness/example-aws` scaffolds a metaharness agent gemini pre-wired to the AWS SDK for JavaScript v3 (`@aws-sdk/*`). Running the npx command drops a project directory containing:
+`@zagents/example-aws` scaffolds a zagents agent gemini pre-wired to the AWS SDK for JavaScript v3 (`@aws-sdk/*`). Running the npx command drops a project directory containing:
 
 - Three specialized agents: **aws-planner**, **aws-executor**, and **aws-verifier**
 - A `/aws-infra` slash command that drives a discover-plan-verify workflow across S3, EC2, Lambda, and DynamoDB
@@ -22,7 +22,7 @@
 - A scoped MCP policy (default-deny) granting only the discovery and dry-run tools needed
 - Tiered model routing: cheap Haiku tier for fan-out and extraction, frontier Sonnet/Opus tier for planning decisions
 - A verification gate that re-reads affected resources before reporting "done"
-- Host adapter configs for all nine metaharness hosts
+- Host adapter configs for all nine zagents hosts
 
 **This is NOT:**
 - A Terraform or CDK replacement
@@ -52,7 +52,7 @@
 ## Quickstart
 
 ```bash
-npx @metaharness/example-aws@latest my-aws-bot
+npx @zagents/example-aws@latest my-aws-bot
 cd my-aws-bot
 npm install
 npm run doctor
@@ -124,7 +124,7 @@ The scaffold uses `fromNodeProviderChain()` from `@aws-sdk/credential-providers`
 
 **`/aws-infra [region]`** — Discover and report on infra in the given region (defaults to `AWS_REGION`). The aws-planner agent fans out to S3, EC2, Lambda, and DynamoDB; the aws-verifier re-reads the key metadata and emits a structured JSON report with pass/fail on each service.
 
-**`/aws-role <role-arn> [session-name]`** — Assume the specified IAM role via STS and inject the temporary credentials into subsequent agent calls. Session name defaults to `metaharness-session`.
+**`/aws-role <role-arn> [session-name]`** — Assume the specified IAM role via STS and inject the temporary credentials into subsequent agent calls. Session name defaults to `zagents-session`.
 
 ### Representative prompts
 
@@ -225,5 +225,5 @@ Mutating tools are absent. Every call is logged to `.gemini/mcp-audit.jsonl`.
 - [EC2 RunInstances — DryRun](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/RunInstancesCommand)
 - [STS AssumeRole examples (JavaScript v3)](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/javascript_sts_code_examples.html)
 - [LocalStack — AWS emulator](https://docs.localstack.cloud)
-- [ADR-052 — design record for this example](https://github.com/ruvnet/agent-gemini-generator/tree/main/docs/adrs/ADR-052-example-aws.md)
-- [ADR-051 — examples program](https://github.com/ruvnet/agent-gemini-generator/tree/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ADR-052 — design record for this example](https://github.com/ruvnet/zagents-generator/tree/main/docs/adrs/ADR-052-example-aws.md)
+- [ADR-051 — examples program](https://github.com/ruvnet/zagents-generator/tree/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)

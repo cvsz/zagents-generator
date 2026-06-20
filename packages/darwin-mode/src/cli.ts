@@ -3,13 +3,13 @@
 //
 // Darwin Mode CLI. Verbs:
 //
-//   metaharness-darwin evolve <repo> [--generations N] [--children N]
+//   zagents-darwin evolve <repo> [--generations N] [--children N]
 //                                    [--concurrency N] [--seed N]
 //                                    [--bench <suite.json>] [--tie faster]
-//   metaharness-darwin bench create <repo> [--out <suite.json>]
-//   metaharness-darwin bench verify <suite.json>
+//   zagents-darwin bench create <repo> [--out <suite.json>]
+//   zagents-darwin bench verify <suite.json>
 //
-// Writes a self-describing `.metaharness/` work tree under the repo and prints a
+// Writes a self-describing `.zagents/` work tree under the repo and prints a
 // leaderboard + the winner's lineage. Dependency-free.
 
 import { resolve } from 'node:path';
@@ -66,7 +66,7 @@ async function runBench(): Promise<void> {
   if (sub === 'create') {
     const repoRoot = resolve(process.argv[4] ?? process.cwd());
     const profile = await profileRepo(repoRoot);
-    const out = resolve(flag('--out', resolve(repoRoot, '.metaharness/bench.json')));
+    const out = resolve(flag('--out', resolve(repoRoot, '.zagents/bench.json')));
     // A scaffold task pinned to the repo's own test command. Hidden/regression
     // commands are placeholders to be replaced with human-curated held-out tests.
     const task: BenchmarkTask = {
@@ -100,7 +100,7 @@ async function runBench(): Promise<void> {
     return;
   }
 
-  process.stderr.write('usage: metaharness-darwin bench <create|verify> …\n');
+  process.stderr.write('usage: zagents-darwin bench <create|verify> …\n');
   process.exit(1);
 }
 
@@ -114,7 +114,7 @@ async function main(): Promise<void> {
 
   if (command !== 'evolve') {
     process.stderr.write(
-      'usage: metaharness-darwin <evolve|bench> …\n' +
+      'usage: zagents-darwin <evolve|bench> …\n' +
         '  evolve <repo> [--generations N] [--children N] [--concurrency N] [--seed N] [--bench <suite.json>] [--tie faster] [--selection quality-diversity|behavioral-diversity|niche-steering|clade|pareto] [--crossover] [--epistasis] [--risk-budget N] [--fdr Q] [--curriculum] [--sandbox real|mock|agent] [--mutator deterministic|ruvllm] [--ruvllm-url URL] [--ruvllm-model M]\n' +
         '  bench create <repo> [--out <suite.json>]\n' +
         '  bench verify <suite.json>\n',
@@ -123,7 +123,7 @@ async function main(): Promise<void> {
   }
 
   const repoRoot = resolve(process.argv[3] ?? process.cwd());
-  const workRoot = resolve(repoRoot, '.metaharness');
+  const workRoot = resolve(repoRoot, '.zagents');
 
   // Opt-in graded promotion (ADR-076/087): --bench <suite.json> loads a
   // hash-verified suite (throws on tamper) and routes promotion through the

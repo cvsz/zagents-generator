@@ -1,16 +1,16 @@
 // SPDX-License-Identifier: MIT
 //
-// @metaharness/vertical-trading — standalone trading gemini pack.
+// @zagents/vertical-trading — standalone trading gemini pack.
 //
 // Lifted from create-agent-gemini/templates/vertical_trading/. The
 // templates themselves ship under `templates/` in the npm tarball; this
 // module just exposes the manifest + the on-disk template root so
 // downstream loaders (create-agent-gemini's external template loader)
-// can resolve files via @metaharness/vertical-base.
+// can resolve files via @zagents/vertical-base.
 
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readVerticalManifest, type VerticalPack } from '@metaharness/vertical-base';
+import { readVerticalManifest, type VerticalPack } from '@zagents/vertical-base';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const TEMPLATE_ROOT = join(__dirname, '..', 'templates');

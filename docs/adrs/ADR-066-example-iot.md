@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -61,7 +61,7 @@ Three realistic agent-driving capabilities justify this example in the catalog:
 
 ## Decision
 
-Ship `@metaharness/example-iot` as `examples-packages/example-iot/`, implementing
+Ship `@zagents/example-iot` as `examples-packages/example-iot/`, implementing
 the ADR-051 shared contract with IoT/robotics-specific choices described below.
 
 ### Chosen SDKs and rationale
@@ -206,8 +206,8 @@ subscription itself is live and the device is actually publishing.
 
 ### Cross-host scaffold (ADR-051 §2)
 
-`--host <id>` (default `claude-code`) / `--host all` delegates to `metaharness`
-CLI + `@metaharness/host-<id>`. All nine hosts are supported:
+`--host <id>` (default `claude-code`) / `--host all` delegates to `zagents`
+CLI + `@zagents/host-<id>`. All nine hosts are supported:
 `claude-code`, `codex`, `copilot`, `github-actions`, `hermes`, `openclaw`,
 `opencode`, `pi-dev`, `rvm`.
 
@@ -223,7 +223,7 @@ CLI + `@metaharness/host-<id>`. All nine hosts are supported:
 - The zero-credential quickstart (public MQTT broker, subscribe-only) lowers the
   barrier to entry without requiring a paid account.
 - Fleet-wide fan-out with claim-TTL (swarm coordination) is a natural fit for MQTT
-  multi-device scenarios and showcases that metaharness capability concretely.
+  multi-device scenarios and showcases that zagents capability concretely.
 
 ### Limitations
 

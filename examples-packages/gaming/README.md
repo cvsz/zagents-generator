@@ -1,11 +1,11 @@
-# MetaHarness: gaming vertical
+# ZAgents: gaming vertical
 
 A ready-made multi-agent game-design pod scaffolded as a Claude Code gemini. One command drops a working `claude-code` plugin directory on disk with four specialist agents wired up — a concept lead, a mechanics designer, a balance analyst, and a playtest critic — plus the project settings, slash commands, and MCP plumbing needed to actually run them. Aimed at solo designers, game-jam teams, and studios who want a structured pod for ideation and iteration instead of a single generalist prompt. This is a scaffold, not a game engine: it does not ship Unity/Unreal/Godot integrations, no asset pipeline, no live ops — it gives you the design loop, you bring the runtime.
 
 ## Quickstart
 
 ```bash
-npx @metaharness/gaming@latest my-bot
+npx @zagents/gaming@latest my-bot
 cd my-bot && npm install && gemini doctor
 ```
 
@@ -56,7 +56,7 @@ Yes. Each agent's frontmatter has a `model` field. Drop `playtest-critic` to `ha
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

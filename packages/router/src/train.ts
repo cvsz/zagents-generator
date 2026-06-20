@@ -5,7 +5,7 @@
 // each candidate model's quality on a query from its cosine similarities to the
 // training queries, with λ controlling the bias–variance trade-off that sank raw
 // k-NN on small data. λ is fit by leave-one-out cross-validation on routing
-// quality. Pure TS, no native deps — runs anywhere @metaharness/router does.
+// quality. Pure TS, no native deps — runs anywhere @zagents/router does.
 
 import { cosine, type RouteResult } from './index.js';
 

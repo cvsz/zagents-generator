@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-002 (Kernel boundary §6 Witness), ADR-005 (Marketplace §3 Three-layer provenance), ADR-007 (CI guards §A15, §B4), ADR-008 (Drift detection §Witness drift), ADR-009 (Anti-slop)
 
 ## Context
@@ -39,7 +39,7 @@ The schema is the ruflo ADR-103 schema, generalised to the gemini context:
   "gemini": {
     "name": "@acme/acme-support",
     "version": "1.2.0",
-    "kernel": "@metaharness/kernel@1.4.0",
+    "kernel": "@zagents/kernel@1.4.0",
     "generatedFromManifest": "<sha256 of .gemini/manifest.json>"
   },
   "gitCommit": "<commit at issuance>",
@@ -102,7 +102,7 @@ A compromised key requires immediate rotation. The gemini publishes an emergency
 A gemini that has not customised its witness manifest attests:
 
 - **Self-checksums.** `.gemini/manifest.json` and `package.json` are SHA-attested.
-- **Kernel version pin.** `@metaharness/kernel@<exact-version>` is attested; downgrading the kernel after the fact invalidates the signature.
+- **Kernel version pin.** `@zagents/kernel@<exact-version>` is attested; downgrading the kernel after the fact invalidates the signature.
 - **Host adapter version pins.** Same.
 - **Plugin pin set.** Every installed plugin's name + version + tarball checksum.
 
@@ -116,7 +116,7 @@ The composer (ADR-003) defaults to attesting the first set. A user picking `--fe
 
 ### The regen / verify / history scripts
 
-All three are factored from ruflo ADR-103 §2 and shipped under `@metaharness/kernel/witness`. The gemini exposes them as:
+All three are factored from ruflo ADR-103 §2 and shipped under `@zagents/kernel/witness`. The gemini exposes them as:
 
 ```bash
 npx <gemini-name> witness regen      # Regenerate the manifest at the current commit

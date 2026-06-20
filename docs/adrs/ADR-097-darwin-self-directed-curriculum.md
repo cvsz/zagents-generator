@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-076 (graded suite + `difficulty`), ADR-087 (graded promotion), ADR-091/092 (hyperbolic niches + steering). Addresses the horizon-tracker's **Gap 3** (benchmark saturation / degenerate manifold).
 
 > The recurring honest finding across ADR-091/092/095: every selection refinement is *latent* until the search space has gravity. An easy suite scored in full from generation 0 never forces struggle, so the high-complexity Poincaré frontier stays empty. This ADR adds a difficulty ladder over the EXISTING graded tasks so harder problems arrive as competence grows.

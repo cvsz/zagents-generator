@@ -58,9 +58,9 @@ for (const r of results) {
   mkdirSync(join(dir, 'bin'), { recursive: true });
 
   // package.json
-  writeFileSync(join(dir, 'package.json'), packageJsonFor(target, r.description ?? `MetaHarness example — ${name}`), 'utf8');
+  writeFileSync(join(dir, 'package.json'), packageJsonFor(target, r.description ?? `ZAgents example — ${name}`), 'utf8');
   // README.md
-  writeFileSync(join(dir, 'README.md'), (r.readme ?? `# @metaharness/${name}\n`).replace(/\r\n/g, '\n'), 'utf8');
+  writeFileSync(join(dir, 'README.md'), (r.readme ?? `# @zagents/${name}\n`).replace(/\r\n/g, '\n'), 'utf8');
   // LICENSE
   writeFileSync(join(dir, 'LICENSE'), LICENSE_MIT, 'utf8');
   // bin/scaffold.mjs

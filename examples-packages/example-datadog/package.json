@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/example-datadog",
+  "name": "@zagents/example-datadog",
   "version": "0.2.0",
-  "description": "MetaHarness scaffold for Datadog incident triage \u2014 npx @metaharness/example-datadog@latest <project-name> to generate a read-only AI triage bot wired to the Datadog API",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/example-datadog",
+  "description": "ZAgents scaffold for Datadog incident triage \u2014 npx @zagents/example-datadog@latest <project-name> to generate a read-only AI triage bot wired to the Datadog API",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/example-datadog",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/example-datadog"
   },
   "license": "MIT",
@@ -22,7 +22,7 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "datadog",
     "observability",
     "ai-agent",

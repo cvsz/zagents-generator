@@ -1,7 +1,7 @@
-# @metaharness/host-copilot
+# @zagents/host-copilot
 
-> GitHub Copilot (VSCode) host adapter for [agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator).
-> The 7th host adapter, per [ADR-032](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-032-host-copilot.md).
+> GitHub Copilot (VSCode) host adapter for [zagents-generator](https://github.com/ruvnet/zagents-generator).
+> The 7th host adapter, per [ADR-032](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-032-host-copilot.md).
 
 ## What it does
 
@@ -48,11 +48,11 @@ streamable). The package's test contract enforces this.
 
 ## Install + run
 
-This adapter is normally consumed via `npx metaharness <name> --host copilot`,
+This adapter is normally consumed via `npx zagents <name> --host copilot`,
 which picks it up from the canonical HOSTS catalog. Direct programmatic use:
 
 ```ts
-import { adapter } from '@metaharness/host-copilot';
+import { adapter } from '@zagents/host-copilot';
 const files = adapter.generateConfig!(harnessSpec);
 // files === { '.vscode/mcp.json': '...', 'install.md': '...' }
 ```

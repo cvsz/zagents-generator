@@ -1,20 +1,20 @@
-# @metaharness/example-github
+# @zagents/example-github
 
 **AI-agent gemini for GitHub — PR review, issue triage, and release notes, read-only by default.**
 
 > **Illustrative output.** Transcripts and sample output shown in this README are representative examples, not captured from a specific run. Actual output depends on your environment, models, token scopes, and repository content. Run the commands to see real results.
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-github?label=%40metaharness%2Fexample-github)](https://www.npmjs.com/package/@metaharness/example-github)
-[![npm downloads](https://img.shields.io/npm/dm/@metaharness/example-github)](https://www.npmjs.com/package/@metaharness/example-github)
-[![license](https://img.shields.io/npm/l/@metaharness/example-github)](https://github.com/ruvnet/agent-gemini-generator/blob/main/LICENSE)
-[![node >=20](https://img.shields.io/node/v/@metaharness/example-github)](https://nodejs.org/)
-[![built with metaharness](https://img.shields.io/badge/built%20with-metaharness-6e40c9)](https://github.com/ruvnet/agent-gemini-generator)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-github?label=%40zagents%2Fexample-github)](https://www.npmjs.com/package/@zagents/example-github)
+[![npm downloads](https://img.shields.io/npm/dm/@zagents/example-github)](https://www.npmjs.com/package/@zagents/example-github)
+[![license](https://img.shields.io/npm/l/@zagents/example-github)](https://github.com/ruvnet/zagents-generator/blob/main/LICENSE)
+[![node >=20](https://img.shields.io/node/v/@zagents/example-github)](https://nodejs.org/)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-6e40c9)](https://github.com/ruvnet/zagents-generator)
 
 ---
 
 ## What it is
 
-`@metaharness/example-github` is a one-command scaffold that generates a multi-agent gemini pre-wired to the GitHub REST and GraphQL APIs via `@octokit/rest` (v22) and `@octokit/graphql` (v8). The gemini ships three specialised agents — a PR analyst, an issue triager, and a release drafter — a `/review-pr` slash command, tiered model routing, a default-deny MCP policy, and a read-back verification gate. It runs on all nine supported hosts (Claude Code, Codex, GitHub Copilot, GitHub Actions, Hermes, OpenClaw, OpenCode, pi-dev, RVM) via the `--host` flag.
+`@zagents/example-github` is a one-command scaffold that generates a multi-agent gemini pre-wired to the GitHub REST and GraphQL APIs via `@octokit/rest` (v22) and `@octokit/graphql` (v8). The gemini ships three specialised agents — a PR analyst, an issue triager, and a release drafter — a `/review-pr` slash command, tiered model routing, a default-deny MCP policy, and a read-back verification gate. It runs on all nine supported hosts (Claude Code, Codex, GitHub Copilot, GitHub Actions, Hermes, OpenClaw, OpenCode, pi-dev, RVM) via the `--host` flag.
 
 **What it is NOT.** This is not a certified GitHub App, an automated merge bot, or a production CI/CD pipeline. It is an illustrative starting point. The `ALLOW_WRITES` flag is absent by default, meaning no mutations reach GitHub unless you explicitly enable them. Do not use the write-enabled path against production repositories without independently reviewing every agent output.
 
@@ -39,7 +39,7 @@
 ## Quickstart
 
 ```bash
-npx @metaharness/example-github@latest my-bot
+npx @zagents/example-github@latest my-bot
 cd my-bot && npm install && npm run doctor
 ```
 
@@ -48,8 +48,8 @@ cd my-bot && npm install && npm run doctor
 To scaffold for a different host:
 
 ```bash
-npx @metaharness/example-github@latest my-bot --host github-actions
-npx @metaharness/example-github@latest my-bot --host all
+npx @zagents/example-github@latest my-bot --host github-actions
+npx @zagents/example-github@latest my-bot --host all
 ```
 
 ---
@@ -62,7 +62,7 @@ npx @metaharness/example-github@latest my-bot --host all
 |---|---|---|
 | `GITHUB_TOKEN` | Yes | Personal access token (classic or fine-grained). Never commit this. |
 | `GITHUB_OWNER` | Yes | GitHub username or organisation name (e.g. `ruvnet`) |
-| `GITHUB_REPO` | Yes | Repository name (e.g. `agent-gemini-generator`) |
+| `GITHUB_REPO` | Yes | Repository name (e.g. `zagents-generator`) |
 | `ALLOW_WRITES` | No (opt-in) | Set to `true` to enable PR review posting, label application, and release creation. Default: absent (read-only). |
 | `GITHUB_API_URL` | No | Override for GitHub Enterprise Server (`https://github.example.com/api/v3`). Defaults to `https://api.github.com`. |
 
@@ -71,7 +71,7 @@ Set these in your shell or a `.env` file that is **gitignored** (the scaffold ad
 ```bash
 export GITHUB_TOKEN="github_pat_..."
 export GITHUB_OWNER="ruvnet"
-export GITHUB_REPO="agent-gemini-generator"
+export GITHUB_REPO="zagents-generator"
 ```
 
 ### Getting a token
@@ -106,7 +106,7 @@ GitHub does not provide a sandbox API endpoint or test-key mechanism. The safe-b
 ### Slash command
 
 ```
-/review-pr ruvnet/agent-gemini-generator#142
+/review-pr ruvnet/zagents-generator#142
 ```
 
 Triggers the full pipeline: pr-analyst reads the PR and its diff, produces a structured review report, issue-triager cross-references any linked issues, and the verification gate re-fetches the PR to confirm the summary is consistent with live state.
@@ -114,18 +114,18 @@ Triggers the full pipeline: pr-analyst reads the PR and its diff, produces a str
 ### Natural-language prompts
 
 ```
-Triage all open issues in ruvnet/agent-gemini-generator. Suggest a label and priority (P0/P1/P2) for each. Do not post anything — show me the triage plan first.
+Triage all open issues in ruvnet/zagents-generator. Suggest a label and priority (P0/P1/P2) for each. Do not post anything — show me the triage plan first.
 ```
 
 ```
-Draft release notes for the next tag after v0.3.2 in ruvnet/agent-gemini-generator. Use the generateReleaseNotes API and then produce an editorial summary grouped by feature, fix, and chore.
+Draft release notes for the next tag after v0.3.2 in ruvnet/zagents-generator. Use the generateReleaseNotes API and then produce an editorial summary grouped by feature, fix, and chore.
 ```
 
 ### Enable writes (explicit opt-in)
 
 ```bash
 ALLOW_WRITES=true claude -p --plugin-dir my-bot \
-  "/review-pr ruvnet/agent-gemini-generator#142 --post-comment"
+  "/review-pr ruvnet/zagents-generator#142 --post-comment"
 ```
 
 With `ALLOW_WRITES=true`, the pr-analyst will post its review comment to GitHub after the verification gate passes. Without it, the review is printed locally only.
@@ -192,6 +192,6 @@ The audit log (`ALLOW_WRITES=true` sessions) records each tool call, its argumen
 - `@octokit/rest` on npm: [npmjs.com/package/@octokit/rest](https://www.npmjs.com/package/@octokit/rest)
 - `@octokit/graphql` on npm: [npmjs.com/package/@octokit/graphql](https://www.npmjs.com/package/@octokit/graphql)
 - GitHub fine-grained PAT permissions: [docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens)
-- ADR-057 (this design): [docs/adrs/ADR-057-example-github.md](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-057-example-github.md)
-- ADR-051 (examples program): [docs/adrs/ADR-051-third-party-sdk-showcase-examples.md](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
-- metaharness: [github.com/ruvnet/agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator)
+- ADR-057 (this design): [docs/adrs/ADR-057-example-github.md](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-057-example-github.md)
+- ADR-051 (examples program): [docs/adrs/ADR-051-third-party-sdk-showcase-examples.md](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- zagents: [github.com/ruvnet/zagents-generator](https://github.com/ruvnet/zagents-generator)

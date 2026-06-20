@@ -42,13 +42,13 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '26' }
 
-      - name: Install + build (root, dependency-ordered — resolves @metaharness/* workspace deps)
+      - name: Install + build (root, dependency-ordered — resolves @zagents/* workspace deps)
         shell: bash
         run: |
           npm ci || npm install
           # The ordered root build compiles kernel → hosts → bench, so
-          # host-bench.ts's @metaharness/host-* imports resolve. A bench-only build
-          # fails (the @metaharness scope is unpublished — workspace symlinks only
+          # host-bench.ts's @zagents/host-* imports resolve. A bench-only build
+          # fails (the @zagents scope is unpublished — workspace symlinks only
           # exist from the repo root).
           npm run build
 

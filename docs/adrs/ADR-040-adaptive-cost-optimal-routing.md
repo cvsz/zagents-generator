@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-15
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-037 (DRACO), ADR-038 (quality ceiling), ADR-039 (cost dominance)
 
 ---
@@ -70,7 +70,7 @@ every router variant after that is free offline arithmetic.
 ## Consequences
 
 - Converts the honest Phase-1 negative into a Phase-2 product direction:
-  MetaHarness as a **cost-optimal model router**, the genuinely valuable business
+  ZAgents as a **cost-optimal model router**, the genuinely valuable business
   problem. Vindicates the ruflo MoE-routing thesis with a measured oracle gap.
 - The oracle bounds how much routing can ever help; the router-vs-oracle gap is
   the real, honest figure of merit (not a vanity win vs vanilla).

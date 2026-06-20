@@ -4,7 +4,7 @@
 //
 // `create-agent-gemini` ships with bundled templates (templates/minimal,
 // templates/vertical_*). When the user passes `--template-package
-// @metaharness/vertical-trading`, this loader resolves the npm package, calls
+// @zagents/vertical-trading`, this loader resolves the npm package, calls
 // its `.load()`, and returns the on-disk template root for the existing
 // walker to consume.
 

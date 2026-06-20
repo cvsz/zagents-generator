@@ -1,6 +1,6 @@
 # vertical-tour — scaffold + validate every vertical (iter 88)
 
-> Brought up to date in iter 128.2: published CLI is now `metaharness` (https://www.npmjs.com/package/metaharness). User-facing invocations use `npx metaharness …`; the workspace-internal imports below still load the in-repo `packages/create-agent-gemini/` build.
+> Brought up to date in iter 128.2: published CLI is now `zagents` (https://www.npmjs.com/package/zagents). User-facing invocations use `npx zagents …`; the workspace-internal imports below still load the in-repo `packages/create-agent-gemini/` build.
 
 > 17 verticals scaffolded + validated in ~1 second on a clean checkout.
 

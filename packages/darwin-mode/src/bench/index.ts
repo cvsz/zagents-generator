@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 //
-// @metaharness/darwin — benchmark layer (ADR-076 + the SOTA "Darwin Plus" stack,
+// @zagents/darwin — benchmark layer (ADR-076 + the SOTA "Darwin Plus" stack,
 // ADR-077…081). Benchmark the parent vs the child, not the idea.
 //
 //   types      — the benchmark contract (tasks, results, suites, decisions)

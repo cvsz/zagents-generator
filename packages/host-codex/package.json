@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/host-codex",
+  "name": "@zagents/host-codex",
   "version": "0.1.2",
-  "description": "OpenAI Codex CLI host adapter for agent-gemini-generator (MCP via ~/.codex/config.toml)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "description": "OpenAI Codex CLI host adapter for zagents-generator (MCP via ~/.codex/config.toml)",
+  "homepage": "https://github.com/ruvnet/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "packages/host-codex"
   },
   "license": "MIT",
@@ -39,7 +39,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@metaharness/kernel": "^0.1.0"
+    "@zagents/kernel": "^0.1.2"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",

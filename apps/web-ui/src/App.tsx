@@ -42,10 +42,10 @@ export default function App() {
       <header className="mb-8 flex flex-col gap-5">
         <div className="flex items-center justify-between gap-4">
           <a
-            href="https://github.com/ruvnet/agent-gemini-generator"
+            href="https://github.com/ruvnet/zagents-generator"
             className="inline-flex items-center gap-1.5 rounded-lg border border-ink-700 bg-ink-800/60 px-3 py-1.5 text-xs text-slate-300 transition hover:border-ink-600 hover:text-white"
           >
-            <Github size={14} /> ruvnet/agent-gemini-generator
+            <Github size={14} /> ruvnet/zagents-generator
           </a>
           <div className="flex items-center gap-2">
             <button
@@ -129,7 +129,7 @@ export default function App() {
 
       <footer className="mt-12 border-t border-ink-700/60 pt-6 text-xs text-slate-500">
         <p>
-          Built on <a className="text-slate-300 hover:text-white" href="https://www.npmjs.com/package/@metaharness/kernel">@metaharness/kernel</a> — a
+          Built on <a className="text-slate-300 hover:text-white" href="https://www.npmjs.com/package/@zagents/kernel">@zagents/kernel</a> — a
           Rust → WASM + NAPI-RS kernel. Output is byte-compatible with the <code className="text-slate-300">create-agent-gemini</code> CLI.
           MCP is one selectable, default-deny primitive. Drop generated <code className="text-slate-300">SKILL.md</code> folders straight
           into Claude desktop or claude.ai. <span className="text-slate-400">{t('app.footer.tagline')}</span>

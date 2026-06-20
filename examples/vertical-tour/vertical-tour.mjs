@@ -84,7 +84,7 @@ async function main() {
   // the drift instead of pinning a duplicate list here.
   const templates = TEMPLATES.filter(t => t !== 'minimal');
 
-  process.stderr.write(`agent-gemini-generator — vertical tour\n`);
+  process.stderr.write(`zagents-generator — vertical tour\n`);
   process.stderr.write(`scaffolding ${templates.length} verticals on host ${host}\n\n`);
 
   const reports = [];

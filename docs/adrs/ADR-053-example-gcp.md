@@ -2,14 +2,14 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
 
 ## Context
 
-Google Cloud Platform is the default cloud substrate for a large share of agent-gemini deployments: Cloud Run hosts the gemini runtime, Cloud Storage holds document corpora, BigQuery runs analytical workloads, and the Gemini family (accessed via Vertex AI) provides frontier inference inside the same IAM boundary. A generated gemini that cannot drive GCP primitives forces the operator to maintain a separate glue layer — exactly the kind of weekend work `metaharness` exists to delete.
+Google Cloud Platform is the default cloud substrate for a large share of agent-gemini deployments: Cloud Run hosts the gemini runtime, Cloud Storage holds document corpora, BigQuery runs analytical workloads, and the Gemini family (accessed via Vertex AI) provides frontier inference inside the same IAM boundary. A generated gemini that cannot drive GCP primitives forces the operator to maintain a separate glue layer — exactly the kind of weekend work `zagents` exists to delete.
 
 Three capabilities are universally relevant across gemini verticals:
 
@@ -113,7 +113,7 @@ When running on Cloud Run, GKE, or Compute Engine, `GOOGLE_APPLICATION_CREDENTIA
 
 ### Honest limitations
 
-- The MCP policy stubs (`gcp:storage:*`, `gcp:bigquery:*`, `gcp:genai:*`) require the `@metaharness/mcp-gcp` adapter to be available; the example documents this dependency and falls back to direct Node.js SDK calls if the adapter is absent, at the cost of losing the audit log.
+- The MCP policy stubs (`gcp:storage:*`, `gcp:bigquery:*`, `gcp:genai:*`) require the `@zagents/mcp-gcp` adapter to be available; the example documents this dependency and falls back to direct Node.js SDK calls if the adapter is absent, at the cost of losing the audit log.
 - BigQuery Sandbox enforces a 60-day table expiration on all datasets; the scaffold notes this limitation and recommends using `bigquery-public-data` datasets for demonstrations.
 - Gemini model availability on Vertex AI is regional. The scaffold defaults to `us-central1`; operators in other regions must update `GOOGLE_CLOUD_LOCATION`.
 - `@google/genai` v2.8.0 uses the terminology "Gemini Enterprise Agent Platform" for the Vertex AI endpoint internally. Both `GOOGLE_GENAI_USE_VERTEXAI=true` and `GOOGLE_GENAI_USE_ENTERPRISE=true` are documented as accepted env vars; the scaffold uses `GOOGLE_GENAI_USE_VERTEXAI=true` which is the more widely documented form.

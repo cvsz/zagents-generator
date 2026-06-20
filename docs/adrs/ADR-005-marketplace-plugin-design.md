@@ -2,14 +2,14 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-002 (Kernel boundary §5 Marketplace client), ADR-009 (Anti-slop), ADR-011 (Witness), ADR-013 (Vertical packs), ADR-015 (Naming)
 
 ## Context
 
 The IPFS-backed plugin registry ruflo maintains (current CID per `CLAUDE.md` §Plugin Registry Maintenance, gateway `https://gateway.pinata.cloud/ipfs/{CID}`) is one of ruflo's load-bearing assets. The registry is a signed JSON document describing the catalogue of available plugins, who authored them, what they expose, and how trusted they are.
 
-`agent-gemini-generator` participates in this marketplace in three ways:
+`zagents-generator` participates in this marketplace in three ways:
 
 1. **As a marketplace plugin itself.** When installed inside an existing ruflo project, it exposes a `/create-agent-gemini` slash command.
 2. **As a generator that pre-wires marketplace consumption** in every gemini it produces — every generated gemini can install plugins from the IPFS registry out of the box.
@@ -21,7 +21,7 @@ This ADR pins the schema, the trust model, and the publishing flow for each of t
 
 ### 1. The marketplace participates via the existing IPFS registry
 
-We do not build a new registry. The kernel's `@metaharness/kernel/marketplace` (per ADR-002 §5) consumes the same IPFS-Pinata-Ed25519 registry pattern ruflo already operates.
+We do not build a new registry. The kernel's `@zagents/kernel/marketplace` (per ADR-002 §5) consumes the same IPFS-Pinata-Ed25519 registry pattern ruflo already operates.
 
 The CID is configuration, not a constant. A gemini's `gemini.config.json` carries:
 
@@ -48,7 +48,7 @@ The schema below is the post-extraction version of ruflo's existing `PluginEntry
   "displayName": "Acme Customer Support",
   "description": "Customer support agents and skills for Acme.",
   "version": "1.0.0",
-  "kernelEngines": "^1.0.0",                        // semver range of @metaharness/kernel
+  "kernelEngines": "^1.0.0",                        // semver range of @zagents/kernel
   "size": 100000,                                   // bytes, approximate
   "checksum": "sha256:abc123...",                   // sha256 of the published tarball
   "provenance": {                                   // new in this ADR
@@ -85,7 +85,7 @@ The schema below is the post-extraction version of ruflo's existing `PluginEntry
 
 Notable additions relative to ruflo's current schema:
 
-- **`kernelEngines`** — the semver range of `@metaharness/kernel` the plugin requires. Mirrors VS Code's `engines.vscode`. The kernel rejects loading a plugin whose range does not match.
+- **`kernelEngines`** — the semver range of `@zagents/kernel` the plugin requires. Mirrors VS Code's `engines.vscode`. The kernel rejects loading a plugin whose range does not match.
 - **`provenance.*`** — see §3 below.
 - **`hostsSupported`** — declares which hosts the plugin works in. The composer (ADR-003) intersects this with the gemini's selected hosts and warns or excludes accordingly.
 - **`type` is richer** — distinguishes vertical packs, integrations, host adapters, plain plugins, skill-only packs, and agent-only packs. Helps the composer's UI filter by purpose.
@@ -103,7 +103,7 @@ A plugin can have any subset of these. Anti-slop (ADR-009) uses presence/absence
 
 ### 4. The generator's marketplace participation
 
-`@metaharness/create-agent-gemini` ships **as a marketplace plugin** in addition to its standalone CLI:
+`@zagents/create-agent-gemini` ships **as a marketplace plugin** in addition to its standalone CLI:
 
 - npm package: `@claude-flow/plugin-gemini-generator` (final name per ADR-015).
 - Registry entry: `type: "integration"`, `categories: ["meta", "official"]`, `trustLevel: "official"`.

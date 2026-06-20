@@ -1,4 +1,4 @@
-# MetaHarness: legal vertical
+# ZAgents: legal vertical
 
 > ⚠️ **Illustrative output.** Transcripts and validation/run output shown in this README are
 > representative examples, not captured from a specific run — actual output depends on your
@@ -10,7 +10,7 @@ A ready-made Claude Code gemini for drafting contract redlines, sanity-checking 
 ## Quickstart
 
 ```bash
-npx @metaharness/legal@latest my-bot
+npx @zagents/legal@latest my-bot
 cd my-bot && npm install && gemini doctor
 ```
 
@@ -71,7 +71,7 @@ Yes. Each agent is a standalone markdown file in `agents/`. Edit the `model:` fr
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

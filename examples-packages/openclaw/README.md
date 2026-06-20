@@ -1,16 +1,16 @@
-# MetaHarness × OpenClaw .openclaw/ config
+# ZAgents × OpenClaw .openclaw/ config
 
 > ⚠️ **Illustrative output.** Transcripts and validation/run output shown in this README are
 > representative examples, not captured from a specific run — actual output depends on your
 > environment, models, and inputs. Run the commands to see real results.
 
 
-A minimal MetaHarness scaffold pre-wired for [OpenClaw](https://github.com/openclaw), the open-source AI coding host that reads its configuration from a `.openclaw/` directory. Run one command and you get a working gemini folder with the right config file layout, a starter agent, and the doctor/validate tooling that ships with MetaHarness. This is for developers who want to bootstrap an OpenClaw-compatible project without copy-pasting a config tree from another repo. It does NOT install OpenClaw itself, ship a model, or run any agent for you — it scaffolds the static files you need so `openclaw` (or any OpenClaw-compatible runner) finds a valid configuration on first launch.
+A minimal ZAgents scaffold pre-wired for [OpenClaw](https://github.com/openclaw), the open-source AI coding host that reads its configuration from a `.openclaw/` directory. Run one command and you get a working gemini folder with the right config file layout, a starter agent, and the doctor/validate tooling that ships with ZAgents. This is for developers who want to bootstrap an OpenClaw-compatible project without copy-pasting a config tree from another repo. It does NOT install OpenClaw itself, ship a model, or run any agent for you — it scaffolds the static files you need so `openclaw` (or any OpenClaw-compatible runner) finds a valid configuration on first launch.
 
 ## Quickstart
 
 ```bash
-npx @metaharness/openclaw@latest my-bot
+npx @zagents/openclaw@latest my-bot
 cd my-bot
 npm install
 gemini doctor
@@ -22,7 +22,7 @@ gemini doctor
 
 - `.openclaw/config.json` — the host-specific manifest OpenClaw looks for on startup
 - `.openclaw/agents/` — one starter agent definition you can rename, duplicate, or delete
-- `gemini.config.mjs` — the MetaHarness root config that ties templates, hosts, and validators together
+- `gemini.config.mjs` — the ZAgents root config that ties templates, hosts, and validators together
 - `package.json` — pinned `gemini` CLI plus `doctor`, `validate`, and `dev` scripts
 - `README.md` — a short orientation for whoever opens the repo next
 - `.gitignore` — sensible defaults so you don't commit `node_modules/` or local secret files
@@ -57,7 +57,7 @@ claude -p --plugin-dir ./my-bot "list the agents in this project"
 Re-scaffold in place after editing the template (overwrites the gemini skeleton, leaves your agents alone):
 
 ```bash
-npx metaharness@latest my-bot --template minimal --host openclaw --force
+npx zagents@latest my-bot --template minimal --host openclaw --force
 ```
 
 ## FAQ
@@ -66,14 +66,14 @@ npx metaharness@latest my-bot --template minimal --host openclaw --force
 A: No. It only writes the `.openclaw/` configuration tree that an OpenClaw runtime expects to find. Install OpenClaw separately following its own docs.
 
 **Q: Can I use this with Claude Code, Codex, or another host?**
-A: This scaffold is specifically wired for the OpenClaw host config layout. For other hosts, run `npx metaharness@latest my-bot --host <name>` directly, or use one of the sibling `@metaharness/*` example packages.
+A: This scaffold is specifically wired for the OpenClaw host config layout. For other hosts, run `npx zagents@latest my-bot --host <name>` directly, or use one of the sibling `@zagents/*` example packages.
 
 **Q: How do I add a second agent?**
 A: Copy `.openclaw/agents/<starter>.json`, rename it, edit the `name` and `prompt` fields, then run `gemini validate` to confirm the schema still passes.
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

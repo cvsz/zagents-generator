@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — the single entry point an external corpus iterates
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-123 (resolved criterion), ADR-124 (whole-file patch primitive decision), ADR-098 (strategy)
 
 > ADR-122/123/124 proved the pieces separately (validation gemini, resolved criterion, patch primitive). This consolidates them into ONE function — `runSweBenchTask(task, opts)` — so step 3 is literally `for (const task of dataset) await runSweBenchTask(task, { model, key })`.

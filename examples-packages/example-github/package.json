@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/example-github",
+  "name": "@zagents/example-github",
   "version": "0.2.0",
-  "description": "MetaHarness example \u2014 GitHub PR review, issue triage, and release notes gemini, read-only by default (npx @metaharness/example-github my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/example-github",
+  "description": "ZAgents example \u2014 GitHub PR review, issue triage, and release notes gemini, read-only by default (npx @zagents/example-github my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/example-github",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/example-github"
   },
   "license": "MIT",
@@ -22,9 +22,9 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "agent-gemini",
-    "agent-gemini-generator",
+    "zagents-generator",
     "github",
     "octokit",
     "pull-request",

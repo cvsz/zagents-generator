@@ -11,12 +11,12 @@ name = "gemini-secrets"
 version = "0.1.0"
 description = "GCP Secret Manager integration: validate setup, fetch values, or confirm an NPM_TOKEN is non-revoked via `npm whoami`. Used for publish-time token rotation without long-lived keys in CI."
 author = "rUv <ruv@ruv.net>"
-homepage = "https://github.com/ruvnet/agent-gemini-generator"
+homepage = "https://github.com/ruvnet/zagents-generator"
 license = "MIT"
 
 [dispatch]
 type = "mcp_tool"
-server = "agent-gemini-generator"
+server = "zagents-generator"
 tool = "harness_secrets"
 
 [command]

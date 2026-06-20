@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 //
 // Generate the marketplace-registry JSON entry for THIS project (the meta
-// agent-gemini-generator plugin). This is the JSON blob that gets pinned
+// zagents-generator plugin). This is the JSON blob that gets pinned
 // to IPFS via Pinata and referenced from the plugin discovery registry.
 //
 // Inputs:

@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured)
 **Date**: 2026-06-19
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-149 (V3 repair floor), ADR-148 (hybrid), issue #39 (decision criteria)
 
 ## Result (official `swebench` Docker gemini, full 300, batch-verified, 0 errors)

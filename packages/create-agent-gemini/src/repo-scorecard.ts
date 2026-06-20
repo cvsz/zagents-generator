@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 //
-// ADR-041 scorecard — `metaharness score <repo>`. The killer feature: point it
+// ADR-041 scorecard — `zagents score <repo>`. The killer feature: point it
 // at a repo and get a 6-line scorecard (gemini fit, compile confidence, task
 // coverage, tool safety, memory usefulness, est. $/run + recommended mode).
 //
@@ -202,7 +202,7 @@ export function formatCandidates(repo: string, cands: CandidateScore[]): string[
 
 function usage(): string[] {
   return [
-    'Usage: metaharness score <repo-path> [--json] [--top N]',
+    'Usage: zagents score <repo-path> [--json] [--top N]',
     '',
     'Produces the ADR-041 scorecard: gemini fit, compile confidence, task',
     'coverage, tool safety, memory usefulness, est. $/run, recommended mode.',
@@ -211,7 +211,7 @@ function usage(): string[] {
   ];
 }
 
-/** CLI: `metaharness score <repo> [--json]`. Mirrors genomeCmd's shape. */
+/** CLI: `zagents score <repo> [--json]`. Mirrors genomeCmd's shape. */
 export async function scoreRepoCmd(args: string[]): Promise<SubcommandResult> {
   const json = args.includes('--json');
   const positional: string[] = [];

@@ -1,6 +1,6 @@
-# @metaharness/host-rvm
+# @zagents/host-rvm
 
-[RVM](https://github.com/ruvnet/rvm) — the Agentic Virtual Machine — host adapter for the [agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator) project.
+[RVM](https://github.com/ruvnet/rvm) — the Agentic Virtual Machine — host adapter for the [zagents-generator](https://github.com/ruvnet/zagents-generator) project.
 
 > Agents don't fit in VMs. They need something that understands how they think.
 
@@ -41,7 +41,7 @@ Default proof tier:
 ## Usage
 
 ```js
-import adapter, { buildCapabilityTable, partitionToml } from '@metaharness/host-rvm';
+import adapter, { buildCapabilityTable, partitionToml } from '@zagents/host-rvm';
 
 const config = adapter.generateConfig({
   name: 'my-bot',
@@ -88,7 +88,7 @@ The adapter declares this pairing in the emitted `wasm-guest.json`:
 }
 ```
 
-RVF is opt-in — the partition still boots without it. Use `@metaharness/kernel/memory-rvf` to plug it into the kernel memory subsystem.
+RVF is opt-in — the partition still boots without it. Use `@zagents/kernel/memory-rvf` to plug it into the kernel memory subsystem.
 
 ## RVM facts
 

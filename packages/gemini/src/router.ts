@@ -5,7 +5,7 @@
 // chosen intent to a deterministic strategy — an ordered DAG of step kinds.
 //
 // This is the *control-plane* router (task type → strategy). It is distinct from
-// `@metaharness/router`, which routes a query to the cheapest good-enough MODEL;
+// `@zagents/router`, which routes a query to the cheapest good-enough MODEL;
 // the two compose (this picks the steps, that picks the worker for each step).
 
 import type { Goal, PlanStep } from './types.js';

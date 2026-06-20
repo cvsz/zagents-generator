@@ -1,20 +1,20 @@
-# @ruvnet/agent-gemini-generator
+# @ruvnet/zagents-generator
 
-> Library / core package for the **Agent Gemini Generator**. Pair with
-> [`metaharness`](https://www.npmjs.com/package/metaharness) for the CLI.
+> Library / core package for the **ZAgents Generator**. Pair with
+> [`zagents`](https://www.npmjs.com/package/zagents) for the CLI.
 
 ## What this is
 
 The **library** half of the dual-package model. If you want to **run** the
-generator, use `metaharness`. If you want to **import** it from your own code,
+generator, use `zagents`. If you want to **import** it from your own code,
 use this package.
 
 ```bash
 # Run it (CLI)
-npx metaharness my-bot --template vertical:coding
+npx zagents my-bot --template vertical:coding
 
 # Import it (library)
-npm install @ruvnet/agent-gemini-generator
+npm install @ruvnet/zagents-generator
 ```
 
 ```ts
@@ -23,7 +23,7 @@ import {
   validateHarnessName,
   HOSTS,
   TEMPLATES,
-} from '@ruvnet/agent-gemini-generator';
+} from '@ruvnet/zagents-generator';
 
 // Generate a gemini programmatically:
 const result = await scaffold({
@@ -48,7 +48,7 @@ console.log(`wrote ${result.files.length} files`);
 | **Types** | `Host`, `TemplateId`, `CatalogEntry`, `CliArgs`, `ScaffoldOptions`, `ScaffoldResult`, `TemplateVars` |
 
 The full per-subcommand surface (validate / sbom / audit / score / genome /
-threat-model / …) lives in `metaharness`. We re-export the *generation*
+threat-model / …) lives in `zagents`. We re-export the *generation*
 primitives here; per-subcommand commands stay CLI-only because they assume
 the gemini has already been written to disk and is being inspected.
 
@@ -56,14 +56,14 @@ the gemini has already been written to disk and is being inspected.
 
 ```
   ┌─────────────────────────────────┐
-  │ metaharness                       │   ← the published CLI
-  │  • bin: metaharness, gemini      │     `npx metaharness`
-  │  • full implementation          │     `npx metaharness score ./my-bot`
+  │ zagents                       │   ← the published CLI
+  │  • bin: zagents, gemini      │     `npx zagents`
+  │  • full implementation          │     `npx zagents score ./my-bot`
   │  • full JS API                  │
   └────────────┬────────────────────┘
                │ depends on
   ┌────────────┴────────────────────┐
-  │ @ruvnet/agent-gemini-generator │   ← this package: thin re-export
+  │ @ruvnet/zagents-generator │   ← this package: thin re-export
   │  • no bin                       │     `import { scaffold } from …`
   │  • re-exports the library API   │
   └─────────────────────────────────┘
@@ -74,16 +74,16 @@ implementation — if logic ever leaks into this package, it's a bug.
 
 ## When to use which
 
-- **`metaharness`** — you want the command-line tool, full subcommand
+- **`zagents`** — you want the command-line tool, full subcommand
   surface, marketplace plugin, Codex skills.
-- **`@ruvnet/agent-gemini-generator`** — you're embedding the generator
+- **`@ruvnet/zagents-generator`** — you're embedding the generator
   in a build script, a web service, or another tool, and don't want the
   `bin` baggage.
 
 ## Version pinning
 
-This package always depends on the same minor version of `metaharness`. A
-patch release of `metaharness` doesn't bump us automatically — we cut a
+This package always depends on the same minor version of `zagents`. A
+patch release of `zagents` doesn't bump us automatically — we cut a
 matching patch and re-publish so the dependency stays tight.
 
 ## License

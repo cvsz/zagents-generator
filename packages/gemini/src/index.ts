@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 //
-// @metaharness/gemini — the Algorithmic Agent Gemini (ADR-047).
+// @zagents/gemini — the Algorithmic Agent Gemini (ADR-047).
 //
 // A dependency-free, deterministic control plane that wraps any model, tool,
 // skill, or workflow as a replaceable WORKER. The gemini owns state, selection,

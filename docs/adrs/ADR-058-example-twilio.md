@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -17,7 +17,7 @@ An agent gemini wired to Twilio can realistically drive three headline workflows
 2. **Outbound voice calls with TwiML** — initiate a call to a real or test number and supply TwiML instructions (say, gather, record) as inline XML or a URL; status callbacks report call progress.
 3. **WhatsApp messaging** — send template or session messages using the `whatsapp:+<E.164>` channel prefix; the WhatsApp Sandbox (`whatsapp:+14155238886`) provides a zero-cost test environment.
 
-Twilio provides first-class test infrastructure — **test credentials** (a separate Account SID / Auth Token pair available in the Twilio Console under "API keys & tokens > Test credentials") and **magic phone numbers** (`+15005550006` for a valid sender, `+15005550001`–`+15005550009` for specific error scenarios). When authenticated with test credentials, Twilio never charges the account, never mutates account state, and never connects to real phone numbers. This makes it an ideal showcase for MetaHarness's dry-run-by-default safety posture.
+Twilio provides first-class test infrastructure — **test credentials** (a separate Account SID / Auth Token pair available in the Twilio Console under "API keys & tokens > Test credentials") and **magic phone numbers** (`+15005550006` for a valid sender, `+15005550001`–`+15005550009` for specific error scenarios). When authenticated with test credentials, Twilio never charges the account, never mutates account state, and never connects to real phone numbers. This makes it an ideal showcase for ZAgents's dry-run-by-default safety posture.
 
 Twilio Messaging Services (SID prefix `MG`) are a higher-level abstraction: they hold a pool of senders, apply sticky-sender logic, handle opt-out, and support country-code geomatch. An agent using a Messaging Service sends with `messagingServiceSid` rather than `from`, enabling scale-out without hardcoding a single number.
 
@@ -114,7 +114,7 @@ The `twilio` SDK also reads `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` automat
 
 ### Positive
 
-- Provides a one-command proof that a MetaHarness-generated gemini can drive real-world SMS, voice, and WhatsApp workflows across all nine supported hosts.
+- Provides a one-command proof that a ZAgents-generated gemini can drive real-world SMS, voice, and WhatsApp workflows across all nine supported hosts.
 - Test credentials + magic numbers mean the example is safe to run immediately after scaffolding without any spending risk or real message delivery.
 - Messaging Service scoping (`messagingServiceSid`) demonstrates the more production-appropriate send path, not just a single `from` number.
 - The three-agent pipeline (planner / executor / verifier) cleanly illustrates ADR-026 tiered routing and ADR-050 verification-gated output in a concrete, non-abstract context.

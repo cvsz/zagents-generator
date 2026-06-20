@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-070 (Darwin Mode head), ADR-072 (scoring + promotion), ADR-074 (ruVector memory), ADR-011 (witness/provenance), ADR-014 (self-evolution)
 
 > Part of the Darwin Mode series (ADR-070…075). This ADR pins **the archive** — the single most important idea Darwin Mode borrows from DGM — and the **selection policy** that samples from it.
@@ -13,7 +13,7 @@ A naïve optimizer says *"keep the best current agent."* That is hill-climbing, 
 
 The Huxley–Gödel Machine line sharpens this further: raw current benchmark score is not the same as *future self-improvement potential*. An agent that scores modestly today may have high *descendant potential*. An archive lets us defer that judgement — we do not have to discard a branch to find out whether it leads somewhere.
 
-For MetaHarness the slogan is: **agent harnesses should evolve like species, not update like software releases.** A release pipeline keeps one HEAD; a species keeps a population.
+For ZAgents the slogan is: **agent harnesses should evolve like species, not update like software releases.** A release pipeline keeps one HEAD; a species keeps a population.
 
 ## Decision
 

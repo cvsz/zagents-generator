@@ -1,20 +1,20 @@
-# @metaharness/example-supabase
+# @zagents/example-supabase
 
 **RLS-aware data agent over Postgres + Auth + Storage — anon vs. service-role keys, pgvector RAG, verification-gated output.**
 
 > **Illustrative output disclaimer**: This package scaffolds an *example* agent gemini. The queries, RLS policy snippets, and pgvector patterns shown in generated files are illustrative. They demonstrate the integration pattern; they are not a production-hardened data access layer and have not been reviewed for GDPR, SOC 2, or any other compliance framework. Review Supabase's security documentation before connecting an agent to production data.
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-supabase?label=npm)](https://www.npmjs.com/package/@metaharness/example-supabase)
-[![npm downloads](https://img.shields.io/npm/dm/@metaharness/example-supabase)](https://www.npmjs.com/package/@metaharness/example-supabase)
-[![license](https://img.shields.io/npm/l/@metaharness/example-supabase)](./LICENSE)
-[![node](https://img.shields.io/node/v/@metaharness/example-supabase)](https://nodejs.org/)
-[![built with metaharness](https://img.shields.io/badge/built%20with-metaharness-6E40C9)](https://github.com/ruvnet/agent-gemini-generator)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-supabase?label=npm)](https://www.npmjs.com/package/@zagents/example-supabase)
+[![npm downloads](https://img.shields.io/npm/dm/@zagents/example-supabase)](https://www.npmjs.com/package/@zagents/example-supabase)
+[![license](https://img.shields.io/npm/l/@zagents/example-supabase)](./LICENSE)
+[![node](https://img.shields.io/node/v/@zagents/example-supabase)](https://nodejs.org/)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-6E40C9)](https://github.com/ruvnet/zagents-generator)
 
 ---
 
 ## Intro
 
-`@metaharness/example-supabase` is one package in the [MetaHarness SDK showcase series](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md) (ADR-051). Running it with `npx` scaffolds a ready-to-run agent gemini pre-wired to your Supabase project using the official `@supabase/supabase-js` v2 SDK.
+`@zagents/example-supabase` is one package in the [ZAgents SDK showcase series](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md) (ADR-051). Running it with `npx` scaffolds a ready-to-run agent gemini pre-wired to your Supabase project using the official `@supabase/supabase-js` v2 SDK.
 
 **What it is**: a scaffold that drops a three-agent gemini (planner, executor, verifier) into a new directory, configured for the host of your choice (Claude Code, Codex, Copilot, GitHub Actions, and others). It demonstrates the correct anon vs. service-role key distinction, RLS-filtered querying, pgvector semantic search with per-user data isolation, and Storage bucket inspection — all read-only by default.
 
@@ -24,7 +24,7 @@
 
 ## Features
 
-| MetaHarness capability | How this example shows it |
+| ZAgents capability | How this example shows it |
 |---|---|
 | **Tiered model routing** (ADR-026) | Planner + Executor use a cheap (Haiku-class) model for intent parsing and SQL generation; the Verifier uses a frontier (Sonnet-class) model for RLS consistency checks and final answer synthesis |
 | **MCP default-deny** (ADR-022) | `.gemini/mcp-policy.json` grants only five read tools by default; five mutation tools are gated behind `--allow-writes` / `--admin` flags; every call is appended to `.gemini/mcp-audit.jsonl` |
@@ -40,7 +40,7 @@
 ## Quickstart
 
 ```bash
-npx @metaharness/example-supabase@latest my-bot
+npx @zagents/example-supabase@latest my-bot
 cd my-bot
 npm install
 npm run doctor
@@ -57,10 +57,10 @@ To scaffold for a different host:
 
 ```bash
 # Single host
-npx @metaharness/example-supabase@latest my-bot --host codex
+npx @zagents/example-supabase@latest my-bot --host codex
 
 # All supported hosts at once
-npx @metaharness/example-supabase@latest my-bot --host all
+npx @zagents/example-supabase@latest my-bot --host all
 ```
 
 Supported hosts: `claude-code` (default), `codex`, `copilot`, `github-actions`, `hermes`, `openclaw`, `opencode`, `pi-dev`, `rvm`.
@@ -140,7 +140,7 @@ Explain any RLS policies that explain the difference.
 ```bash
 SUPABASE_USER_EMAIL=alice@example.com \
 SUPABASE_USER_PASSWORD=hunter2 \
-npx @metaharness/example-supabase@latest my-bot --user
+npx @zagents/example-supabase@latest my-bot --user
 ```
 
 Or export the variables and pass `--user`:
@@ -275,6 +275,6 @@ Because the function uses `security invoker`, the caller's Postgres role (and th
 - API key migration guide: https://supabase.com/docs/guides/getting-started/migrating-to-new-api-keys
 - pgvector + RAG with permissions: https://supabase.com/docs/guides/ai/rag-with-permissions
 - Local development guide: https://supabase.com/docs/guides/local-development
-- ADR-060 (this package): https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-060-example-supabase.md
-- ADR-051 (examples program): https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md
-- MetaHarness generator: https://github.com/ruvnet/agent-gemini-generator
+- ADR-060 (this package): https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-060-example-supabase.md
+- ADR-051 (examples program): https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md
+- ZAgents generator: https://github.com/ruvnet/zagents-generator

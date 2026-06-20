@@ -104,8 +104,8 @@ export async function doctor(args: string[]): Promise<SubcommandResult> {
     try {
       const pkg = JSON.parse(await readFile(pkgPath, 'utf-8'));
       check(typeof pkg.name === 'string' && pkg.name.length > 0, 'package.json has a name');
-      check(!!(pkg.dependencies && pkg.dependencies['@metaharness/kernel']),
-        'declares @metaharness/kernel as dependency');
+      check(!!(pkg.dependencies && pkg.dependencies['@zagents/kernel']),
+        'declares @zagents/kernel as dependency');
     } catch {
       lines.push('  FAIL package.json is not valid JSON');
       problems++;
@@ -159,7 +159,7 @@ export async function doctor(args: string[]): Promise<SubcommandResult> {
 
   // iter 134: surface .claude-plugin/plugin.json presence (the second-path
   // `claude -p --plugin-dir <gemini>` proof). All scaffolds since
-  // metaharness@0.1.3 (iter 132) ship this file. WARN, not FAIL —
+  // zagents@0.1.3 (iter 132) ship this file. WARN, not FAIL —
   // pre-iter-131 harnesses pre-date the propagation, and a user may have
   // intentionally removed it. The hint tells them how to add it back.
   const pluginPath = join(dir, '.claude-plugin', 'plugin.json');
@@ -175,7 +175,7 @@ export async function doctor(args: string[]): Promise<SubcommandResult> {
       lines.push('  WARN .claude-plugin/plugin.json is not valid JSON');
     }
   } else {
-    lines.push('  WARN .claude-plugin/plugin.json absent — `claude -p --plugin-dir` won\'t load this gemini as a plugin. Run `npx metaharness gemini plugin-init` to backfill, or re-scaffold with metaharness@0.1.3+.');
+    lines.push('  WARN .claude-plugin/plugin.json absent — `claude -p --plugin-dir` won\'t load this gemini as a plugin. Run `npx zagents gemini plugin-init` to backfill, or re-scaffold with zagents@0.1.3+.');
   }
 
   if (problems === 0) {
@@ -192,7 +192,7 @@ export async function doctor(args: string[]): Promise<SubcommandResult> {
     `Next: capture the full diagnostic state for a support ticket:`,
     `  gemini diag ${dir} --bundle > bundle.json`,
     `(then attach bundle.json to a GitHub issue at`,
-    ` https://github.com/ruvnet/agent-gemini-generator/issues — the`,
+    ` https://github.com/ruvnet/zagents-generator/issues — the`,
     ` bundle is sanitised; secret_/token_/key_/password_ fields are redacted)`,
   );
   return { code: 1, lines };
@@ -202,7 +202,7 @@ export async function doctor(args: string[]): Promise<SubcommandResult> {
  * `gemini sign [path]` — produce or update the witness manifest for a
  * scaffolded gemini.
  *
- * The real signing happens in the @metaharness/kernel's witness.sign_manifest.
+ * The real signing happens in the @zagents/kernel's witness.sign_manifest.
  * This subcommand: reads .gemini/manifest.json, computes per-entry
  * fingerprints, hands the entry list to the kernel for signing, writes
  * witness.json next to it.
@@ -251,7 +251,7 @@ export async function sign(args: string[]): Promise<SubcommandResult> {
     // verify report the gap explicitly.
     let signedManifest: unknown;
     try {
-      const kernel = await import('@metaharness/kernel') as unknown as {
+      const kernel = await import('@zagents/kernel') as unknown as {
         loadKernel(): Promise<{ witnessSign?(payload: string, key: string): string }>;
       };
       const k = await kernel.loadKernel();

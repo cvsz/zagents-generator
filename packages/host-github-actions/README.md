@@ -1,6 +1,6 @@
-# @metaharness/host-github-actions
+# @zagents/host-github-actions
 
-The **9th host adapter** for [agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator) — GitHub Actions (ADR-033).
+The **9th host adapter** for [zagents-generator](https://github.com/ruvnet/zagents-generator) — GitHub Actions (ADR-033).
 
 The eight other hosts are interactive: a human starts a session and sees the
 result. GitHub Actions is different in kind — a CI/CD runtime with **no human
@@ -38,7 +38,7 @@ scopes the token; the Environment adds the human review it cannot.
 ## Usage
 
 ```ts
-import adapter from '@metaharness/host-github-actions';
+import adapter from '@zagents/host-github-actions';
 
 const files = adapter.generateConfig({
   name: 'release-bot',
@@ -51,7 +51,7 @@ const files = adapter.generateConfig({
 Or scaffold a full gemini:
 
 ```bash
-npx metaharness my-bot --template minimal --host github-actions
+npx zagents my-bot --template minimal --host github-actions
 ```
 
 ## License

@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/example-iot",
+  "name": "@zagents/example-iot",
   "version": "0.2.0",
-  "description": "MetaHarness example \u2014 IoT/robotics telemetry agent with guarded actuation over MQTT and ROS 2 rosbridge (npx @metaharness/example-iot my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/example-iot",
+  "description": "ZAgents example \u2014 IoT/robotics telemetry agent with guarded actuation over MQTT and ROS 2 rosbridge (npx @zagents/example-iot my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/example-iot",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/example-iot"
   },
   "license": "MIT",
@@ -22,7 +22,7 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "iot",
     "robotics",
     "mqtt",

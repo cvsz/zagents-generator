@@ -5,12 +5,12 @@ name = "publish-gemini"
 version = "0.1.0"
 description = "Publish a generated gemini to npm — runs the smoke test, signs the witness manifest, and dispatches `npm publish --provenance` from your tagged release."
 author = "rUv <ruv@ruv.net>"
-homepage = "https://github.com/ruvnet/agent-gemini-generator"
+homepage = "https://github.com/ruvnet/zagents-generator"
 license = "MIT"
 
 [dispatch]
 type = "mcp_tool"
-server = "agent-gemini-generator"
+server = "zagents-generator"
 tool = "publish_harness"
 
 [command]

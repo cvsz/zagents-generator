@@ -87,11 +87,11 @@ describe('formatDiagReport', () => {
       manifestKernelVersion: '0.1.0',
       localKernelVersion: '1.0.0',
       verdict: 'major-diff',
-      actionable: 'Run: npm install @metaharness/kernel@0.1.0 (major skew — APIs may break)',
+      actionable: 'Run: npm install @zagents/kernel@0.1.0 (major skew — APIs may break)',
     });
     expect(r.code).toBe(1);
     expect(r.lines.join('\n')).toMatch(/FAIL MAJOR skew/);
-    expect(r.lines.join('\n')).toMatch(/npm install @metaharness\/kernel@0\.1\.0/);
+    expect(r.lines.join('\n')).toMatch(/npm install @zagents\/kernel@0\.1\.0/);
   });
 
   it('exits 1 on minor-diff', () => {
@@ -101,7 +101,7 @@ describe('formatDiagReport', () => {
       manifestKernelVersion: '0.1.0',
       localKernelVersion: '0.2.0',
       verdict: 'minor-diff',
-      actionable: 'Run: npm install @metaharness/kernel@0.1.0',
+      actionable: 'Run: npm install @zagents/kernel@0.1.0',
     });
     expect(r.code).toBe(1);
   });
@@ -221,9 +221,9 @@ describe('--bundle output (iter 90 MILESTONE)', () => {
       // (iter 149).
       expect(['match', 'patch-diff', 'minor-diff', 'major-diff', 'unparseable']).toContain(b.diag.verdict);
       expect([0, 1, 2]).toContain(b.diag.exitCode);
-      // gemini block — only @metaharness/* deps
+      // gemini block — only @zagents/* deps
       expect(b.gemini.packageName).toBe('bundle-bot');
-      expect(Object.keys(b.gemini.rufloDeps)).toContain('@metaharness/kernel');
+      expect(Object.keys(b.gemini.rufloDeps)).toContain('@zagents/kernel');
       // manifest present + read
       expect(b.manifest.present).toBe(true);
       expect((b.manifest.content as any).meta.kernel_version).toBe('0.1.0');
@@ -302,7 +302,7 @@ describe('--json output (iter 73)', () => {
       const parsed = JSON.parse(r.lines.join('\n'));
       expect(parsed.surface).toBe('cli');
       // The KERNEL verdict compares the manifest's build-time kernel_version
-      // against the locally-resolved @metaharness/kernel — legitimately
+      // against the locally-resolved @zagents/kernel — legitimately
       // environment-dependent (a CI runner / test sandbox can resolve a
       // different kernel build than the one the manifest was stamped
       // against). Assert it's a VALID verdict, not a hard 'match'. The
@@ -310,7 +310,7 @@ describe('--json output (iter 73)', () => {
       // input) and stays strict.
       expect(['match', 'patch-diff', 'minor-diff', 'major-diff', 'unparseable']).toContain(parsed.verdict);
       // generatorVerdict compares the manifest's recorded generator version
-      // (0.1.0, this test's input) against the LOCAL metaharness version,
+      // (0.1.0, this test's input) against the LOCAL zagents version,
       // which drifts with every publish (0.1.5 now) — also version-dependent.
       expect(['match', 'patch-diff', 'minor-diff', 'major-diff', 'unparseable']).toContain(parsed.generatorVerdict);
       // exitCode 0 for match/patch (advisory skews); minor/major escalate.

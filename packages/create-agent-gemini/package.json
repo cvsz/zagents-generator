@@ -1,11 +1,11 @@
 {
-  "name": "metaharness",
+  "name": "zagents",
   "version": "0.2.2",
-  "description": "MetaHarness — mint a custom AI agent gemini from any repo. Browser Studio + `npx metaharness` CLI. Runs on Claude Code, Codex, pi.dev, Hermes, OpenClaw, RVM.",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "description": "ZAgents — mint a custom AI agent gemini from any repo. Browser Studio + `npx zagents` CLI. Runs on Claude Code, Codex, pi.dev, Hermes, OpenClaw, RVM.",
+  "homepage": "https://github.com/ruvnet/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "packages/create-agent-gemini"
   },
   "license": "MIT",
@@ -20,7 +20,7 @@
     }
   },
   "bin": {
-    "metaharness": "dist/bin.js",
+    "zagents": "dist/bin.js",
     "gemini": "dist/gemini-bin.js"
   },
   "files": [
@@ -36,9 +36,9 @@
     "gen:templates": "node scripts/gen-templates.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "agent-gemini",
-    "agent-gemini-generator",
+    "zagents-generator",
     "ai-agent",
     "ai-agent-scaffold",
     "ai-agent-cli",
@@ -97,13 +97,13 @@
   "dependencies": {
     "kolorist": "^1.8.0",
     "prompts": "^2.4.2",
-    "@metaharness/darwin": "^0.2.2"
+    "@zagents/darwin": "^0.2.5"
   },
   "peerDependencies": {
-    "@metaharness/kernel": "^0.1.0"
+    "@zagents/kernel": "^0.1.2"
   },
   "peerDependenciesMeta": {
-    "@metaharness/kernel": {
+    "@zagents/kernel": {
       "optional": true
     }
   },

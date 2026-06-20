@@ -2,7 +2,7 @@
 
 **Status**: Accepted
 **Date**: 2026-06-15
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-038/039/040 (DRACO), ADR-027 (CLI↔Studio), issue #4
 
 ---
@@ -47,7 +47,7 @@ Accept the report. Triage:
    equivalent"** (same file set + manifest semantics), with a status correction
    noting byte-parity is not enforced and a real parity test is an open follow-up.
    (README:160 — wrapper→CLI byte-identity — is *correct* and unchanged: wrappers
-   exec `npx metaharness`, so that scaffold genuinely is identical.)
+   exec `npx zagents`, so that scaffold genuinely is identical.)
 5. **Example-README fabricated transcripts — DONE (marked illustrative + cmd fix).**
    Swept all 15 example-package READMEs: corrected the non-existent `npx gemini
    doctor` (no `gemini` bin in a generated gemini) to `npm run doctor`, and
@@ -66,7 +66,7 @@ Accept the report. Triage:
 7. Single source of truth for counts (packages/hosts/subcommands drift; stale
    Status table; CHANGELOG stops at iter 102). Generate counts from the tree.
 8. Bury the ruflo lineage from the adopter path; add a "where am I in the stack"
-   diagram (`metaharness` emits → `gemini` → users run `gemini`).
+   diagram (`zagents` emits → `gemini` → users run `gemini`).
 9. Prove `gemini upgrade` on a messy hand-edited gemini (the 3-way merge is the
    make-or-break "own it and still get updates" promise).
 

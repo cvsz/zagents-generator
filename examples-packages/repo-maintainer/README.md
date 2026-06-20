@@ -1,11 +1,11 @@
-# MetaHarness: repo-maintainer vertical
+# ZAgents: repo-maintainer vertical
 
 A ready-made multi-agent template that scaffolds an open-source repo maintenance bot on top of Claude Code. The vertical ships three coordinated agents — a triager, a reviewer, and a release manager — wired to GitHub MCP, settings.json permissions for `gh` and `git`, and a routing config that pushes the expensive work onto Sonnet/Opus while keeping triage cheap on Haiku. It is for maintainers who want an opinionated starting point instead of assembling agents, prompts, and MCP servers by hand. It does NOT replace human review on merges, automate destructive git operations, or open PRs without your confirmation — the default permission mode requires acceptEdits.
 
 ## Quickstart
 
 ```bash
-npx @metaharness/repo-maintainer@latest my-bot
+npx @zagents/repo-maintainer@latest my-bot
 cd my-bot && npm install && gemini doctor
 ```
 
@@ -47,13 +47,13 @@ Tune model routing in `gemini.config.json` — set `triager.model` to `sonnet` f
 
 **Does this work on a private repo?** Yes, as long as your `GITHUB_TOKEN` (or `gh` CLI auth) has `repo` scope on the target. The GitHub MCP server uses whichever credential it finds first.
 
-**Can I use it with GitLab or Bitbucket?** Not out of the box. The agents call `gh` commands directly. You'd need to swap the MCP server and rewrite the three command files; at that point you're better off using the host scaffold (`@metaharness/claude-code`) and building up from there.
+**Can I use it with GitLab or Bitbucket?** Not out of the box. The agents call `gh` commands directly. You'd need to swap the MCP server and rewrite the three command files; at that point you're better off using the host scaffold (`@zagents/claude-code`) and building up from there.
 
 **Why are there three agents instead of one prompt?** Routing. Triage runs hundreds of times a week and should stay on Haiku; review runs on diff context and needs Sonnet; release happens rarely but synthesizes a lot of history and benefits from Opus. One mega-prompt would either overpay or underperform.
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

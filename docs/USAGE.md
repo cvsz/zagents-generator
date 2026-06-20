@@ -1,8 +1,8 @@
-# Using agent-gemini-generator (the meta-gemini)
+# Using zagents-generator (the meta-gemini)
 
 A plain-language walkthrough from "I want my own AI agent gemini" to "I just published one to npm."
 
-> **agent-gemini-generator is a meta-gemini** — a gemini whose product is other harnesses. You operate it once; the gemini you produce is what your users install. They never see the meta-gemini layer.
+> **zagents-generator is a meta-gemini** — a gemini whose product is other harnesses. You operate it once; the gemini you produce is what your users install. They never see the meta-gemini layer.
 
 ## What you'll have at the end
 
@@ -21,23 +21,23 @@ You'll be able to `npm publish` it and your users will do `npx my-bot init` in t
 
 ## 1. Install
 
-`metaharness` is published to npm (v0.1.x beta) — run:
+`zagents` is published to npm (v0.1.x beta) — run:
 
 ```bash
-npx metaharness my-bot                       # arg-driven (default template + claude-code)
-npx metaharness --wizard                     # iter 100 — interactive picker
-npx metaharness --list                       # browse all 19 templates
+npx zagents my-bot                       # arg-driven (default template + claude-code)
+npx zagents --wizard                     # iter 100 — interactive picker
+npx zagents --list                       # browse all 19 templates
 ```
 
 No global install required. The package downloads itself on use.
 
-**Don't know what to pick?** Run `--wizard` — 4-question form (name → template → host → description), with the equivalent `npx metaharness …` command printed afterwards so you can skip the wizard next time.
+**Don't know what to pick?** Run `--wizard` — 4-question form (name → template → host → description), with the equivalent `npx zagents …` command printed afterwards so you can skip the wizard next time.
 
 If you're working from the repo directly:
 
 ```bash
-git clone https://github.com/ruvnet/agent-gemini-generator
-cd agent-gemini-generator
+git clone https://github.com/ruvnet/zagents-generator
+cd zagents-generator
 npm install
 npm run build
 node packages/create-agent-gemini/dist/bin.js my-bot
@@ -61,7 +61,7 @@ The generator ships with six templates:
 Pick one with `--template`:
 
 ```bash
-npx metaharness my-bot --template vertical:devops
+npx zagents my-bot --template vertical:devops
 ```
 
 Or run interactively (no `--template` flag) to be prompted.
@@ -82,7 +82,7 @@ Generated harnesses run on four hosts. You can target one or more:
 | `rvm` | RVM partition manifest (TOML) + capability table (JSON) + wasm-guest descriptor + install runbook |
 
 ```bash
-npx metaharness my-bot \
+npx zagents my-bot \
   --template vertical:devops \
   --host claude-code \
   --host codex
@@ -109,7 +109,7 @@ my-bot/
 └── runbooks/ or kb/ ...      # template-specific
 ```
 
-Edit anything. The kernel and host adapter come from `@metaharness/kernel` and `@metaharness/host-<n>` packages — you depend on them as published npm packages, not vendored copies.
+Edit anything. The kernel and host adapter come from `@zagents/kernel` and `@zagents/host-<n>` packages — you depend on them as published npm packages, not vendored copies.
 
 ---
 
@@ -162,7 +162,7 @@ npx my-bot init
 
 ## 7. Get updates (drift detection)
 
-When `@metaharness/kernel` or your template ships an update, you don't have to start over. Run:
+When `@zagents/kernel` or your template ships an update, you don't have to start over. Run:
 
 ```bash
 gemini upgrade
@@ -182,7 +182,7 @@ You review and resolve, then commit. Same model copier uses.
 If you've been using ruflo and want to ship your own focused gemini from it:
 
 ```bash
-npx metaharness --from-existing ./
+npx zagents --from-existing ./
 ```
 
 This detects your ruflo install (`.claude/`, `CLAUDE.md`, `.mcp.json`), lifts the agents/skills/commands you've customised into a new gemini, and renames every `ruflo` / `claude-flow` reference. **`.claude-flow/`** local state is left behind by design — eject starts with a fresh memory.
@@ -191,7 +191,7 @@ You can preserve attribution by marking specific markdown blocks:
 
 ```html
 <!-- ruflo-attribution-block -->
-This gemini is powered by ruflo and built on @metaharness/kernel.
+This gemini is powered by ruflo and built on @zagents/kernel.
 <!-- /ruflo-attribution-block -->
 ```
 
@@ -227,7 +227,7 @@ The Pinata JWT comes from environment or GCP Secret Manager — never from a fil
 If you want your gemini to ADAPT its routing decisions over time:
 
 ```typescript
-import { SelfEvolvingRouter } from '@metaharness/kernel/self-evolution';
+import { SelfEvolvingRouter } from '@zagents/kernel/self-evolution';
 
 const router = new SelfEvolvingRouter({
   enabled: true,
@@ -257,11 +257,11 @@ Honesty caveat from the underlying `@ruvector/emergent-time` package: the SDK is
 |---|---|
 | `Error: target exists` | Pass `--force` or pick a new directory name |
 | `invalid gemini name` | Must be kebab-case, lowercase, no leading number, no consecutive hyphens, no trailing hyphen, ≤ 214 chars (npm rule) |
-| `unknown template` | Check `npx metaharness --list` for the current template list (19 verticals at iter 96) |
+| `unknown template` | Check `npx zagents --list` for the current template list (19 verticals at iter 96) |
 | `witness verification failed` on publish | Your `.gemini/witness.json` was tampered with OR `gemini sign` was never run |
 | `npm publish: 403` | Token expired — rotate via `gcloud secrets versions add NPM_TOKEN --data-file=-` |
-| `gemini doctor` reports issues you don't understand | Run `gemini diag <path> --bundle > bundle.json` and attach to an issue at <https://github.com/ruvnet/agent-gemini-generator/issues>. The bundle is sanitised (secret/token/key/password fields redacted). |
-| `gemini diag` says `MAJOR skew — APIs may have changed; expect breakage` | Your local `@metaharness/kernel` is on a different major than the version your gemini was scaffolded against. Run `npm install @metaharness/kernel@<manifest-version>` (the diag output names the version). See [ADR-028](adrs/ADR-028-skew-detection-and-liveness.md). |
+| `gemini doctor` reports issues you don't understand | Run `gemini diag <path> --bundle > bundle.json` and attach to an issue at <https://github.com/ruvnet/zagents-generator/issues>. The bundle is sanitised (secret/token/key/password fields redacted). |
+| `gemini diag` says `MAJOR skew — APIs may have changed; expect breakage` | Your local `@zagents/kernel` is on a different major than the version your gemini was scaffolded against. Run `npm install @zagents/kernel@<manifest-version>` (the diag output names the version). See [ADR-028](adrs/ADR-028-skew-detection-and-liveness.md). |
 | Want to share your MCP/Bash/claims config for a security review without zipping the whole gemini | `gemini export-config <path> > config.json` (iter 97) — emits a single sanitised JSON. |
 | Want to share npm-audit findings (machine-parseable, for grep / CI / vuln review) | `gemini audit <path> --bundle > audit.json` (iter 102) — emits `{ schema, level, total, counts, offenders, failCount, exitCode }`. Error paths (no-package-json / no-lockfile / unknown-level) are also JSON. |
 

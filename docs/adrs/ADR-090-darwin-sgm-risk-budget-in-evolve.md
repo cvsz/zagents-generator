@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-076 (statistical promotion), ADR-079 (SGM risk budget + SOTA clauses), ADR-087 (graded promotion wired into evolve)
 
 > ADR-079 defined a global, monotonic risk budget and the SOTA admission clauses (no hidden-test regression; cost-per-solve within a ceiling) so recursive self-modification cannot accumulate unbounded risk. Like the rest of the bench layer, it was never wired into the loop. ADR-087 connected the *base* statistical gate; this ADR connects the *SGM* layer on top of it.

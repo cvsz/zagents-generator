@@ -1,6 +1,6 @@
 # Federation example
 
-> Brought up to date in iter 128.2 — published CLI is now `metaharness` (https://www.npmjs.com/package/metaharness). Install via `npx metaharness <name> ...`.
+> Brought up to date in iter 128.2 — published CLI is now `zagents` (https://www.npmjs.com/package/zagents). Install via `npx zagents <name> ...`.
 
 Shows two gemini instances coordinating via the federation transport.
 

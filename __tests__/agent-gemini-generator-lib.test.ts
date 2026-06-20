@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
 //
-// iter 116 — verifies the @ruvnet/agent-gemini-generator library wrapper
-// re-exports the metaharness API surface cleanly. The wrapper has no
+// iter 116 — verifies the @ruvnet/zagents-generator library wrapper
+// re-exports the zagents API surface cleanly. The wrapper has no
 // implementation; if any of these imports fail at type-check time, the
 // dual-package model is broken.
 
 import { describe, it, expect } from 'vitest';
 
-describe('@ruvnet/agent-gemini-generator (iter 116)', () => {
+describe('@ruvnet/zagents-generator (iter 116)', () => {
   it('re-exports the core scaffold API', async () => {
-    const mod = await import('@ruvnet/agent-gemini-generator');
+    const mod = await import('@ruvnet/zagents-generator');
     expect(typeof mod.scaffold).toBe('function');
     expect(typeof mod.validateHarnessName).toBe('function');
     expect(typeof mod.detectRufloProject).toBe('function');
@@ -17,7 +17,7 @@ describe('@ruvnet/agent-gemini-generator (iter 116)', () => {
   });
 
   it('re-exports the catalog surface', async () => {
-    const mod = await import('@ruvnet/agent-gemini-generator');
+    const mod = await import('@ruvnet/zagents-generator');
     expect(Array.isArray(mod.HOSTS)).toBe(true);
     expect(mod.HOSTS).toContain('claude-code');
     expect(mod.HOSTS).toContain('rvm');
@@ -29,7 +29,7 @@ describe('@ruvnet/agent-gemini-generator (iter 116)', () => {
   });
 
   it('re-exports the rendering + manifest primitives', async () => {
-    const mod = await import('@ruvnet/agent-gemini-generator');
+    const mod = await import('@ruvnet/zagents-generator');
     expect(typeof mod.render).toBe('function');
     expect(typeof mod.extractVarReferences).toBe('function');
     expect(typeof mod.walkTemplate).toBe('function');
@@ -42,13 +42,13 @@ describe('@ruvnet/agent-gemini-generator (iter 116)', () => {
   });
 
   it('validateHarnessName accepts/rejects expected names', async () => {
-    const { validateHarnessName } = await import('@ruvnet/agent-gemini-generator');
+    const { validateHarnessName } = await import('@ruvnet/zagents-generator');
     expect(validateHarnessName('my-bot').valid).toBe(true);
     expect(validateHarnessName('bad name').valid).toBe(false);
   });
 
   it('TEMPLATES length matches the canonical 20', async () => {
-    const { TEMPLATES, loadCatalog } = await import('@ruvnet/agent-gemini-generator');
+    const { TEMPLATES, loadCatalog } = await import('@ruvnet/zagents-generator');
     expect(TEMPLATES.length).toBe(20);
     expect(loadCatalog().length).toBe(20);
   });

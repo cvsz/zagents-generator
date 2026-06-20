@@ -1,24 +1,24 @@
-# @metaharness/example-huggingface
+# @zagents/example-huggingface
 
-> One command scaffolds a multi-agent Hugging Face gemini: model + dataset discovery, serverless inference, and Space exploration — wired to all MetaHarness hosts.
+> One command scaffolds a multi-agent Hugging Face gemini: model + dataset discovery, serverless inference, and Space exploration — wired to all ZAgents hosts.
 
 > ⚠️ **Illustrative output.** Transcripts and example runs shown in this README are representative examples, not captured from a specific live run. Actual output depends on your HF token scope, chosen models, provider availability, and rate limits. Run the commands to see real results.
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-huggingface)](https://www.npmjs.com/package/@metaharness/example-huggingface)
-[![npm downloads](https://img.shields.io/npm/dm/@metaharness/example-huggingface)](https://www.npmjs.com/package/@metaharness/example-huggingface)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-huggingface)](https://www.npmjs.com/package/@zagents/example-huggingface)
+[![npm downloads](https://img.shields.io/npm/dm/@zagents/example-huggingface)](https://www.npmjs.com/package/@zagents/example-huggingface)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org/)
-[![Built with MetaHarness](https://img.shields.io/badge/built%20with-metaharness-7c3aed)](https://www.npmjs.com/package/metaharness)
+[![Built with ZAgents](https://img.shields.io/badge/built%20with-zagents-7c3aed)](https://www.npmjs.com/package/zagents)
 
 ---
 
 ## Intro
 
-`@metaharness/example-huggingface` scaffolds a MetaHarness agent gemini pre-wired to the official Hugging Face JavaScript SDK (`@huggingface/inference` + `@huggingface/hub`). One command produces a project with three specialized agents, tiered model routing, a scoped MCP policy, and a `/hf-discover` slash command — ready to run against any of the nine supported hosts (Claude Code, Codex, Copilot, GitHub Actions, Hermes, OpenClaw, OpenCode, pi-dev, RVM).
+`@zagents/example-huggingface` scaffolds a ZAgents agent gemini pre-wired to the official Hugging Face JavaScript SDK (`@huggingface/inference` + `@huggingface/hub`). One command produces a project with three specialized agents, tiered model routing, a scoped MCP policy, and a `/hf-discover` slash command — ready to run against any of the nine supported hosts (Claude Code, Codex, Copilot, GitHub Actions, Hermes, OpenClaw, OpenCode, pi-dev, RVM).
 
 **This scaffold IS:**
 - A ready-made starting point for agents that discover open models, run serverless inference, and explore Spaces.
-- An illustrative demonstration of MetaHarness capabilities (tiered routing, MCP default-deny, verification gates) against a real third-party platform.
+- An illustrative demonstration of ZAgents capabilities (tiered routing, MCP default-deny, verification gates) against a real third-party platform.
 - Safe to run immediately: all default operations are read-only against public Hub content.
 
 **This scaffold is NOT:**
@@ -40,14 +40,14 @@
 | **MCP default-deny** | `.gemini/mcp-policy.json` grants only `WebFetch`, `WebSearch`, `Read`, `Write`; `Bash` and all MCP server tools are denied by default |
 | **Slash command** | `/hf-discover` fires the full three-agent pipeline from a natural-language task description |
 | **Verification gate** | `verifier` agent re-runs a lightweight read-back (e.g. re-classify a sample) before marking output done |
-| **All-host scaffolding** | `--host all` emits config for all nine MetaHarness hosts in one run |
+| **All-host scaffolding** | `--host all` emits config for all nine ZAgents hosts in one run |
 
 ---
 
 ## Quickstart
 
 ```bash
-npx @metaharness/example-huggingface@latest my-hf-bot
+npx @zagents/example-huggingface@latest my-hf-bot
 cd my-hf-bot && npm install && npm run doctor
 ```
 
@@ -61,8 +61,8 @@ claude -p --plugin-dir my-hf-bot "/hf-discover text classification for sentiment
 To scaffold for a different host:
 
 ```bash
-npx @metaharness/example-huggingface@latest my-hf-bot --host codex
-npx @metaharness/example-huggingface@latest my-hf-bot --host all
+npx @zagents/example-huggingface@latest my-hf-bot --host codex
+npx @zagents/example-huggingface@latest my-hf-bot --host all
 ```
 
 ---
@@ -183,5 +183,5 @@ All other tools — including `Bash`, `Edit`, and all MCP server tools — are e
 - Hugging Face JS libraries docs: [huggingface.co/docs/huggingface.js/en/index](https://huggingface.co/docs/huggingface.js/en/index)
 - Inference Providers docs: [huggingface.co/docs/inference-providers/index](https://huggingface.co/docs/inference-providers/index)
 - HF Access Tokens: [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
-- ADR-061 (this design): `docs/adrs/ADR-061-example-huggingface.md` in [ruvnet/agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator)
+- ADR-061 (this design): `docs/adrs/ADR-061-example-huggingface.md` in [ruvnet/zagents-generator](https://github.com/ruvnet/zagents-generator)
 - ADR-051 (examples program): `docs/adrs/ADR-051-third-party-sdk-showcase-examples.md`

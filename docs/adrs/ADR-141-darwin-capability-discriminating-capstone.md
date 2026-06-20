@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — removes ADR-140's caveat; the definitive close to the evolve arc
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-140 (assembly on an easy corpus), ADR-136/137 (naive-search failures), ADR-138 (noise), ADR-105 (diversity beats greedy), ADR-130/135 ((resolve, cost) objective)
 
 > ADR-140 showed diversity+crossover+averaging *assembles* `deepseek/searchreplace`, but on an easy corpus resolve-rate saturated (4/6 at ceiling) so cost broke a wide tie — leaving the caveat "resolve-rate didn't discriminate." This re-runs on a **capability-discriminating** corpus where resolve-rate itself eliminates the bad genomes, with the **full (resolve, cost) objective**. The optimum is now reached unambiguously.

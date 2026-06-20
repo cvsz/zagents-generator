@@ -14,11 +14,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const TEMPLATES_ROOT = resolve(__dirname, '..', 'templates');
 
 /**
- * Resolve `@metaharness/kernel`'s version at scaffold time so we can stamp it into
+ * Resolve `@zagents/kernel`'s version at scaffold time so we can stamp it into
  * `manifest.meta.kernel_version` (ADR-027 diagnostic). Falls through three
  * lookup paths because the create-agent-gemini package can run:
  *   - from a workspace checkout (`packages/kernel-js/package.json`)
- *   - from an installed npm tree (resolve `@metaharness/kernel/package.json`)
+ *   - from an installed npm tree (resolve `@zagents/kernel/package.json`)
  *   - from the prebuilt dist with neither sibling (fall back to 'unknown')
  *
  * We never throw — a missing kernel version downgrades the meta block to
@@ -30,10 +30,10 @@ function resolveKernelVersion(): string | undefined {
   const candidates = [
     // Workspace layout: packages/create-agent-gemini/dist/ → ../../kernel-js/package.json
     resolve(__dirname, '..', '..', 'kernel-js', 'package.json'),
-    // Installed layout: sibling node_modules/@metaharness/kernel/package.json
-    resolve(__dirname, '..', '..', '@metaharness', 'kernel', 'package.json'),
+    // Installed layout: sibling node_modules/@zagents/kernel/package.json
+    resolve(__dirname, '..', '..', '@zagents', 'kernel', 'package.json'),
     // Fallback: top-level node_modules
-    resolve(__dirname, '..', '..', '..', '@metaharness', 'kernel', 'package.json'),
+    resolve(__dirname, '..', '..', '..', '@zagents', 'kernel', 'package.json'),
   ];
   for (const p of candidates) {
     try {
@@ -41,10 +41,10 @@ function resolveKernelVersion(): string | undefined {
         const pkg = JSON.parse(readFileSync(p, 'utf-8')) as { name?: string; version?: string };
         // Guard: only trust a package.json that IS the kernel. Without this,
         // an ambiguous candidate path can resolve to the CLI's own
-        // package.json (e.g. metaharness), leaking the CLI version into
+        // package.json (e.g. zagents), leaking the CLI version into
         // manifest.meta.kernel_version and producing a phantom skew in
         // `gemini diag` (iter 149 fix).
-        if (pkg.name && pkg.name !== '@metaharness/kernel') continue;
+        if (pkg.name && pkg.name !== '@zagents/kernel') continue;
         if (typeof pkg.version === 'string' && pkg.version.length > 0) {
           return pkg.version;
         }
@@ -126,7 +126,7 @@ export function formatCatalog(entries: CatalogEntry[]): string[] {
     const counts = `${e.agentCount}a/${e.skillCount}s/${e.commandCount}c`;
     lines.push(`    ${e.id.padEnd(22)} ${counts.padEnd(10)} ${e.quickStart}`);
   }
-  lines.push('', `Scaffold with: metaharness <name> --template <id>`);
+  lines.push('', `Scaffold with: zagents <name> --template <id>`);
   return lines;
 }
 
@@ -223,7 +223,7 @@ export interface ScaffoldOptions {
   force?: boolean;
   generatorVersion: string;
   /**
-   * ADR-147: deep-integrate Darwin Mode (@metaharness/darwin) — the generated
+   * ADR-147: deep-integrate Darwin Mode (@zagents/darwin) — the generated
    * gemini gets `npm run evolve` (+ dry-run), a real `evolve` skill wired to
    * the darwin CLI, and the dependency. Default ON; opt out with `--no-darwin`.
    */
@@ -242,7 +242,7 @@ description: "Evolve this gemini with Darwin Mode — frozen model, evolving gem
 
 # evolve — Darwin Mode self-improvement
 
-\`${name}\` ships with **Darwin Mode** (\`@metaharness/darwin\`, ADR-070…146): the model
+\`${name}\` ships with **Darwin Mode** (\`@zagents/darwin\`, ADR-070…146): the model
 is frozen; the *gemini* evolves. Each generation mutates ONE of the 7 surface files
 (planner, contextBuilder, reviewer, retry/tool/memory/score policy), sandboxes each
 child, scores it, and keeps only variants that *measurably* improve — building an
@@ -258,7 +258,7 @@ npm run evolve:dry    # mock substrate: fast, fully offline, no test execution
 Or directly:
 
 \`\`\`bash
-npx metaharness-darwin evolve . --sandbox real --generations 3 --children 4
+npx zagents-darwin evolve . --sandbox real --generations 3 --children 4
 \`\`\`
 
 ## Safety (secure by default)
@@ -269,13 +269,13 @@ npx metaharness-darwin evolve . --sandbox real --generations 3 --children 4
 - Mutations run in a **sandbox**; only variants that pass your tests are archived.
 - Nothing is promoted without measured improvement (guard against Goodharting).
 
-See \`@metaharness/darwin\` for selection strategies (\`--selection\`, \`--crossover\`,
+See \`@zagents/darwin\` for selection strategies (\`--selection\`, \`--crossover\`,
 \`--curriculum\`), statistical gates (\`--fdr\`, \`--bench\`), and the real-LLM mutator (library API).
 
 ## What the benchmarks taught us (measured, full SWE-bench Lite 300)
 
 Defaults worth carrying into how you evolve and run this gemini (full evidence + CIs in
-\`@metaharness/darwin\`'s \`LEARNINGS.md\` / \`bench/results/RESULTS.md\`):
+\`@zagents/darwin\`'s \`LEARNINGS.md\` / \`bench/results/RESULTS.md\`):
 
 1. **Closed-loop repair is the #1 lever (~2×).** Feeding test/compiler failure back and retrying took
    resolve-rate 7.7% → 15.3% on the *same cheap model*. Iterate against ground truth, don't single-shot.
@@ -386,7 +386,7 @@ export async function scaffold(opts: ScaffoldOptions): Promise<ScaffoldResult> {
         const pkg = JSON.parse(rendered[pkgIdx]!.content);
         pkg.dependencies = pkg.dependencies || {};
         for (const h of hostSet) {
-          const dep = `@metaharness/host-${h}`;
+          const dep = `@zagents/host-${h}`;
           if (!pkg.dependencies[dep]) pkg.dependencies[dep] = '^0.1.1';
         }
         rendered[pkgIdx]!.content = JSON.stringify(pkg, null, 2) + '\n';
@@ -422,7 +422,7 @@ export async function scaffold(opts: ScaffoldOptions): Promise<ScaffoldResult> {
   }
 
   // ADR-147: deep-integrate Darwin Mode. Default ON (opt out with --no-darwin).
-  // Adds the @metaharness/darwin devDependency + `evolve`/`evolve:dry` scripts to
+  // Adds the @zagents/darwin devDependency + `evolve`/`evolve:dry` scripts to
   // the generated package.json, and emits a real `evolve` skill wired to the darwin
   // CLI. Secure by default: the darwin CLI uses the DETERMINISTIC mutator (no network,
   // no API key) behind the validateGeneratedCode safety gate + sandbox.
@@ -432,10 +432,10 @@ export async function scaffold(opts: ScaffoldOptions): Promise<ScaffoldResult> {
       try {
         const pkg = JSON.parse(rendered[pkgIdx]!.content) as Record<string, any>;
         pkg.devDependencies = pkg.devDependencies || {};
-        if (!pkg.devDependencies['@metaharness/darwin']) pkg.devDependencies['@metaharness/darwin'] = DARWIN_VERSION;
+        if (!pkg.devDependencies['@zagents/darwin']) pkg.devDependencies['@zagents/darwin'] = DARWIN_VERSION;
         pkg.scripts = pkg.scripts || {};
-        if (!pkg.scripts.evolve) pkg.scripts.evolve = 'metaharness-darwin evolve . --sandbox real --generations 3 --children 4';
-        if (!pkg.scripts['evolve:dry']) pkg.scripts['evolve:dry'] = 'metaharness-darwin evolve . --sandbox mock --generations 2 --children 3';
+        if (!pkg.scripts.evolve) pkg.scripts.evolve = 'zagents-darwin evolve . --sandbox real --generations 3 --children 4';
+        if (!pkg.scripts['evolve:dry']) pkg.scripts['evolve:dry'] = 'zagents-darwin evolve . --sandbox mock --generations 2 --children 3';
         rendered[pkgIdx]!.content = JSON.stringify(pkg, null, 2) + '\n';
       } catch { /* leave package.json untouched if it doesn't parse */ }
     }
@@ -500,31 +500,31 @@ export function detectRufloProject(dir: string): {
 /**
  * iter 117 — subcommand router. Per the user's directive:
  *
- *   Before generation: `metaharness`
+ *   Before generation: `zagents`
  *   Inside generated gemini: `gemini`
  *
  * The factory side gains 4 explicit verbs (new / from-repo / analyze / genome)
  * so the surface reads as a tool, not as "the thing that takes a name". The
- * legacy bare-name form (`metaharness my-bot`) still works as a back-compat
- * shortcut for `metaharness new my-bot`.
+ * legacy bare-name form (`zagents my-bot`) still works as a back-compat
+ * shortcut for `zagents new my-bot`.
  */
-async function runMetaHarnessSubcommand(sub: string, rest: string[]): Promise<number | null> {
+async function runZAgentsSubcommand(sub: string, rest: string[]): Promise<number | null> {
   switch (sub) {
     case 'new': {
-      // `metaharness new <name> [--template <id>] [--host <id>]`
+      // `zagents new <name> [--template <id>] [--host <id>]`
       // Just an explicit alias for the bare-name form. Falls through to the
       // legacy scaffold pipeline so semantics stay byte-identical.
       return null; // signal "not handled — fall through to main()"
     }
     case 'from-repo': {
-      // `metaharness from-repo <url> <name> [--template <id>] [--host <id>]`
+      // `zagents from-repo <url> <name> [--template <id>] [--host <id>]`
       // Clones a public GitHub repo to a tempdir, runs analyze-repo on it,
       // and scaffolds the recommended gemini as <name>. NO repository code
       // is executed during analysis — same invariant as `analyze`.
       const url = rest[0];
       const name = rest[1];
       if (!url || !name) {
-        console.error('Usage: npx metaharness from-repo <repo-url> <gemini-name> [--template <id>] [--host <id>]');
+        console.error('Usage: npx zagents from-repo <repo-url> <gemini-name> [--template <id>] [--host <id>]');
         return 2;
       }
       // CodeQL #4 (second-order command injection): `url` is user-controlled.
@@ -544,7 +544,7 @@ async function runMetaHarnessSubcommand(sub: string, rest: string[]): Promise<nu
       const { mkdtempSync } = await import('node:fs');
       const { tmpdir } = await import('node:os');
       const { join: pathJoin } = await import('node:path');
-      const tmp = mkdtempSync(pathJoin(tmpdir(), 'metaharness-fromrepo-'));
+      const tmp = mkdtempSync(pathJoin(tmpdir(), 'zagents-fromrepo-'));
       console.log(`Cloning ${url} → ${tmp} (depth=1, code never executed)`);
       const clone = spawnSync('git', ['clone', '--depth=1', '--quiet', '--', url, tmp], { stdio: 'inherit' });
       if (clone.status !== 0) {
@@ -560,7 +560,7 @@ async function runMetaHarnessSubcommand(sub: string, rest: string[]): Promise<nu
       return r.code;
     }
     case 'analyze': {
-      // `metaharness analyze <path> [--scaffold <name>] [--embed]`
+      // `zagents analyze <path> [--scaffold <name>] [--embed]`
       // Alias for `gemini analyze-repo`. Surface unification per the
       // user's command-model directive.
       const { analyzeRepoCmd } = await import('./analyze-repo.js');
@@ -569,7 +569,7 @@ async function runMetaHarnessSubcommand(sub: string, rest: string[]): Promise<nu
       return r.code;
     }
     case 'genome': {
-      // `metaharness genome <path>` — flagship feature per the user.
+      // `zagents genome <path>` — flagship feature per the user.
       // Same code path as `gemini genome`.
       const { genomeCmd } = await import('./genome.js');
       const r = await genomeCmd(rest);
@@ -577,7 +577,7 @@ async function runMetaHarnessSubcommand(sub: string, rest: string[]): Promise<nu
       return r.code;
     }
     case 'score': {
-      // `metaharness score <repo> [--json]` — ADR-041 scorecard (the killer
+      // `zagents score <repo> [--json]` — ADR-041 scorecard (the killer
       // feature). No-exec repo analysis → 6-line fit/cost/safety card.
       const { scoreRepoCmd } = await import('./repo-scorecard.js');
       const r = await scoreRepoCmd(rest);
@@ -595,7 +595,7 @@ export async function main(argv: string[]): Promise<number> {
   // the first arg isn't a recognised subcommand, letting us fall through.
   const first = argv[0];
   if (first && !first.startsWith('-')) {
-    const subResult = await runMetaHarnessSubcommand(first, argv.slice(1));
+    const subResult = await runZAgentsSubcommand(first, argv.slice(1));
     if (subResult !== null) return subResult;
     // `new <name>` — strip the verb and fall through to the legacy scaffold.
     if (first === 'new') {
@@ -616,7 +616,7 @@ export async function main(argv: string[]): Promise<number> {
     // arg-driven scaffold is what CI should use).
     if (!process.stdin.isTTY) {
       console.error('--wizard requires an interactive TTY. Use the arg-driven form in CI:');
-      console.error('  npx metaharness <name> --template <id> --host <id>');
+      console.error('  npx zagents <name> --template <id> --host <id>');
       return 2;
     }
     const { runWizard, makeReadlineAsker, answersToInvocation } = await import('./wizard.js');
@@ -657,16 +657,16 @@ export async function main(argv: string[]): Promise<number> {
   }
 
   if (!args.name) {
-    console.log('Usage: npx metaharness <name> [--template <id>] [--host claude-code|codex|pi-dev|hermes] [--description "..."] [--target <path>] [--force]');
+    console.log('Usage: npx zagents <name> [--template <id>] [--host claude-code|codex|pi-dev|hermes] [--description "..."] [--target <path>] [--force]');
     console.log('       --target <path>   write the gemini to <path> instead of ./<name>');
     console.log('       --no-darwin       skip Darwin Mode self-improvement (default: integrated; adds `npm run evolve`)');
     console.log('       --with-wasm <crate-path>   build a wasm-pack crate into the gemini as commands (GH #25)');
-    console.log('       npx metaharness score <repo> [--json]   (scorecard: fit/cost/safety for a repo — ADR-041)');
-    console.log('       npx metaharness analyze <repo>           (recommend a gemini plan, no-exec)');
-    console.log('       npx metaharness genome <repo>            (7-section repo readiness)');
-    console.log('       npx metaharness --from-existing [./path]');
-    console.log('       npx metaharness --wizard          (iter 100 — interactive picker)');
-    console.log('       npx metaharness --list            (browse all templates)');
+    console.log('       npx zagents score <repo> [--json]   (scorecard: fit/cost/safety for a repo — ADR-041)');
+    console.log('       npx zagents analyze <repo>           (recommend a gemini plan, no-exec)');
+    console.log('       npx zagents genome <repo>            (7-section repo readiness)');
+    console.log('       npx zagents --from-existing [./path]');
+    console.log('       npx zagents --wizard          (iter 100 — interactive picker)');
+    console.log('       npx zagents --list            (browse all templates)');
     console.log('');
     console.log(`Templates: ${TEMPLATES.join(', ')}`);
     console.log(`Hosts: ${HOSTS.join(', ')}`);

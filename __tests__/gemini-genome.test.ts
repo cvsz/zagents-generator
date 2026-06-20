@@ -66,7 +66,7 @@ describe('gemini genome (iter 110)', () => {
       expect(out).toContain('6. Recommended gemini plan');
       expect(out).toContain('7. Scorecard');
       // The footer must surface the scaffold command using the iter-108 rename.
-      expect(out).toMatch(/npx metaharness /);
+      expect(out).toMatch(/npx zagents /);
     } finally {
       await rm(dir, { recursive: true, force: true });
     }

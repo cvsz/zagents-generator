@@ -1,4 +1,4 @@
-# MetaHarness × Hermes cli-config gemini
+# ZAgents × Hermes cli-config gemini
 
 > ⚠️ **Illustrative output.** Transcripts and validation/run output shown in this README are
 > representative examples, not captured from a specific run — actual output depends on your
@@ -10,7 +10,7 @@ A one-shot scaffolder that drops a minimal, working Hermes-integrated agent gemi
 ## Quickstart
 
 ```bash
-npx @metaharness/hermes@latest my-bot
+npx @zagents/hermes@latest my-bot
 cd my-bot && npm install && npm run doctor
 ```
 
@@ -18,7 +18,7 @@ That sequence scaffolds the project, installs dependencies, and runs the gemini 
 
 ## What you get
 
-- `gemini.json` — the canonical MetaHarness manifest (host: `hermes`, template: `minimal`).
+- `gemini.json` — the canonical ZAgents manifest (host: `hermes`, template: `minimal`).
 - `hermes.config.json` — host-specific Hermes CLI configuration with default model + transport settings.
 - `agents/` — one starter agent definition you can copy and rename.
 - `mcp/` — placeholder `servers.json` listing the default MCP servers the gemini expects.
@@ -43,7 +43,7 @@ Expected excerpt:
 [ok] mcp/servers.json parseable
 ```
 
-Validate the manifest against the MetaHarness schema:
+Validate the manifest against the ZAgents schema:
 
 ```bash
 npm run validate
@@ -59,7 +59,7 @@ claude -p --plugin-dir ./my-bot "say hello as my agent"
 You can also re-scaffold over an existing directory by passing `--force` through:
 
 ```bash
-npx @metaharness/hermes@latest my-bot --force
+npx @zagents/hermes@latest my-bot --force
 ```
 
 ## FAQ
@@ -75,7 +75,7 @@ A: Local secrets live in `.gemini/settings.json`, which is gitignored. Add `ANTH
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

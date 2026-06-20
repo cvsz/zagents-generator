@@ -9,11 +9,11 @@ import {
   installRunbook,
   adapter,
 } from '../src/index.js';
-import type { HarnessSpec } from '@metaharness/kernel';
+import type { HarnessSpec } from '@zagents/kernel';
 
 const base: HarnessSpec = { name: 'My Bot', description: 'does things' };
 
-describe('@metaharness/host-github-actions (ADR-033)', () => {
+describe('@zagents/host-github-actions (ADR-033)', () => {
   it('exposes host name github-actions', () => {
     expect(HOST_NAME).toBe('github-actions');
     expect(adapter.name).toBe('github-actions');

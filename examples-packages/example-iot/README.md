@@ -1,24 +1,24 @@
-# @metaharness/example-iot
+# @zagents/example-iot
 
 **IoT and robotics telemetry agent with guarded actuation — scaffold in one command.**
 
 > **Illustrative output notice:** The agents, prompts, and tool calls generated
-> by this scaffold are examples of what a metaharness IoT gemini *could* do.
+> by this scaffold are examples of what a zagents IoT gemini *could* do.
 > They are not a certified safety system. Do not use this gemini to control
 > safety-critical physical systems without independent hardware interlocks and
 > qualified engineering review.
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-iot.svg)](https://www.npmjs.com/package/@metaharness/example-iot)
-[![npm downloads](https://img.shields.io/npm/dm/@metaharness/example-iot.svg)](https://www.npmjs.com/package/@metaharness/example-iot)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-iot.svg)](https://www.npmjs.com/package/@zagents/example-iot)
+[![npm downloads](https://img.shields.io/npm/dm/@zagents/example-iot.svg)](https://www.npmjs.com/package/@zagents/example-iot)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)](https://nodejs.org/)
-[![built with metaharness](https://img.shields.io/badge/built%20with-metaharness-blueviolet)](https://github.com/ruvnet/agent-gemini-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/ruvnet/zagents-generator)
 
 ---
 
 ## Intro
 
-`@metaharness/example-iot` scaffolds an AI agent gemini pre-wired to:
+`@zagents/example-iot` scaffolds an AI agent gemini pre-wired to:
 
 - **`mqtt` v5** (ESM, TypeScript-native) for MQTT broker connectivity — subscribe to device telemetry and, when you explicitly opt in, publish actuation commands.
 - **`roslib` v1.4** for ROS 2 integration via `rosbridge_server` — subscribe to and publish ROS topics from a Node.js agent without requiring a native ROS installation on the agent host.
@@ -47,7 +47,7 @@
 ## Quickstart
 
 ```bash
-npx @metaharness/example-iot@latest my-bot
+npx @zagents/example-iot@latest my-bot
 cd my-bot
 npm install
 npm run doctor
@@ -58,8 +58,8 @@ This scaffolds the gemini into `my-bot/`, installs dependencies, and runs the he
 To scaffold for a specific host:
 
 ```bash
-npx @metaharness/example-iot@latest my-bot --host codex
-npx @metaharness/example-iot@latest my-bot --host all   # emit every host config
+npx @zagents/example-iot@latest my-bot --host codex
+npx @zagents/example-iot@latest my-bot --host all   # emit every host config
 ```
 
 ---
@@ -249,4 +249,4 @@ The audit log records every tool call for post-incident review.
 - **Mosquitto test broker**: https://test.mosquitto.org
 - **ADR-066** (this design): `docs/adrs/ADR-066-example-iot.md` in the generator repo
 - **ADR-051** (examples program): `docs/adrs/ADR-051-third-party-sdk-showcase-examples.md`
-- **metaharness repo**: https://github.com/ruvnet/agent-gemini-generator
+- **zagents repo**: https://github.com/ruvnet/zagents-generator

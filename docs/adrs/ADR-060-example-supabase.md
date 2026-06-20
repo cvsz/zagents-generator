@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -20,7 +20,7 @@ For an AI agent gemini this distinction is directly load-bearing: an agent runni
 
 A secondary challenge is **test/sandbox mode**. Supabase does not offer a separate sandbox endpoint or test key equivalent to Stripe's `sk_test_` prefix. The canonical safe-development path is `supabase start` (CLI-managed Docker stack), which spins a full local Postgres + Auth + Storage + Realtime environment at `http://127.0.0.1:54321` with deterministic local keys surfaced by `supabase status -o env`. Any destructive operation that would mutate a production project is therefore gated behind the user's deliberate choice to point the agent at a remote project URL.
 
-This ADR records the design decisions for the `@metaharness/example-supabase` showcase package, which demonstrates how a metaharness-generated agent correctly handles both key tiers, enforces RLS in normal operation, and integrates with pgvector for RAG-pattern queries — all read-only by default with mutations gated behind an explicit opt-in.
+This ADR records the design decisions for the `@zagents/example-supabase` showcase package, which demonstrates how a zagents-generated agent correctly handles both key tiers, enforces RLS in normal operation, and integrates with pgvector for RAG-pattern queries — all read-only by default with mutations gated behind an explicit opt-in.
 
 ## Decision
 
@@ -138,7 +138,7 @@ Legacy key holders (pre-November 2025 projects) map: `SUPABASE_KEY` = their `SUP
 
 - Supabase does not offer a test-key prefix (unlike Stripe). The local Docker stack is the only true sandbox; the README explicitly states this and links to `supabase start` docs.
 - The example does not scaffold Realtime subscriptions (Postgres CDC); that is a streaming use-case that requires persistent connections ill-suited to a one-shot scaffold demo. Mentioned as a future extension.
-- Edge Functions (Deno) are not demonstrated; the example stays in Node ≥ 20 for compatibility with the metaharness CLI runtime.
+- Edge Functions (Deno) are not demonstrated; the example stays in Node ≥ 20 for compatibility with the zagents CLI runtime.
 - The pgvector `match_documents` RPC pattern requires the user's Supabase project to have the `pgvector` extension enabled and a `document_sections` table with an `embedding vector(1536)` column and RLS enabled. The scaffold emits a `doctor` check that tests for this and prints a setup SQL snippet if it is absent.
 
 ### Not-for-production disclaimer

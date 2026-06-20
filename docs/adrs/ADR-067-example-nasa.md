@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -24,7 +24,7 @@ JavaScript without a server.
 
 Together these two surfaces give an agent gemini three concrete, verifiable
 capabilities that span retrieval, computation, and event monitoring — exactly
-the kind of multi-step workflow that exercises metaharness's tiered routing,
+the kind of multi-step workflow that exercises zagents's tiered routing,
 MCP default-deny gate, skill design, and verification primitives.
 
 Because NASA Open APIs have no mutation surface (all endpoints are read-only
@@ -192,7 +192,7 @@ the variable names only; `.env` is always gitignored.
 
 ### Not-for-production disclaimer
 
-This example is an **illustrative showcase** of the metaharness framework
+This example is an **illustrative showcase** of the zagents framework
 wired to publicly available space-data APIs. It is **not certified for
 operational satellite tracking, collision avoidance, spectrum management, or
 any safety-critical aerospace application**. Orbital data from CelesTrak and

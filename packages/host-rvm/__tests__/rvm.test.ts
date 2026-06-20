@@ -118,7 +118,7 @@ describe('partitionToml', () => {
     expect(out).toMatch(/name = "demo"/);
     expect(out).toMatch(/memory_tier = "Warm"/);
     expect(out).toMatch(/\[wasm_guest\]/);
-    expect(out).toMatch(/package = "@metaharness\/kernel"/);
+    expect(out).toMatch(/package = "@zagents\/kernel"/);
     expect(out).toMatch(/\[metadata\]/);
     expect(out).toMatch(/description = "a demo"/);
   });
@@ -147,7 +147,7 @@ describe('wasmGuestJson', () => {
     const out = wasmGuestJson({ name: 'demo' });
     const parsed = JSON.parse(out);
     expect(parsed.partition).toBe('demo');
-    expect(parsed.guest.package).toBe('@metaharness/kernel');
+    expect(parsed.guest.package).toBe('@zagents/kernel');
     expect(parsed.guest.entrypoint).toMatch(/ruflo_kernel_wasm/);
     expect(parsed.failure_class_recovery.F1).toBe('restart-guest');
     expect(parsed.failure_class_recovery.F4).toBe('partition-evict');

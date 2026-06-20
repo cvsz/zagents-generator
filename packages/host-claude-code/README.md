@@ -1,6 +1,6 @@
-# @metaharness/host-claude-code
+# @zagents/host-claude-code
 
-[Claude Code](https://code.claude.com/docs/en/mcp) host adapter for the [agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator) project.
+[Claude Code](https://code.claude.com/docs/en/mcp) host adapter for the [zagents-generator](https://github.com/ruvnet/zagents-generator) project.
 
 Generates the host-specific config a Claude Code-targeted gemini needs:
 
@@ -11,7 +11,7 @@ Generates the host-specific config a Claude Code-targeted gemini needs:
 ## Usage
 
 ```js
-import adapter from '@metaharness/host-claude-code';
+import adapter from '@zagents/host-claude-code';
 
 const config = adapter.generateConfig({
   name: 'my-bot',

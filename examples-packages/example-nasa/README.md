@@ -1,29 +1,29 @@
-# @metaharness/example-nasa
+# @zagents/example-nasa
 
 **Space-data agent gemini — APOD imagery, EONET Earth events, and satellite pass prediction from TLE**
 
 > **Illustrative output notice**: All agent responses, pass-prediction times, and event summaries in this README are example outputs generated during development. Actual results depend on live NASA API data and current TLE epochs. This showcase is not certified for operational satellite tracking or any safety-critical aerospace application.
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-nasa?style=flat-square)](https://www.npmjs.com/package/@metaharness/example-nasa)
-[![npm downloads](https://img.shields.io/npm/dm/@metaharness/example-nasa?style=flat-square)](https://www.npmjs.com/package/@metaharness/example-nasa)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-nasa?style=flat-square)](https://www.npmjs.com/package/@zagents/example-nasa)
+[![npm downloads](https://img.shields.io/npm/dm/@zagents/example-nasa?style=flat-square)](https://www.npmjs.com/package/@zagents/example-nasa)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen?style=flat-square)](https://nodejs.org/)
-[![Built with MetaHarness](https://img.shields.io/badge/built%20with-metaharness-blueviolet?style=flat-square)](https://github.com/ruvnet/agent-gemini-generator)
+[![Built with ZAgents](https://img.shields.io/badge/built%20with-zagents-blueviolet?style=flat-square)](https://github.com/ruvnet/zagents-generator)
 
 ---
 
 ## Intro
 
-`@metaharness/example-nasa` scaffolds a ready-to-run AI agent gemini pre-wired to NASA's Open APIs and the `satellite.js` SGP4/SDP4 orbital-mechanics library. One `npx` command creates a project with:
+`@zagents/example-nasa` scaffolds a ready-to-run AI agent gemini pre-wired to NASA's Open APIs and the `satellite.js` SGP4/SDP4 orbital-mechanics library. One `npx` command creates a project with:
 
 - Three specialised agents (`space-planner`, `space-executor`, `space-verifier`)
 - A `/space-brief` slash command that delivers a mission brief — today's APOD image, active EONET Earth-observation events, and the next visible satellite pass for your location
 - Tiered model routing (cheap model for data fetching, frontier model for synthesis)
 - MCP default-deny policy granting only the tools this gemini actually needs
 - A verification gate that re-reads API responses and recomputes pass elevation before marking the brief as done
-- Host adapter wiring for every supported metaharness host via `--host`
+- Host adapter wiring for every supported zagents host via `--host`
 
-**What it is NOT**: a production satellite-tracking system, a certified orbital-operations tool, or a replacement for authoritative aerospace data services. It is a concrete, runnable demonstration of the metaharness SDK-showcase pattern applied to space data.
+**What it is NOT**: a production satellite-tracking system, a certified orbital-operations tool, or a replacement for authoritative aerospace data services. It is a concrete, runnable demonstration of the zagents SDK-showcase pattern applied to space data.
 
 ---
 
@@ -48,7 +48,7 @@
 ## Quickstart
 
 ```bash
-npx @metaharness/example-nasa@latest my-space-bot
+npx @zagents/example-nasa@latest my-space-bot
 cd my-space-bot
 npm install
 npm run doctor
@@ -191,7 +191,7 @@ All other tools are denied. Every grant invocation is appended to `.gemini/audit
 
 ### Multi-host scaffold
 
-Pass `--host <id>` to emit the config for a specific host, or `--host all` to emit all nine. Host wiring delegates to the `metaharness` CLI and the relevant `@metaharness/host-<id>` adapter, so host-specific config stays single-sourced.
+Pass `--host <id>` to emit the config for a specific host, or `--host all` to emit all nine. Host wiring delegates to the `zagents` CLI and the relevant `@zagents/host-<id>` adapter, so host-specific config stays single-sourced.
 
 Supported hosts: `claude-code`, `codex`, `copilot`, `github-actions`, `hermes`, `openclaw`, `opencode`, `pi-dev`, `rvm`.
 
@@ -206,6 +206,6 @@ Supported hosts: `claude-code`, `codex`, `copilot`, `github-actions`, `hermes`, 
 - **satellite.js (GitHub)** — [https://github.com/shashwatak/satellite-js](https://github.com/shashwatak/satellite-js)
 - **CelesTrak GP data formats** — [https://celestrak.org/NORAD/documentation/gp-data-formats.php](https://celestrak.org/NORAD/documentation/gp-data-formats.php)
 - **NASA API rate limits** — [https://api.nasa.gov/assets/html/authentication.html](https://api.nasa.gov/assets/html/authentication.html)
-- **ADR-067** (this design) — [docs/adrs/ADR-067-example-nasa.md](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-067-example-nasa.md)
-- **ADR-051** (examples program) — [docs/adrs/ADR-051-third-party-sdk-showcase-examples.md](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
-- **MetaHarness generator** — [https://github.com/ruvnet/agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator)
+- **ADR-067** (this design) — [docs/adrs/ADR-067-example-nasa.md](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-067-example-nasa.md)
+- **ADR-051** (examples program) — [docs/adrs/ADR-051-third-party-sdk-showcase-examples.md](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- **ZAgents generator** — [https://github.com/ruvnet/zagents-generator](https://github.com/ruvnet/zagents-generator)

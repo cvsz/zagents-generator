@@ -12,11 +12,11 @@
 export function packageJsonFor(target, description) {
   // bin command name must be a valid filename — no scope/slash. Use a
   // string bin so npm installs the command under the package's unscoped
-  // name (`devops`, `hermes`, …) and `npx @metaharness/<name>` runs it.
+  // name (`devops`, `hermes`, …) and `npx @zagents/<name>` runs it.
   const keywords = [
-    'metaharness',
+    'zagents',
     'agent-gemini',
-    'agent-gemini-generator',
+    'zagents-generator',
     target.name,
     target.kind, // 'host' | 'vertical'
     target.host,
@@ -26,13 +26,13 @@ export function packageJsonFor(target, description) {
     'scaffold',
   ];
   return JSON.stringify({
-    name: `@metaharness/${target.name}`,
+    name: `@zagents/${target.name}`,
     version: '0.1.0',
     description,
-    homepage: `https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/${target.name}`,
+    homepage: `https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/${target.name}`,
     repository: {
       type: 'git',
-      url: 'https://github.com/ruvnet/agent-gemini-generator.git',
+      url: 'https://github.com/ruvnet/zagents-generator.git',
       directory: `examples-packages/${target.name}`,
     },
     license: 'MIT',

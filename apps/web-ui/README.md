@@ -45,7 +45,7 @@ npm run shot       # regenerate the README screenshots
 ## Build & deploy
 
 ```bash
-npm run build              # base = /agent-gemini-generator/ (GitHub Pages)
+npm run build              # base = /zagents-generator/ (GitHub Pages)
 VITE_BASE=/ npm run build  # base = / (custom domain or root)
 ```
 

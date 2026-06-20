@@ -1,6 +1,6 @@
 # Architecture
 
-A bird's-eye view of how `agent-gemini-generator` is wired. The detail lives in `docs/adrs/`; this is the layered map.
+A bird's-eye view of how `zagents-generator` is wired. The detail lives in `docs/adrs/`; this is the layered map.
 
 ## The three-layer model
 
@@ -17,12 +17,12 @@ A bird's-eye view of how `agent-gemini-generator` is wired. The detail lives in 
 ┌──────────────────────────────────────────────────────────────────┐
 │ Layer 2 — Adapter + Application layer                            │
 │                                                                  │
-│   @metaharness/host-claude-code   @metaharness/host-codex                    │
-│   @metaharness/host-pi-dev        @metaharness/host-hermes                   │
-│   @metaharness/host-openclaw      @metaharness/host-rvm                      │
+│   @zagents/host-claude-code   @zagents/host-codex                    │
+│   @zagents/host-pi-dev        @zagents/host-hermes                   │
+│   @zagents/host-openclaw      @zagents/host-rvm                      │
 │                                                                  │
-│   @metaharness/sdk                @metaharness/vertical-base                 │
-│                             @metaharness/vertical-trading              │
+│   @zagents/sdk                @zagents/vertical-base                 │
+│                             @zagents/vertical-trading              │
 └──────────────────────────────────────────────────────────────────┘
                               │
                               ▼
@@ -33,7 +33,7 @@ A bird's-eye view of how `agent-gemini-generator` is wired. The detail lives in 
 │                        memory, routing, witness, federation)     │
 │   crates/kernel-wasm  (wasm-bindgen target)                      │
 │   crates/kernel-napi  (NAPI-RS target)                           │
-│   @metaharness/kernel       (TS loader + bridge)                       │
+│   @zagents/kernel       (TS loader + bridge)                       │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

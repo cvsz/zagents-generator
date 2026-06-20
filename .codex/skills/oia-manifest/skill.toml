@@ -11,12 +11,12 @@ name = "oia-manifest"
 version = "0.1.0"
 description = "Emit .gemini/oia-manifest.json declaring layer alignment with the OIA v0.1 9-layer reference architecture. Self-describes the gemini's MCP wiring, witness signing, audit log, identity posture (always 'none' at v0.1). --check verifies an existing manifest, --dry-run prints without writing, --json emits to stdout."
 author = "rUv <ruv@ruv.net>"
-homepage = "https://github.com/ruvnet/agent-gemini-generator"
+homepage = "https://github.com/ruvnet/zagents-generator"
 license = "MIT"
 
 [dispatch]
 type = "mcp_tool"
-server = "agent-gemini-generator"
+server = "zagents-generator"
 tool = "oia_manifest"
 
 [command]

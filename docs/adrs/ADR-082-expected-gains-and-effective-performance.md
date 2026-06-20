@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-076 (benchmark), ADR-077 (DGM), ADR-081 (Darwin Plus synthesis), ADR-075 (acceptance)
 
 > Pins what improvement to *expect* from gemini evolution, the single composite metric we report (not raw solve rate), the conditions under which it works and doesn't, and the business-credible framing. Implemented by `src/bench/metrics.ts`.
@@ -50,7 +50,7 @@ Works when: the task has executable feedback; the benchmark is stable; the agent
 
 **Benchmark caution (recorded so we don't over-claim):** SWE-bench-style scores can overstate real-world capability — 2025 work found SWE-bench Verified may overlap model training data (models scored far higher on it than on newer alternatives), and benchmark *mutations* can substantially reduce apparent performance for some agents. Mitigations are already in the design: **hidden tests + rotating seeds** (ADR-076 anti-overfitting), **immutable task-hash snapshots** (ADR-076 anti-tampering), and **repo-native tasks first**, graduating to SWE-bench only once the runner/gates/replay are stable (ADR-076 levels). We treat benchmark numbers as evidence under these controls, not as ground truth.
 
-### 4. Expected trajectory for MetaHarness (compounding, diminishing)
+### 4. Expected trajectory for ZAgents (compounding, diminishing)
 
 | Layer | Baseline | Target | Relative gain |
 |---|---|---|---|

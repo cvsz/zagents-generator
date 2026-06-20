@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-13
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-002 (Kernel boundary), ADR-003 (Generator architecture, the gemini manifest), ADR-008 (Drift detection)
 
 ## Context
@@ -19,16 +19,16 @@ This ADR pins down both: the upgrade flow that keeps a gemini on the upstream ke
 
 ### Default: peer-dep, upgrade via `drift apply-template`
 
-A freshly generated gemini has `@metaharness/kernel` as a peer dependency in its `package.json`:
+A freshly generated gemini has `@zagents/kernel` as a peer dependency in its `package.json`:
 
 ```jsonc
 {
   "name": "@acme/acme-support",
   "peerDependencies": {
-    "@metaharness/kernel": "^1.2.0"
+    "@zagents/kernel": "^1.2.0"
   },
   "dependencies": {
-    "@metaharness/kernel": "^1.2.0"   // also pinned here for self-contained npm install
+    "@zagents/kernel": "^1.2.0"   // also pinned here for self-contained npm install
   },
   "engines": {
     "kernel": "^1.2.0"
@@ -70,7 +70,7 @@ A major-version upgrade has its own flow, below.
 
 When the kernel ships a major version, the kernel team ships a `codemod` alongside:
 
-- The codemod is shipped as `@metaharness/kernel-codemod-N-to-M` (e.g. `@metaharness/kernel-codemod-1-to-2`).
+- The codemod is shipped as `@zagents/kernel-codemod-N-to-M` (e.g. `@zagents/kernel-codemod-1-to-2`).
 - It uses AST-based transforms (the same renamer infrastructure ADR-003 §The renamer specifies) to update import paths, rename moved exports, replace removed signatures.
 - The codemod is run by the user via `npx <gemini-name> upgrade kernel --major --to 2.0.0`.
 
@@ -105,8 +105,8 @@ npx <gemini-name> eject
 The eject flow:
 
 1. **Confirm.** Display the consequences (no more `drift apply kernel`; no more codemod migrations; security fixes are now manual). Require typed confirmation.
-2. **Vendor the kernel.** Copy `node_modules/@metaharness/kernel/` into `vendor/kernel/` in the gemini tree.
-3. **Rewrite imports.** Every `import ... from '@metaharness/kernel/*'` becomes `import ... from '../vendor/kernel/dist/...'`. AST-based rewrite via the same renamer.
+2. **Vendor the kernel.** Copy `node_modules/@zagents/kernel/` into `vendor/kernel/` in the gemini tree.
+3. **Rewrite imports.** Every `import ... from '@zagents/kernel/*'` becomes `import ... from '../vendor/kernel/dist/...'`. AST-based rewrite via the same renamer.
 4. **Drop the kernel from `package.json` `dependencies`.** The `peerDependencies` declaration is also dropped; the eject mode publishes the gemini as kernel-free.
 5. **Add an eject marker.** `.gemini/ejected.json` records the eject metadata: the kernel version vendored, the date, the reason (if supplied).
 6. **Update `.gemini/manifest.json`.** The kernel section becomes `{ "vendored": true, "originalVersion": "1.4.0", "vendoredAt": "..." }`.

@@ -2,14 +2,14 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
 
 ## Context
 
-GitHub is the central coordination surface for virtually every software team that would adopt metaharness. Pull request review, issue triage, and release-notes generation are not hypothetical use cases — they are the day-to-day operations of the same developers who will evaluate this scaffold. This makes `example-github` the canonical "dogfood" example in the ADR-051 catalog: an AI gemini that does real work on the platform that hosts the gemini generator itself.
+GitHub is the central coordination surface for virtually every software team that would adopt zagents. Pull request review, issue triage, and release-notes generation are not hypothetical use cases — they are the day-to-day operations of the same developers who will evaluate this scaffold. This makes `example-github` the canonical "dogfood" example in the ADR-051 catalog: an AI gemini that does real work on the platform that hosts the gemini generator itself.
 
 The Octokit family (`@octokit/rest` v22, `@octokit/graphql` v8) is the official, first-party JavaScript SDK published by GitHub. It maps directly to GitHub's REST and GraphQL APIs, is actively maintained, ships native ESM, and has no meaningful competitors for this API surface — choosing an alternative (e.g., raw `fetch` or a thin wrapper) would sacrifice type-safety and the plugin ecosystem (pagination, throttling, retry) with no benefit.
 
@@ -112,10 +112,10 @@ GitHub Apps authentication (`createAppAuth` from `@octokit/auth-app`) is documen
 
 ### Positive
 
-- Provides a one-command, immediately runnable demonstration that a metaharness-generated agent can drive real GitHub operations safely and verifiably.
+- Provides a one-command, immediately runnable demonstration that a zagents-generated agent can drive real GitHub operations safely and verifiably.
 - The three showcased capabilities (PR review, issue triage, release notes) cover the full read-to-write spectrum and demonstrate both REST and GraphQL surfaces.
-- Read-only default means a first-time operator can run `npx @metaharness/example-github@latest my-bot` against their own repo with no risk of unintended mutations.
-- Serves as the dogfood test: this scaffold can be run against `ruvnet/agent-gemini-generator` itself to validate each release.
+- Read-only default means a first-time operator can run `npx @zagents/example-github@latest my-bot` against their own repo with no risk of unintended mutations.
+- Serves as the dogfood test: this scaffold can be run against `ruvnet/zagents-generator` itself to validate each release.
 - The verification gate (read-back after any write) satisfies ADR-050 without requiring a separate sandbox infrastructure.
 
 ### Limitations

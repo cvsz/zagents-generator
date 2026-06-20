@@ -7,7 +7,7 @@
 
 ## What is this?
 
-`agent-gemini-generator` turns any GitHub repo — or a blank slate — into a
+`zagents-generator` turns any GitHub repo — or a blank slate — into a
 small AI **agent** that knows about that repo and can help work on it.
 
 You don't write code. You don't deploy anything. You don't sign up for an
@@ -44,7 +44,7 @@ codebase, owned by you, runs on your laptop.
 
 ### 1. Paste a GitHub URL and generate a gemini for it
 
-Open the Studio: <https://ruvnet.github.io/agent-gemini-generator/>
+Open the Studio: <https://ruvnet.github.io/zagents-generator/>
 
 1. Click the **Repo → Gemini** tab
 2. Paste a GitHub URL (e.g. `https://github.com/sindresorhus/ky`)
@@ -123,7 +123,7 @@ The Studio shows these commands inline after you pick your hosts.
   your Anthropic plan. Codex uses your OpenAI plan. pi.dev / Hermes /
   OpenClaw / RVM are open-source or self-hosted.
 
-There is no "agent-gemini-generator account."
+There is no "zagents-generator account."
 
 ---
 
@@ -189,7 +189,7 @@ For witness-signed releases, also run `gemini sign` first.
 [ruflo](https://github.com/ruvnet/ruflo) is the big bundled meta-gemini
 that this generator is a focused, factored-apart subset of. ruflo bundles
 the kernel **and** content (60+ agents, 30+ skills, 33 plugins) into a
-single thing. `agent-gemini-generator` lets you take the kernel and
+single thing. `zagents-generator` lets you take the kernel and
 generate just the content you actually need, owned by you, branded by you.
 
 ---
@@ -200,7 +200,7 @@ generate just the content you actually need, owned by you, branded by you.
 - **You want a no-code platform.** This emits Node.js code. You'll need to
   open a terminal.
 - **You want a hosted agent.** This generates local-first artifacts. There's
-  no hosted "agent-gemini-generator service" — the Studio is the UI, the
+  no hosted "zagents-generator service" — the Studio is the UI, the
   `.zip` is the product.
 - **You want to fine-tune a model.** The model is whatever your host uses.
   This tool shapes the *gemini* around the model.
@@ -209,7 +209,7 @@ generate just the content you actually need, owned by you, branded by you.
 
 ## Next steps
 
-1. **Try the Studio:** <https://ruvnet.github.io/agent-gemini-generator/>
+1. **Try the Studio:** <https://ruvnet.github.io/zagents-generator/>
 2. **Generate a gemini for a repo you know:** the first time, pick a repo
    you're familiar with so you can sanity-check the output.
 3. **Read the agent prompts in `src/agents/*.ts`:** that's where the
@@ -222,8 +222,8 @@ generate just the content you actually need, owned by you, branded by you.
 
 ## Where to find help
 
-- Bug? <https://github.com/ruvnet/agent-gemini-generator/issues>
-- Discussion? <https://github.com/ruvnet/agent-gemini-generator/discussions>
+- Bug? <https://github.com/ruvnet/zagents-generator/issues>
+- Discussion? <https://github.com/ruvnet/zagents-generator/discussions>
 - Read the architecture: [`docs/ARCHITECTURE.md`](ARCHITECTURE.md)
 - Read the design decisions: [`docs/adrs/INDEX.md`](adrs/INDEX.md)
 - File a support ticket the right way: `gemini diag --bundle > bundle.json`

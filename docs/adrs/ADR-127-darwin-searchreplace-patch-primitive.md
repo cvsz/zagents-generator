@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — new default patch primitive; resolves the ADR-126 finding
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-126 (whole-file repair regresses large files), ADR-124 (raw diffs corrupt), ADR-125 (runner)
 
 > ADR-126 found whole-file repair reliable on small files but regressing `PASS_TO_PASS` on large ones (a full rewrite changes more than intended). ADR-124 found raw LLM unified diffs corrupt. The middle path — used by real coding agents (Aider) — is a **search/replace** edit: an exact `old → new` block. This makes it the runner default and validates it on the exact case ADR-126 could not resolve.

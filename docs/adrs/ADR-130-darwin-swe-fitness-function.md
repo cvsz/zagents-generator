@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — closes the loop between the SWE runner and the evolutionary engine
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-125–129 (the SWE runner), ADR-072/087 (efficiency tie-break above the capability ceiling), ADR-098 (external-benchmark strategy)
 
 > The whole SWE runner (ADR-123–129) exists so the gemini can be *scored on real tasks*. This closes the loop: a config population is evaluated by the real resolved-criterion over a small corpus, and the SWE resolve-rate (tie-break: cost) **selects** the best gemini configuration — the exact signal `evolve()` would optimize.

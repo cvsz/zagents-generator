@@ -1,7 +1,7 @@
 # DRACO — Cross-Domain Benchmark for Deep Research
 
 **DRACO** (Cross-Domain Benchmark for Deep Research) is the quality gate for the
-`vertical:research` gemini in `agent-gemini-generator`. It produces a measured,
+`vertical:research` gemini in `zagents-generator`. It produces a measured,
 re-runnable **DRACO score** — a number backed by a committed corpus, not a narrative.
 
 > ADR-037 is the authoritative design document. This README is the operator reference.

@@ -1,6 +1,6 @@
-# @metaharness/host-openclaw
+# @zagents/host-openclaw
 
-[OpenClaw](https://github.com/openclaw/openclaw) host adapter for the [agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator) project.
+[OpenClaw](https://github.com/openclaw/openclaw) host adapter for the [zagents-generator](https://github.com/ruvnet/zagents-generator) project.
 
 > OpenClaw — Personal AI Assistant. Any OS. Any Platform. The lobster way. 🦞
 
@@ -13,7 +13,7 @@ Generates the per-gemini files an OpenClaw-targeted gemini needs:
 ## Usage
 
 ```js
-import adapter from '@metaharness/host-openclaw';
+import adapter from '@zagents/host-openclaw';
 
 const config = adapter.generateConfig({
   name: 'my-bot',

@@ -1,4 +1,4 @@
-# MetaHarness: education vertical
+# ZAgents: education vertical
 
 > ⚠️ **Illustrative output.** Transcripts and validation/run output shown in this README are
 > representative examples, not captured from a specific run — actual output depends on your
@@ -10,7 +10,7 @@ A ready-made Claude Code scaffold for a multi-agent tutoring pod. You get a plan
 ## Quickstart
 
 ```bash
-npx @metaharness/education@latest my-bot
+npx @zagents/education@latest my-bot
 cd my-bot && npm install && gemini doctor
 ```
 
@@ -69,7 +69,7 @@ A: Progress goes through the MCP server defined in `.mcp.json` — by default a 
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

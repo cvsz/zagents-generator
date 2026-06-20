@@ -1,20 +1,20 @@
-# @metaharness/example-bio
+# @zagents/example-bio
 
 **One command to scaffold a bioinformatics agent gemini — gene lookup, PubMed literature retrieval, and genomic sequence fetch, wired to NCBI E-utilities and the Ensembl REST API.**
 
 > **Illustrative output notice.** The responses shown in this README are representative examples of what the scaffolded gemini produces against the live NCBI and Ensembl public APIs. Actual results depend on the current state of those databases. This package is for educational and prototyping purposes only — see the [Safety](#safety) section.
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-bio.svg)](https://www.npmjs.com/package/@metaharness/example-bio)
-[![npm downloads](https://img.shields.io/npm/dm/@metaharness/example-bio.svg)](https://www.npmjs.com/package/@metaharness/example-bio)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-bio.svg)](https://www.npmjs.com/package/@zagents/example-bio)
+[![npm downloads](https://img.shields.io/npm/dm/@zagents/example-bio.svg)](https://www.npmjs.com/package/@zagents/example-bio)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)](https://nodejs.org/)
-[![Built with metaharness](https://img.shields.io/badge/built%20with-metaharness-blueviolet)](https://github.com/ruvnet/agent-gemini-generator)
+[![Built with zagents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/ruvnet/zagents-generator)
 
 ---
 
 ## Introduction
 
-`@metaharness/example-bio` scaffolds a ready-to-run AI agent gemini pre-wired to two free, public bioinformatics APIs:
+`@zagents/example-bio` scaffolds a ready-to-run AI agent gemini pre-wired to two free, public bioinformatics APIs:
 
 - **NCBI E-utilities** (`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/`) — 38 Entrez databases including PubMed, Gene, Nucleotide, Protein, and PMC. No subscription required; an optional free API key raises the rate limit from 3 to 10 requests per second.
 - **Ensembl REST API** (`https://rest.ensembl.org`) — genomic reference data for hundreds of species: gene lookup by symbol or stable ID, canonical sequences, variant effect predictions, homology, and coordinate mapping. No authentication required.
@@ -48,7 +48,7 @@ The generated gemini ships three specialised agents (planner, executor, verifier
 ## Quickstart
 
 ```bash
-npx @metaharness/example-bio@latest my-bio-bot
+npx @zagents/example-bio@latest my-bio-bot
 cd my-bio-bot
 npm install
 npm run doctor
@@ -57,9 +57,9 @@ npm run doctor
 This creates `my-bio-bot/` pre-wired for Claude Code (default host). To scaffold for a different host:
 
 ```bash
-npx @metaharness/example-bio@latest my-bio-bot --host codex
-npx @metaharness/example-bio@latest my-bio-bot --host github-actions
-npx @metaharness/example-bio@latest my-bio-bot --host all   # every supported host
+npx @zagents/example-bio@latest my-bio-bot --host codex
+npx @zagents/example-bio@latest my-bio-bot --host github-actions
+npx @zagents/example-bio@latest my-bio-bot --host all   # every supported host
 ```
 
 Supported hosts: `claude-code`, `codex`, `copilot`, `github-actions`, `hermes`, `openclaw`, `opencode`, `pi-dev`, `rvm`.
@@ -73,7 +73,7 @@ Supported hosts: `claude-code`, `codex`, `copilot`, `github-actions`, `hermes`, 
 | Variable | Required | Default | Purpose |
 |---|---|---|---|
 | `NCBI_API_KEY` | Optional | none | Raises NCBI rate limit from 3 to 10 req/s. Get one free at your [NCBI account settings](https://www.ncbi.nlm.nih.gov/account/) → API Key Management. |
-| `NCBI_TOOL_NAME` | Recommended | `metaharness-bio` | Identifies your software to NCBI. Sent as `tool=` query param on all E-utilities calls. Must contain no spaces. |
+| `NCBI_TOOL_NAME` | Recommended | `zagents-bio` | Identifies your software to NCBI. Sent as `tool=` query param on all E-utilities calls. Must contain no spaces. |
 | `NCBI_EMAIL` | Recommended | none | Your contact email. Sent as `email=` param. Required by NCBI to unblock an IP if rate limits are violated. |
 | `ENSEMBL_BASE_URL` | Optional | `https://rest.ensembl.org` | Override to `https://grch37.rest.ensembl.org` if your gene coordinates are on the older GRCh37/hg19 assembly. |
 | `BIO_RETMAX` | Optional | `5` | Maximum number of NCBI results to return per query (maps to the `retmax` E-utilities parameter). Raise to up to 10,000 for bulk workflows; the gemini rate-limits automatically. |
@@ -189,6 +189,6 @@ All other tools and all other network destinations are denied by default.
 - `node-ncbi` GitHub: https://github.com/CAYdenberg/node-ncbi
 - Ensembl REST API: https://rest.ensembl.org/
 - Ensembl REST rate limits: https://github.com/Ensembl/ensembl-rest/wiki/Rate-Limits
-- ADR-069 (this design): https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-069-example-bio-bioinformatics-sdk-showcase.md
-- ADR-051 (examples program): https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md
-- metaharness generator: https://github.com/ruvnet/agent-gemini-generator
+- ADR-069 (this design): https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-069-example-bio-bioinformatics-sdk-showcase.md
+- ADR-051 (examples program): https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md
+- zagents generator: https://github.com/ruvnet/zagents-generator

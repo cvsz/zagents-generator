@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -14,11 +14,11 @@ Hugging Face is the reference open-ML platform hosting 2 M+ models, 1.5 M+ datas
 - **`@huggingface/inference`** (v4.13.19): a unified `InferenceClient` that routes serverless inference to the HF Inference provider (CPU-focused, free tier) or to 20+ third-party inference partners (Together AI, Cerebras, Replicate, fal.ai, Groq, etc.) and to dedicated Inference Endpoints. It exposes chat completion, text generation, feature extraction, summarization, text-to-image, zero-shot classification, ASR, and more — all behind the same typed interface.
 - **`@huggingface/hub`** (v2.13.1): async-generator functions (`listModels`, `listDatasets`, `listSpaces`, `listFiles`, `fileDownload`, `whoAmI`) for read-only Hub exploration, plus write operations (`createRepo`, `uploadFile`, `deleteFiles`) that require a write-scoped token.
 
-Prospective metaharness users building ML pipelines, dataset-exploration tools, or model-evaluation harnesses want a one-command starting point that shows how an agent can discover the best model for a task, run serverless inference against it, and validate the result — without hand-wiring auth, routing tiers, or an MCP policy from scratch.
+Prospective zagents users building ML pipelines, dataset-exploration tools, or model-evaluation harnesses want a one-command starting point that shows how an agent can discover the best model for a task, run serverless inference against it, and validate the result — without hand-wiring auth, routing tiers, or an MCP policy from scratch.
 
 Hugging Face has **no dedicated sandbox or test-key system** analogous to Stripe's test mode. Safety is achieved structurally: the Hub's read APIs (`listModels`, `listDatasets`, `listSpaces`, `fileDownload`) require no write permissions and carry no side-effects; inference calls on the free HF Inference provider incur no charge beyond rate-limit consumption. Mutations (repo creation, file uploads) are gated behind a separate write-scoped token and an explicit `--allow-write` flag in this scaffold.
 
-This ADR records the design decisions for `@metaharness/example-huggingface` (ADR-051 catalog entry 061).
+This ADR records the design decisions for `@zagents/example-huggingface` (ADR-051 catalog entry 061).
 
 ---
 
@@ -119,7 +119,7 @@ Hugging Face has no test-mode key system. Safety is enforced structurally:
 ### Positive
 
 - Provides a one-command starting point for any agent that needs to discover open models and run serverless inference — one of the most common ML engineering tasks.
-- Demonstrates metaharness tiered routing concretely: Haiku for Hub API fan-out (cheap and fast), Sonnet for model selection and verification (where reasoning matters).
+- Demonstrates zagents tiered routing concretely: Haiku for Hub API fan-out (cheap and fast), Sonnet for model selection and verification (where reasoning matters).
 - The MCP policy is narrow and auditable — only `WebFetch`, `WebSearch`, `Read`, and `Write` are granted; no shell access.
 - Read-only default means the example is safe to run by anyone with a free HF account and a read token.
 - Covers Spaces discovery, making the example relevant for users who want to embed or interact with Gradio/Streamlit demos programmatically.

@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MIT
 //
-// ADR-044 — first test suite for @metaharness/host-pi-dev (previously
+// ADR-044 — first test suite for @zagents/host-pi-dev (previously
 // untested). Covers the extension/tool registration, AGENTS.md/SYSTEM.md,
 // and the new trust.json emission.
 
 import { describe, it, expect } from 'vitest';
 import { extensionSource, agentsMarkdown, trustJson, adapter, HOST_NAME } from '../src/index.js';
-import type { HarnessSpec } from '@metaharness/kernel';
+import type { HarnessSpec } from '@zagents/kernel';
 
 const base: HarnessSpec = {
   name: 'my-pi-gemini',
@@ -17,7 +17,7 @@ const base: HarnessSpec = {
   permissions: { allow: ['tool.invoke.search'], deny: ['Read(./.env*)'] },
 };
 
-describe('@metaharness/host-pi-dev', () => {
+describe('@zagents/host-pi-dev', () => {
   it('host name is pi-dev', () => {
     expect(HOST_NAME).toBe('pi-dev');
     expect(adapter.name).toBe('pi-dev');

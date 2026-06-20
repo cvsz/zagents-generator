@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-070 (Darwin Mode head), ADR-072 (scoring + promotion), ADR-022 (MCP default-deny), ADR-011 (witness), ADR-047 (control plane)
 
 > Part of the Darwin Mode series (ADR-070…075). This ADR pins **what a child variant is allowed to change** and the **hard gate** that enforces it. The bound is the product: it is what lets us market Darwin Mode as *bounded* empirical self-improvement rather than uncontrolled recursive rewriting.

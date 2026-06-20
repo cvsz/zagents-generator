@@ -2,14 +2,14 @@
 
 **Status**: Accepted
 **Date**: 2026-06-15
-**Project**: `ruvnet/agent-gemini-generator`
-**Related**: ADR-040 (cost-optimal routing), `@metaharness/router`, `@ruvector/tiny-dancer`
+**Project**: `ruvnet/zagents-generator`
+**Related**: ADR-040 (cost-optimal routing), `@zagents/router`, `@ruvector/tiny-dancer`
 
 ---
 
 ## Context
 
-`@metaharness/router` ships a **k-NN** router: predict each candidate model's
+`@zagents/router` ships a **k-NN** router: predict each candidate model's
 quality on a query by averaging the k nearest labelled examples. ADR-040 measured
 its ceiling — best learned router 92% of oracle on n=20, with a learning curve
 still rising. The natural next step is a *trained* model that generalises better
@@ -45,7 +45,7 @@ principled, regularised generalisation of k-NN:
 - Closed form: dual coefficients `α = (K + λI)⁻¹ y`, where `K_ij = cos(x_i, x_j)`
   (n×n Gram matrix) and `y` is M's qualities. Prediction for a new query `x*`:
   `ŷ_M(x*) = Σ_i α_i · cos(x*, x_i)`. For n≈20 the solve is a trivial Gaussian
-  elimination — pure TS, no native deps, runs anywhere `@metaharness/router` does.
+  elimination — pure TS, no native deps, runs anywhere `@zagents/router` does.
 - The router then routes cost-optimally: cheapest candidate whose predicted
   quality clears the bar (or best-predicted).
 
@@ -74,7 +74,7 @@ a future tiny-dancer FastGRNN model — this pipeline does not block on it.
   oracle, with λ fit to the data — and the honest expectation, on n≈20, that the
   win is bounded by the same data ceiling (the learning curve), so the value
   compounds as the corpus grows.
-- Pure-TS, dependency-free, offline-testable; ships in `@metaharness/router`
+- Pure-TS, dependency-free, offline-testable; ships in `@zagents/router`
   alongside the k-NN router (caller picks). Validated on the committed DRACO
   dataset (LOO vs k-NN vs oracle) and CI-guarded.
 - A clean serialisable model artifact — the substrate for swapping in a native
@@ -96,7 +96,7 @@ data ceiling, not a pipeline failure** (the LOO-chosen λ=0.3 is moderate
 regularisation because the kernel can't learn much structure from 20 points). The
 pipeline's value is that it is the regularised, *trainable, serialisable* router
 that **scales**: as the corpus grows, KRR's λ-controlled bias–variance generalises
-where k-NN overfits (ADR-040's learning curve). Shipped in `@metaharness/router`
+where k-NN overfits (ADR-040's learning curve). Shipped in `@zagents/router`
 (`trainRouter` / `TrainedRouter`, `toJSON`/`fromJSON`), 6 training tests + the
 DRACO validation.
 
@@ -114,7 +114,7 @@ The "substrate for swapping in a native tiny-dancer model later" is now wired.
 `@ruvector/tiny-dancer@0.1.21` shipped a real native (Rust/NAPI, 8 platforms)
 FastGRNN **trainer** — gradients + Adam + `.safetensors` persistence — that
 consumes the **exact `{ embedding, scores }` DRACO row shape** this package
-already uses. `@metaharness/router` now exposes a lazily-loaded adapter to it
+already uses. `@zagents/router` now exposes a lazily-loaded adapter to it
 (`src/native.ts`):
 
 | export | does |
@@ -164,6 +164,6 @@ NOT hit the fixed-5-feature route limitation documented above (that constraint i
 specific to the `Router.route(candidates)` relational-feature API, not the
 single-query `score` path). So the no-code arc — `train` a DRACO dataset → score
 queries to route cheap-vs-strong — works today at real embedding dimensions. The
-`@metaharness/router` README documents both the programmatic (`trainNativeRouter`)
+`@zagents/router` README documents both the programmatic (`trainNativeRouter`)
 and CLI paths. The n=20 generalisation ceiling (val 0.250) is unchanged: the value
 is the scalable, trainable substrate, not a small-data miracle.

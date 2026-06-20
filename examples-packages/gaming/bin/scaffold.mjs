@@ -9,7 +9,7 @@ const forwarded = rawName && rawName.startsWith('-') ? [rawName, ...extra] : ext
 const args = [
   'npx',
   '--yes',
-  'metaharness@latest',
+  'zagents@latest',
   name,
   '--template',
   'vertical:gaming',

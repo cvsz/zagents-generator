@@ -1,5 +1,5 @@
 {
-  "name": "@metaharness/router",
+  "name": "@zagents/router",
   "version": "0.3.2",
   "description": "Cost-optimal model router for AI agent harnesses — route each query to the cheapest model that's good enough (k-NN over labelled embeddings). The productized DRACO Phase-2 finding.",
   "type": "module",
@@ -26,17 +26,17 @@
     "llm-routing",
     "cost-optimal",
     "agent-gemini",
-    "metaharness",
+    "zagents",
     "draco",
     "knn",
     "embeddings"
   ],
   "author": "rUv <ruv@ruv.net>",
   "license": "MIT",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "homepage": "https://github.com/ruvnet/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator"
+    "url": "https://github.com/ruvnet/zagents-generator"
   },
   "engines": {
     "node": ">=20.0.0"

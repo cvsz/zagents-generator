@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-070 (Darwin Mode head), ADR-071 (mutation surfaces + gate), ADR-073 (archive), ADR-037–040 (DRACO measured-win discipline), ADR-040/043 (routing/cost)
 
 > Part of the Darwin Mode series (ADR-070…075). This ADR defines **how a variant is scored** and **the strict gate under which a child replaces its parent**. Scoring is the spine of the whole system: it is what turns "looks better" into "is measurably better and safe."
@@ -71,7 +71,7 @@ export function scoreVariant(
 ): ScoreCard;
 ```
 
-It computes `taskSuccess = passed/total`, derives the penalty flags from traces, folds them into `finalScore`, and sets `promoted` exactly when the gate above holds. The scorecard is persisted per variant in `.metaharness/runs/<id>.json` and attached to the archive record (ADR-073).
+It computes `taskSuccess = passed/total`, derives the penalty flags from traces, folds them into `finalScore`, and sets `promoted` exactly when the gate above holds. The scorecard is persisted per variant in `.zagents/runs/<id>.json` and attached to the archive record (ADR-073).
 
 ## Consequences
 

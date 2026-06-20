@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/hermes",
+  "name": "@zagents/hermes",
   "version": "0.1.1",
-  "description": "MetaHarness example — Hermes cli-config gemini scaffold for AI agents (npx @metaharness/hermes my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/hermes",
+  "description": "ZAgents example — Hermes cli-config gemini scaffold for AI agents (npx @zagents/hermes my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/hermes",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/hermes"
   },
   "license": "MIT",
@@ -21,9 +21,9 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "agent-gemini",
-    "agent-gemini-generator",
+    "zagents-generator",
     "hermes",
     "host",
     "ai-agent",

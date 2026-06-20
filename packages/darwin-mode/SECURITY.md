@@ -1,6 +1,6 @@
 # Darwin Mode — Security Model & Adversarial Audit
 
-> Package: `@metaharness/darwin` (`packages/darwin-mode`)
+> Package: `@zagents/darwin` (`packages/darwin-mode`)
 > Scope: the self-modification boundary — `src/safety.ts`, `src/sandbox.ts`, `src/scorer.ts`.
 > Audit suite: `__tests__/security/` (97 tests).
 

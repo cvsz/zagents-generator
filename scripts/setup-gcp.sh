@@ -3,13 +3,13 @@
 #
 # scripts/setup-gcp.sh
 # One-shot GCP Workload Identity Federation + Secret Manager setup for the
-# agent-gemini-generator publish workflow. Documented step-by-step in
+# zagents-generator publish workflow. Documented step-by-step in
 # docs/setup/gcp-secrets.md; this script automates the gcloud commands so
 # you don't have to copy-paste.
 #
 # Requirements:
 #   - gcloud CLI authenticated as a project owner
-#   - GitHub repo "ruvnet/agent-gemini-generator" exists
+#   - GitHub repo "ruvnet/zagents-generator" exists
 #   - $NPM_TOKEN env var set to the publish token (Automation type)
 #
 # Usage:
@@ -19,7 +19,7 @@
 
 set -euo pipefail
 
-REPO="${REPO:-ruvnet/agent-gemini-generator}"
+REPO="${REPO:-ruvnet/zagents-generator}"
 POOL="${POOL:-github-pool}"
 PROVIDER="${PROVIDER:-github-provider}"
 SA_NAME="${SA_NAME:-agent-gemini-publisher}"
@@ -78,7 +78,7 @@ echo "==> 4. Create publisher SA: $SA_NAME"
 PUBLISHER_SA="${SA_NAME}@${PROJECT_ID}.iam.gserviceaccount.com"
 if ! gcloud iam service-accounts describe "$PUBLISHER_SA" &>/dev/null; then
   gcloud iam service-accounts create "$SA_NAME" \
-    --display-name="agent-gemini-generator npm publisher"
+    --display-name="zagents-generator npm publisher"
 else
   echo "    (already exists)"
 fi

@@ -1,4 +1,4 @@
-# @metaharness/gemini
+# @zagents/gemini
 
 > The Algorithmic Agent Gemini — **the model proposes, the gemini decides, the algorithms verify.**
 
@@ -41,7 +41,7 @@ confidence ≥ threshold ∧ risk ≤ budget ∧ cost ≤ budget ∧ verificatio
 | `kernel`    | the 10-step run lifecycle          | `HarnessKernel` |
 
 This package picks the **steps** and conducts the workers; pair it with
-[`@metaharness/router`](../router) to pick the cheapest good-enough **model** for
+[`@zagents/router`](../router) to pick the cheapest good-enough **model** for
 each step.
 
 ## Quick start
@@ -50,7 +50,7 @@ each step.
 import {
   HarnessKernel, AlgorithmRouter, AgentPool,
   VerifierRegistry, predicateVerifier, PolicyGate, allowTools,
-} from '@metaharness/gemini';
+} from '@zagents/gemini';
 
 const kernel = new HarnessKernel({
   router: new AlgorithmRouter(),                 // task type → strategy (DAG of steps)

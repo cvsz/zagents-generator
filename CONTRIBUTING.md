@@ -1,4 +1,4 @@
-# Contributing to agent-gemini-generator
+# Contributing to zagents-generator
 
 Thanks for considering contributing. The pipeline is production-ready (50+ iters, 478+ tests, 16-job CI matrix). Most contributions land via `/loop` against the [ADR set](./docs/adrs/INDEX.md); design pushback is welcome.
 
@@ -25,8 +25,8 @@ Single command tells you every dev script + every `gemini` subcommand + every CI
 ## First-time setup
 
 ```bash
-git clone https://github.com/ruvnet/agent-gemini-generator
-cd agent-gemini-generator
+git clone https://github.com/ruvnet/zagents-generator
+cd zagents-generator
 
 # Rust workspace
 cargo test --workspace
@@ -56,7 +56,7 @@ node scripts/dev-toolkit.mjs --check-health
 | `crates/kernel/` | The Rust kernel — seven subsystems per [ADR-002](./docs/adrs/ADR-002-kernel-boundary.md) |
 | `crates/kernel-wasm/` | wasm-bindgen surface — primary distribution target |
 | `crates/kernel-napi/` | NAPI-RS surface — native Node.js fallback per [ADR-002a](./docs/adrs/ADR-002a-rust-wasm-napi-publishing-pipeline.md) |
-| `packages/kernel-js/` | `@metaharness/kernel` runtime resolver |
+| `packages/kernel-js/` | `@zagents/kernel` runtime resolver |
 | `packages/create-agent-gemini/` | `create-agent-gemini` CLI entry point |
 | `.github/workflows/` | CI, publish (GCP-secret-gated), security |
 | `docs/adrs/` | 17 ADRs defining the system end-to-end |

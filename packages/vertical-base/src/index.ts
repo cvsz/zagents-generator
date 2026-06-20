@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 //
-// @metaharness/vertical-base — shared contract for @metaharness/vertical-* packs.
+// @zagents/vertical-base — shared contract for @zagents/vertical-* packs.
 //
 // Per ADR-013, vertical packs are PUBLISHED as standalone npm packages
 // so each can be owned by a domain expert without touching the

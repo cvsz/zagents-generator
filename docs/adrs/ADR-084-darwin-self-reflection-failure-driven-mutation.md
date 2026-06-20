@@ -2,7 +2,7 @@
 
 **Status**: Accepted (implemented)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-070 (Darwin Mode head), ADR-071 (mutation surfaces + `CodeGenerator` contract), ADR-072 (scorer + promotion), ADR-077 (DGM foundation)
 
 > The `CodeGenerator` contract (ADR-071) always declared a reflection channel — `repoSummary`, `parentScore`, `failedTraces` — but the loop fed it nothing. This ADR records wiring that channel so a child mutation can target the parent's *actual* failures instead of mutating blind. It is the DGM "self-modify in response to evaluation" mechanism (ADR-077), at the mutation-operator level.

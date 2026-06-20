@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// Base path for GitHub Pages: served from /agent-gemini-generator/.
+// Base path for GitHub Pages: served from /zagents-generator/.
 // Override with VITE_BASE=/ for local root-serving or custom domains.
-const base = process.env.VITE_BASE ?? '/agent-gemini-generator/';
+const base = process.env.VITE_BASE ?? '/zagents-generator/';
 
 export default defineConfig({
   base,

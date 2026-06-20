@@ -5,7 +5,7 @@ const resources = {
   en: {
     translation: {
       "app": {
-        "title": "MetaHarness",
+        "title": "ZAgents",
         "studio": "Studio",
         "tour": "Tour",
         "client_side": "100% client-side",
@@ -30,7 +30,7 @@ const resources = {
   th: {
     translation: {
       "app": {
-        "title": "MetaHarness",
+        "title": "ZAgents",
         "studio": "สตูดิโอ",
         "tour": "แนะนำ",
         "client_side": "ฝั่งไคลเอนต์ 100%",

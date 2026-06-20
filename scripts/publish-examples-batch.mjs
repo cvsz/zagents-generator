@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 //
-// iter 140 — batch-publish the @metaharness/* example packages.
+// iter 140 — batch-publish the @zagents/* example packages.
 //
-// PREREQUISITE: the @metaharness npm ORG must exist (create it at
+// PREREQUISITE: the @zagents npm ORG must exist (create it at
 // npmjs.com/org/create with ruvnet as owner). `npm org` CLI only manages
 // members — it cannot create the org.
 //
@@ -45,14 +45,14 @@ for (const name of targets) {
     if (/cannot publish over|previously published|403/.test(msg)) {
       results.push({ name, status: 'SKIP (exists)' });
     } else if (/Scope not found|404/.test(msg)) {
-      results.push({ name, status: 'FAIL — @metaharness org not created yet' });
+      results.push({ name, status: 'FAIL — @zagents org not created yet' });
     } else {
       results.push({ name, status: 'FAIL', detail: msg.slice(0, 120) });
     }
   }
 }
 
-console.log('\n@metaharness/* publish batch:');
+console.log('\n@zagents/* publish batch:');
 for (const r of results) {
   console.log(`  ${r.name.padEnd(18)} ${r.status}${r.detail ? ' — ' + r.detail : ''}`);
 }

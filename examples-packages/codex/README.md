@@ -1,4 +1,4 @@
-# MetaHarness × OpenAI Codex / Codex CLI
+# ZAgents × OpenAI Codex / Codex CLI
 
 > ⚠️ **Illustrative output.** Transcripts and validation/run output shown in this README are
 > representative examples, not captured from a specific run — actual output depends on your
@@ -10,7 +10,7 @@ A minimal, opinionated scaffold for building agent harnesses that target the Ope
 ## Quickstart
 
 ```bash
-npx @metaharness/codex@latest my-bot
+npx @zagents/codex@latest my-bot
 cd my-bot && npm install && gemini doctor
 ```
 
@@ -22,7 +22,7 @@ That produces a working gemini in `./my-bot`, installs dependencies, and runs th
 - `agents/main.md` — a starter agent prompt with frontmatter, ready to edit.
 - `hooks/` — pre-task and post-task lifecycle hook stubs wired into the gemini runtime.
 - `gemini.json` — manifest the `gemini` CLI uses for `doctor` and `validate`.
-- `package.json` — minimal, no runtime deps beyond `metaharness`.
+- `package.json` — minimal, no runtime deps beyond `zagents`.
 - `.gitignore`, `README.md`, and an `examples/` directory with a runnable hello-world task.
 - A `scripts/dev.mjs` entry point that boots Codex CLI with the local config in one command.
 
@@ -63,12 +63,12 @@ Yes. The Codex CLI reads `OPENAI_API_KEY` from your environment. `gemini doctor`
 **Can I rename the project after scaffolding?**
 Yes. Rename the directory and update the `name` field in `gemini.json` and `package.json`. Nothing else hardcodes the project name.
 
-**How is this different from running `npx metaharness` directly?**
-This package pins `--template minimal --host codex` so you skip the prompts. Under the hood it calls the same `metaharness` generator — you get the identical output as the long form, with one fewer decision to make.
+**How is this different from running `npx zagents` directly?**
+This package pins `--template minimal --host codex` so you skip the prompts. Under the hood it calls the same `zagents` generator — you get the identical output as the long form, with one fewer decision to make.
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

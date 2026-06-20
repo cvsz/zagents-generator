@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/sales",
+  "name": "@zagents/sales",
   "version": "0.1.0",
-  "description": "MetaHarness example — sales pipeline pod (qualifier, opener, closer) for Claude Code (npx @metaharness/sales my-bot)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator/tree/main/examples-packages/sales",
+  "description": "ZAgents example — sales pipeline pod (qualifier, opener, closer) for Claude Code (npx @zagents/sales my-bot)",
+  "homepage": "https://github.com/ruvnet/zagents-generator/tree/main/examples-packages/sales",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "examples-packages/sales"
   },
   "license": "MIT",
@@ -21,9 +21,9 @@
     "smoke": "node --check bin/scaffold.mjs"
   },
   "keywords": [
-    "metaharness",
+    "zagents",
     "agent-gemini",
-    "agent-gemini-generator",
+    "zagents-generator",
     "sales",
     "vertical",
     "claude-code",

@@ -6,7 +6,7 @@ rust-version.workspace = true
 license.workspace = true
 repository.workspace = true
 authors.workspace = true
-description = "Cross-platform kernel for the agent-gemini-generator (MCP, hooks, memory, routing, intelligence, claims, witness)"
+description = "Cross-platform kernel for the zagents-generator (MCP, hooks, memory, routing, intelligence, claims, witness)"
 keywords = ["agent", "mcp", "wasm", "gemini", "scaffold"]
 categories = ["api-bindings", "wasm"]
 

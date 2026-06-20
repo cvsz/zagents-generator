@@ -21,7 +21,7 @@ import { join } from 'node:path';
 export interface Fixture {
   /** Absolute path to the fixture repo (what `evolve` profiles + runs). */
   repoRoot: string;
-  /** Absolute path to the throwaway `.metaharness` work tree for this run. */
+  /** Absolute path to the throwaway `.zagents` work tree for this run. */
   workRoot: string;
   /** Remove both trees. Always call in afterEach/finally. */
   cleanup: () => Promise<void>;

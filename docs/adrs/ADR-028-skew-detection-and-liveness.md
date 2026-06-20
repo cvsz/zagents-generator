@@ -10,14 +10,14 @@
 By iter 65 the project had three production surfaces:
 
 1. **The CLI generator** (`packages/create-agent-gemini/`) + 15 `gemini` subcommands
-2. **The Studio** deployed to GitHub Pages (`https://ruvnet.github.io/agent-gemini-generator/`)
-3. **The published npm packages** that downstream harnesses depend on (`@metaharness/kernel`, 6 host adapters, `create-agent-gemini`, …)
+2. **The Studio** deployed to GitHub Pages (`https://ruvnet.github.io/zagents-generator/`)
+3. **The published npm packages** that downstream harnesses depend on (`@zagents/kernel`, 6 host adapters, `create-agent-gemini`, …)
 
 Every one of those surfaces can drift independently:
 
 | Surface | Drift mode |
 |---|---|
-| Downstream gemini ↔ local `@metaharness/kernel` | User pulls a gemini that was scaffolded against kernel `0.1.0`; their local install is `0.2.0` → manifest assertions in `gemini doctor` start failing because the meta-block hash drifts |
+| Downstream gemini ↔ local `@zagents/kernel` | User pulls a gemini that was scaffolded against kernel `0.1.0`; their local install is `0.2.0` → manifest assertions in `gemini doctor` start failing because the meta-block hash drifts |
 | Downstream gemini ↔ local `create-agent-gemini` | User runs `gemini upgrade` against a gemini scaffolded with create-agent-gemini `0.1.0`; their local CLI is `0.3.0` → re-renders produce surprise diffs that look like local damage |
 | CLI surface ↔ web-UI surface | ADR-027 contract — both must emit byte-identical scaffolds for the same `(name, host, template)`. A version skew between the npm-installed CLI and the deployed Studio produces "same input, different output" reports |
 | Pages deploy ↔ live URL | The deploy step can return 200 (Pages API said OK) while the served URL is broken or stale (CDN propagation, build cache, bundle ref mismatch). This bit the repo on iter 57's first deploys |

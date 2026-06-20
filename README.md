@@ -1,12 +1,12 @@
 <div align="center">
 
-# MetaHarness
+# ZAgents
 
 ### Mint a custom AI agent gemini from any repo.
 
-`npx metaharness` · [open the Studio →](https://ruvnet.github.io/zagents-generator/)
+`npx zagents` · [open the Studio →](https://ruvnet.github.io/zagents-generator/)
 
-<sub>(Repo: `cvsz/zagents-generator` · CLI: `metaharness` · Library: `@cvsz/zagents-generator`)</sub>
+<sub>(Repo: `cvsz/zagents-generator` · CLI: `zagents` · Library: `@cvsz/zagents-generator`)</sub>
 
 [![Open the Studio](https://img.shields.io/badge/Studio-open_in_browser_↗-7c5cff?style=for-the-badge&logo=githubpages&logoColor=white)](https://ruvnet.github.io/zagents-generator/)
 [![User guide](https://img.shields.io/badge/User_guide-plain_language-22c55e?style=for-the-badge)](docs/USERGUIDE.md)
@@ -24,7 +24,7 @@
 
 **Every serious repo deserves its own agent.** A repo-aware CLI, a repo-aware coding agent, a local MCP server, memory scoped to the project, skills generated from the actual file layout, governance policy, release verification, witness-signed provenance.
 
-`metaharness` mints those, on demand, from a GitHub URL or a blank slate. **It is not another agent framework. It is a factory for agent frameworks.**
+`zagents` mints those, on demand, from a GitHub URL or a blank slate. **It is not another agent framework. It is a factory for agent frameworks.**
 
 The model is replaceable. The gemini is the product.
 
@@ -42,18 +42,18 @@ Output is an npm-publishable `.zip` with **your name on it, your branding, your 
 
 ### New
 
-- **Score any repo before you build it.** `npx metaharness score <repo>` reads
+- **Score any repo before you build it.** `npx zagents score <repo>` reads
   the repo (never runs it) and prints a one-screen report card — how well a
   gemini fits, how likely it is to build, how safe the tools are, and the
   rough **cost per run** — so you know what you'll get before scaffolding.
-- **Pick the cheapest model that's good enough.** [`@metaharness/router`](https://www.npmjs.com/package/@metaharness/router)
+- **Pick the cheapest model that's good enough.** [`@zagents/router`](https://www.npmjs.com/package/@zagents/router)
   routes each request to the right model from your own results — same quality,
   far less spend. Works out of the box with zero native deps; **train it on your
-  data** for a sharper fit (`npm i @metaharness/router`). Add the optional
+  data** for a sharper fit (`npm i @zagents/router`). Add the optional
   [`@ruvector/tiny-dancer`](https://www.npmjs.com/package/@ruvector/tiny-dancer)
   to train a fast native model instead — same training data, no API change.
 - **Let your gemini improve itself.** Every scaffold now ships with **Darwin Mode**
-  ([`@metaharness/darwin`](https://www.npmjs.com/package/@metaharness/darwin)) wired in —
+  ([`@zagents/darwin`](https://www.npmjs.com/package/@zagents/darwin)) wired in —
   run `npm run evolve` and the gemini mutates its own config, tests each change in a
   sandbox, and keeps only what *measurably* improves. The model stays frozen; the gemini
   evolves. Safe by default (no network, no API key; pure refactor/tuning behind a safety
@@ -76,7 +76,7 @@ it and make it yours:
   scope, and `npm publish` — now anyone on your team runs
   `npx @your-org/your-gemini` and gets the *same* repo-tuned agent. One
   command, org-wide, versioned like any other dependency. (The 19
-  [`@metaharness/*`](examples-packages/) examples are exactly this pattern,
+  [`@zagents/*`](examples-packages/) examples are exactly this pattern,
   published live.)
 
 **Make older, cheaper models punch like frontier ones.** The right gemini
@@ -86,9 +86,9 @@ benchmark proves it: a small, cheap model delivers **frontier-quality** research
 at roughly **one-tenth the cost**, and a smart router squeezes out the rest.
 Stop paying frontier prices for work a $0.10 model does just as well.
 
-That router ships as [`@metaharness/router`](https://www.npmjs.com/package/@metaharness/router)
+That router ships as [`@zagents/router`](https://www.npmjs.com/package/@zagents/router)
 — `route(query)` returns the cheapest model predicted to clear your quality bar,
-learned from your own eval logs. `npm i @metaharness/router`.
+learned from your own eval logs. `npm i @zagents/router`.
 
 ## Try it in 30 seconds
 
@@ -97,14 +97,14 @@ learned from your own eval logs. `npm i @metaharness/router`.
 open https://ruvnet.github.io/zagents-generator/
 
 # Or in the terminal — the same gemini (behaviourally equivalent output)
-npx metaharness my-bot --template vertical:coding --host claude-code
+npx zagents my-bot --template vertical:coding --host claude-code
 cd my-bot && npx . --help
 ```
 
 **Don't know what to pick?** Run the wizard:
 
 ```bash
-npx metaharness --wizard
+npx zagents --wizard
 ```
 
 **Already have a repo you want a gemini for?**
@@ -154,8 +154,8 @@ MCP is included as a first-class **adapter surface, not the identity**. It is ga
 ## Verticals (19 quick-start templates)
 
 ```bash
-npx metaharness --list
-npx metaharness my-bot --template vertical:coding
+npx zagents --list
+npx zagents my-bot --template vertical:coding
 ```
 
 | Category | Templates |
@@ -174,40 +174,40 @@ Each ships bespoke domain agents (with system prompts), skills, commands, and pe
 ## One-command examples
 
 Don't want to pick flags? Each host and vertical has a dedicated
-`@metaharness/*` wrapper — **published, one `npx` away**, no template/host
+`@zagents/*` wrapper — **published, one `npx` away**, no template/host
 flags to remember. A scaffold from a wrapper is byte-identical to the
-equivalent `metaharness` invocation.
+equivalent `zagents` invocation.
 
 **Host integrations**
 
 | Package | Scaffolds | npm |
 |---|---|---|
-| `npx @metaharness/claude-code my-bot` | Claude Code workspace + plugin | [![npm](https://img.shields.io/npm/v/@metaharness/claude-code?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/claude-code) |
-| `npx @metaharness/codex my-bot` | OpenAI Codex | [![npm](https://img.shields.io/npm/v/@metaharness/codex?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/codex) |
-| `npx @metaharness/hermes my-bot` | Hermes cli-config | [![npm](https://img.shields.io/npm/v/@metaharness/hermes?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/hermes) |
-| `npx @metaharness/pi-dev my-bot` | pi.dev AGENTS.md | [![npm](https://img.shields.io/npm/v/@metaharness/pi-dev?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/pi-dev) |
-| `npx @metaharness/openclaw my-bot` | OpenClaw `.openclaw/` | [![npm](https://img.shields.io/npm/v/@metaharness/openclaw?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/openclaw) |
-| `npx @metaharness/rvm my-bot` | RVM deployment partition | [![npm](https://img.shields.io/npm/v/@metaharness/rvm?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/rvm) |
-| `npx @metaharness/copilot my-bot` | VSCode / Copilot `mcp.json` | [![npm](https://img.shields.io/npm/v/@metaharness/copilot?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/copilot) |
-| `npx @metaharness/opencode my-bot` | OpenCode `.opencode/` | [![npm](https://img.shields.io/npm/v/@metaharness/opencode?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/opencode) |
-| `npx @metaharness/github-actions my-bot` | GitHub Actions CI/CD (non-interactive) | [![npm](https://img.shields.io/npm/v/@metaharness/github-actions?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/github-actions) |
+| `npx @zagents/claude-code my-bot` | Claude Code workspace + plugin | [![npm](https://img.shields.io/npm/v/@zagents/claude-code?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/claude-code) |
+| `npx @zagents/codex my-bot` | OpenAI Codex | [![npm](https://img.shields.io/npm/v/@zagents/codex?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/codex) |
+| `npx @zagents/hermes my-bot` | Hermes cli-config | [![npm](https://img.shields.io/npm/v/@zagents/hermes?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/hermes) |
+| `npx @zagents/pi-dev my-bot` | pi.dev AGENTS.md | [![npm](https://img.shields.io/npm/v/@zagents/pi-dev?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/pi-dev) |
+| `npx @zagents/openclaw my-bot` | OpenClaw `.openclaw/` | [![npm](https://img.shields.io/npm/v/@zagents/openclaw?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/openclaw) |
+| `npx @zagents/rvm my-bot` | RVM deployment partition | [![npm](https://img.shields.io/npm/v/@zagents/rvm?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/rvm) |
+| `npx @zagents/copilot my-bot` | VSCode / Copilot `mcp.json` | [![npm](https://img.shields.io/npm/v/@zagents/copilot?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/copilot) |
+| `npx @zagents/opencode my-bot` | OpenCode `.opencode/` | [![npm](https://img.shields.io/npm/v/@zagents/opencode?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/opencode) |
+| `npx @zagents/github-actions my-bot` | GitHub Actions CI/CD (non-interactive) | [![npm](https://img.shields.io/npm/v/@zagents/github-actions?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/github-actions) |
 
 **Vertical workflows** (ready-made multi-agent pods)
 
 | Package | Scaffolds | npm |
 |---|---|---|
-| `npx @metaharness/devops my-bot` | incident response | [![npm](https://img.shields.io/npm/v/@metaharness/devops?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/devops) |
-| `npx @metaharness/research my-bot` | multi-source dossier | [![npm](https://img.shields.io/npm/v/@metaharness/research?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/research) |
-| `npx @metaharness/trading my-bot` | quant trading (paper-by-default) | [![npm](https://img.shields.io/npm/v/@metaharness/trading?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/trading) |
-| `npx @metaharness/support my-bot` | customer support | [![npm](https://img.shields.io/npm/v/@metaharness/support?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/support) |
-| `npx @metaharness/legal my-bot` | contract redline (drafts only) | [![npm](https://img.shields.io/npm/v/@metaharness/legal?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/legal) |
-| `npx @metaharness/repo-maintainer my-bot` | OSS repo maintainer | [![npm](https://img.shields.io/npm/v/@metaharness/repo-maintainer?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/repo-maintainer) |
-| `npx @metaharness/coding my-bot` | engineering pod | [![npm](https://img.shields.io/npm/v/@metaharness/coding?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/coding) |
-| `npx @metaharness/education my-bot` | tutor pod | [![npm](https://img.shields.io/npm/v/@metaharness/education?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/education) |
-| `npx @metaharness/sales my-bot` | sales pipeline pod | [![npm](https://img.shields.io/npm/v/@metaharness/sales?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/sales) |
-| `npx @metaharness/gaming my-bot` | game-design pod | [![npm](https://img.shields.io/npm/v/@metaharness/gaming?color=cb3837&logo=npm)](https://www.npmjs.com/package/@metaharness/gaming) |
+| `npx @zagents/devops my-bot` | incident response | [![npm](https://img.shields.io/npm/v/@zagents/devops?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/devops) |
+| `npx @zagents/research my-bot` | multi-source dossier | [![npm](https://img.shields.io/npm/v/@zagents/research?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/research) |
+| `npx @zagents/trading my-bot` | quant trading (paper-by-default) | [![npm](https://img.shields.io/npm/v/@zagents/trading?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/trading) |
+| `npx @zagents/support my-bot` | customer support | [![npm](https://img.shields.io/npm/v/@zagents/support?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/support) |
+| `npx @zagents/legal my-bot` | contract redline (drafts only) | [![npm](https://img.shields.io/npm/v/@zagents/legal?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/legal) |
+| `npx @zagents/repo-maintainer my-bot` | OSS repo maintainer | [![npm](https://img.shields.io/npm/v/@zagents/repo-maintainer?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/repo-maintainer) |
+| `npx @zagents/coding my-bot` | engineering pod | [![npm](https://img.shields.io/npm/v/@zagents/coding?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/coding) |
+| `npx @zagents/education my-bot` | tutor pod | [![npm](https://img.shields.io/npm/v/@zagents/education?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/education) |
+| `npx @zagents/sales my-bot` | sales pipeline pod | [![npm](https://img.shields.io/npm/v/@zagents/sales?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/sales) |
+| `npx @zagents/gaming my-bot` | game-design pod | [![npm](https://img.shields.io/npm/v/@zagents/gaming?color=cb3837&logo=npm)](https://www.npmjs.com/package/@zagents/gaming) |
 
-All 18 are live on npm under [`@metaharness`](https://www.npmjs.com/org/metaharness). Source + per-package README:
+All 18 are live on npm under [`@zagents`](https://www.npmjs.com/org/zagents). Source + per-package README:
 [`examples-packages/`](examples-packages/) · plain-language deep-dive gists:
 [`examples-packages/GISTS.md`](examples-packages/GISTS.md).
 
@@ -224,7 +224,7 @@ After scaffolding, every gemini has a `gemini` CLI:
 | Check kernel ↔ gemini compatibility | `gemini diag` |
 | Score the gemini 0-100 with badges | `gemini score` |
 | Pre-scaffold: is this REPO ready for an agent? | `gemini genome <repo>` |
-| Pre-scaffold: fit/cost/safety report card for a repo | `metaharness score <repo>` |
+| Pre-scaffold: fit/cost/safety report card for a repo | `zagents score <repo>` |
 | MCP threat-model artifact for a PR review | `gemini threat-model` |
 | Declare OIA v0.1 layer alignment | `gemini oia-manifest` |
 | File a useful support ticket | `gemini diag --bundle > bundle.json` |
@@ -276,12 +276,12 @@ You (gemini author)
         └→ Your gemini (.zip)    ← what you ship
              ├ npx <your-name>     ← your identity
              ├ <your agents>       ← your content
-             └ @metaharness/kernel       ← shared primitives (Rust + WASM + NAPI-RS)
+             └ @zagents/kernel       ← shared primitives (Rust + WASM + NAPI-RS)
                   └→ Host adapter (Claude Code / Codex / pi.dev / Hermes / OpenClaw / RVM)
                        └→ LLM providers
 ```
 
-You operate the factory. The factory produces your gemini. Your users never see the factory — only the brand and CLI you ship. The kernel ships as `@metaharness/kernel` (Rust → wasm-pack + NAPI-RS); your content stays yours.
+You operate the factory. The factory produces your gemini. Your users never see the factory — only the brand and CLI you ship. The kernel ships as `@zagents/kernel` (Rust → wasm-pack + NAPI-RS); your content stays yours.
 
 📖 Deeper: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) · [docs/adrs/INDEX.md](docs/adrs/INDEX.md) (31 ADRs)
 
@@ -331,28 +331,28 @@ MIT — see [LICENSE](LICENSE).
 
 ## FAQ
 
-### What is MetaHarness?
+### What is ZAgents?
 
-MetaHarness is a CLI and browser Studio that turns any GitHub repo (or a
+ZAgents is a CLI and browser Studio that turns any GitHub repo (or a
 blank slate) into a custom AI agent gemini. The output is a branded,
 npm-publishable package with its own `npx <name>` CLI, MCP server, memory,
 governance policy, and Ed25519 witness-signed releases. Runs on Claude
 Code, OpenAI Codex, pi.dev, Hermes, OpenClaw, and RVM.
 
-### How is MetaHarness different from an agent framework?
+### How is ZAgents different from an agent framework?
 
-Frameworks help **developers** build agents. MetaHarness helps
+Frameworks help **developers** build agents. ZAgents helps
 **repositories** ship agents. The model is replaceable; the gemini is
 the product.
 
 ### Do I need to run a server?
 
 No. The Studio is 100% client-side (GitHub Pages). The CLI runs locally.
-There is no MetaHarness account, no hosted backend, no telemetry.
+There is no ZAgents account, no hosted backend, no telemetry.
 
 ### Does it execute my code during analysis?
 
-No. `metaharness analyze` and `metaharness genome` are deterministic
+No. `zagents analyze` and `zagents genome` are deterministic
 static-analysis only. Inferred build/test commands are marked
 `trust: inferred · execution: disabled`.
 
@@ -377,4 +377,4 @@ Ed25519 witness; `gemini sbom` emits SPDX-2.3.
 
 ---
 
-> **Keywords:** metaharness, AI agent CLI, AI agent scaffold, AI agent generator, repo to agent, GitHub repo to AI agent, agent gemini, agent gemini generator, agent framework alternative, agentic AI, agentic workflow, autonomous AI agents, multi-agent framework, multi-agent system, MCP, MCP server, model context protocol, Claude Code plugin, OpenAI Codex plugin, Anthropic agents, GPT agent, Codex agent, pi.dev extension, hermes agent, Nous Research, OpenClaw, RVM agent, vertical AI agents, custom AI CLI, npx metaharness, npm create AI agent, Rust WASM agent kernel, NAPI-RS, wasm-bindgen, agent memory, ReasoningBank, HNSW vector search, emergent time, witness manifest, Ed25519 signed, provenance, SBOM, SPDX, SLSA, plugin marketplace, IPFS registry, drift detection, anti-slop, TDD agents, self-evolving agents, federated agents, swarm intelligence, GCP Workload Identity Federation, Secret Manager, npm provenance, repo-aware AI, repo-native CLI, repo factory.
+> **Keywords:** zagents, AI agent CLI, AI agent scaffold, AI agent generator, repo to agent, GitHub repo to AI agent, agent gemini, agent gemini generator, agent framework alternative, agentic AI, agentic workflow, autonomous AI agents, multi-agent framework, multi-agent system, MCP, MCP server, model context protocol, Claude Code plugin, OpenAI Codex plugin, Anthropic agents, GPT agent, Codex agent, pi.dev extension, hermes agent, Nous Research, OpenClaw, RVM agent, vertical AI agents, custom AI CLI, npx zagents, npm create AI agent, Rust WASM agent kernel, NAPI-RS, wasm-bindgen, agent memory, ReasoningBank, HNSW vector search, emergent time, witness manifest, Ed25519 signed, provenance, SBOM, SPDX, SLSA, plugin marketplace, IPFS registry, drift detection, anti-slop, TDD agents, self-evolving agents, federated agents, swarm intelligence, GCP Workload Identity Federation, Secret Manager, npm provenance, repo-aware AI, repo-native CLI, repo factory.

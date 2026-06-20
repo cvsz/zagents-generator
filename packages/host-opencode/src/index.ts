@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 //
-// @metaharness/host-opencode — OpenCode (sst/opencode) host adapter. The 8th host,
+// @zagents/host-opencode — OpenCode (sst/opencode) host adapter. The 8th host,
 // per ADR-036.
 //
 // Verified integration surface (research from ADR-036):
@@ -19,7 +19,7 @@
 //   deny rules from .gemini/mcp-policy.json verbatim, so the gemini's
 //   posture wins through OpenCode's own enforcement gate.
 
-import type { HostAdapter, HarnessSpec, McpServerSpec, AgentSpec } from '@metaharness/kernel';
+import type { HostAdapter, HarnessSpec, McpServerSpec, AgentSpec } from '@zagents/kernel';
 
 export const HOST_NAME = 'opencode' as const;
 

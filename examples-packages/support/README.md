@@ -1,11 +1,11 @@
-# MetaHarness: support vertical
+# ZAgents: support vertical
 
 A ready-made customer-support multi-agent template for Claude Code. Scaffolds a four-agent pipeline — triager, KB-searcher, responder, escalator — wired with tier-routed model selection, shared memory, and the MCP servers a support workflow actually needs. It is opinionated about pipeline shape and agent boundaries; it is not a hosted product, not a ticketing system, and not a CRM. You bring the knowledge base, the inbox, and the escalation channel; the scaffold gives you the agents and the glue.
 
 ## Quickstart
 
 ```bash
-npx @metaharness/support@latest my-bot
+npx @zagents/support@latest my-bot
 cd my-bot && npm install && gemini doctor
 ```
 
@@ -62,7 +62,7 @@ A: Yes. Delete `agents/escalator.md` and remove the escalator handoff line in `C
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

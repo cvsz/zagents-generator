@@ -2,7 +2,7 @@
 
 **Status**: Proposed (frontier — phased)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-071 (mutation surfaces), ADR-077 (DGM), ADR-078 (HGM), ADR-079 (SGM), ADR-081 (Darwin Plus synthesis)
 
 > Grounds the meta-evolution frontier in the **Hyperagents** paper (arXiv:2603.19461, Zhang, Zhao, Yang, Foerster, Clune, Jiang, Devlin, Shavrina) and defines the **bounded, phased** path Darwin Mode will take toward it.

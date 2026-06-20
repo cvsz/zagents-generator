@@ -37,7 +37,7 @@ describe('doctor fail message recommends diag --bundle (iter 93)', () => {
       expect(out).toMatch(/Next:\s*capture the full diagnostic state/);
       expect(out).toMatch(/gemini diag .* --bundle > bundle\.json/);
       // ...and the GitHub issues URL
-      expect(out).toContain('github.com/ruvnet/agent-gemini-generator/issues');
+      expect(out).toContain('github.com/ruvnet/zagents-generator/issues');
       // ...and the sanitisation reassurance (so users don't worry about leaks)
       expect(out).toMatch(/secret_\/token_\/key_\/password_ fields are redacted/);
     } finally {

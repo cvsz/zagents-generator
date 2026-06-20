@@ -7,7 +7,7 @@ This skill scaffolds an AI agent gemini from inside the OpenAI Codex CLI.
 ```bash
 # User-global
 mkdir -p ~/.codex/skills/create-gemini
-curl -fsSL https://raw.githubusercontent.com/ruvnet/agent-gemini-generator/main/.codex/skills/create-gemini/skill.toml \
+curl -fsSL https://raw.githubusercontent.com/ruvnet/zagents-generator/main/.codex/skills/create-gemini/skill.toml \
   -o ~/.codex/skills/create-gemini/skill.toml
 
 # Or copy into a trusted project (.codex/skills/create-gemini/skill.toml)
@@ -16,13 +16,13 @@ curl -fsSL https://raw.githubusercontent.com/ruvnet/agent-gemini-generator/main/
 You also need the MCP server registered. Either:
 
 ```bash
-codex mcp add agent-gemini-generator -- npx -y create-agent-gemini@latest mcp-serve
+codex mcp add zagents-generator -- npx -y create-agent-gemini@latest mcp-serve
 ```
 
 or paste this into `~/.codex/config.toml`:
 
 ```toml
-[mcp_servers.agent-gemini-generator]
+[mcp_servers.zagents-generator]
 command = "npx"
 args = ["-y", "create-agent-gemini@latest", "mcp-serve"]
 ```

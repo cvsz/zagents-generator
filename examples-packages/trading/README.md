@@ -1,4 +1,4 @@
-# MetaHarness: trading vertical
+# ZAgents: trading vertical
 
 > ⚠️ **Illustrative output.** Transcripts and validation/run output shown in this README are
 > representative examples, not captured from a specific run — actual output depends on your
@@ -10,7 +10,7 @@ A ready-made multi-agent scaffold for quantitative trading workflows on top of C
 ## Quickstart
 
 ```bash
-npx @metaharness/trading@latest my-bot
+npx @zagents/trading@latest my-bot
 cd my-bot && npm install && gemini doctor
 ```
 
@@ -71,7 +71,7 @@ A: Add a markdown spec under `strategies/`, then ask the strategist agent to imp
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

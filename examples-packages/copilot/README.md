@@ -1,4 +1,4 @@
-# MetaHarness × VSCode/Copilot mcp.json
+# ZAgents × VSCode/Copilot mcp.json
 
 > ⚠️ **Illustrative output.** Transcripts and validation/run output shown in this README are
 > representative examples, not captured from a specific run — actual output depends on your
@@ -10,7 +10,7 @@ A minimal scaffold that wires up GitHub Copilot in VSCode with MCP (Model Contex
 ## Quickstart
 
 ```bash
-npx @metaharness/copilot@latest my-bot
+npx @zagents/copilot@latest my-bot
 cd my-bot && npm install && gemini doctor
 ```
 
@@ -20,7 +20,7 @@ Then open `my-bot/` in VSCode. Copilot Chat will detect `mcp.json` and offer to 
 
 - `.vscode/mcp.json` — Copilot-compatible MCP server registry with sensible defaults (filesystem, fetch, memory)
 - `.github/copilot-instructions.md` — repo-scoped instructions Copilot Chat reads automatically
-- `gemini.config.json` — MetaHarness manifest declaring the host, template, and validation rules
+- `gemini.config.json` — ZAgents manifest declaring the host, template, and validation rules
 - `package.json` with `gemini` CLI wired up for doctor/validate/sync workflows
 - `agents/` directory with one starter agent definition and a README on how to add more
 - `.gitignore` and `.vscodeignore` tuned for MCP server logs and local secrets
@@ -70,7 +70,7 @@ A: Yes, and it's recommended for team consistency. Keep secrets out of it — us
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

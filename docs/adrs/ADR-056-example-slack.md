@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -16,7 +16,7 @@ The platform provides two complementary npm packages maintained by Slack under t
 - **`@slack/web-api`** (v7.17.0 as of June 2026) — a typed WebClient wrapping all 200+ Slack REST methods. Import style: `import { WebClient } from '@slack/web-api';`. Instantiate with a token (`xoxb-` for bots, `xoxp-` for user tokens). Suitable for direct, programmatic API calls from agent executor steps.
 - **`@slack/bolt`** (v4.7.3 as of June 2026) — an opinionated app framework that wires up slash-command handlers, event listeners, interactive-component callbacks, and the Socket Mode WebSocket transport (no public URL required for local/firewalled environments). Import style: `import { App } from '@slack/bolt';`.
 
-Both packages require Node ≥ 18; this example targets Node ≥ 20 to align with the metaharness baseline.
+Both packages require Node ≥ 18; this example targets Node ≥ 20 to align with the zagents baseline.
 
 Slack does not provide a "test-mode key" like Stripe. Its equivalents for safe development are:
 
@@ -123,7 +123,7 @@ Optional (opt-in only):
 
 ### Positive
 
-- Provides a one-command proof that a generated metaharness can safely drive real Slack workspaces from nine different host environments.
+- Provides a one-command proof that a generated zagents can safely drive real Slack workspaces from nine different host environments.
 - The read-only default means a developer can install and explore the gemini in a real (or development) workspace with zero risk of message spam.
 - Socket Mode makes the bot immediately runnable on a laptop or a Raspberry Pi without ngrok or a public domain, which aligns with the `pi-dev` host adapter.
 - The three-agent design cleanly separates concerns: the ChannelReader never makes decisions, the TriagePlanner never writes, and the NotifyExecutor is the only agent with a write path — and only when explicitly unlocked.

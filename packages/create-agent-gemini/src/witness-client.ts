@@ -69,7 +69,7 @@ export async function verifyWitness(manifest: unknown): Promise<VerificationResu
 
   // Delegate to the kernel for the cryptographic check.
   try {
-    const { loadKernel } = await import('@metaharness/kernel');
+    const { loadKernel } = await import('@zagents/kernel');
     const kernel = await loadKernel() as unknown as { witnessVerify?: (json: string) => boolean | string };
     if (typeof kernel.witnessVerify === 'function') {
       const result = kernel.witnessVerify(JSON.stringify(m));

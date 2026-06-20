@@ -14,7 +14,7 @@ export interface HarnessMeta {
    *  validate umbrella decide which parity test bucket the gemini should
    *  pass, and tells operators which surface to debug when drift surfaces. */
   surface?: 'cli' | 'web-ui';
-  /** `@metaharness/kernel` version the gemini was scaffolded against. ADR-022
+  /** `@zagents/kernel` version the gemini was scaffolded against. ADR-022
    *  identifies kernel version skew as the most common root cause of
    *  manifest-shape disagreement between CLI + Pages deployments. Recording
    *  it here turns "drift" into "v0.1.5 vs v0.1.6 mismatch". */

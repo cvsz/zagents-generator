@@ -4,10 +4,10 @@
 // Topologically-ordered workspace build. `npm run -ws --if-present build`
 // runs in undefined order — when `host-rvm` builds BEFORE `kernel-js` has
 // produced its `dist/index.d.ts`, tsc fails with "Cannot find module
-// '@metaharness/kernel'". This script fixes the order:
+// '@zagents/kernel'". This script fixes the order:
 //
-//   1. @metaharness/kernel        (everyone depends on it)
-//   2. @metaharness/vertical-base (vertical-trading depends on it)
+//   1. @zagents/kernel        (everyone depends on it)
+//   2. @zagents/vertical-base (vertical-trading depends on it)
 //   3. SDK + host adapters + create-agent-gemini (parallel-safe)
 //   4. vertical-trading + bench
 

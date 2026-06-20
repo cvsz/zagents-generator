@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -11,7 +11,7 @@
 
 Electronic Health Records (EHR) are among the most consequential data sources an AI agent could interact with. FHIR (Fast Healthcare Interoperability Resources) R4 has become the US federal mandate (21st Century Cures Act) and the de-facto international interchange standard for patient data, lab results, medical device telemetry, medications, and clinical observations. For an agent gemini to be useful in health-tech contexts — clinical analytics platforms, IoT medical devices, patient-facing apps, population-health pipelines — it must be able to read, interpret, and act on FHIR resources in a safe, auditable, and regulation-aware way.
 
-The agent-gemini-generator user base includes health-tech startups building SMART on FHIR apps, hospital IT teams integrating wearables and implantable telemetry, and researchers who need to fan out queries across Patient/Observation/Device cohorts. Today a user generating a gemini for these workflows starts from scratch. This example eliminates that first weekend of wiring.
+The zagents-generator user base includes health-tech startups building SMART on FHIR apps, hospital IT teams integrating wearables and implantable telemetry, and researchers who need to fan out queries across Patient/Observation/Device cohorts. Today a user generating a gemini for these workflows starts from scratch. This example eliminates that first weekend of wiring.
 
 `fhir-kit-client` (npm: `fhir-kit-client`, maintained by Vermonster) is the most widely referenced Node.js FHIR R4 client. It is framework-agnostic, ESM-native as of v2.0.2 (May 2026), requires Node 18+, ships TypeScript types, supports both open and authenticated (Bearer token / SMART Backend Services) endpoints, and covers every FHIR REST operation the example needs: `read`, `search`, `operation`, `nextPage`, and `smartAuthMetadata`. It is the natural choice for a showcase targeting health/medical device data.
 

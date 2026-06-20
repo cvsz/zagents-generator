@@ -228,7 +228,7 @@ async function commit(
 /**
  * Run a full Darwin Mode evolution. Returns the baseline, the winning record,
  * the whole archive, and the winner's lineage. Side effects are confined to the
- * `<workRoot>/.metaharness`-style tree (variants, runs, reports, archive.json,
+ * `<workRoot>/.zagents`-style tree (variants, runs, reports, archive.json,
  * lineage.json).
  */
 export async function evolve(config: EvolutionConfig): Promise<EvolutionResult> {

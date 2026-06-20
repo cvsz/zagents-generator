@@ -2,10 +2,10 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-070 (Darwin Mode head), ADR-072 (scorer), ADR-073 (archive), ADR-076 (benchmark), ADR-078 (HGM), ADR-079 (SGM), ADR-080 (Hyperagents), ADR-081 (Darwin Plus synthesis)
 
-> First of the SOTA grounding ADRs (ADR-077…081). This one pins what we take directly from the **Darwin Gödel Machine** paper (arXiv:2505.22954, Zhang, Hu, Lu, Lange, Clune) and how it maps onto the code already shipped in `@metaharness/darwin`.
+> First of the SOTA grounding ADRs (ADR-077…081). This one pins what we take directly from the **Darwin Gödel Machine** paper (arXiv:2505.22954, Zhang, Hu, Lu, Lange, Clune) and how it maps onto the code already shipped in `@zagents/darwin`.
 
 ## Context
 

@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -97,7 +97,7 @@ The example defaults to a Pinecone integrated-inference index using the `multili
 
 **Positive**
 
-- One-command scaffold wires a fully functional RAG memory loop across all nine metaharness hosts with a single API key.
+- One-command scaffold wires a fully functional RAG memory loop across all nine zagents hosts with a single API key.
 - Integrated inference means zero external embedding dependency — the scaffold has one less moving part to break.
 - Namespace isolation (`gemini-dev` default) makes it safe to run against a shared project without stomping production data.
 - The MCP server surface (`pinecone-io/pinecone-mcp`, GA 2026) means hosts that support MCP (Claude Code, Codex, Hermes, OpenCode) get native tool access without any custom server code.

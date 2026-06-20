@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — last autonomous step-3 prep; informs the step-3 patch primitive
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-123 (runner adapter, whole-file patch), ADR-098 (external-benchmark strategy)
 
 > ADR-123 applied patches by whole-file replacement. Real SWE-bench applies a **unified diff** with `git apply` (model output is a diff). This validates a real `git apply` primitive end-to-end — and surfaces a concrete finding about which patch representation is reliable.

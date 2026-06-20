@@ -9,7 +9,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { trainRouter, TrainedRouter } from '@metaharness/router';
+import { trainRouter, TrainedRouter } from '@zagents/router';
 
 const DS = join(dirname(fileURLToPath(import.meta.url)), '..', 'draco', 'runs', 'routing-dataset.json');
 

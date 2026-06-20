@@ -2,7 +2,7 @@
 
 **Status**: Proposed
 **Date**: 2026-06-17
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-051 (examples program), ADR-022 (MCP default-deny), ADR-026 (tiered routing), ADR-050 (verification-gated output)
 
 ---
@@ -15,7 +15,7 @@ The Azure JavaScript SDK (`@azure/*`) is the canonical client surface. `@azure/i
 
 Azure has no universal "sandbox" mode. Safe-by-default is achieved through: read-only RBAC roles (Reader, Storage Blob Data Reader, Cognitive Services OpenAI User) that prevent any mutation even if code attempts it; Azurite (the local storage emulator) for Blob operations; and prompt-level dry-run logic in the agent (listing resources, generating a plan, and presenting it for approval before any `PUT`/`DELETE` is issued). Mutation — creating resource groups, uploading blobs, provisioning resources — is gated behind an explicit `--allow-mutations` flag in the scaffolded gemini.
 
-This ADR records the design decisions for the `@metaharness/example-azure` showcase package, conforming to the ADR-051 contract.
+This ADR records the design decisions for the `@zagents/example-azure` showcase package, conforming to the ADR-051 contract.
 
 ---
 
@@ -115,7 +115,7 @@ Required env vars:
 
 - **Read-only by default**: the scaffolded gemini assigns only Reader + Storage Blob Data Reader + Cognitive Services OpenAI User roles in its setup instructions. Even if mutation tools exist in the MCP grant list, they carry `requires_flag: allow_mutations`.
 - **No sandbox mode**: Azure has no universal test-key mode. Safety is achieved through RBAC (no write permission at the IAM level), Azurite for local blob development, and dry-run logic in the executor that logs what it _would_ do without calling the SDK.
-- **`--allow-mutations` flag**: must be passed explicitly to `npx @metaharness/example-azure my-bot --allow-mutations`. The scaffolded `HARNESS_ALLOW_MUTATIONS=false` default in `.env.example` enforces the safe default even when the flag is accidentally set.
+- **`--allow-mutations` flag**: must be passed explicitly to `npx @zagents/example-azure my-bot --allow-mutations`. The scaffolded `HARNESS_ALLOW_MUTATIONS=false` default in `.env.example` enforces the safe default even when the flag is accidentally set.
 - **Azurite integration**: the scaffold ships an `npm run azurite` convenience script that starts the local Blob/Queue/Table emulator. When `AZURE_STORAGE_CONNECTION_STRING=UseDevelopmentStorage=true` is detected, the gemini automatically routes blob operations to Azurite, preventing accidental real-storage writes.
 - **Secrets never in files**: all secrets are loaded exclusively from environment variables. The scaffold emits `.env.example` with placeholder values and `.gitignore` entries covering `.env`, `*.pem`, and `*.pfx`.
 

@@ -44,7 +44,7 @@ Add `gemini analyze-repo [path]` — a local, analysis-only repo analyzer that m
 
 **What this costs**
 
-- A second copy of the archetype library + scoring (Node vs. browser package boundary). Small and pinned by tests on both sides; a future refactor could extract a shared `@metaharness/repo-archetypes` package.
+- A second copy of the archetype library + scoring (Node vs. browser package boundary). Small and pinned by tests on both sides; a future refactor could extract a shared `@zagents/repo-archetypes` package.
 - A documented `createRequire`/CJS workaround for ruvllm's ESM packaging bug — revisit when upstream fixes it.
 
 ## Alternatives Considered

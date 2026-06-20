@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// ADR-041 scorecard tests — `metaharness score <repo>`.
+// ADR-041 scorecard tests — `zagents score <repo>`.
 
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { mkdtempSync, writeFileSync, rmSync, mkdirSync } from 'node:fs';
@@ -101,7 +101,7 @@ describe('scoreRepoCmd', () => {
   it('no path → usage, exit 2', async () => {
     const r = await scoreRepoCmd([]);
     expect(r.code).toBe(2);
-    expect(r.lines.join('\n')).toMatch(/Usage: metaharness score/);
+    expect(r.lines.join('\n')).toMatch(/Usage: zagents score/);
   });
   it('--help → exit 0 usage', async () => {
     expect((await scoreRepoCmd(['--help'])).code).toBe(0);

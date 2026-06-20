@@ -11,7 +11,7 @@ ADR-020 commits to a browser-only generator: nothing leaves the user's machine, 
 Two concrete problems have to be solved:
 
 1. **In-browser packaging.** The generator's product is a zip of small text files. It must be assembled and handed to the user without a server round-trip, and ideally be byte-stable for identical inputs so it composes cleanly with the provenance story (ADR-011) later.
-2. **Static hosting under a project path.** GitHub Pages serves this repo's site from `https://<owner>.github.io/agent-gemini-generator/` — a *subpath*, not a domain root. A Vite app built with the default `base: '/'` ships absolute `/assets/...` URLs that 404 under a subpath. SPA deep links 404 too, because Pages has no server-side rewrite.
+2. **Static hosting under a project path.** GitHub Pages serves this repo's site from `https://<owner>.github.io/zagents-generator/` — a *subpath*, not a domain root. A Vite app built with the default `base: '/'` ships absolute `/assets/...` URLs that 404 under a subpath. SPA deep links 404 too, because Pages has no server-side rewrite.
 
 ## Decision
 
@@ -21,10 +21,10 @@ Two concrete problems have to be solved:
 
 ### Base path: env-driven, Pages-default
 
-`vite.config.ts` reads `base` from `VITE_BASE`, defaulting to `/agent-gemini-generator/`:
+`vite.config.ts` reads `base` from `VITE_BASE`, defaulting to `/zagents-generator/`:
 
 ```ts
-const base = process.env.VITE_BASE ?? '/agent-gemini-generator/';
+const base = process.env.VITE_BASE ?? '/zagents-generator/';
 ```
 
 - **Production Pages build** uses the default — assets resolve under the project subpath.
@@ -77,7 +77,7 @@ The `deploy` job (`needs: build`) publishes via `actions/deploy-pages@v4` under 
 
 - **Hash-router instead of the 404.html fallback.** Avoids the copy step but puts `#/...` in every URL; the app is effectively single-route today, so the fallback is cheaper and keeps URLs clean.
 - **`peaceiris/actions-gh-pages` pushing to a `gh-pages` branch.** Works, but the first-party `actions/deploy-pages` + `upload-pages-artifact` flow needs no PAT and no branch to maintain. Chosen for the smaller trust surface.
-- **Hard-code `base: '/agent-gemini-generator/'`.** Simpler, but breaks local `vite preview`, the e2e run, and the screenshot script, all of which serve from root. The env-var indirection is one line and removes that whole class of "works in CI, 404s locally" friction.
+- **Hard-code `base: '/zagents-generator/'`.** Simpler, but breaks local `vite preview`, the e2e run, and the screenshot script, all of which serve from root. The env-var indirection is one line and removes that whole class of "works in CI, 404s locally" friction.
 - **Stream the zip from a serverless function for very large scaffolds.** Unnecessary at this scale (kilobytes) and would reintroduce exactly the backend ADR-020 spent its decision removing.
 
 ## Test Contract

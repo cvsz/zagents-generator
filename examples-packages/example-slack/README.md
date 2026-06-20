@@ -1,20 +1,20 @@
-# @metaharness/example-slack
+# @zagents/example-slack
 
-> Channel triage, scoped-token notify, and a `/triage` slash-command bot — pre-wired to `@slack/web-api` + `@slack/bolt`, safe by default, runnable on every metaharness host in one command.
+> Channel triage, scoped-token notify, and a `/triage` slash-command bot — pre-wired to `@slack/web-api` + `@slack/bolt`, safe by default, runnable on every zagents host in one command.
 
 > **Illustrative output.** The agents in this scaffold produce classifications and draft messages based on your Slack channel history. All output is for demonstration purposes. No messages are sent unless you explicitly opt in with `--allow-send` and `HARNESS_ALLOW_SEND=true`. This is not a production-ready application and has not been audited for compliance with Slack's Terms of Service or any regulated-industry data requirements.
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-slack?label=%40metaharness%2Fexample-slack)](https://www.npmjs.com/package/@metaharness/example-slack)
-[![npm downloads](https://img.shields.io/npm/dm/@metaharness/example-slack)](https://www.npmjs.com/package/@metaharness/example-slack)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-slack?label=%40zagents%2Fexample-slack)](https://www.npmjs.com/package/@zagents/example-slack)
+[![npm downloads](https://img.shields.io/npm/dm/@zagents/example-slack)](https://www.npmjs.com/package/@zagents/example-slack)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org/)
-[![built with metaharness](https://img.shields.io/badge/built%20with-metaharness-blueviolet)](https://github.com/ruvnet/agent-gemini-generator)
+[![built with zagents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/ruvnet/zagents-generator)
 
 ---
 
 ## Intro
 
-`@metaharness/example-slack` scaffolds a complete agent gemini wired to the official Slack Node.js SDK. It demonstrates three things:
+`@zagents/example-slack` scaffolds a complete agent gemini wired to the official Slack Node.js SDK. It demonstrates three things:
 
 1. **Channel triage** — agents read your Slack channel history, classify messages by urgency (HIGH / MED / LOW), and produce a structured report. They never post automatically.
 2. **Scoped-token notify** — with an explicit opt-in flag, the gemini posts a summary to a nominated channel using the narrowest possible `chat:write` scope.
@@ -26,21 +26,21 @@
 
 ## Features
 
-| metaharness capability | How this example shows it |
+| zagents capability | How this example shows it |
 |---|---|
 | **Tiered model routing** | Haiku (cheap) for message collection and notification drafts; Sonnet (frontier) for urgency classification and send/verify decisions |
 | **MCP default-deny** | `.gemini/mcp-policy.json` grants only `api.test`, `conversations.list`, `conversations.history`, `users.info`, `fs_read` (gemini paths only), and `audit_log`; `chat.postMessage` is behind an explicit opt-in |
 | **Slash command** | `/triage` — registered via `@slack/bolt`; runs the full pipeline and responds ephemerally |
 | **Specialized agents** | ChannelReader (read-only, Tier 2), TriagePlanner (classification, Tier 3), NotifyExecutor (draft + guarded send, Tier 2/3) |
 | **Verification gate** | After any `chat.postMessage`, NotifyExecutor reads back the channel with `conversations.history` and asserts the message `ts` is present before reporting done |
-| **All 9 hosts** | `--host all` emits config for `claude-code`, `codex`, `copilot`, `github-actions`, `hermes`, `openclaw`, `opencode`, `pi-dev`, `rvm` via the metaharness CLI + `@metaharness/host-<id>` adapters |
+| **All 9 hosts** | `--host all` emits config for `claude-code`, `codex`, `copilot`, `github-actions`, `hermes`, `openclaw`, `opencode`, `pi-dev`, `rvm` via the zagents CLI + `@zagents/host-<id>` adapters |
 
 ---
 
 ## Quickstart
 
 ```bash
-npx @metaharness/example-slack@latest my-slack-bot
+npx @zagents/example-slack@latest my-slack-bot
 cd my-slack-bot && npm install && npm run doctor
 ```
 
@@ -49,13 +49,13 @@ cd my-slack-bot && npm install && npm run doctor
 To scaffold for a specific host:
 
 ```bash
-npx @metaharness/example-slack@latest my-slack-bot --host pi-dev
+npx @zagents/example-slack@latest my-slack-bot --host pi-dev
 ```
 
 To scaffold for every supported host at once:
 
 ```bash
-npx @metaharness/example-slack@latest my-slack-bot --host all
+npx @zagents/example-slack@latest my-slack-bot --host all
 ```
 
 ---
@@ -224,5 +224,5 @@ All grant evaluations are written to `.gemini/audit.jsonl`.
 - [Slack OAuth scopes reference](https://api.slack.com/scopes)
 - [Slack Developer Sandboxes](https://docs.slack.dev/tools/developer-sandboxes/)
 - [Socket Mode guide](https://docs.slack.dev/apis/events-api/using-socket-mode/)
-- [ADR-056: example-slack design record](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-056-example-slack.md)
-- [ADR-051: Third-party SDK showcase examples program](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)
+- [ADR-056: example-slack design record](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-056-example-slack.md)
+- [ADR-051: Third-party SDK showcase examples program](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-051-third-party-sdk-showcase-examples.md)

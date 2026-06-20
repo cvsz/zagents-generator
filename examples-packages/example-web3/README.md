@@ -1,26 +1,26 @@
-# @metaharness/example-web3
+# @zagents/example-web3
 
-**A MetaHarness scaffold that wires a multi-agent gemini to the Ethereum ecosystem via viem — reading balances, streaming events, and simulating transactions on a testnet, safely by default.**
+**A ZAgents scaffold that wires a multi-agent gemini to the Ethereum ecosystem via viem — reading balances, streaming events, and simulating transactions on a testnet, safely by default.**
 
 > **Illustrative output disclaimer.** The agents scaffolded by this package
-> demonstrate MetaHarness capabilities against public blockchain testnets.
+> demonstrate ZAgents capabilities against public blockchain testnets.
 > All output is for educational purposes only and does not constitute
 > financial advice. No mainnet private keys should ever be used with this
 > example. See the [Safety](#safety) section.
 
 ---
 
-[![npm version](https://img.shields.io/npm/v/@metaharness/example-web3?label=%40metaharness%2Fexample-web3)](https://www.npmjs.com/package/@metaharness/example-web3)
-[![npm downloads](https://img.shields.io/npm/dm/@metaharness/example-web3)](https://www.npmjs.com/package/@metaharness/example-web3)
+[![npm version](https://img.shields.io/npm/v/@zagents/example-web3?label=%40zagents%2Fexample-web3)](https://www.npmjs.com/package/@zagents/example-web3)
+[![npm downloads](https://img.shields.io/npm/dm/@zagents/example-web3)](https://www.npmjs.com/package/@zagents/example-web3)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org/)
-[![Built with MetaHarness](https://img.shields.io/badge/built%20with-metaharness-blueviolet)](https://github.com/ruvnet/agent-gemini-generator)
+[![Built with ZAgents](https://img.shields.io/badge/built%20with-zagents-blueviolet)](https://github.com/ruvnet/zagents-generator)
 
 ---
 
 ## Intro
 
-`@metaharness/example-web3` scaffolds a MetaHarness project pre-wired to
+`@zagents/example-web3` scaffolds a ZAgents project pre-wired to
 the **viem** Ethereum TypeScript library. It shows how a multi-agent gemini
 can:
 
@@ -54,7 +54,7 @@ scaffolded files.
 ## Quickstart
 
 ```bash
-npx @metaharness/example-web3@latest my-web3-bot
+npx @zagents/example-web3@latest my-web3-bot
 cd my-web3-bot
 npm install
 npm run doctor
@@ -260,4 +260,4 @@ const balance = await provider.getBalance('0x...')
 - **Hoodi testnet announcement**: https://blog.ethereum.org/2025/03/18/hoodi-holesky
 - **ADR-065** (this design): `docs/adrs/ADR-065-example-web3.md`
 - **ADR-051** (examples program): `docs/adrs/ADR-051-third-party-sdk-showcase-examples.md`
-- **MetaHarness GitHub**: https://github.com/ruvnet/agent-gemini-generator
+- **ZAgents GitHub**: https://github.com/ruvnet/zagents-generator

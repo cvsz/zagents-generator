@@ -113,7 +113,7 @@ export interface ArchiveRecord {
 export interface EvolutionConfig {
   /** Absolute path to the repo to evolve. */
   repoRoot: string;
-  /** Absolute path to the `.metaharness` work tree. */
+  /** Absolute path to the `.zagents` work tree. */
   workRoot: string;
   /** Number of generations to run. */
   generations: number;

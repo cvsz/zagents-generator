@@ -1,6 +1,6 @@
-# @metaharness/host-pi-dev
+# @zagents/host-pi-dev
 
-[pi.dev coding agent](https://pi.dev/) host adapter for the [agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator) project.
+[pi.dev coding agent](https://pi.dev/) host adapter for the [zagents-generator](https://github.com/ruvnet/zagents-generator) project.
 
 > **NOT Inflection's Pi.ai consumer chatbot.** This is the [badlogic/pi-mono](https://github.com/badlogic/pi-mono) Pi coding agent — a minimal CLI agent gemini.
 
@@ -19,7 +19,7 @@ This adapter generates a Pi extension (TypeScript module installed via `pi insta
 ## Usage
 
 ```js
-import adapter from '@metaharness/host-pi-dev';
+import adapter from '@zagents/host-pi-dev';
 
 const config = adapter.generateConfig({
   name: 'my-bot',

@@ -9,7 +9,7 @@ const forwarded = (rawName && rawName.startsWith('-') ? [rawName, ...extra] : ex
   .join(' ');
 
 const cmd = [
-  'npx --yes metaharness@latest',
+  'npx --yes zagents@latest',
   JSON.stringify(name),
   '--template minimal',
   '--host claude-code',
@@ -22,7 +22,7 @@ const cmd = [
 try {
   execSync(cmd, { stdio: 'inherit' });
 } catch (err) {
-  console.error(`\n[@metaharness/claude-code] metaharness failed to scaffold "${name}".`);
+  console.error(`\n[@zagents/claude-code] zagents failed to scaffold "${name}".`);
   process.exit(typeof err?.status === 'number' ? err.status : 1);
 }
 

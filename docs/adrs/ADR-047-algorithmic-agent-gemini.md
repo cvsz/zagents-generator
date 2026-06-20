@@ -2,8 +2,8 @@
 
 **Status**: Proposed
 **Date**: 2026-06-16
-**Project**: `ruvnet/agent-gemini-generator`
-**Related**: ADR-002 (kernel boundary), ADR-006 (memory & learning), ADR-011 (witness & provenance), ADR-014 (self-evolution), ADR-022 (MCP primitive), ADR-040 (cost-optimal routing), ADR-043 (router training), `@metaharness/router`
+**Project**: `ruvnet/zagents-generator`
+**Related**: ADR-002 (kernel boundary), ADR-006 (memory & learning), ADR-011 (witness & provenance), ADR-014 (self-evolution), ADR-022 (MCP primitive), ADR-040 (cost-optimal routing), ADR-043 (router training), `@zagents/router`
 
 ---
 
@@ -25,7 +25,7 @@ verification, cost, and governance itself.
 
 ## Decision
 
-Build an **Algorithmic Agent Gemini** — a dependency-free `@metaharness/gemini`
+Build an **Algorithmic Agent Gemini** — a dependency-free `@zagents/gemini`
 primitive — that wraps any model, tool, skill, or workflow with deterministic control
 algorithms. The gemini, not the model, owns the run lifecycle.
 
@@ -116,7 +116,7 @@ provenance substrate from ADR-011, made first-class in the gemini.
 - **Determinism by default.** Given the same goal, policy, budget, and worker outputs,
   a run replays identically and the receipt chain verifies — a prerequisite for the
   ADR-007 CI guards and ADR-011 witnesses.
-- **It composes, it does not replace.** `@metaharness/router` plugs in as the agent/
+- **It composes, it does not replace.** `@zagents/router` plugs in as the agent/
   model selector; the kernel memory bridge (ADR-006) backs memory search; MCP gating
   (ADR-022) is the safety layer's tool policy. The gemini is the conductor.
 - **New surface to keep honest.** A control plane is a new thing to test, version, and
@@ -130,14 +130,14 @@ provenance substrate from ADR-011, made first-class in the gemini.
 - **Framework dependency (LangGraph / CrewAI / etc.).** Rejected: the series' value is a
   *dependency-free, witness-bound* kernel; importing a heavyweight orchestrator inverts
   the moat and drags in a runtime we cannot gate.
-- **Fold the gemini into `@metaharness/kernel`.** Deferred: the kernel is the Rust→wasm
+- **Fold the gemini into `@zagents/kernel`.** Deferred: the kernel is the Rust→wasm
   cross-language core (ADR-002). The gemini is pure-TS control logic over pluggable
   workers; it ships as its own package and can be promoted into the kernel later if the
   invariants prove stable (the ADR-043 tiny-dancer pattern).
 
 ## Test Contract
 
-For this decision to be considered shipped, `@metaharness/gemini` must ship with:
+For this decision to be considered shipped, `@zagents/gemini` must ship with:
 
 1. **Scoring** — `score()` implements the utility invariant; `canExecute()` returns
    `false` if *any* of the four gates (confidence/risk/cost/verification) fails.

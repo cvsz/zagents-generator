@@ -1,11 +1,11 @@
 {
-  "name": "@metaharness/host-pi-dev",
+  "name": "@zagents/host-pi-dev",
   "version": "0.1.2",
-  "description": "pi.dev coding-agent host adapter for agent-gemini-generator (Pi extension, no MCP by design)",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "description": "pi.dev coding-agent host adapter for zagents-generator (Pi extension, no MCP by design)",
+  "homepage": "https://github.com/ruvnet/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git",
+    "url": "https://github.com/ruvnet/zagents-generator.git",
     "directory": "packages/host-pi-dev"
   },
   "license": "MIT",
@@ -38,7 +38,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@metaharness/kernel": "^0.1.0"
+    "@zagents/kernel": "^0.1.2"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",

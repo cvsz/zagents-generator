@@ -1,4 +1,4 @@
-# MetaHarness: coding vertical
+# ZAgents: coding vertical
 
 > ⚠️ **Illustrative output.** Transcripts and validation/run output shown in this README are
 > representative examples, not captured from a specific run — actual output depends on your
@@ -10,7 +10,7 @@ A ready-made multi-agent engineering pod for Claude Code. One command scaffolds 
 ## Quickstart
 
 ```bash
-npx @metaharness/coding@latest my-bot
+npx @zagents/coding@latest my-bot
 cd my-bot
 npm install
 gemini doctor
@@ -60,7 +60,7 @@ claude -p --plugin-dir my-bot "Ship a typed REST client for the GitHub issues AP
 Regenerate over an existing directory (force overwrite):
 
 ```bash
-npx @metaharness/coding@latest my-bot --force
+npx @zagents/coding@latest my-bot --force
 ```
 
 ## FAQ
@@ -76,7 +76,7 @@ A: The scaffold is versioned, includes `gemini doctor` / `gemini validate` so dr
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

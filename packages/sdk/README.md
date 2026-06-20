@@ -1,6 +1,6 @@
-# @metaharness/sdk
+# @zagents/sdk
 
-Convenience helpers for gemini authors. Wraps [`@metaharness/kernel`](../kernel-js/) with typed, validated, named definitions so your IDE catches typos before they reach the kernel.
+Convenience helpers for gemini authors. Wraps [`@zagents/kernel`](../kernel-js/) with typed, validated, named definitions so your IDE catches typos before they reach the kernel.
 
 ## Use
 
@@ -8,7 +8,7 @@ Convenience helpers for gemini authors. Wraps [`@metaharness/kernel`](../kernel-
 import {
   defineHarness, defineAgent, defineSkill, defineTool,
   defineHook, defineMcpServer,
-} from '@metaharness/sdk';
+} from '@zagents/sdk';
 
 const triager = defineAgent({
   name: 'triager',

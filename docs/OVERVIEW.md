@@ -1,8 +1,8 @@
-# agent-gemini-generator
+# zagents-generator
 
 > A CLI that scaffolds custom AI agent harnesses — the way `create-vite` scaffolds web apps, but for vertical agent systems.
 
-**Status**: v0.1.x beta. The repo `ruvnet/agent-gemini-generator` is published — `metaharness` on npm plus the `@metaharness/*` kernel, host adapters, and example packages. This directory holds the Architecture Decision Records (ADRs) that define what the system is, how it is structured, what it ships, and which trade-offs were taken; the implementation tracks them.
+**Status**: v0.1.x beta. The repo `ruvnet/zagents-generator` is published — `zagents` on npm plus the `@zagents/*` kernel, host adapters, and example packages. This directory holds the Architecture Decision Records (ADRs) that define what the system is, how it is structured, what it ships, and which trade-offs were taken; the implementation tracks them.
 
 **Read in order**: [adrs/INDEX.md](./adrs/INDEX.md).
 
@@ -10,7 +10,7 @@
 
 ## What is this in one paragraph
 
-Ruflo today is a tightly-bundled product: a kernel of primitives (MCP server, hooks runner, memory bridge, swarm coordinator, intelligence pipeline, claims, 3-tier routing) fused to opinionated content (60+ agents, 30+ skills, 33 plugins). `agent-gemini-generator` factors that apart. A user runs `npx create-agent-gemini <name>`, picks the primitives they want, picks the content they want, supplies a name and a brand, and gets a brand-new npm-publishable gemini with its own `npx <their-name>` CLI, its own MCP server registration, its own memory namespace, its own marketplace identity. The generator handles trivial scaffolds (a 3-agent customer-support gemini) and exotic compositions (federated multi-host swarms with a vertical-specific intelligence pipeline) from the same machinery.
+Ruflo today is a tightly-bundled product: a kernel of primitives (MCP server, hooks runner, memory bridge, swarm coordinator, intelligence pipeline, claims, 3-tier routing) fused to opinionated content (60+ agents, 30+ skills, 33 plugins). `zagents-generator` factors that apart. A user runs `npx create-agent-gemini <name>`, picks the primitives they want, picks the content they want, supplies a name and a brand, and gets a brand-new npm-publishable gemini with its own `npx <their-name>` CLI, its own MCP server registration, its own memory namespace, its own marketplace identity. The generator handles trivial scaffolds (a 3-agent customer-support gemini) and exotic compositions (federated multi-host swarms with a vertical-specific intelligence pipeline) from the same machinery.
 
 ## Why this exists
 
@@ -28,7 +28,7 @@ Three forces are pushing toward this:
 | `adrs/INDEX.md` | Read-in-order index for the ADR series |
 | `adrs/ADR-001-…` through `adrs/ADR-016-…` (plus `ADR-002a-…`) | The decisions, each independently reviewable |
 
-No code lives here. No code should live here. This directory is the contract that the eventual repo `ruvnet/agent-gemini-generator` will be built against.
+No code lives here. No code should live here. This directory is the contract that the eventual repo `ruvnet/zagents-generator` will be built against.
 
 ## Three minute reading path
 
@@ -46,7 +46,7 @@ The rest of the series fills in: memory integration, drift detection, witness/pr
 
 - ADRs are numbered `ADR-NNN-kebab-case-slug.md`, three-digit padding.
 - Each ADR follows the standard ruflo template (`Title / Status / Context / Decision / Consequences / Alternatives / Test Contract / References`).
-- "We" in the ADRs means the agent-gemini-generator project, not the ruflo monorepo. Where a decision binds back to a ruflo ADR, the ruflo ADR is cited by number.
+- "We" in the ADRs means the zagents-generator project, not the ruflo monorepo. Where a decision binds back to a ruflo ADR, the ruflo ADR is cited by number.
 - Plain language is the rule. Terms of art are defined inline at first use.
 
 ## Out of scope for this ADR set

@@ -1,6 +1,6 @@
 {
   "objective": "Build DRACO — Cross-Domain Benchmark for Deep Research (ADR-037) as the quality gate for the vertical:research gemini, with a re-runnable PROOF score",
-  "repo": "ruvnet/agent-gemini-generator",
+  "repo": "ruvnet/zagents-generator",
   "adr": "docs/adrs/ADR-037-draco-deep-research-benchmark.md",
   "startedAt": "2026-06-14",
   "milestones": {

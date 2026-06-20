@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — an honest negative result that re-motivates the engine's machinery
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-135 (SWE-fix model frontier), ADR-133/134 (evolve loops), ADR-105 (diversity beats greedy on deception), ADR-088–094 (diversity/crossover machinery)
 
 > ADR-135 found `deepseek/searchreplace` is the cheapest full-resolve config by a *manual* frontier sweep. This asked the obvious follow-up: can the `(1+λ)` evolve loop **discover** it autonomously by mutating a `model` gene alongside `{patchMode, maxAttempts}`? The honest answer is **no — naive single-gene hill-climbing gets trapped at a local optimum.** That is the interesting result.

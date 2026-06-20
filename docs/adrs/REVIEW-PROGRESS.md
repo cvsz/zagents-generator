@@ -69,7 +69,7 @@ parity pass.
 
 The web-UI **reimplements** host config generation in
 `apps/web-ui/src/generator/scaffold.ts` (browser-only, no node deps — it does
-NOT import the `@metaharness/host-*` packages), so adapter fixes do not flow
+NOT import the `@zagents/host-*` packages), so adapter fixes do not flow
 through automatically. ADR-027 byte-parity surface.
 
 | Area | Status | Notes |
@@ -80,13 +80,13 @@ through automatically. ADR-027 byte-parity surface.
 ## Live verification (criterion c)
 
 - `verify-gemini-live.mjs --self-test`: **PASS** ($0.0002).
-- `verify-gemini-live.mjs --dir demo-bot` against a **real `npx metaharness`
+- `verify-gemini-live.mjs --dir demo-bot` against a **real `npx zagents`
   scaffold**: **PASS** — extracted system prompt + 2 MCP capabilities, real
   model (`anthropic/claude-haiku-4.5`) judged it coherent, $0.000286 (iter 8).
 
 ## Follow-up → ADR-045 (IMPLEMENTED 2026-06-16)
 
-`npx metaharness <name> --host <non-claude>` used to record the host in the
+`npx zagents <name> --host <non-claude>` used to record the host in the
 manifest but emit only `.claude/*`. **Fixed**: new dependency-free
 `src/host-config.ts` (`hostConfigFiles`) wired into `scaffold()` emits each
 host's native config; `verify-all-hosts.mjs` now scaffolds via the real
@@ -154,7 +154,7 @@ paths (adapters · web-UI · CLI templates) now cover all 9 hosts.
   Built the CLI, scaffolded a real `vertical:coding` gemini, and ran
   `verify-gemini-live.mjs --dir` against it → **live model PASS** ($0.000286) —
   criterion (c) closed on real CLI output. (3) Found + documented a distinct
-  wiring gap as **ADR-045**: `npx metaharness --host <non-claude>` emits only
+  wiring gap as **ADR-045**: `npx zagents --host <non-claude>` emits only
   `.claude/*` (the CLI renders claude-shaped templates, never invoking the
   now-complete host adapters). Deferred (cross-cutting). **Loop stopped (cron
   45ce56cb deleted).**

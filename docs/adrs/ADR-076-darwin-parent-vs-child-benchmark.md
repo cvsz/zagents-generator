@@ -2,7 +2,7 @@
 
 **Status**: Proposed (prototype)
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-070 (Darwin Mode head), ADR-072 (the lightweight scorer + gate), ADR-073 (the archive + selection), ADR-075 (acceptance), ADR-037–040 (DRACO measured-win discipline)
 
 > Part of the Darwin Mode series (ADR-070…076). ADR-072 gives a lightweight, single-run scorer good enough to drive a quick `evolve <repo>`. This ADR adds the **rigorous evaluation layer**: a benchmark that answers the only question that matters for self-improvement — *given the same repo, task set, model, budget, and sandbox, did the child beat its parent without increasing risk?* — and answers it with **five gates** and a **statistically real** promotion rule, not one lucky run.

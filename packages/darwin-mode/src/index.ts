@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 //
-// @metaharness/darwin — Darwin Mode (ADR-070…075).
+// @zagents/darwin — Darwin Mode (ADR-070…075).
 //
 // Bounded, empirical, population-based self-improvement of an agent gemini.
 // The foundation model is frozen; the GEMINI evolves: generate child variants

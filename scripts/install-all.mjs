@@ -8,12 +8,12 @@
 //   - broken peer deps
 //   - per-platform install failures (the GoF Windows-cmd-bug class)
 //
-// Key insight (iter 31): tarballs declare deps on OTHER @metaharness/* tarballs
+// Key insight (iter 31): tarballs declare deps on OTHER @zagents/* tarballs
 // that aren't on the npm registry yet. So `npm install <hosttar>` tries
-// to fetch `@metaharness/kernel@0.1.0` from registry.npmjs.org and 404s.
+// to fetch `@zagents/kernel@0.1.0` from registry.npmjs.org and 404s.
 //
 // Fix: install ALL tarballs in a single `npm install` call. npm resolves
-// the @metaharness/* deps from the OTHER tarballs in the same install set
+// the @zagents/* deps from the OTHER tarballs in the same install set
 // instead of going to the registry. Single PASS/FAIL — if any tarball
 // has a structural problem, the batch install fails.
 
@@ -70,9 +70,9 @@ console.log(`Project: ${project}`);
 console.log(`Tarballs: ${tarballs.length}`);
 
 // Pass 1: batch install — every tarball in one shot. npm resolves
-// cross-tarball @metaharness/* deps locally instead of from the registry.
+// cross-tarball @zagents/* deps locally instead of from the registry.
 const tarballArgs = tarballs.map(t => `"${join(packed, t)}"`).join(' ');
-console.log('Pass 1: batch install (resolves cross-tarball @metaharness deps locally)');
+console.log('Pass 1: batch install (resolves cross-tarball @zagents deps locally)');
 try {
   execSync(`npm install --no-save --no-package-lock ${tarballArgs}`, {
     cwd: project,
@@ -99,9 +99,9 @@ for (const t of tarballs) {
   }
   // Derive the REAL package name from the tarball's own package.json rather
   // than guessing from the filename. `npm pack` flattens scoped names
-  // (@metaharness/host-x → metaharness-host-x-VER.tgz), so a filename-based
-  // guess can't reconstruct the scope — it broke for every @metaharness/*
-  // package after the @ruflo→@metaharness rename. Reading the manifest is
+  // (@zagents/host-x → zagents-host-x-VER.tgz), so a filename-based
+  // guess can't reconstruct the scope — it broke for every @zagents/*
+  // package after the @ruflo→@zagents rename. Reading the manifest is
   // scope-agnostic and correct for any future rename.
   let pkgName;
   try {
@@ -111,7 +111,7 @@ for (const t of tarballs) {
   }
   if (!pkgName) {
     const rawName = m[1];
-    pkgName = rawName.startsWith('ruflo-') ? `@metaharness/${rawName.slice('ruflo-'.length)}` : rawName;
+    pkgName = rawName.startsWith('ruflo-') ? `@zagents/${rawName.slice('ruflo-'.length)}` : rawName;
   }
   const pkgDir = join(project, 'node_modules', ...pkgName.split('/'));
   if (!existsSync(pkgDir)) {

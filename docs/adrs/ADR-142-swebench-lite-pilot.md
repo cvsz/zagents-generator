@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — the first real external-benchmark run; lifts the ADR-098 honest boundary
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-098 (external-benchmark strategy / honest boundary), ADR-126 (repair loop), ADR-127 (search/replace), ADR-135/139 (deepseek default), ADR-141 (evolve capstone)
 
 > Since ADR-098 the project refused to claim an external number until a real run existed. This is that run: the validated Darwin gemini, on a stratified sample of **canonical SWE-bench Lite** (Python), scored by the **official `swebench` Docker gemini**. The honest boundary is now lifted — replaced by a real, CI'd figure.

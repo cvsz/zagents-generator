@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/ruvnet/agent-gemini-generator/packages/bench/draco/schema.json",
+  "$id": "https://github.com/ruvnet/zagents-generator/packages/bench/draco/schema.json",
   "title": "DRACO Corpus",
   "description": "Cross-Domain Benchmark for Deep Research — versioned corpus schema (ADR-037)",
   "type": "object",

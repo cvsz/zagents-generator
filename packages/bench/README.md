@@ -1,4 +1,4 @@
-# @metaharness/bench
+# @zagents/bench
 
 Reproducible memory-retrieval benchmark for the kernel's HNSW + decay pipeline.
 
@@ -85,7 +85,7 @@ full evidence.
   (semantic) both beat the best fixed model (92%). The 92%→100% gap is
   **data-limited**, not signal-limited — measured by a learning curve that rises
   monotonically with training size (85%→92%, still climbing at n=19) and guarded
-  by a regression test. This is shipped as [`@metaharness/router`](https://www.npmjs.com/package/@metaharness/router):
+  by a regression test. This is shipped as [`@zagents/router`](https://www.npmjs.com/package/@zagents/router):
   `route(query)` → the cheapest model predicted to clear your quality bar. See
   ADR-040.
 

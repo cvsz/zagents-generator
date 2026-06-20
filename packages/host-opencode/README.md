@@ -1,8 +1,8 @@
-# @metaharness/host-opencode
+# @zagents/host-opencode
 
 > [OpenCode](https://opencode.ai) (sst/opencode) host adapter for
-> [agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator).
-> The 8th host adapter, per [ADR-036](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-036-host-opencode.md).
+> [zagents-generator](https://github.com/ruvnet/zagents-generator).
+> The 8th host adapter, per [ADR-036](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-036-host-opencode.md).
 
 ## What it does
 
@@ -45,7 +45,7 @@ Emits per `adapter.generateConfig(spec)`:
 
 OpenCode evaluates `mcp.permissions.deny` **before** `allow`. This adapter
 copies the gemini's `.gemini/mcp-policy.json` deny rules verbatim, so the
-default-deny posture from [ADR-022](https://github.com/ruvnet/agent-gemini-generator/blob/main/docs/adrs/ADR-022-mcp-primitive.md)
+default-deny posture from [ADR-022](https://github.com/ruvnet/zagents-generator/blob/main/docs/adrs/ADR-022-mcp-primitive.md)
 wins through OpenCode's own enforcement gate — no second source of truth.
 
 ## Constraints
@@ -56,11 +56,11 @@ wins through OpenCode's own enforcement gate — no second source of truth.
 
 ## Programmatic use
 
-This adapter is normally consumed via `npx metaharness <name> --host opencode`.
+This adapter is normally consumed via `npx zagents <name> --host opencode`.
 Direct programmatic use:
 
 ```ts
-import { adapter } from '@metaharness/host-opencode';
+import { adapter } from '@zagents/host-opencode';
 const files = adapter.generateConfig!(harnessSpec);
 // files === { '.opencode/opencode.json': '...', 'install.md': '...' }
 ```

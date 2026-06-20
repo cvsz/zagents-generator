@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 //
-// @metaharness/host-hermes — Hermes Agent (NousResearch) host adapter.
+// @zagents/host-hermes — Hermes Agent (NousResearch) host adapter.
 //
 // TWO DISTINCT PROJECTS — do not conflate:
 //   1. https://github.com/NousResearch/Hermes-Function-Calling — OLDER
@@ -27,7 +27,7 @@
 // existing scrubReasoningBlocks() pattern in
 // v3/@claude-flow/cli/src/mcp-tools/hooks-tools.ts.
 
-import type { HostAdapter, HarnessSpec, McpServerSpec } from '@metaharness/kernel';
+import type { HostAdapter, HarnessSpec, McpServerSpec } from '@zagents/kernel';
 
 export const HOST_NAME = 'hermes' as const;
 

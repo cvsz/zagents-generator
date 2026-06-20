@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured) — refutes a hypothesis from ADR-114
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-114 (substrate-dependence; claimed crossover load-bearing), ADR-073 (whole-archive retention), ADR-104 (bidirectional mutation), ADR-089 (crossover)
 
 > ADR-114 concluded "crossover is the load-bearing mechanism, not the selection strategy." That was a hypothesis from runs that all had crossover ON. The clean test is an ablation. It refutes the claim — and reveals the actual mechanism is the retained archive.

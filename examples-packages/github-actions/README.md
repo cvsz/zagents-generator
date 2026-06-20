@@ -1,4 +1,4 @@
-# MetaHarness × GitHub Actions
+# ZAgents × GitHub Actions
 
 A one-command scaffold for a **non-interactive** agent gemini that runs on
 the GitHub Actions runner — no human at the keyboard. It drops a trigger
@@ -6,15 +6,15 @@ workflow and a reusable composite action into `.github/`, wires least-privilege
 token permissions, and is ready to run from a webhook (manual dispatch, issue
 comment, push, PR, or schedule).
 
-This is the 9th MetaHarness host (ADR-033) and the only one built for CI/CD:
+This is the 9th ZAgents host (ADR-033) and the only one built for CI/CD:
 the gemini must complete a task autonomously, emit structured output, and exit
 cleanly. It is not an interactive workspace — for that, use
-`@metaharness/claude-code` or one of the other host wrappers.
+`@zagents/claude-code` or one of the other host wrappers.
 
 ## Quickstart
 
 ```bash
-npx @metaharness/github-actions@latest my-bot
+npx @zagents/github-actions@latest my-bot
 cd my-bot
 git add .github && git commit -m "add gemini workflow" && git push
 ```
@@ -65,7 +65,7 @@ npx gemini mcp-scan
 
 ## FAQ
 
-**Q: How is this different from the other MetaHarness hosts?**
+**Q: How is this different from the other ZAgents hosts?**
 A: Every other host is interactive — a human starts a session. GitHub Actions
 is webhook-triggered with no human present; the gemini runs to completion on
 the runner and exits.
@@ -80,7 +80,7 @@ generated workflow. They're included but disabled by default for safety.
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

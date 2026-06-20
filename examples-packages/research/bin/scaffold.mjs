@@ -9,7 +9,7 @@ const forwarded = (rawName && rawName.startsWith('-') ? [rawName, ...extraArgs] 
   .join(' ');
 
 const cmd = [
-  'npx --yes metaharness@latest',
+  'npx --yes zagents@latest',
   JSON.stringify(name),
   '--template vertical:research',
   '--host claude-code',
@@ -22,7 +22,7 @@ const cmd = [
 try {
   execSync(cmd, { stdio: 'inherit' });
 } catch (err) {
-  console.error(`\nmetaharness failed (exit ${err.status ?? 1}). See output above.`);
+  console.error(`\nzagents failed (exit ${err.status ?? 1}). See output above.`);
   process.exit(err.status ?? 1);
 }
 

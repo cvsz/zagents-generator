@@ -3,11 +3,11 @@
 # The CI guard the user explicitly asked for: "make sure no regressions
 # and final published npx work correctly."
 #
-# Runs `npx metaharness@latest` end-to-end against the LIVE npm registry —
+# Runs `npx zagents@latest` end-to-end against the LIVE npm registry —
 # not the local checkout. Catches the failure mode where main is green +
 # all local tests pass, but the published tarball has a broken bin / a
 # missing dist file / an unreachable workspace dep / a stale dependency.
-# That mode is exactly what bit us in iter 124 (metaharness@0.1.0 shipped
+# That mode is exactly what bit us in iter 124 (zagents@0.1.0 shipped
 # with the OLD `openharness` bin name).
 #
 # Triggers:
@@ -18,7 +18,7 @@
 #     even when nothing was pushed)
 #
 # Job verdict:
-#   - PASS — `npx metaharness@latest --help` exits 0 AND scaffolds a
+#   - PASS — `npx zagents@latest --help` exits 0 AND scaffolds a
 #     minimal gemini AND `gemini doctor` on the scaffold returns 0.
 #   - FAIL — any of the above. Job goes red; the README badge flips.
 
@@ -65,41 +65,41 @@ jobs:
           node --version
           npm --version
 
-      - name: Resolve latest metaharness version from registry
+      - name: Resolve latest zagents version from registry
         id: resolve
         shell: bash
         run: |
-          VERSION=$(npm view metaharness@latest version)
+          VERSION=$(npm view zagents@latest version)
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "metaharness@latest resolves to $VERSION"
+          echo "zagents@latest resolves to $VERSION"
           if [[ -z "$VERSION" ]]; then
             echo "FAIL: npm view returned empty version" >&2
             exit 1
           fi
 
-      - name: '`npx metaharness --help` exits 0 (verifies bin entry + dist intact)'
+      - name: '`npx zagents --help` exits 0 (verifies bin entry + dist intact)'
         shell: bash
         run: |
           # Use `npx --yes` to skip the install-confirm prompt that CI hangs on.
           # --help is the cheapest smoke; just verifies bin + dist resolved.
           # If this is non-zero, the published tarball is broken (bin path,
           # missing dist, etc.) — exactly what iter 124's 0.1.0 hit.
-          npx --yes metaharness@latest --help
+          npx --yes zagents@latest --help
 
-      - name: '`npx metaharness --version` reports the resolved version'
+      - name: '`npx zagents --version` reports the resolved version'
         shell: bash
         run: |
-          OUT=$(npx --yes metaharness@latest --version 2>&1)
+          OUT=$(npx --yes zagents@latest --version 2>&1)
           echo "stdout: $OUT"
           # Just verify the command ran; the version-string format is
           # owned by the CLI, not by this guard.
 
-      - name: Scaffold a minimal gemini via `npx metaharness`
+      - name: Scaffold a minimal gemini via `npx zagents`
         shell: bash
         run: |
           mkdir -p /tmp/smoke-gemini
           cd /tmp/smoke-gemini
-          npx --yes metaharness@latest my-bot \
+          npx --yes zagents@latest my-bot \
             --template minimal \
             --host claude-code \
             --force
@@ -109,7 +109,7 @@ jobs:
           test -f my-bot/package.json
           echo "Scaffolded my-bot/ with $(ls my-bot/ | wc -l) entries"
 
-      - name: '`metaharness score <repo>` produces the ADR-041 scorecard'
+      - name: '`zagents score <repo>` produces the ADR-041 scorecard'
         shell: bash
         run: |
           # Build a tiny fixture repo and verify the published score command works:
@@ -118,20 +118,20 @@ jobs:
           cd /tmp/smoke-score
           printf '{"name":"smoke-sdk","scripts":{"build":"tsc","test":"vitest"},"devDependencies":{"typescript":"^5"}}' > package.json
           printf '# smoke-sdk\nA TypeScript SDK / npm client library.\n' > README.md
-          OUT=$(npx --yes metaharness@latest score . 2>&1)
+          OUT=$(npx --yes zagents@latest score . 2>&1)
           echo "$OUT"
           echo "$OUT" | grep -q "Gemini fit:"
           echo "$OUT" | grep -q "Recommended mode:"
-          npx --yes metaharness@latest score . --top 2 | grep -q "gemini designs"
+          npx --yes zagents@latest score . --top 2 | grep -q "gemini designs"
           # --constraints exits 0 for a healthy repo (hard gate satisfied)
-          npx --yes metaharness@latest score . --constraints | grep -q "scaffold-ready"
+          npx --yes zagents@latest score . --constraints | grep -q "scaffold-ready"
           echo "score command smoke OK"
 
       - name: '`gemini doctor` on the scaffolded gemini exits 0'
         shell: bash
         run: |
           cd /tmp/smoke-gemini/my-bot
-          npx --yes --package=metaharness@latest -- gemini doctor .
+          npx --yes --package=zagents@latest -- gemini doctor .
           # If doctor exits non-zero here, the published tarball generates
           # a non-healthy scaffold — a pre-release regression we want to
           # catch BEFORE users complain.
@@ -143,13 +143,13 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '26' }
 
-      - name: Install @ruvnet/agent-gemini-generator from registry
+      - name: Install @ruvnet/zagents-generator from registry
         shell: bash
         run: |
           mkdir -p /tmp/smoke-lib
           cd /tmp/smoke-lib
           npm init -y > /dev/null
-          npm install @ruvnet/agent-gemini-generator@latest
+          npm install @ruvnet/zagents-generator@latest
 
       - name: Smoke-import the library
         shell: bash
@@ -161,7 +161,7 @@ jobs:
             TEMPLATES,
             validateHarnessName,
             scaffold,
-          } from '@ruvnet/agent-gemini-generator';
+          } from '@ruvnet/zagents-generator';
 
           if (!Array.isArray(HOSTS) || !HOSTS.includes('claude-code')) {
             console.error('FAIL: HOSTS missing claude-code'); process.exit(1);
@@ -194,7 +194,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '26' }
 
-      - name: Scaffold a gemini for every host from `npx metaharness@latest`
+      - name: Scaffold a gemini for every host from `npx zagents@latest`
         shell: bash
         run: |
           mkdir -p /tmp/all-hosts && cd /tmp/all-hosts
@@ -202,7 +202,7 @@ jobs:
             echo ""
             echo "=== HOST: $host ==="
             rm -rf "bot-$host"
-            npx --yes metaharness@latest "bot-$host" \
+            npx --yes zagents@latest "bot-$host" \
               --template minimal --host "$host" --force
           done
 
@@ -214,11 +214,11 @@ jobs:
           node verify-all-hosts.mjs
 
   smoke-example-packages:
-    # iter 142 — the 18 @metaharness/* one-command wrappers are live on
-    # npm (iter 140). Each wraps `npx metaharness@latest <name> --template
+    # iter 142 — the 18 @zagents/* one-command wrappers are live on
+    # npm (iter 140). Each wraps `npx zagents@latest <name> --template
     # <X> --host <Y>`. This guard npx-invokes a representative subset from
     # the LIVE registry on the daily cron + every push, catching the case
-    # where a wrapper's bin breaks OR metaharness changes a flag the
+    # where a wrapper's bin breaks OR zagents changes a flag the
     # wrapper still passes. A scoped sample (not all 18) keeps CI fast
     # while covering one host wrapper + one vertical wrapper + the
     # claude-code wrapper (the most-used path).
@@ -227,7 +227,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '26' }
 
-      - name: Scaffold from a sample of published @metaharness/* wrappers
+      - name: Scaffold from a sample of published @zagents/* wrappers
         shell: bash
         run: |
           mkdir -p /tmp/ex && cd /tmp/ex
@@ -238,25 +238,25 @@ jobs:
           # hermes/rvm). So only assert plugin.json for the claude-code-host wrappers.
           for pkg in hermes devops claude-code; do
             echo ""
-            echo "=== @metaharness/$pkg ==="
+            echo "=== @zagents/$pkg ==="
             rm -rf "$pkg-bot"
-            if npx --yes "@metaharness/$pkg@latest" "$pkg-bot"; then
+            if npx --yes "@zagents/$pkg@latest" "$pkg-bot"; then
               test -f "$pkg-bot/.gemini/manifest.json" \
-                && echo "PASS @metaharness/$pkg — manifest present" \
-                || { echo "FAIL @metaharness/$pkg — no manifest"; fail=1; }
+                && echo "PASS @zagents/$pkg — manifest present" \
+                || { echo "FAIL @zagents/$pkg — no manifest"; fail=1; }
               # plugin.json only for claude-code-host wrappers (devops + claude-code)
               case "$pkg" in
                 hermes)
                   test ! -f "$pkg-bot/.claude-plugin/plugin.json" \
-                    && echo "PASS @metaharness/$pkg — correctly no plugin.json (non-claude host, GH #11)" \
-                    || { echo "FAIL @metaharness/$pkg — unexpected plugin.json on non-claude host"; fail=1; } ;;
+                    && echo "PASS @zagents/$pkg — correctly no plugin.json (non-claude host, GH #11)" \
+                    || { echo "FAIL @zagents/$pkg — unexpected plugin.json on non-claude host"; fail=1; } ;;
                 *)
                   test -f "$pkg-bot/.claude-plugin/plugin.json" \
-                    && echo "PASS @metaharness/$pkg — .claude-plugin/plugin.json present" \
-                    || { echo "FAIL @metaharness/$pkg — no plugin.json"; fail=1; } ;;
+                    && echo "PASS @zagents/$pkg — .claude-plugin/plugin.json present" \
+                    || { echo "FAIL @zagents/$pkg — no plugin.json"; fail=1; } ;;
               esac
             else
-              echo "FAIL @metaharness/$pkg — npx invocation errored"; fail=1
+              echo "FAIL @zagents/$pkg — npx invocation errored"; fail=1
             fi
           done
           [ "$fail" -eq 0 ] && echo "PASS: all sampled wrappers scaffold" || { echo "FAIL"; exit 1; }
@@ -273,12 +273,12 @@ jobs:
             // Only fires on the daily cron path — push-failures already
             // surface in the commit-status check. Cron failures are
             // silent otherwise; this turns them into an issue.
-            const title = `[published-smoke] ${new Date().toISOString().slice(0, 10)} — npx metaharness failed`;
+            const title = `[published-smoke] ${new Date().toISOString().slice(0, 10)} — npx zagents failed`;
             const body = [
               `The daily \`published-smoke\` workflow failed.`,
               ``,
               `Most likely causes:`,
-              `- The latest \`metaharness\` on npm has a broken bin or missing dist file`,
+              `- The latest \`zagents\` on npm has a broken bin or missing dist file`,
               `- A transitive dependency was pulled / yanked from the registry`,
               `- npm registry CDN transient outage (re-run to confirm)`,
               ``,

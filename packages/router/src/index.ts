@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 //
-// @metaharness/router — cost-optimal model routing for agent harnesses.
+// @zagents/router — cost-optimal model routing for agent harnesses.
 //
 // The productized form of the DRACO Phase-2 finding (ADR-040): structure does
 // not beat a strong model on quality, but routing each query to the *cheapest

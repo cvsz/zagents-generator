@@ -2,7 +2,7 @@
 
 **Status**: Accepted (measured PoC) — the ADR-098 nucleus with real content
 **Date**: 2026-06-18
-**Project**: `ruvnet/agent-gemini-generator`
+**Project**: `ruvnet/zagents-generator`
 **Related**: ADR-109 (surface gates real LLM, hardcoded fix), ADR-113 (ranking causal when relevance varies), ADR-098 (SWE-bench frontier)
 
 > ADR-109 proved the surface gates a real LLM's *access*, but used a hardcoded fix. The genuine SWE step is the LLM *reasoning over real multi-file code* — choosing which file is buggy and fixing it — with a real test as the only verdict. This is that, at micro scale.

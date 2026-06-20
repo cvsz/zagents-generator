@@ -1,4 +1,4 @@
-# Changelog — @metaharness/darwin
+# Changelog — @zagents/darwin
 
 All notable changes to this package. Dates UTC.
 
@@ -32,7 +32,7 @@ All notable changes to this package. Dates UTC.
 
 ## 0.2.0 — 2026-06-18
 
-- Integrated into the `metaharness` scaffolder (`npm run evolve`, ADR-147).
+- Integrated into the `zagents` scaffolder (`npm run evolve`, ADR-147).
 - Evolutionary stack (mutation + crossover + diverse selection + graded promotion) over a frozen core.
 
 ## 0.1.x — 2026-06

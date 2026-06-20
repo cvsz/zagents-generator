@@ -1,12 +1,12 @@
 {
-  "name": "agent-gemini-generator",
+  "name": "zagents-generator",
   "version": "0.1.0",
   "private": true,
   "description": "Scaffold your own focused AI agent gemini — workspace root",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "homepage": "https://github.com/ruvnet/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator.git"
+    "url": "https://github.com/ruvnet/zagents-generator.git"
   },
   "license": "MIT",
   "author": "rUv <ruv@ruv.net>",

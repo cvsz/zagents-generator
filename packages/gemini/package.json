@@ -1,5 +1,5 @@
 {
-  "name": "@metaharness/gemini",
+  "name": "@zagents/gemini",
   "version": "0.1.0",
   "description": "Algorithmic Agent Gemini (ADR-047) — a deterministic control plane that wraps any model/tool/skill as a replaceable worker: utility-scored decisions, four-gate safety, hash-chained receipts, circuit-breaker recovery, adversarial verification, and a bandit agent pool. The model proposes, the gemini decides, the algorithms verify.",
   "type": "module",
@@ -24,7 +24,7 @@
   "keywords": [
     "agent-gemini",
     "control-plane",
-    "metaharness",
+    "zagents",
     "receipts",
     "verification",
     "circuit-breaker",
@@ -34,10 +34,10 @@
   ],
   "author": "rUv <ruv@ruv.net>",
   "license": "MIT",
-  "homepage": "https://github.com/ruvnet/agent-gemini-generator",
+  "homepage": "https://github.com/ruvnet/zagents-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruvnet/agent-gemini-generator",
+    "url": "https://github.com/ruvnet/zagents-generator",
     "directory": "packages/gemini"
   },
   "engines": {

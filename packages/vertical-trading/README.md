@@ -1,6 +1,6 @@
-# @metaharness/vertical-trading
+# @zagents/vertical-trading
 
-Standalone vertical pack for the [agent-gemini-generator](https://github.com/ruvnet/agent-gemini-generator) — trading gemini with paper-mode-default + circuit breakers + fractional-Kelly position sizing.
+Standalone vertical pack for the [zagents-generator](https://github.com/ruvnet/zagents-generator) — trading gemini with paper-mode-default + circuit breakers + fractional-Kelly position sizing.
 
 ## What you get
 
@@ -24,20 +24,20 @@ Safety defaults:
 ## Use
 
 ```bash
-npx create-agent-gemini my-trader --template-package @metaharness/vertical-trading
+npx create-agent-gemini my-trader --template-package @zagents/vertical-trading
 ```
 
 Or programmatically:
 
 ```js
-import pack from '@metaharness/vertical-trading';
+import pack from '@zagents/vertical-trading';
 const { manifest, templateRoot } = await pack.load();
 // Pass to your scaffolder.
 ```
 
 ## Risk disclosure
 
-Trading carries risk. Past backtest performance does not predict future results. This pack ships defaults that minimize risk in paper mode — verify them yourself before going live. The author and the agent-gemini-generator project are not responsible for any losses.
+Trading carries risk. Past backtest performance does not predict future results. This pack ships defaults that minimize risk in paper mode — verify them yourself before going live. The author and the zagents-generator project are not responsible for any losses.
 
 ## License
 

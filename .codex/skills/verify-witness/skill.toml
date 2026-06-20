@@ -10,12 +10,12 @@ name = "verify-witness"
 version = "0.1.0"
 description = "Verify the Ed25519 witness manifest of a scaffolded gemini. Fast yes/no signature check that proves the publisher signed this exact file set — separate from the full release-readiness umbrella in validate-gemini."
 author = "rUv <ruv@ruv.net>"
-homepage = "https://github.com/ruvnet/agent-gemini-generator"
+homepage = "https://github.com/ruvnet/zagents-generator"
 license = "MIT"
 
 [dispatch]
 type = "mcp_tool"
-server = "agent-gemini-generator"
+server = "zagents-generator"
 tool = "verify_witness"
 
 [command]

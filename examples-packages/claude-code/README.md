@@ -1,4 +1,4 @@
-# MetaHarness × Claude Code workspace + plugin
+# ZAgents × Claude Code workspace + plugin
 
 A one-command scaffold that drops a ready-to-edit Claude Code workspace into a new directory: `CLAUDE.md`, a `.claude/` settings tree, MCP server stubs, and a minimal plugin layout you can load with `claude -p --plugin-dir`. This is the smallest useful starting point for building a Claude Code-hosted agent — not a multi-agent vertical, not a runtime, and not a chat UI. It's the workspace you wish `claude init` produced.
 
@@ -7,7 +7,7 @@ Use this when you want to ship a Claude Code agent that has opinions: custom sla
 ## Quickstart
 
 ```bash
-npx @metaharness/claude-code@latest my-bot
+npx @zagents/claude-code@latest my-bot
 cd my-bot && npm install && npm run doctor
 ```
 
@@ -21,7 +21,7 @@ cd my-bot && npm install && npm run doctor
 - `.claude/agents/` — one minimal subagent definition you can clone for coder/tester/reviewer roles.
 - `plugin.json` + `bin/` — a loadable Claude Code plugin manifest so `claude -p --plugin-dir .` picks it up.
 - `mcp.json` — pinned MCP server config (stdio transport, no network defaults).
-- `package.json` with a `gemini` script bound to the metaharness CLI for `doctor` / `validate` / `upgrade`.
+- `package.json` with a `gemini` script bound to the zagents CLI for `doctor` / `validate` / `upgrade`.
 
 ## Advanced
 
@@ -43,10 +43,10 @@ npm run validate --plugin
 claude -p --plugin-dir . "summarize the repo and propose a first task"
 ```
 
-You can also pass extra flags through to the underlying metaharness call — anything after the gemini name is forwarded:
+You can also pass extra flags through to the underlying zagents call — anything after the gemini name is forwarded:
 
 ```bash
-npx @metaharness/claude-code@latest my-bot --skip-install --quiet
+npx @zagents/claude-code@latest my-bot --skip-install --quiet
 ```
 
 ## FAQ
@@ -62,7 +62,7 @@ A: Yes — that's why `plugin.json` is at the root. Run `claude -p --plugin-dir 
 
 ## License
 
-MIT. Built on metaharness (https://www.npmjs.com/package/metaharness).
+MIT. Built on zagents (https://www.npmjs.com/package/zagents).
 
 ## Deep-dive
 

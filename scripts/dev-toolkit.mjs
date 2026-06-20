@@ -150,7 +150,7 @@ async function main() {
   }
 
   const log = (...args) => process.stdout.write(args.join(' ') + '\n');
-  log('agent-gemini-generator — dev toolkit');
+  log('zagents-generator — dev toolkit');
   log('');
   log('## Entry points (which command for which moment)');
   for (const e of entry) {
