@@ -13,12 +13,6 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
-        // Split stable vendor code from app code so a content change doesn't
-        // bust the (larger, slower-changing) React/JSZip chunks in the CDN.
-        manualChunks: {
-          react: ['react', 'react-dom'],
-          zip: ['jszip'],
-        },
       },
     },
   },
