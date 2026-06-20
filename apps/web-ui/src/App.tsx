@@ -8,9 +8,10 @@ import { VerifyPanel } from './components/VerifyPanel';
 import { SegTabs } from './components/ui';
 import { FileUp, BarChart3, TrendingUp, Save } from 'lucide-react';
 import { OnboardingModal, clearOnboardingDismissal } from './components/OnboardingModal';
+import { AdminCP } from './components/AdminCP';
 import type { HarnessConfig } from './generator';
 
-type Mode = 'repo' | 'import' | 'gemini' | 'artifact' | 'verify' | 'dashboard';
+type Mode = 'repo' | 'import' | 'gemini' | 'artifact' | 'verify' | 'dashboard' | 'admin';
 
 export default function App() {
   const { t, i18n } = useTranslation();
@@ -108,6 +109,7 @@ export default function App() {
               { id: 'artifact', label: t('app.tabs.artifact') },
               { id: 'verify', label: t('app.tabs.verify') },
               { id: 'dashboard', label: 'Router Dashboard' },
+              { id: 'admin', label: 'Admin CP' },
             ]}
           />
         </div>
@@ -184,6 +186,7 @@ export default function App() {
             </div>
           </div>
         )}
+        {mode === 'admin' && <AdminCP />}
       </main>
 
       <OnboardingModal
