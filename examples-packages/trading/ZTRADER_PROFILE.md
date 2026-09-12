@@ -30,7 +30,7 @@ agents
   -> paper execution or DENY
 ```
 
-No agent has direct live-order authority. The zTrader advisory-intent v1 contract is paper-only.
+No agent has direct live-order authority. The zTrader advisory-intent v1.1 contract is paper-only and carries explicit side/order-type fields for the deterministic zksato boundary.
 
 ## Evidence rules
 
@@ -48,3 +48,18 @@ Unknown evidence remains unknown; it must not be converted into a safe score.
 ## Repository scope
 
 `cvsz/zsme` is explicitly excluded from this consolidation program and must not be inspected or modified by generated zTrader agents.
+
+
+## Installed agent specs
+
+The trading scaffold installs specialized role files under `agents/ztrader/`:
+- narrative
+- onchain
+- whale
+- security
+- quant
+- portfolio
+- risk-officer
+- supervisor
+
+These roles form an evidence-to-advisory pipeline only. None has live broker authority.
