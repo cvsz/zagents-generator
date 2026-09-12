@@ -27,6 +27,10 @@ cd my-bot && npm install && gemini doctor
 - `.claude/settings.json` — `PAPER_TRADING=true`, `RISK_GATE=required`, deny-list on any live-order tool until risk-officer signs the trade
 - `policies/risk.yaml` — editable position limits, max drawdown, per-symbol exposure caps
 
+## ZeaZ zTrader canonical profile
+
+For the ZeaZ multi-repository deployment, see [`ZTRADER_PROFILE.md`](ZTRADER_PROFILE.md). It keeps intelligence, execution, on-chain evidence, model routing, and dashboard ownership separated.
+
 ## Advanced
 
 Run the bundled doctor to confirm the gate is enforced:
